@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="assets/brand/jd-poly-logo-gradient.svg">
+    <title>Case Study: RBA/2FA Redesign at Dollar General — JD McCulley</title>
+
+    <!-- Design System -->
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/custom-styles.css">
+    <link rel="stylesheet" href="css/case-studies-common.css">
+
+    <style>
+        /* ═══════════════════════════════════════════════════════════
+           CASE STUDY: RBA/2FA REDESIGN - PAGE SPECIFIC STYLES
+           ═══════════════════════════════════════════════════════════ */
+
+        /* ── Hero Logo Container (RBA-specific) ── */
+        .hero-title-container {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .dg-logo-svg {
+            flex-shrink: 0;
+        }
+
+        .hero-title {
+            font-family: var(--heading);
+            font-size: clamp(2.4rem, 5vw, 3.6rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--text);
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text);
+            opacity: 0.8;
+            margin-bottom: 48px;
+            font-weight: 300;
+        }
+
+        /* ── Hero Chart (RBA-specific interactive timeline) ── */
+        .hero-chart {
+            margin-top: 48px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px 32px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-chart::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0.4;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 24px;
+        }
+
+        .chart-title {
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .chart-legend { display: flex; gap: 20px; }
+
+        .legend-item {
+            display: flex; align-items: center; gap: 6px;
+            font-family: var(--mono); font-size: 10px;
+            color: var(--text-muted); letter-spacing: 0.5px;
+        }
+
+        .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+        .legend-dot.phone-only { background: var(--gold-dim); }
+        .legend-dot.multi-channel { background: var(--copper); }
+
+        .chart-svg { width: 100%; height: 200px; }
+
+        .chart-area {
+            position: relative;
+        }
+
+        .chart-dot {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            z-index: 2;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .chart-dot.phone-dot {
+            background: #0a5e72;
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.15);
+        }
+
+        .chart-dot.multi-dot {
+            background: #4a7dff;
+            box-shadow: 0 0 0 3px rgba(74, 125, 255, 0.15);
+        }
+
+        .chart-dot:hover {
+            transform: translate(-50%, -50%) scale(1.6);
+        }
+
+        .chart-tooltip {
+            position: absolute;
+            bottom: calc(100% + 12px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 10px 14px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            white-space: nowrap;
+            z-index: 10;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .chart-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border);
+        }
+
+        .chart-dot:hover .chart-tooltip {
+            opacity: 1;
+            transform: translateX(-50%) translateY(-4px);
+        }
+
+        .chart-dot.tooltip-below .chart-tooltip {
+            bottom: auto;
+            top: calc(100% + 12px);
+        }
+
+        .chart-dot.tooltip-below .chart-tooltip::after {
+            top: auto;
+            bottom: 100%;
+            border-top-color: transparent;
+            border-bottom-color: var(--border);
+        }
+
+        .chart-dot.tooltip-right .chart-tooltip {
+            left: 0;
+            transform: translateX(0);
+        }
+        .chart-dot.tooltip-right:hover .chart-tooltip {
+            transform: translateX(0) translateY(-4px);
+        }
+        .chart-dot.tooltip-right .chart-tooltip::after {
+            left: 12px;
+            transform: none;
+        }
+
+        .chart-dot.tooltip-left .chart-tooltip {
+            left: auto;
+            right: 0;
+            transform: translateX(0);
+        }
+        .chart-dot.tooltip-left:hover .chart-tooltip {
+            transform: translateX(0) translateY(-4px);
+        }
+        .chart-dot.tooltip-left .chart-tooltip::after {
+            left: auto;
+            right: 12px;
+            transform: none;
+        }
+
+        .chart-tooltip-label {
+            font-family: var(--mono);
+            font-size: 9px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .chart-tooltip-value {
+            font-family: var(--heading);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .chart-tooltip-value.phone-val { color: #00d4ff; }
+        .chart-tooltip-value.multi-val { color: #4a7dff; }
+
+        .chart-tooltip-sub {
+            font-family: var(--sans);
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .chart-dot.default-visible .chart-tooltip {
+            opacity: 1;
+        }
+        .chart-dot.default-visible.tooltip-below.tooltip-left .chart-tooltip {
+            transform: translateX(0) translateY(-4px);
+        }
+
+        .chart-area:hover .chart-dot.default-visible:not(:hover) .chart-tooltip {
+            opacity: 0;
+            transform: translateX(0) translateY(0);
+        }
+
+        .chart-labels {
+            display: flex; justify-content: space-between;
+            margin-top: 12px; padding: 0 4px;
+        }
+
+        .chart-label-item {
+            font-family: var(--mono); font-size: 10px;
+            color: var(--text-muted); letter-spacing: 0.5px;
+        }
+
+        /* ── Before/After Metric Boxes (RBA red/green theme) ── */
+        .case-before-after {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 48px 0;
+        }
+
+        .case-ba-box {
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .ba-before {
+            background: rgba(255, 60, 60, 0.06);
+            border: 1px solid rgba(255, 60, 60, 0.15);
+        }
+
+        .ba-after {
+            background: rgba(0, 255, 150, 0.06);
+            border: 1px solid rgba(0, 255, 150, 0.15);
+        }
+
+        .ba-label {
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .ba-before .ba-label { color: rgba(255, 100, 100, 0.7); }
+        .ba-after .ba-label { color: rgba(0, 255, 150, 0.7); }
+
+        .ba-number {
+            font-family: var(--mono);
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .ba-before .ba-number { color: rgba(255, 100, 100, 0.8); }
+        .ba-after .ba-number { color: rgba(0, 255, 150, 0.8); }
+
+        .ba-desc {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.45);
+        }
+
+        .case-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            color: var(--copper);
+            font-size: 0.7rem;
+            font-family: var(--mono);
+            letter-spacing: 2px;
+            gap: 12px;
+        }
+
+        .case-arrow::before, .case-arrow::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--copper), transparent);
+        }
+
+        /* ── Case Tags (RBA-specific) ── */
+        .case-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 24px 0;
+        }
+
+        .case-tag {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            padding: 6px 14px;
+            border-radius: 6px;
+            background: rgba(74, 125, 255, 0.08);
+            border: 1px solid rgba(74, 125, 255, 0.2);
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 0.5px;
+        }
+
+        /* ── Impact Items Grid (RBA-specific) ── */
+        .case-impact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 32px 0;
+        }
+
+        .impact-item {
+            padding: 16px;
+            border-radius: 10px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+        }
+
+        .impact-item .impact-num {
+            font-family: var(--mono);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--copper);
+            margin-bottom: 4px;
+        }
+
+        .impact-item .impact-label {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.45);
+        }
+
+        /* ── Decision Cards (RBA 2-column grid) ── */
+        .decisions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin: 64px 0;
+        }
+
+        .decision {
+            display: flex;
+            gap: 20px;
+            padding: 32px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: border-color 0.3s ease;
+        }
+
+        .decision:hover {
+            border-color: var(--border-strong);
+        }
+
+        .decision-icon {
+            flex-shrink: 0;
+            color: var(--gold);
+            opacity: 0.8;
+        }
+
+        .decision-content { flex: 1; }
+
+        .decision-title {
+            font-family: var(--heading);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .decision-text {
+            font-size: 13px;
+            color: var(--text-soft);
+            line-height: 1.7;
+        }
+
+        /* ── Quote with Gradient Animation (RBA-specific) ── */
+        .quote-text {
+            font-family: var(--heading);
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1.5;
+            color: var(--text);
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--gold), var(--copper), var(--copper-light), var(--gold));
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 6s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* ── CTA Button (RBA-specific) ── */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--gold), var(--copper));
+            color: var(--bg);
+            text-decoration: none;
+            border-radius: 8px;
+            font-family: var(--mono);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.3s var(--ease);
+            border: none;
+            cursor: pointer;
+            margin-top: 24px;
+        }
+
+        .cta-button:hover {
+            transform: translateX(4px);
+            box-shadow: 0 8px 24px rgba(0, 212, 255, 0.2);
+        }
+
+        /* ── Next Study Glass Effect (RBA-specific) ── */
+        .next-study-inner {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            backdrop-filter: blur(12px);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+        }
+
+        .next-study-inner.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Responsive: RBA-Specific Overrides ── */
+        @media (max-width: 900px) {
+            .hero-title-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .dg-logo-svg {
+                width: 48px;
+                height: 48px;
+            }
+
+            .chart-header {
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            .decisions {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .ba-number {
+                font-size: 1.6rem;
+            }
+
+            .chart-header {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .chart-svg {
+                height: 140px;
+            }
+
+            .case-impact {
+                grid-template-columns: 1fr;
+            }
+
+            .case-before-after {
+                grid-template-columns: 1fr;
+            }
+
+            .quote-text {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="bg-orb orb-a"></div>
+    <div class="bg-orb orb-b"></div>
+    <div id="progress-bar"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">JD McCULLEY</a>
+            <a href="index.html" class="nav-back">Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- ══════════════════ HERO ══════════════════ -->
+        <section class="hero">
+            <div class="case-study-label">Case Study</div>
+            <div class="hero-title-container">
+                <svg class="dg-logo-svg" width="62" height="62" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="40" height="40" rx="4" fill="black"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M13.2203 24.8846H11.8821V15.0659H12.8429C15.5414 15.0659 17.0871 15.8302 17.0871 19.8276C17.0871 22.9974 16.54 24.8846 13.2203 24.8846V24.8846ZM28.1545 19.7521V22.2993H29.8546V24.5072C29.3828 24.7336 28.6264 24.9034 27.9659 24.9034C25.5127 24.9034 24.3443 23.1485 24.3443 19.7899C24.3443 16.7549 25.4387 15.0377 27.079 15.0377C28.3622 15.0377 28.9849 15.8585 29.3072 17.3965L33.9054 16.6227C33.2481 13.3771 30.9269 11.6504 27.3431 11.6504C24.2245 11.6504 21.9457 12.8938 20.7039 15.1686C19.2736 12.6701 16.4061 11.965 12.316 11.965H5.82617V15.0659H7.44746V27.9794H12.7862C16.2728 27.9794 19.1305 27.1698 20.6229 24.7798C21.7042 26.9107 23.7175 28.2813 26.9091 28.2813C28.4942 28.2813 30.062 27.819 31.0779 27.1679L31.6064 27.9794H34.2073V19.7521H28.1545Z" fill="#FFF000"/>
+                </svg>
+                <h1 class="hero-title">Rescuing Authentication at Scale</h1>
+            </div>
+            <p class="hero-subtitle">How a 5-day crisis became a 7-journey system protecting 9 million users</p>
+
+            <div class="metadata">
+                <div class="metadata-item">
+                    <span class="metadata-label">Role</span>
+                    <span class="metadata-value">IC Product Designer</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Organization</span>
+                    <span class="metadata-value">Dollar General</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Timeline</span>
+                    <span class="metadata-value">Q4 2025 – Q1 2026</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Team</span>
+                    <span class="metadata-value">1 IC Designer, 2 Engineers, 1 PM</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Platform</span>
+                    <span class="metadata-value">Mobile App, Web</span>
+                </div>
+            </div>
+
+            <!-- Verification Coverage Timeline Chart -->
+            <div class="hero-chart">
+                <div class="chart-header">
+                    <span class="chart-title">Verification Coverage Timeline</span>
+                    <div class="chart-legend">
+                        <div class="legend-item"><div class="legend-dot phone-only"></div>Phone Only</div>
+                        <div class="legend-item"><div class="legend-dot multi-channel"></div>Multi-Channel (Email + Phone)</div>
+                    </div>
+                </div>
+                <div class="chart-area">
+                    <svg class="chart-svg" viewBox="0 0 800 200" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="phoneFill" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#0a5e72" stop-opacity="0.15"/>
+                                <stop offset="100%" stop-color="#0a5e72" stop-opacity="0"/>
+                            </linearGradient>
+                            <linearGradient id="multiFill" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#4a7dff" stop-opacity="0.10"/>
+                                <stop offset="100%" stop-color="#4a7dff" stop-opacity="0"/>
+                            </linearGradient>
+                        </defs>
+                        <line x1="0" y1="50" x2="800" y2="50" stroke="rgba(0,212,255,0.06)" stroke-width="1"/>
+                        <line x1="0" y1="100" x2="800" y2="100" stroke="rgba(0,212,255,0.06)" stroke-width="1"/>
+                        <line x1="0" y1="150" x2="800" y2="150" stroke="rgba(0,212,255,0.06)" stroke-width="1"/>
+                        <path class="chart-line-phone" d="M0 155 C100 153 150 150 200 148 C280 145 320 143 400 142 C480 141 540 140 600 140 C660 140 720 140 800 140" stroke="#0a5e72" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                        <path d="M0 155 C100 153 150 150 200 148 C280 145 320 143 400 142 C480 141 540 140 600 140 C660 140 720 140 800 140 V200 H0 Z" fill="url(#phoneFill)"/>
+                        <path class="chart-line-multi" d="M0 170 C100 168 150 165 200 160 C280 150 320 135 400 110 C480 80 540 50 600 35 C660 20 720 10 800 8" stroke="#4a7dff" stroke-width="1.5" fill="none" stroke-dasharray="6 3" stroke-linecap="round"/>
+                        <path d="M0 170 C100 168 150 165 200 160 C280 150 320 135 400 110 C480 80 540 50 600 35 C660 20 720 10 800 8 V200 H0 Z" fill="url(#multiFill)"/>
+                    </svg>
+
+                    <!-- Phone-Only Coverage data points -->
+                    <div class="chart-dot phone-dot tooltip-right" style="left: 0%; top: 77.5%;">
+                        <div class="chart-tooltip">
+                            <div class="chart-tooltip-label">Q4 2025 · Phone Only</div>
+                            <div class="chart-tooltip-value phone-val">28%</div>
+                            <div class="chart-tooltip-sub">Launch baseline coverage</div>
+                        </div>
+                    </div>
+                    <div class="chart-dot phone-dot" style="left: 40%; top: 73.8%;">
+                        <div class="chart-tooltip">
+                            <div class="chart-tooltip-label">Dec 2025 · Phone Only</div>
+                            <div class="chart-tooltip-value phone-val">31%</div>
+                            <div class="chart-tooltip-sub">Minimal improvement</div>
+                        </div>
+                    </div>
+                    <div class="chart-dot phone-dot" style="left: 100%; top: 70%;">
+                        <div class="chart-tooltip">
+                            <div class="chart-tooltip-label">Q1 2026 · Phone Only</div>
+                            <div class="chart-tooltip-value phone-val">32%</div>
+                            <div class="chart-tooltip-sub">Plateau reached</div>
+                        </div>
+                    </div>
+
+                    <!-- Multi-Channel Coverage data points -->
+                    <div class="chart-dot multi-dot tooltip-right" style="left: 0%; top: 85%;">
+                        <div class="chart-tooltip">
+                            <div class="chart-tooltip-label">Q4 2025 · Multi-Channel</div>
+                            <div class="chart-tooltip-value multi-val">0%</div>
+                            <div class="chart-tooltip-sub">Before redesign launch</div>
+                        </div>
+                    </div>
+                    <div class="chart-dot multi-dot" style="left: 40%; top: 32.5%;">
+                        <div class="chart-tooltip">
+                            <div class="chart-tooltip-label">Dec 2025 · Multi-Channel</div>
+                            <div class="chart-tooltip-value multi-val">42%</div>
+                            <div class="chart-tooltip-sub">Email rollout momentum</div>
+                        </div>
+                    </div>
+                    <div class="chart-dot multi-dot tooltip-below tooltip-left default-visible" style="left: 100%; top: 4%;">
+                        <div class="chart-tooltip">
+                            <div class="chart-tooltip-label">Q1 2026 · Multi-Channel</div>
+                            <div class="chart-tooltip-value multi-val">45%+</div>
+                            <div class="chart-tooltip-sub">Target exceeded — rescued users</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-labels">
+                    <span class="chart-label-item">Q4 2025</span>
+                    <span class="chart-label-item">Nov</span>
+                    <span class="chart-label-item">Dec</span>
+                    <span class="chart-label-item">Jan 2026</span>
+                    <span class="chart-label-item">Q1 2026</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Strategic Context -->
+        <div class="strategic-context">
+            <div class="sc-label">Strategic Context</div>
+            <div class="sc-grid">
+                <div>
+                    <div class="sc-stat">33 JTBD Jobs</div>
+                    <div class="sc-desc">User data analysis identifying every dead-end scenario</div>
+                </div>
+                <div>
+                    <div class="sc-stat">7 Interconnected Journeys</div>
+                    <div class="sc-desc">Complete authentication system with cross-journey fallbacks</div>
+                </div>
+                <div>
+                    <div class="sc-stat">9M Users at April Relaunch</div>
+                    <div class="sc-desc">System designed to handle enterprise-scale authentication</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══════════════════ 01: PROBLEM ══════════════════ -->
+        <section class="content-section">
+            <div class="section-header">
+                <span class="section-number">01 — THE PROBLEM</span>
+                <div class="section-divider"></div>
+            </div>
+            <h2 class="section-title">The October Crisis</h2>
+            <div class="section-body">
+                <p>Dollar General launched Risk-Based Authentication on October 31, 2025. Within five days, 3 million app customers encountered the new verification system. Of those, 240,000 completed phone verification successfully — but 25,000 customers hit a wall. Phone-only verification had no fallback. Users without phone access couldn't verify their identity. They called customer care, which was overwhelmed by the volume. Many deleted their accounts and started over. After five days, leadership made the call to roll it back.</p>
+                <p>The math for April was worse: 9 million customers projected in the first few weeks. Without changes, that meant an estimated 75,000 dead ends — a volume customer care couldn't absorb.</p>
+            </div>
+
+            <!-- Metrics Grid -->
+            <div class="case-impact">
+                <div class="impact-item">
+                    <div class="impact-num">3M</div>
+                    <div class="impact-label">Customers Engaged</div>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-num">240K</div>
+                    <div class="impact-label">Successful Verifications</div>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-num">25K</div>
+                    <div class="impact-label">Dead Ends (Red Alert)</div>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-num">5 Days</div>
+                    <div class="impact-label">to Rollback</div>
+                </div>
+            </div>
+
+            <!-- Before/After Metric Boxes -->
+            <div class="case-before-after">
+                <div class="case-ba-box ba-before">
+                    <div class="ba-label">Before</div>
+                    <div class="ba-number">25K+</div>
+                    <div class="ba-desc">Users stuck in verification loops</div>
+                </div>
+                <div class="case-ba-box ba-after">
+                    <div class="ba-label">After</div>
+                    <div class="ba-number">0</div>
+                    <div class="ba-desc">Dead-end recovery — fallback paths cleared</div>
+                </div>
+            </div>
+
+            <div class="case-arrow">
+                <span>Multi-Path Architecture</span>
+            </div>
+
+            <div class="case-before-after">
+                <div class="case-ba-box ba-before">
+                    <div class="ba-label">October 2025</div>
+                    <div class="ba-number">1</div>
+                    <div class="ba-desc">Verification method (phone only)</div>
+                </div>
+                <div class="case-ba-box ba-after">
+                    <div class="ba-label">April 2026</div>
+                    <div class="ba-number">7</div>
+                    <div class="ba-desc">Interconnected journeys with fallbacks</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════ 02: APPROACH ══════════════════ -->
+        <section class="content-section">
+            <div class="section-header">
+                <span class="section-number">02 — THE APPROACH</span>
+                <div class="section-divider"></div>
+            </div>
+            <h2 class="section-title">Systems Thinking, Not Just Screens</h2>
+            <div class="section-body">
+                <p>I stepped in as the IC designer when the team hit capacity. Rather than patching the phone-only flow, I mapped the entire authentication landscape. Three pillars guided the approach:</p>
+                <ul>
+                    <li>User Data Analysis: 33 JTBD jobs identified from October's dead-end scenarios</li>
+                    <li>Systems Thinking: 7 interconnected journeys with cross-journey fallbacks. Every edge case has a path</li>
+                    <li>Stakeholder Alignment: 100% PRD coverage, 10 clarification questions resolved, 2 proactive gap closures</li>
+                </ul>
+                <p>AI accelerated the process: first-pass designs generated at volume, then refined with creative direction and design judgment. The result was a pace that matched the urgency — comprehensive redesign delivered in weeks, not months.</p>
+            </div>
+
+            <!-- Case Tags -->
+            <div class="case-tags">
+                <span class="case-tag">Claude — Data Synthesis</span>
+                <span class="case-tag">AI — First-Pass Concepts</span>
+                <span class="case-tag">Figma — Craft &amp; Precision</span>
+                <span class="case-tag">Player-Coach Leadership</span>
+            </div>
+
+            <!-- Process Timeline -->
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="process-step-num">01</div>
+                    <div class="process-step-title">AI Analysis</div>
+                    <div class="process-step-desc">Synthesized stuck-user data to identify verification path bottlenecks</div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-num">02</div>
+                    <div class="process-step-title">Systems Mapping</div>
+                    <div class="process-step-desc">Designed 7 interconnected journeys with comprehensive fallback architecture</div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-num">03</div>
+                    <div class="process-step-title">Design Direction</div>
+                    <div class="process-step-desc">AI first pass → creative direction → Figma craft. Novel solutions emerged</div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-num">04</div>
+                    <div class="process-step-title">Stakeholder Validation</div>
+                    <div class="process-step-desc">3 iteration cycles, 100% PRD alignment, user testing with stuck-user segment</div>
+                </div>
+            </div>
+
+            <!-- Key Design Decisions -->
+            <div class="decisions">
+                <div class="decision">
+                    <div class="decision-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2v-4M9 21H5a2 2 0 01-2-2v-4"/></svg>
+                    </div>
+                    <div class="decision-content">
+                        <div class="decision-title">Email-First vs. Phone-First</div>
+                        <div class="decision-text">Analysis showed email verification resolved 60% of blockers. Reversed the strategy: email as primary, phone as fallback.</div>
+                    </div>
+                </div>
+                <div class="decision">
+                    <div class="decision-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                    </div>
+                    <div class="decision-content">
+                        <div class="decision-title">Reactive Fix vs. Proactive Prevention</div>
+                        <div class="decision-text">Email campaign designed to prevent recurrence — pushing coverage from 28% toward 45%+.</div>
+                    </div>
+                </div>
+                <div class="decision">
+                    <div class="decision-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <div class="decision-content">
+                        <div class="decision-title">Speed vs. Perfection</div>
+                        <div class="decision-text">6-week window, team of 4, 9M deadline forced clarity. Multi-sprint effort compressed into weeks.</div>
+                    </div>
+                </div>
+                <div class="decision">
+                    <div class="decision-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9"/></svg>
+                    </div>
+                    <div class="decision-content">
+                        <div class="decision-title">Multi-Path Architecture</div>
+                        <div class="decision-text">Email, SMS, security questions, customer care fallback. Users never dead-end.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════ 03: PROCESS ══════════════════ -->
+        <section class="content-section">
+            <div class="section-header">
+                <span class="section-number">03 — THE PROCESS</span>
+                <div class="section-divider"></div>
+            </div>
+            <h2 class="section-title">7 Journeys, 103 Screens, Complete Coverage</h2>
+            <div class="section-body">
+                <p>The core of the redesign: seven user journeys that together form a complete authentication system.</p>
+                <p><strong>Journey 1: Trusted Devices</strong> — Silent bypass for returning customers (9 screens). <strong>Journeys 2-4: Verification Paths</strong> — Phone (12 screens), email with TFA/OTP logic (15 screens), email re-auth (19 screens). <strong>Journey 5: Customer Care</strong> — 9 help screens tailored to specific scenarios users are stuck in. <strong>Journey 6: Partial Registration Recovery</strong> — 3-phase flow for incomplete Gigya accounts (18 screens). <strong>Journey 7: Prerequisites + KMSI</strong> — Proactive contact verification and session refresh (21 screens).</p>
+                <p>Every screen has production-ready copy. Every error state has a recovery path. Every verification flow has retry logic (3 attempts max, 10-minute code expiration, 30-minute lockout with auto-unlock). Validation: 100% PRD alignment (10/10 functional requirements), 94% specification alignment (15/16), 2 proactive gap closures delivered.</p>
+            </div>
+
+            <!-- Before/After Comparison -->
+            <div class="case-before-after">
+                <div class="case-ba-box ba-before">
+                    <div class="ba-label">October 2025 Launch</div>
+                    <div class="ba-number">Phone-Only</div>
+                    <div class="ba-desc">1 method, no fallback, 25K dead ends in 5 days</div>
+                </div>
+                <div class="case-ba-box ba-after">
+                    <div class="ba-label">April 2026 Redesign</div>
+                    <div class="ba-number">7 Journeys</div>
+                    <div class="ba-desc">3 verification methods, 9 care scenarios, comprehensive fallbacks</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════ 04: RESULTS ══════════════════ -->
+        <section class="content-section">
+            <div class="section-header">
+                <span class="section-number">04 — THE RESULTS</span>
+                <div class="section-divider"></div>
+            </div>
+            <h2 class="section-title">Ready for 9 Million</h2>
+            <div class="section-body">
+                <p>The redesign delivered a complete system: 103 production-ready screens across 7 journeys, 33 mapped user jobs, 21 message templates spanning email, SMS, voice, and in-app channels. Every screen includes final copy — no placeholder text.</p>
+                <p>Projected April impact: an estimated 20,000+ fewer dead ends driven by email as alternative verification (28% of users have verified emails). The prerequisite campaign adds another layer — proactively verifying contact info weeks before launch. Nine customer care scenarios reduce support volume by an estimated 40%. Development handoff on track for April 2026. The interactive prototype serves as a living specification.</p>
+            </div>
+
+            <!-- Results Grid -->
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-metric">103</div>
+                    <div class="result-label">Production-Ready Screens</div>
+                    <div class="result-context">Across 7 interconnected journeys</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-metric">33</div>
+                    <div class="result-label">User Jobs Mapped</div>
+                    <div class="result-context">Using JTBD framework from October data</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-metric">21</div>
+                    <div class="result-label">Message Templates</div>
+                    <div class="result-context">Email, SMS, voice, in-app channels</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-metric">100%</div>
+                    <div class="result-label">PRD Alignment</div>
+                    <div class="result-context">10/10 functional requirements covered</div>
+                </div>
+            </div>
+
+            <!-- Impact Items -->
+            <div class="case-impact">
+                <div class="impact-item">
+                    <div class="impact-num">20K+</div>
+                    <div class="impact-label">Fewer dead ends via email fallback</div>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-num">28%</div>
+                    <div class="impact-label">Verified email coverage</div>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-num">40%</div>
+                    <div class="impact-label">Support reduction via 9 care scenarios</div>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-num">Apr 2026</div>
+                    <div class="impact-label">Handoff on track</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════ 05: LEARNING ══════════════════ -->
+        <section class="content-section">
+            <div class="section-header">
+                <span class="section-number">05 — THE LEARNING</span>
+                <div class="section-divider"></div>
+            </div>
+            <h2 class="section-title">What This Work Taught Me</h2>
+            <div class="section-body">
+                <p>This project changed how I think about design rescue versus starting from scratch. The October launch wasn't a design failure — it was a coverage failure. The happy path worked. What didn't work was every path that wasn't the happy path.</p>
+                <p>That reframe shaped the entire redesign: instead of asking "what should the verification screen look like?", the question became "what happens when verification doesn't work?" Nine customer care scenarios, 30+ error states, fallback paths between journeys — that's where the real design work happened.</p>
+            </div>
+
+            <div class="pull-quote">
+                <div class="pull-quote-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L9.5 8.5 3 9.5l5 4.5L6.5 21 12 17.5 17.5 21 16 14l5-4.5-6.5-1z"/>
+                    </svg>
+                </div>
+                <div class="pull-quote-content">
+                    <div class="pull-quote-text">Redundancy isn't bloat. At 9 million users, every path you don't design is a path someone will find.</div>
+                    <div class="pull-quote-attr">Core Lesson: Complete System Coverage</div>
+                </div>
+            </div>
+
+            <!-- Quote Section -->
+            <div class="quote-section">
+                <div class="quote-box">
+                    <div class="quote-mark">"</div>
+                    <div class="quote-text">AI compresses everything before and after the craft moment. But the craft moment is human. That's still where I have the most flow state.</div>
+                    <div class="quote-attr">JD McCulley</div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div>
+                <a href="https://codesandbox.io/p/github/jdmcculley/rba-v3" class="cta-button" target="_blank" rel="noopener">Explore the Prototype →</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ══════════════════ NEXT CASE STUDY ══════════════════ -->
+    <div class="next-study">
+        <div class="next-study-inner">
+            <div class="next-study-label">Next Case Study</div>
+            <a href="case-study-cashback.html" class="next-study-link">
+                <div class="next-study-top">
+                    <h3 class="next-study-title">myDG Cash Back at Scale</h3>
+                    <span class="next-arrow">→</span>
+                </div>
+                <p class="next-study-desc">How we scaled a cash back program from pilot to enterprise, achieving 160K cards per week and $2.8M incremental revenue.</p>
+                <div class="next-study-metrics">
+                    <span class="next-metric">+38%<span>Engagement</span></span>
+                    <span class="next-metric">160K<span>Cards/Week</span></span>
+                    <span class="next-metric">$2.8M<span>Incremental</span></span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <span class="footer-logo">JD McCULLEY</span>
+        <div class="footer-right">
+            <div class="footer-text">Product Design Leadership · Denver, CO · 2026</div>
+        </div>
+    </footer>
+
+    <script>
+        // ── Progress bar ──
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const progress = (scrollTop / scrollHeight) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+        });
+
+        // ── Intersection Observer for scroll-in ──
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+
+        document.querySelectorAll('.content-section, .next-study-inner, .strategic-context').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ── Animated chart line draw ──
+        document.addEventListener('DOMContentLoaded', () => {
+            const lines = document.querySelectorAll('.chart-line-phone, .chart-line-multi');
+            lines.forEach(line => {
+                const length = line.getTotalLength();
+                line.style.strokeDasharray = length;
+                line.style.strokeDashoffset = length;
+                line.style.transition = 'stroke-dashoffset 2s cubic-bezier(0.23, 1, 0.32, 1)';
+            });
+
+            const chartObs = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            lines.forEach(line => {
+                                line.style.strokeDashoffset = '0';
+                            });
+                        }, 400);
+                        chartObs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            const heroChart = document.querySelector('.hero-chart');
+            if (heroChart) chartObs.observe(heroChart);
+        });
+
+        // ── Count-up animations ──
+        const countUpElements = document.querySelectorAll('[data-target]');
+        const countUpObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                    const target = parseInt(entry.target.getAttribute('data-target'));
+                    animateCount(entry.target, target);
+                    entry.target.classList.add('counted');
+                    countUpObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        countUpElements.forEach(el => countUpObserver.observe(el));
+
+        function animateCount(element, target) {
+            let current = 0;
+            const duration = 2000;
+            const increment = target / (duration / 16);
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = formatNumber(Math.floor(current));
+            }, 16);
+        }
+
+        function formatNumber(num) {
+            if (num >= 1000000) {
+                return (num / 1000000).toFixed(0) + 'M';
+            }
+            if (num >= 1000) {
+                return (num / 1000).toFixed(0) + 'K';
+            }
+            return num.toString();
+        }
+    </script>
+</body>
+</html>

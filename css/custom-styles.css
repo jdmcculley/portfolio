@@ -1,0 +1,463 @@
+/* ═══════════════════════════════════════════════════════════
+   JD McCULLEY — CUSTOM UTILITY STYLES
+   ═══════════════════════════════════════════════════════════
+   Extracted inline styles converted to reusable classes.
+   ═══════════════════════════════════════════════════════════ */
+
+
+/* ─────────────────────────────────────────────────────────
+   SPACING UTILITIES
+   ───────────────────────────────────────────────────────── */
+
+/* Margin Top */
+.mt-4 { margin-top: 4px; }
+.mt-8 { margin-top: 8px; }
+.mt-16 { margin-top: 16px; }
+.mt-20 { margin-top: 20px; }
+.mt-32 { margin-top: 32px; }
+.mt-36 { margin-top: 36px; }
+.mt-40 { margin-top: 40px; }
+.mt-48 { margin-top: 48px; }
+
+/* Margin Bottom */
+.mb-6 { margin-bottom: 6px; }
+.mb-8 { margin-bottom: 8px; }
+.mb-16 { margin-bottom: 16px; }
+.mb-20 { margin-bottom: 20px; }
+.mb-24 { margin-bottom: 24px; }
+.mb-36 { margin-bottom: 36px; }
+.mb-40 { margin-bottom: 40px; }
+.mb-44 { margin-bottom: 44px; }
+.mb-48 { margin-bottom: 48px; }
+.mb-56 { margin-bottom: 56px; }
+.mb-72 { margin-bottom: 72px; }
+
+/* Margin Horizontal */
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+/* Combined Margins */
+.mt-16-mb-40 { margin-top: 16px; margin-bottom: 40px; }
+.mt-48-mb-48 { margin-top: 48px; margin-bottom: 48px; }
+
+
+/* ─────────────────────────────────────────────────────────
+   TEXT UTILITIES
+   ───────────────────────────────────────────────────────── */
+
+.text-center { text-align: center; }
+.text-copper { color: var(--copper); }
+.text-copper-light { color: var(--copper-light); }
+.text-gold { color: var(--gold); }
+.text-white { color: var(--white); }
+.text-soft { color: var(--text-soft); }
+.text-muted { color: var(--text-muted); }
+
+/* Max Width Containers */
+.max-w-520 { max-width: 520px; }
+.max-w-660 { max-width: 660px; }
+.max-w-880 { max-width: 880px; }
+.max-w-center { max-width: 660px; margin: 0 auto; text-align: center; }
+
+/* Combined Text Styles */
+.text-center-mb-72 { text-align: center; margin-bottom: 72px; }
+.intro-text-centered {
+  color: var(--text-soft);
+  font-size: 1.02rem;
+  line-height: 1.75;
+  margin-bottom: 44px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   MONOSPACE / CODE STYLING
+   ───────────────────────────────────────────────────────── */
+
+.mono-code {
+  font-family: var(--mono);
+  font-size: 0.85em;
+  color: var(--copper);
+}
+
+.mono-code-sm {
+  font-family: var(--mono);
+  font-size: 0.75em;
+  color: var(--copper);
+}
+
+.code-lg {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  color: var(--copper-light);
+}
+
+.code-md {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--text-soft);
+  line-height: 1.8;
+}
+
+.code-sm {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--text-soft);
+  line-height: 1.8;
+}
+
+.code-xs {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+  letter-spacing: 0.5px;
+}
+
+.code-xs-compact {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+.code-xxs {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   TYPOGRAPHY SAMPLES
+   ───────────────────────────────────────────────────────── */
+
+.type-heading-xl {
+  font-size: 2.4rem;
+}
+
+.type-heading-lg {
+  font-size: 1.6rem;
+  color: var(--text-soft);
+  margin-top: 4px;
+}
+
+.type-serif-xl {
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+}
+
+.type-sans-base {
+  font-size: 1rem;
+}
+
+.type-sans-sm {
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  margin-top: 8px;
+  font-weight: 300;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   FLEX UTILITIES
+   ───────────────────────────────────────────────────────── */
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.flex-center-gap-12 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.flex-wrap {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+.flex-1 {
+  flex: 1;
+  min-width: 200px;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   GRID UTILITIES
+   ───────────────────────────────────────────────────────── */
+
+.grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.grid-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   CARD & SURFACE COMPONENTS
+   ───────────────────────────────────────────────────────── */
+
+.surface-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 40px;
+  margin-bottom: 24px;
+}
+
+.surface-card-compact {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 500px;
+  margin-top: 16px;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   BORDER UTILITIES
+   ───────────────────────────────────────────────────────── */
+
+.border-default {
+  border-color: var(--border);
+}
+
+.border-strong {
+  border-color: var(--border-strong);
+  border-width: 2px;
+}
+
+.border-glass {
+  border-color: var(--glass-border);
+}
+
+.accent-border-left {
+  border-left: 3px solid rgba(74, 125, 255, 0.4);
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   ANIMATION UTILITIES
+   ───────────────────────────────────────────────────────── */
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+
+
+/* ─────────────────────────────────────────────────────────
+   POSITIONING UTILITIES
+   ───────────────────────────────────────────────────────── */
+
+.pos-center-x {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pos-top-center {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pos-top-right {
+  top: 55px;
+  right: 0;
+}
+
+.pos-bottom-right {
+  bottom: 55px;
+  right: 0;
+}
+
+.pos-bottom-center {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pos-bottom-left {
+  bottom: 55px;
+  left: 0;
+}
+
+.pos-top-left {
+  top: 55px;
+  left: 0;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   SVG & ICON UTILITIES
+   ───────────────────────────────────────────────────────── */
+
+.svg-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.inline-icon {
+  display: inline-block;
+  vertical-align: -1px;
+  margin-right: 4px;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   LINK & BUTTON UTILITIES
+   ───────────────────────────────────────────────────────── */
+
+.link-unstyled {
+  text-decoration: none;
+}
+
+.link-flex {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-disabled {
+  cursor: default;
+}
+
+.disabled-link {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   PROGRESS BAR
+   ───────────────────────────────────────────────────────── */
+
+.progress-bar {
+  height: 4px;
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--surface);
+  max-width: 400px;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 65%;
+  background: linear-gradient(90deg, var(--gold-dim), var(--gold), var(--gold-light));
+  border-radius: 2px;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   PULSING DOT INDICATOR
+   ───────────────────────────────────────────────────────── */
+
+.dot-pulse {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--copper);
+  box-shadow: 0 0 6px var(--copper), 0 0 14px var(--copper-glow);
+  animation: dotPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 0.4; transform: scale(0.95); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   COLOR SWATCHES (Design System Preview)
+   ───────────────────────────────────────────────────────── */
+
+.swatch-label {
+  margin-bottom: 6px;
+}
+
+.swatch-label-primary { color: var(--text); margin-bottom: 6px; }
+.swatch-label-secondary { color: var(--text-soft); margin-bottom: 6px; }
+.swatch-label-tertiary { color: var(--text-muted); margin-bottom: 6px; }
+.swatch-label-gold { color: var(--gold); margin-bottom: 6px; }
+
+/* Specific color backgrounds for swatches */
+.bg-gold { background: var(--gold); }
+.bg-gold-light { background: var(--gold-light); }
+.bg-gold-dim { background: var(--gold-dim); }
+.bg-gold-glow { background: var(--gold-glow); }
+.bg-copper { background: var(--copper); }
+.bg-copper-light { background: var(--copper-light); }
+.bg-copper-dim { background: var(--copper-dim); }
+.bg-copper-glow { background: var(--copper-glow); }
+.bg-bg { background: var(--bg); }
+.bg-bg-alt { background: var(--bg-alt); }
+.bg-surface { background: var(--surface); }
+.bg-surface-elevated { background: var(--surface-elevated); }
+
+
+/* ─────────────────────────────────────────────────────────
+   BREAKPOINT INDICATORS (Design System)
+   ───────────────────────────────────────────────────────── */
+
+.bp-mobile { color: #e74c3c; }
+.bp-tablet { color: #e67e22; }
+.bp-desktop { color: var(--gold); }
+.bp-wide { color: #27ae60; }
+.bp-ultrawide { color: #3498db; }
+
+
+/* ─────────────────────────────────────────────────────────
+   CHART & DATA VISUALIZATION HELPERS
+   ───────────────────────────────────────────────────────── */
+
+/* Chart dot positioning - use with inline left/top values */
+.chart-dot {
+  position: absolute;
+}
+
+/* Scattered nodes with transforms */
+.node-top { left: 50%; top: 2%; transform: translateX(-50%); }
+.node-left-upper { left: 2%; top: 20%; transform: rotate(-3deg); }
+.node-right-upper { right: 2%; top: 18%; transform: rotate(2deg); }
+.node-left-mid { left: 0%; top: 40%; transform: rotate(1.5deg); }
+.node-right-mid { right: 0%; top: 38%; transform: rotate(-2deg); }
+.node-left-lower { left: 5%; top: 60%; transform: rotate(-1deg); }
+.node-right-lower { right: 3%; top: 58%; transform: rotate(3deg); }
+.node-left-bottom { left: 14%; top: 79%; transform: rotate(2deg); }
+.node-right-bottom { right: 8%; top: 79%; transform: rotate(-1.5deg); }
+
+/* Chart label with gold accent */
+.chart-label-gold {
+  color: var(--gold);
+}

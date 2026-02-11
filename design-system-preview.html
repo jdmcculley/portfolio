@@ -5,610 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="assets/brand/jd-poly-logo-gradient.svg">
 <title>JD McCulley — Design System Reference</title>
-<style id="design-system">
-/* ═══ AUTO-INJECTED FROM design-system.css ═══
-   Edit design-system.css, then run build.sh to
-   propagate changes to all portfolio pages.
-   ═══════════════════════════════════════════ */
-/* ═══════════════════════════════════════════════════════════
-   JD McCULLEY — DESIGN SYSTEM
-   ═══════════════════════════════════════════════════════════
-   Single source of truth for the portfolio site.
-   Edit tokens here → changes propagate to every page.
-
-   CONTENTS:
-   1. Fonts
-   2. Tokens (Colors, Typography, Motion)
-   3. Reset & Base
-   4. Background Effects (Grid, Orbs)
-   5. Navigation
-   6. Typography Utilities
-   7. Badges & Tags
-   8. Scroll & Reveal Animations
-   9. Metric / Proof Components
-   10. Footer
-   11. Responsive Foundations
-   ═══════════════════════════════════════════════════════════ */
-
-
-/* ─────────────────────────────────────────────────────────
-   1. FONTS
-   ───────────────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
-
-
-/* ─────────────────────────────────────────────────────────
-   2. TOKENS
-   ─────────────────────────────────────────────────────────
-   Edit these values to retheme the entire site.
-   ───────────────────────────────────────────────────────── */
-:root {
-
-  /* ── Brand Colors ── */
-  --gold:            #00d4ff;
-  --gold-light:      #5ee6ff;
-  --gold-dim:        #0a5e72;
-  --gold-glow:       rgba(0, 212, 255, 0.12);
-
-  --copper:          #4a7dff;
-  --copper-light:    #7da3ff;
-  --copper-dim:      rgba(74, 125, 255, 0.12);
-  --copper-glow:     rgba(74, 125, 255, 0.30);
-
-  /* ── Surfaces ── */
-  --bg:              #0a0e1a;
-  --bg-alt:          #0d1224;
-  --surface:         #121830;
-  --surface-elevated:#161e3a;
-  --white:           #e4e8f0;
-
-  /* ── Text ── */
-  --text:            #e4e8f0;
-  --text-soft:       #8892a8;
-  --text-muted:      #4a5270;
-
-  /* ── Borders & Glass ── */
-  --border:          rgba(0, 212, 255, 0.10);
-  --border-strong:   rgba(0, 212, 255, 0.25);
-  --glass-bg:        rgba(10, 14, 26, 0.70);
-  --glass-border:    rgba(0, 212, 255, 0.12);
-  --grid-line:       rgba(0, 212, 255, 0.05);
-
-  /* ── Typography ── */
-  --heading:  'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  --serif:    'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;  /* remapped — was Cormorant Garamond */
-  --sans:     'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --mono:     'JetBrains Mono', monospace;
-
-  /* ── Motion ── */
-  --ease:     cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-
-  /* ── Layout ── */
-  --max-width: 1200px;
-  --max-width-wide: 1540px;
-  --page-max: 2560px;
-  --nav-height: 96px;
-  --container-pad: 48px;
-
-  /* ── Breakpoints (reference — can't use vars in @media) ──
-     --bp-mobile:    600px
-     --bp-tablet:    900px
-     --bp-desktop:   1200px
-     --bp-wide:      1600px
-     --bp-ultrawide: 2560px
-     ─────────────────────────────────────────────────────── */
-
-  /* ─────────────────────────────────────────────
-     LEGACY ALIASES
-     The case study pages were built with these
-     variable names. They map to the tokens above
-     so old markup still works after migration.
-     ───────────────────────────────────────────── */
-  --dark-bg:         var(--bg);
-  --dark-card:       var(--surface);
-  --dark-elevated:   var(--surface-elevated);
-  --text-primary:    var(--text);
-  --text-secondary:  var(--text-soft);
-  --text-tertiary:   var(--text-muted);
-}
-
-
-/* ─────────────────────────────────────────────────────────
-   3. RESET & BASE
-   ───────────────────────────────────────────────────────── */
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: var(--sans);
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-::selection   { background: rgba(0, 212, 255, 0.25); color: var(--text); }
-::-webkit-scrollbar       { width: 5px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 3px; }
-
-a { color: inherit; }
-img { max-width: 100%; display: block; }
-
-
-/* ─────────────────────────────────────────────────────────
-   4. BACKGROUND EFFECTS
-   ───────────────────────────────────────────────────────── */
-
-/* Subtle grid overlay — apply class to a fixed div */
-.bg-grid {
-  position: fixed; inset: 0; z-index: 0;
-  background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 64px 64px;
-  animation: gridPulse 8s ease-in-out infinite;
-  pointer-events: none;
-}
-
-@keyframes gridPulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
-
-/* Floating orbs — place as fixed divs with .bg-orb + orb-a/b/c */
-.bg-orb {
-  position: fixed; border-radius: 50%;
-  filter: blur(140px); pointer-events: none; z-index: 0;
-}
-.orb-a {
-  width: 650px; height: 650px;
-  background: radial-gradient(circle, var(--gold), transparent 70%);
-  top: -140px; left: -140px; opacity: 0.25;
-  animation: orbFloat1 20s ease-in-out infinite;
-}
-.orb-b {
-  width: 400px; height: 400px;
-  background: radial-gradient(circle, var(--copper), transparent 70%);
-  bottom: -120px; right: -120px; opacity: 0.10;
-  animation: orbFloat2 25s ease-in-out infinite;
-}
-.orb-c {
-  width: 300px; height: 300px;
-  background: radial-gradient(circle, rgba(0, 212, 255, 0.5), transparent 70%);
-  top: 40%; right: 10%; opacity: 0.06;
-  animation: orbFloat3 18s ease-in-out infinite;
-}
-
-@keyframes orbFloat1 {
-  0%, 100% { transform: translate(0, 0); }
-  33%  { transform: translate(80px, 60px); }
-  66%  { transform: translate(-30px, 30px); }
-}
-@keyframes orbFloat2 {
-  0%, 100% { transform: translate(0, 0); }
-  33%  { transform: translate(-60px, -80px); }
-  66%  { transform: translate(20px, -40px); }
-}
-@keyframes orbFloat3 {
-  0%, 100% { transform: translate(0, 0); }
-  50%  { transform: translate(40px, -50px); }
-}
-
-@keyframes logoGradient {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Mouse-following glow — DISABLED. Uncomment below to re-enable.
-#mouse-glow {
-  position: fixed;
-  width: 600px; height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(201, 162, 39, 0.08) 0%, transparent 65%);
-  pointer-events: none; z-index: 1;
-  transition: left 0.5s ease-out, top 0.5s ease-out, opacity 0.4s ease;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-} */
-
-/* Progress bar — place as fixed div with #progress-bar */
-#progress-bar {
-  position: fixed; top: 0; left: 0; height: 2px;
-  width: 0%;
-  background: linear-gradient(90deg, var(--gold-dim), var(--gold), var(--gold-light));
-  z-index: 2000;
-  transition: width 0.15s linear;
-}
-
-
-/* ─────────────────────────────────────────────────────────
-   5. NAVIGATION
-   ─────────────────────────────────────────────────────────
-   Use: <nav> with .nav-logo, .nav-links
-   ───────────────────────────────────────────────────────── */
-nav {
-  position: fixed; top: 0; width: 100%; z-index: 1000;
-  height: var(--nav-height);
-  display: flex; justify-content: center;
-  backdrop-filter: blur(24px);
-  background: rgba(10, 14, 26, 0.88);
-  border-bottom: 1px solid var(--border);
-}
-
-.nav-inner {
-  width: 100%; max-width: var(--max-width);
-  padding: 0 var(--container-pad);
-  display: flex; justify-content: space-between; align-items: center;
-  height: 100%;
-}
-
-.nav-logo {
-  font-family: var(--mono); font-weight: 700; font-size: 1.2rem;
-  letter-spacing: 1.5px;
-  display: flex; align-items: center; gap: 14px;
-  text-decoration: none;
-  background: linear-gradient(90deg, var(--gold), var(--copper), var(--gold-light), var(--gold));
-  background-size: 300% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: logoGradient 8s ease infinite;
-}
-
-.nav-logo-icon {
-  display: inline-flex; align-items: center;
-  line-height: 0;
-}
-
-.nav-right {
-  display: flex; align-items: center; gap: 32px;
-}
-
-.nav-links {
-  display: flex; gap: 32px; list-style: none;
-}
-
-.nav-links a {
-  font-family: var(--mono); color: var(--text-soft); text-decoration: none;
-  font-size: 0.82rem; font-weight: 500; letter-spacing: 0.5px;
-  transition: color 0.3s ease;
-  display: flex; align-items: center; gap: 8px;
-}
-.nav-links a:hover { color: var(--gold-light); }
-
-.nav-num {
-  font-family: var(--mono); font-size: 0.68rem;
-  color: var(--gold); opacity: 0.5;
-}
-
-.nav-divider { display: none; }
-
-/* Resume button */
-.nav-resume-btn {
-  font-family: var(--mono); font-size: 0.78rem; font-weight: 500;
-  color: var(--gold) !important; letter-spacing: 0.5px;
-  text-decoration: none;
-  padding: 6px 14px;
-  border: 1px solid rgba(0, 212, 255, 0.15);
-  border-radius: 6px;
-  transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease;
-  display: flex; align-items: center; gap: 6px;
-}
-.nav-resume-btn:hover {
-  color: var(--gold-light) !important;
-  border-color: rgba(0, 212, 255, 0.35);
-  background: rgba(0, 212, 255, 0.04);
-}
-.nav-resume-btn svg { stroke: currentColor; flex-shrink: 0; }
-
-/* Back link (case study pages) */
-.nav-back {
-  font-family: var(--mono); font-size: 0.85rem;
-  color: var(--text-soft); text-decoration: none;
-  letter-spacing: 0.08em;
-  transition: color 0.3s ease;
-  display: flex; align-items: center; gap: 8px;
-}
-.nav-back:hover { color: var(--gold); }
-.nav-back::before { content: '←'; }
-
-
-/* ─────────────────────────────────────────────────────────
-   6. TYPOGRAPHY UTILITIES
-   ───────────────────────────────────────────────────────── */
-.container {
-  max-width: var(--max-width); margin: 0 auto;
-  padding: 0 var(--container-pad);
-  width: 100%; position: relative; z-index: 2;
-}
-
-.section-label {
-  font-family: var(--sans); font-size: 0.68rem;
-  letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--gold); font-weight: 600;
-  margin-bottom: 16px;
-}
-
-.section-heading {
-  font-family: var(--heading);
-  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
-  font-weight: 700; line-height: 1.15;
-  letter-spacing: -0.02em; margin-bottom: 14px;
-  color: var(--text);
-}
-
-.section-sub {
-  font-size: 1rem; color: var(--text); opacity: 0.8;
-  max-width: 530px; line-height: 1.7; font-weight: 300;
-  margin-bottom: 56px;
-}
-.section-sub.centered { margin-left: auto; margin-right: auto; }
-
-/* Accent lines */
-.gold-line {
-  width: 48px; height: 2px;
-  background: var(--gold);
-  border-radius: 1px;
-}
-.gold-line-center {
-  width: 80px; height: 1px;
-  background: var(--gold);
-  margin: 0 auto;
-}
-
-
-/* ─────────────────────────────────────────────────────────
-   7. BADGES & TAGS
-   ───────────────────────────────────────────────────────── */
-
-/* AI badge — copper accent */
-.ai-badge {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 4px 12px; border-radius: 4px;
-  font-family: var(--mono); font-size: 0.58rem;
-  letter-spacing: 1px; text-transform: uppercase;
-  background: var(--copper-dim);
-  border: 1px solid rgba(74, 125, 255, 0.25);
-  color: var(--copper);
-}
-.ai-badge::before {
-  content: ''; width: 5px; height: 5px;
-  border-radius: 50%; background: var(--copper);
-  box-shadow: 0 0 6px var(--copper);
-}
-
-/* Generic tag — gold accent */
-.tag {
-  font-family: var(--mono); font-size: 0.55rem;
-  padding: 3px 8px; border-radius: 3px;
-  letter-spacing: 0.5px; text-transform: uppercase;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  color: var(--text-muted);
-}
-.tag-ai {
-  background: var(--copper-dim);
-  border-color: rgba(74, 125, 255, 0.25);
-  color: var(--copper);
-}
-.tag-gold {
-  background: var(--gold-glow);
-  border: 1px solid rgba(0, 212, 255, 0.15);
-  color: var(--gold);
-}
-
-/* Hero / page badge — pill style */
-.page-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 8px 18px; border-radius: 100px;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  font-family: var(--mono); font-size: 0.72rem;
-  font-weight: 500; color: var(--copper);
-  letter-spacing: 1.5px; text-transform: uppercase;
-}
-.page-badge .dot {
-  width: 7px; height: 7px;
-  border-radius: 50%; background: var(--copper);
-  box-shadow: 0 0 6px var(--copper), 0 0 14px var(--copper-glow);
-  animation: dotPulse 2.5s ease-in-out infinite;
-  flex-shrink: 0;
-}
-
-@keyframes dotPulse {
-  0%, 100% { opacity: 1; box-shadow: 0 0 6px var(--copper), 0 0 14px var(--copper-glow); }
-  50%      { opacity: 0.6; box-shadow: 0 0 3px var(--copper), 0 0 8px var(--copper-glow); }
-}
-
-
-/* ─────────────────────────────────────────────────────────
-   8. SCROLL & REVEAL ANIMATIONS
-   ───────────────────────────────────────────────────────── */
-
-/* Fade-in on scroll — add .reveal to any element, JS adds .visible */
-.reveal {
-  opacity: 0; transform: translateY(28px);
-  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
-}
-.reveal.visible { opacity: 1; transform: translateY(0); }
-
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
-.reveal-delay-5 { transition-delay: 0.5s; }
-
-/* Legacy name from case study pages */
-.fade-in { opacity: 0; transform: translateY(24px); transition: all 0.7s var(--ease-out); }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* Scroll indicator */
-.scroll-indicator {
-  display: none;
-}
-
-.scroll-indicator span {
-  font-family: var(--mono); font-size: 0.58rem;
-  color: var(--text-muted); letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.scroll-line {
-  width: 1px; height: 36px;
-  background: linear-gradient(to bottom, var(--gold), transparent);
-  position: relative; overflow: hidden;
-}
-.scroll-line::after {
-  content: ''; position: absolute;
-  top: -36px; left: 0; width: 1px; height: 14px;
-  background: var(--gold-light);
-  animation: scrollDrop 2s ease-in-out infinite;
-}
-
-@keyframes scrollDrop {
-  0%   { top: -14px; opacity: 0; }
-  20%  { opacity: 1; }
-  80%  { opacity: 1; }
-  100% { top: 36px; opacity: 0; }
-}
-
-
-/* ─────────────────────────────────────────────────────────
-   9. METRIC / PROOF COMPONENTS
-   ─────────────────────────────────────────────────────────
-   Shared between portfolio proof section
-   and case study result cards.
-   ───────────────────────────────────────────────────────── */
-
-/* Metric card — dark elevated card with centered number */
-.metric-card {
-  background: var(--surface-elevated);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 32px 24px;
-  text-align: center;
-  transition: border-color 0.3s ease, transform 0.3s var(--ease);
-}
-.metric-card:hover {
-  border-color: var(--border-strong);
-  transform: translateY(-3px);
-}
-
-.metric-number {
-  font-family: var(--mono); font-size: 2rem;
-  font-weight: 700; color: var(--gold);
-  line-height: 1.2; margin-bottom: 8px;
-}
-
-.metric-label {
-  font-family: var(--sans); font-size: 0.75rem;
-  color: var(--text-soft); letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-/* Inline metric strip — used under case study card images */
-.metrics-strip {
-  display: flex; justify-content: space-around;
-  padding: 14px 28px;
-  border-bottom: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.01);
-}
-.ms-item { text-align: center; }
-.ms-val {
-  font-family: var(--mono); font-size: 1rem;
-  font-weight: 700; color: var(--gold); line-height: 1.2;
-}
-.ms-lbl {
-  font-size: 0.58rem; color: var(--text-muted);
-  text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px;
-}
-
-
-/* ─────────────────────────────────────────────────────────
-   10. FOOTER
-   ───────────────────────────────────────────────────────── */
-footer {
-  position: relative; z-index: 2;
-  border-top: 1px solid var(--border);
-  padding: 36px var(--container-pad);
-  display: flex; justify-content: space-between; align-items: center;
-}
-
-.footer-logo {
-  font-family: var(--mono); font-weight: 700; font-size: 0.82rem;
-  color: var(--gold); letter-spacing: 1px;
-}
-
-.footer-right { text-align: right; }
-
-.footer-verse {
-  font-family: var(--heading); font-size: 0.78rem;
-  color: var(--text-muted); font-style: italic;
-  line-height: 1.5; margin-bottom: 4px;
-}
-
-.footer-text {
-  font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.1em;
-}
-
-
-/* ─────────────────────────────────────────────────────────
-   11. RESPONSIVE FOUNDATIONS
-   ─────────────────────────────────────────────────────────
-   Breakpoints:
-     600px   — mobile
-     900px   — tablet
-     1200px  — desktop
-     1600px  — wide
-     2560px  — ultrawide (page max)
-   ───────────────────────────────────────────────────────── */
-
-/* ── Ultrawide: 2560px ── */
-@media (min-width: 2560px) {
-  body { max-width: 2560px; margin: 0 auto; }
-  :root {
-    --container-pad: 80px;
-    --max-width: 1540px;
-  }
-  .section-heading { font-size: 3.6rem; }
-}
-
-/* ── Wide: 1600px ── */
-@media (min-width: 1600px) and (max-width: 2559px) {
-  :root {
-    --container-pad: 64px;
-    --max-width: 1400px;
-  }
-}
-
-/* ── Desktop: 1200px (default — no overrides needed) ── */
-
-/* ── Tablet: 900px ── */
-@media (max-width: 900px) {
-  :root { --container-pad: 24px; }
-  .nav-inner { padding: 0 24px; }
-  .nav-links { display: none; }
-  footer { flex-direction: column; gap: 16px; text-align: center; }
-  .footer-right { text-align: center; }
-}
-
-/* ── Mobile: 600px ── */
-@media (max-width: 600px) {
-  :root { --container-pad: 16px; }
-  .section-heading { font-size: 1.8rem; }
-  .section-sub { font-size: 0.9rem; margin-bottom: 36px; }
-  .metric-card { padding: 24px 16px; }
-  .metric-number { font-size: 1.6rem; }
-}
-
-</style>
+<link rel="stylesheet" href="css/design-system.css">
+<link rel="stylesheet" href="css/custom-styles.css">
 <style>
 /* ─────────────────────────────────────────────────────────
    SHOWCASE-SPECIFIC STYLES
@@ -1072,8 +470,8 @@ footer {
     <span class="dot"></span>
     Design System v1.0
   </div>
-  <h1 style="margin-top: 24px">The <span>Forge</span> Design System</h1>
-  <p>Every token, component, and pattern in one place. Edit <code style="font-family: var(--mono); font-size: 0.85em; color: var(--copper);">design-system.css</code> and run <code style="font-family: var(--mono); font-size: 0.85em; color: var(--copper);">build.sh</code> to propagate changes across all pages.</p>
+  <h1 class="mt-24">The <span>Forge</span> Design System</h1>
+  <p>Every token, component, and pattern in one place. Edit <code class="mono-code">design-system.css</code> and run <code class="mono-code">build.sh</code> to propagate changes across all pages.</p>
 </div>
 
 
@@ -1085,10 +483,10 @@ footer {
   <div class="ds-section-title">Brand Colors</div>
   <div class="ds-section-desc">Core gold and copper palette that define the Forge identity.</div>
 
-  <div class="swatch-grid" style="margin-bottom: 40px;">
+  <div class="swatch-grid mb-40">
     <!-- Gold Family -->
     <div class="swatch">
-      <div class="swatch-color" style="background: #c9a227;"></div>
+      <div class="swatch-color" style="background: var(--gold);"></div>
       <div class="swatch-info">
         <div class="swatch-name">Gold</div>
         <div class="swatch-var">--gold</div>
@@ -1096,7 +494,7 @@ footer {
       </div>
     </div>
     <div class="swatch">
-      <div class="swatch-color" style="background: #e8c84a;"></div>
+      <div class="swatch-color" style="background: var(--gold-light);"></div>
       <div class="swatch-info">
         <div class="swatch-name">Gold Light</div>
         <div class="swatch-var">--gold-light</div>
@@ -1104,7 +502,7 @@ footer {
       </div>
     </div>
     <div class="swatch">
-      <div class="swatch-color" style="background: #6e5f1a;"></div>
+      <div class="swatch-color" style="background: var(--gold-dim);"></div>
       <div class="swatch-info">
         <div class="swatch-name">Gold Dim</div>
         <div class="swatch-var">--gold-dim</div>
@@ -1112,7 +510,7 @@ footer {
       </div>
     </div>
     <div class="swatch">
-      <div class="swatch-color" style="background: rgba(201, 162, 39, 0.12);"></div>
+      <div class="swatch-color" style="background: var(--gold-glow);"></div>
       <div class="swatch-info">
         <div class="swatch-name">Gold Glow</div>
         <div class="swatch-var">--gold-glow</div>
@@ -1122,7 +520,7 @@ footer {
 
     <!-- Copper Family -->
     <div class="swatch">
-      <div class="swatch-color" style="background: #c27c4e;"></div>
+      <div class="swatch-color" style="background: var(--copper);"></div>
       <div class="swatch-info">
         <div class="swatch-name">Copper</div>
         <div class="swatch-var">--copper</div>
@@ -1130,7 +528,7 @@ footer {
       </div>
     </div>
     <div class="swatch">
-      <div class="swatch-color" style="background: #d4956a;"></div>
+      <div class="swatch-color" style="background: var(--copper-light);"></div>
       <div class="swatch-info">
         <div class="swatch-name">Copper Light</div>
         <div class="swatch-var">--copper-light</div>
@@ -1138,7 +536,7 @@ footer {
       </div>
     </div>
     <div class="swatch">
-      <div class="swatch-color" style="background: rgba(194, 124, 78, 0.12);"></div>
+      <div class="swatch-color" style="background: var(--copper-dim);"></div>
       <div class="swatch-info">
         <div class="swatch-name">Copper Dim</div>
         <div class="swatch-var">--copper-dim</div>
@@ -1146,7 +544,7 @@ footer {
       </div>
     </div>
     <div class="swatch">
-      <div class="swatch-color" style="background: rgba(194, 124, 78, 0.30);"></div>
+      <div class="swatch-color" style="background: var(--copper-glow);"></div>
       <div class="swatch-info">
         <div class="swatch-name">Copper Glow</div>
         <div class="swatch-var">--copper-glow</div>
@@ -1158,20 +556,20 @@ footer {
   <div class="ds-section-title">Surfaces</div>
   <div class="ds-section-desc">Background and surface layers for depth hierarchy.</div>
 
-  <div class="surface-grid" style="margin-bottom: 40px;">
-    <div class="surface-card" style="background: #08080c;">
+  <div class="surface-grid mb-40">
+    <div class="surface-card" style="background: var(--bg);">
       <div class="swatch-name">Background</div>
       <div class="swatch-var">--bg &nbsp; #08080c</div>
     </div>
-    <div class="surface-card" style="background: #0c0c12;">
+    <div class="surface-card" style="background: var(--bg-alt);">
       <div class="swatch-name">Background Alt</div>
       <div class="swatch-var">--bg-alt &nbsp; #0c0c12</div>
     </div>
-    <div class="surface-card" style="background: #13131c;">
+    <div class="surface-card" style="background: var(--surface);">
       <div class="swatch-name">Surface</div>
       <div class="swatch-var">--surface &nbsp; #13131c</div>
     </div>
-    <div class="surface-card" style="background: #16161f;">
+    <div class="surface-card" style="background: var(--surface-elevated);">
       <div class="swatch-name">Surface Elevated</div>
       <div class="swatch-var">--surface-elevated &nbsp; #16161f</div>
     </div>
@@ -1182,19 +580,19 @@ footer {
 
   <div class="surface-grid">
     <div class="surface-card">
-      <p style="font-size: 1.1rem; color: var(--text); margin-bottom: 6px;">Primary Text</p>
+      <p class="swatch-label-primary">Primary Text</p>
       <div class="swatch-var">--text &nbsp; #ede9e3</div>
     </div>
     <div class="surface-card">
-      <p style="font-size: 1.1rem; color: var(--text-soft); margin-bottom: 6px;">Soft Text</p>
+      <p class="swatch-label-secondary">Soft Text</p>
       <div class="swatch-var">--text-soft &nbsp; #9e9890</div>
     </div>
     <div class="surface-card">
-      <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 6px;">Muted Text</p>
+      <p class="swatch-label-tertiary">Muted Text</p>
       <div class="swatch-var">--text-muted &nbsp; #5e5a56</div>
     </div>
     <div class="surface-card">
-      <p style="font-size: 1.1rem; color: var(--gold); margin-bottom: 6px;">Gold Accent</p>
+      <p class="swatch-label-gold">Gold Accent</p>
       <div class="swatch-var">--gold &nbsp; #c9a227</div>
     </div>
   </div>
@@ -1211,18 +609,18 @@ footer {
   <div class="ds-section-title">Border Tokens</div>
   <div class="ds-section-desc">Subtle gold-tinted borders and glassmorphism effects.</div>
 
-  <div class="surface-grid" style="margin-bottom: 40px;">
-    <div class="surface-card" style="border-color: var(--border);">
+  <div class="surface-grid mb-40">
+    <div class="surface-card border-default">
       <div class="swatch-name">Border</div>
       <div class="swatch-var">--border</div>
       <div class="swatch-hex">rgba(201,162,39,0.10)</div>
     </div>
-    <div class="surface-card" style="border-color: var(--border-strong); border-width: 2px;">
+    <div class="surface-card border-strong">
       <div class="swatch-name">Border Strong</div>
       <div class="swatch-var">--border-strong</div>
       <div class="swatch-hex">rgba(201,162,39,0.25)</div>
     </div>
-    <div class="surface-card" style="border-color: var(--glass-border);">
+    <div class="surface-card border-glass">
       <div class="swatch-name">Glass Border</div>
       <div class="swatch-var">--glass-border</div>
       <div class="swatch-hex">rgba(201,162,39,0.12)</div>
@@ -1236,7 +634,7 @@ footer {
     <div class="glass-demo-bg"></div>
     <div class="glass-card">
       <h4>Glass Card</h4>
-      <p>Uses <code style="font-family: var(--mono); font-size: 0.75em; color: var(--copper);">--glass-bg</code> with <code style="font-family: var(--mono); font-size: 0.75em; color: var(--copper);">backdrop-filter: blur(24px)</code> and <code style="font-family: var(--mono); font-size: 0.75em; color: var(--copper);">--glass-border</code>.</p>
+      <p>Uses <code class="mono-code-sm">--glass-bg</code> with <code class="mono-code-sm">backdrop-filter: blur(24px)</code> and <code class="mono-code-sm">--glass-border</code>.</p>
     </div>
   </div>
 </section>
@@ -1255,29 +653,29 @@ footer {
   <!-- Space Grotesk -->
   <div class="type-row">
     <div class="type-meta">--heading &middot; Space Grotesk &middot; 700</div>
-    <p class="type-sample-heading" style="font-size: 2.4rem;">Crafted at the intersection</p>
-    <p class="type-sample-heading" style="font-size: 1.6rem; color: var(--text-soft); margin-top: 4px;">of design and intelligence.</p>
+    <p class="type-sample-heading type-heading-xl">Crafted at the intersection</p>
+    <p class="type-sample-heading type-heading-lg mt-4">of design and intelligence.</p>
   </div>
 
   <!-- --serif (remapped to Space Grotesk) -->
   <div class="type-row">
     <div class="type-meta">--serif &middot; Space Grotesk (remapped) &middot; 400—700</div>
-    <p class="type-sample-serif" style="font-size: clamp(2.2rem, 4.5vw, 3.2rem);">Section Heading</p>
-    <p style="font-family: var(--mono); font-size: 0.62rem; color: var(--text-muted); margin-top: 8px; letter-spacing: 0.5px;">LEGACY ALIAS — NOW IDENTICAL TO --heading FOR BACKWARD COMPAT</p>
+    <p class="type-sample-serif type-serif-xl">Section Heading</p>
+    <p class="code-xs">LEGACY ALIAS — NOW IDENTICAL TO --heading FOR BACKWARD COMPAT</p>
   </div>
 
   <!-- Inter -->
   <div class="type-row">
     <div class="type-meta">--sans &middot; Inter &middot; 300—900</div>
-    <p class="type-sample-sans" style="font-size: 1rem;">Body text set in Inter. Clean, modern, and highly legible for long-form reading on screen. Supports weights from light (300) through black (900) for flexible typographic hierarchy.</p>
-    <p class="type-sample-sans" style="font-size: 0.82rem; color: var(--text-soft); margin-top: 8px; font-weight: 300;">Lighter weight for secondary information and captions.</p>
+    <p class="type-sample-sans type-sans-base">Body text set in Inter. Clean, modern, and highly legible for long-form reading on screen. Supports weights from light (300) through black (900) for flexible typographic hierarchy.</p>
+    <p class="type-sample-sans type-sans-sm">Lighter weight for secondary information and captions.</p>
   </div>
 
   <!-- JetBrains Mono -->
   <div class="type-row">
     <div class="type-meta">--mono &middot; JetBrains Mono &middot; 400—700</div>
-    <p class="type-sample-mono" style="font-size: 0.9rem; color: var(--copper-light);">const design = forge({ intent, craft, ai });</p>
-    <p class="type-sample-mono" style="font-size: 0.72rem; color: var(--text-muted); margin-top: 4px; letter-spacing: 1px;">LABELS &middot; TAGS &middot; NAVIGATION &middot; METRICS</p>
+    <p class="type-sample-mono code-lg">const design = forge({ intent, craft, ai });</p>
+    <p class="type-sample-mono code-md mt-4">LABELS &middot; TAGS &middot; NAVIGATION &middot; METRICS</p>
   </div>
 </section>
 
@@ -1292,18 +690,18 @@ footer {
   <div class="ds-section-title">Section Building Blocks</div>
   <div class="ds-section-desc">Composable classes for consistent section headers across pages.</div>
 
-  <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 40px; margin-bottom: 24px;">
-    <div class="type-meta" style="margin-bottom: 20px;">Live Example</div>
+  <div class="surface-card mb-24">
+    <div class="type-meta mb-20">Live Example</div>
     <div class="section-label">The Proof</div>
     <div class="section-heading">Where design meets<br>measurable impact.</div>
     <div class="section-sub">Numbers that tell the story of intentional craft, strategic thinking, and systems designed to scale.</div>
     <div class="gold-line"></div>
   </div>
 
-  <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-    <div class="component-card" style="flex: 1; min-width: 200px;">
+  <div class="flex-wrap">
+    <div class="component-card flex-1">
       <div class="component-card-label">.section-label</div>
-      <div style="font-family: var(--mono); font-size: 0.72rem; color: var(--text-soft); line-height: 1.8;">
+      <div class="code-md">
         font: var(--sans) 0.68rem<br>
         weight: 600<br>
         spacing: 0.22em<br>
@@ -1311,9 +709,9 @@ footer {
         transform: uppercase
       </div>
     </div>
-    <div class="component-card" style="flex: 1; min-width: 200px;">
+    <div class="component-card flex-1">
       <div class="component-card-label">.section-heading</div>
-      <div style="font-family: var(--mono); font-size: 0.72rem; color: var(--text-soft); line-height: 1.8;">
+      <div class="code-md">
         font: var(--heading)<br>
         size: clamp(2.2rem, 4.5vw, 3.2rem)<br>
         weight: 700<br>
@@ -1321,9 +719,9 @@ footer {
         spacing: -0.02em
       </div>
     </div>
-    <div class="component-card" style="flex: 1; min-width: 200px;">
+    <div class="component-card flex-1">
       <div class="component-card-label">.section-sub</div>
-      <div style="font-family: var(--mono); font-size: 0.72rem; color: var(--text-soft); line-height: 1.8;">
+      <div class="code-md">
         font: 1rem<br>
         weight: 300<br>
         color: var(--text-soft)<br>
@@ -1334,9 +732,9 @@ footer {
   </div>
 
   <!-- Accent Lines -->
-  <div style="margin-top: 40px;">
+  <div class="mt-40">
     <div class="ds-section-title">Accent Lines</div>
-    <div class="showcase-row" style="margin-top: 20px;">
+    <div class="showcase-row mt-20">
       <div class="showcase-label">.gold-line</div>
       <div class="gold-line"></div>
     </div>
@@ -1360,10 +758,10 @@ footer {
   <div class="ds-section-title">Micro-Components</div>
   <div class="ds-section-desc">Small UI elements for labels, statuses, and categories.</div>
 
-  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-bottom: 40px;">
+  <div class="grid-auto">
     <div class="component-card">
       <div class="component-card-label">.page-badge (pill)</div>
-      <div style="margin-top: 8px;">
+      <div class="mt-8">
         <div class="page-badge">
           <span class="dot"></span>
           Status Label
@@ -1373,14 +771,14 @@ footer {
 
     <div class="component-card">
       <div class="component-card-label">.ai-badge (copper)</div>
-      <div style="margin-top: 8px;">
+      <div class="mt-8">
         <span class="ai-badge">AI-Accelerated</span>
       </div>
     </div>
 
     <div class="component-card">
       <div class="component-card-label">.tag (default)</div>
-      <div style="margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap;">
+      <div class="mt-8 flex-wrap">
         <span class="tag">UX Design</span>
         <span class="tag">Product</span>
         <span class="tag">Systems</span>
@@ -1389,7 +787,7 @@ footer {
 
     <div class="component-card">
       <div class="component-card-label">.tag-ai (copper)</div>
-      <div style="margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap;">
+      <div class="mt-8 flex-wrap">
         <span class="tag tag-ai">Claude</span>
         <span class="tag tag-ai">MCP</span>
         <span class="tag tag-ai">Prompt Eng</span>
@@ -1398,7 +796,7 @@ footer {
 
     <div class="component-card">
       <div class="component-card-label">.tag-gold</div>
-      <div style="margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap;">
+      <div class="mt-8 flex-wrap">
         <span class="tag tag-gold">Highlight</span>
         <span class="tag tag-gold">Featured</span>
       </div>
@@ -1455,8 +853,8 @@ footer {
   <div class="ds-section-title">Proof Components</div>
   <div class="ds-section-desc">Elevated cards for data points and inline metric strips.</div>
 
-  <div class="ds-section-title" style="font-size: 0.9rem; margin-top: 32px;">Metric Cards</div>
-  <div class="metric-grid" style="margin-top: 16px; margin-bottom: 40px;">
+  <div class="ds-section-title code-lg mt-32">Metric Cards</div>
+  <div class="metric-grid mt-16-mb-40">
     <div class="metric-card">
       <div class="metric-number">3.2s</div>
       <div class="metric-label">Load Time Saved</div>
@@ -1475,8 +873,8 @@ footer {
     </div>
   </div>
 
-  <div class="ds-section-title" style="font-size: 0.9rem;">Metrics Strip</div>
-  <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; max-width: 500px; margin-top: 16px;">
+  <div class="ds-section-title code-lg">Metrics Strip</div>
+  <div class="surface-card-compact">
     <div class="metrics-strip">
       <div class="ms-item">
         <div class="ms-val">+38%</div>
@@ -1505,19 +903,19 @@ footer {
   <div class="ds-section-title">Grid & Orbs</div>
   <div class="ds-section-desc">Ambient background elements — subtle grid overlay and floating gradient orbs.</div>
 
-  <div class="grid-preview" style="margin-bottom: 24px;">
+  <div class="grid-preview mb-24">
     <div class="bg-grid" style="position: absolute;"></div>
     <div class="bg-orb orb-a"></div>
     <div class="bg-orb orb-b"></div>
-    <div style="position: absolute; bottom: 16px; left: 20px; font-family: var(--mono); font-size: 0.6rem; color: var(--text-muted); letter-spacing: 0.5px; z-index: 2;">
+    <div class="code-xs-compact" style="position: absolute; bottom: 16px; left: 20px; z-index: 2;">
       .bg-grid + .bg-orb .orb-a + .bg-orb .orb-b
     </div>
   </div>
 
-  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+  <div class="grid-3col">
     <div class="component-card">
       <div class="component-card-label">.orb-a (gold)</div>
-      <div style="font-family: var(--mono); font-size: 0.68rem; color: var(--text-soft); line-height: 1.8;">
+      <div class="code-sm">
         600 &times; 600px<br>
         opacity: 0.22<br>
         blur: 140px<br>
@@ -1526,7 +924,7 @@ footer {
     </div>
     <div class="component-card">
       <div class="component-card-label">.orb-b (copper)</div>
-      <div style="font-family: var(--mono); font-size: 0.68rem; color: var(--text-soft); line-height: 1.8;">
+      <div class="code-sm">
         400 &times; 400px<br>
         opacity: 0.09<br>
         blur: 140px<br>
@@ -1535,7 +933,7 @@ footer {
     </div>
     <div class="component-card">
       <div class="component-card-label">.orb-c (gold)</div>
-      <div style="font-family: var(--mono); font-size: 0.68rem; color: var(--text-soft); line-height: 1.8;">
+      <div class="code-sm">
         300 &times; 300px<br>
         opacity: 0.06<br>
         blur: 140px<br>
@@ -1545,13 +943,13 @@ footer {
   </div>
 
   <!-- Progress Bar -->
-  <div style="margin-top: 40px;">
-    <div class="ds-section-title" style="font-size: 0.9rem;">Progress Bar</div>
+  <div class="mt-40">
+    <div class="ds-section-title code-lg">Progress Bar</div>
     <div class="ds-section-desc">Scroll-linked reading progress. Fixed to top of viewport.</div>
-    <div style="height: 4px; border-radius: 2px; overflow: hidden; background: var(--surface); max-width: 400px;">
-      <div style="height: 100%; width: 65%; background: linear-gradient(90deg, var(--gold-dim), var(--gold), var(--gold-light)); border-radius: 2px;"></div>
+    <div class="progress-bar">
+      <div class="progress-fill"></div>
     </div>
-    <div style="font-family: var(--mono); font-size: 0.58rem; color: var(--text-muted); margin-top: 8px;">#progress-bar</div>
+    <div class="code-xxs">#progress-bar</div>
   </div>
 </section>
 
@@ -1567,7 +965,7 @@ footer {
   <div class="ds-section-desc">Motion tokens and scroll-triggered animations. Hover the bars to compare easings.</div>
 
   <!-- Easing Curves -->
-  <div class="motion-demo" style="margin-bottom: 40px;">
+  <div class="motion-demo mb-40">
     <div class="motion-box">
       <div class="motion-bar"><div class="motion-fill ease-default"></div></div>
       <div class="motion-box-label">--ease<br>cubic-bezier(0.16, 1, 0.3, 1)</div>
@@ -1583,48 +981,48 @@ footer {
   </div>
 
   <!-- Reveal Animation Demo -->
-  <div class="ds-section-title" style="font-size: 0.9rem;">Scroll Reveal</div>
-  <div class="ds-section-desc">Add <code style="font-family: var(--mono); font-size: 0.85em; color: var(--copper);">.reveal</code> to any element. JS adds <code style="font-family: var(--mono); font-size: 0.85em; color: var(--copper);">.visible</code> when scrolled into view.</div>
+  <div class="ds-section-title code-lg">Scroll Reveal</div>
+  <div class="ds-section-desc">Add <code class="mono-code">.reveal</code> to any element. JS adds <code class="mono-code">.visible</code> when scrolled into view.</div>
 
   <div class="anim-stage">
     <div class="anim-card reveal visible">
-      <div style="font-family: var(--mono); font-size: 0.9rem; color: var(--gold);">.reveal</div>
+      <div class="code-lg" style="color: var(--gold);">.reveal</div>
       <div class="anim-card-label">Base &mdash; 0ms delay</div>
     </div>
-    <div class="anim-card reveal visible" style="transition-delay: 0.1s;">
-      <div style="font-family: var(--mono); font-size: 0.9rem; color: var(--gold);">.reveal-delay-1</div>
+    <div class="anim-card reveal visible delay-1">
+      <div class="code-lg" style="color: var(--gold);">.reveal-delay-1</div>
       <div class="anim-card-label">100ms delay</div>
     </div>
-    <div class="anim-card reveal visible" style="transition-delay: 0.2s;">
-      <div style="font-family: var(--mono); font-size: 0.9rem; color: var(--gold);">.reveal-delay-2</div>
+    <div class="anim-card reveal visible delay-2">
+      <div class="code-lg" style="color: var(--gold);">.reveal-delay-2</div>
       <div class="anim-card-label">200ms delay</div>
     </div>
-    <div class="anim-card reveal visible" style="transition-delay: 0.3s;">
-      <div style="font-family: var(--mono); font-size: 0.9rem; color: var(--gold);">.reveal-delay-3</div>
+    <div class="anim-card reveal visible delay-3">
+      <div class="code-lg" style="color: var(--gold);">.reveal-delay-3</div>
       <div class="anim-card-label">300ms delay</div>
     </div>
-    <div class="anim-card reveal visible" style="transition-delay: 0.4s;">
-      <div style="font-family: var(--mono); font-size: 0.9rem; color: var(--gold);">.reveal-delay-4</div>
+    <div class="anim-card reveal visible delay-4">
+      <div class="code-lg" style="color: var(--gold);">.reveal-delay-4</div>
       <div class="anim-card-label">400ms delay</div>
     </div>
   </div>
 
   <!-- Scroll Indicator -->
-  <div style="margin-top: 40px;">
-    <div class="ds-section-title" style="font-size: 0.9rem;">Scroll Indicator</div>
-    <div class="scroll-indicator" style="align-items: flex-start; margin-top: 16px;">
+  <div class="mt-40">
+    <div class="ds-section-title code-lg">Scroll Indicator</div>
+    <div class="scroll-indicator mt-16" style="align-items: flex-start;">
       <span>Scroll</span>
       <div class="scroll-line"></div>
     </div>
   </div>
 
   <!-- Dot Pulse -->
-  <div style="margin-top: 40px;">
-    <div class="ds-section-title" style="font-size: 0.9rem;">Dot Pulse</div>
+  <div class="mt-40">
+    <div class="ds-section-title code-lg">Dot Pulse</div>
     <div class="ds-section-desc">Animated indicator dot used in the page-badge component.</div>
-    <div style="display: flex; align-items: center; gap: 12px;">
-      <span class="dot" style="width: 10px; height: 10px; border-radius: 50%; background: var(--copper); box-shadow: 0 0 6px var(--copper), 0 0 14px var(--copper-glow); animation: dotPulse 2.5s ease-in-out infinite;"></span>
-      <span style="font-family: var(--mono); font-size: 0.6rem; color: var(--text-muted); letter-spacing: 0.5px;">@keyframes dotPulse &mdash; 2.5s ease-in-out infinite</span>
+    <div class="flex-center-gap-12">
+      <span class="dot dot-pulse"></span>
+      <span class="code-xs-compact">@keyframes dotPulse &mdash; 2.5s ease-in-out infinite</span>
     </div>
   </div>
 </section>
@@ -1742,7 +1140,7 @@ footer {
   <!-- Breakpoint Cards -->
   <div class="bp-row">
     <div class="bp-card bp-mobile">
-      <div class="bp-card-name" style="color: #e74c3c;">Mobile</div>
+      <div class="bp-card-name bp-mobile">Mobile</div>
       <div class="bp-card-range">max-width: 600px</div>
       <div class="bp-card-changes">
         <code>--container-pad</code> &rarr; 16px<br>
@@ -1753,7 +1151,7 @@ footer {
       </div>
     </div>
     <div class="bp-card bp-tablet">
-      <div class="bp-card-name" style="color: #e67e22;">Tablet</div>
+      <div class="bp-card-name bp-tablet">Tablet</div>
       <div class="bp-card-range">max-width: 900px</div>
       <div class="bp-card-changes">
         <code>--container-pad</code> &rarr; 24px<br>
@@ -1763,7 +1161,7 @@ footer {
       </div>
     </div>
     <div class="bp-card bp-desktop">
-      <div class="bp-card-name" style="color: var(--gold);">Desktop</div>
+      <div class="bp-card-name bp-desktop">Desktop</div>
       <div class="bp-card-range">901px — 1599px</div>
       <div class="bp-card-changes">
         Default styles<br>
@@ -1775,7 +1173,7 @@ footer {
   </div>
   <div class="bp-row">
     <div class="bp-card bp-wide">
-      <div class="bp-card-name" style="color: #27ae60;">Wide</div>
+      <div class="bp-card-name bp-wide">Wide</div>
       <div class="bp-card-range">min-width: 1600px</div>
       <div class="bp-card-changes">
         <code>--container-pad</code> &rarr; 64px<br>
@@ -1783,7 +1181,7 @@ footer {
       </div>
     </div>
     <div class="bp-card bp-ultra">
-      <div class="bp-card-name" style="color: #3498db;">Ultrawide</div>
+      <div class="bp-card-name bp-ultrawide">Ultrawide</div>
       <div class="bp-card-range">min-width: 2560px</div>
       <div class="bp-card-changes">
         <code>body</code> max-width: 2560px, centered<br>
@@ -1795,9 +1193,9 @@ footer {
   </div>
 
   <!-- Layout Tokens -->
-  <div style="margin-top: 40px;">
-    <div class="ds-section-title" style="font-size: 0.9rem;">Layout Tokens</div>
-    <table class="token-table" style="margin-top: 16px;">
+  <div class="mt-40">
+    <div class="ds-section-title code-lg">Layout Tokens</div>
+    <table class="token-table mt-16">
       <thead>
         <tr><th>Token</th><th>Default</th><th>Usage</th></tr>
       </thead>
