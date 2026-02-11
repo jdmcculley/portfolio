@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+._*
+
+# Editor files
+*.swp
+*.swo
+*~
+
+# Thumbnails
+Thumbs.db

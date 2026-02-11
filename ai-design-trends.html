@@ -1,0 +1,2036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="assets/brand/jd-poly-logo-gradient.svg">
+<title>JD McCulley — Design-Led AI in Practice</title>
+<style id="design-system">
+/* ═══ AUTO-INJECTED FROM design-system.css ═══
+   Edit design-system.css, then run build.sh to
+   propagate changes to all portfolio pages.
+   ═══════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════
+   JD McCULLEY — DESIGN SYSTEM
+   ═══════════════════════════════════════════════════════════
+   Single source of truth for the portfolio site.
+   Edit tokens here → changes propagate to every page.
+
+   CONTENTS:
+   1. Fonts
+   2. Tokens (Colors, Typography, Motion)
+   3. Reset & Base
+   4. Background Effects (Grid, Orbs)
+   5. Navigation
+   6. Typography Utilities
+   7. Badges & Tags
+   8. Scroll & Reveal Animations
+   9. Metric / Proof Components
+   10. Footer
+   11. Responsive Foundations
+   ═══════════════════════════════════════════════════════════ */
+
+
+/* ─────────────────────────────────────────────────────────
+   1. FONTS
+   ───────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+
+/* ─────────────────────────────────────────────────────────
+   2. TOKENS
+   ─────────────────────────────────────────────────────────
+   Edit these values to retheme the entire site.
+   ───────────────────────────────────────────────────────── */
+:root {
+
+  /* ── Brand Colors ── */
+  --gold:            #00d4ff;
+  --gold-light:      #5ee6ff;
+  --gold-dim:        #0a5e72;
+  --gold-glow:       rgba(0, 212, 255, 0.12);
+
+  --copper:          #4a7dff;
+  --copper-light:    #7da3ff;
+  --copper-dim:      rgba(74, 125, 255, 0.12);
+  --copper-glow:     rgba(74, 125, 255, 0.30);
+
+  /* ── Surfaces ── */
+  --bg:              #0a0e1a;
+  --bg-alt:          #0d1224;
+  --surface:         #121830;
+  --surface-elevated:#161e3a;
+  --white:           #e4e8f0;
+
+  /* ── Text ── */
+  --text:            #e4e8f0;
+  --text-soft:       #8892a8;
+  --text-muted:      #4a5270;
+
+  /* ── Borders & Glass ── */
+  --border:          rgba(0, 212, 255, 0.10);
+  --border-strong:   rgba(0, 212, 255, 0.25);
+  --glass-bg:        rgba(10, 14, 26, 0.70);
+  --glass-border:    rgba(0, 212, 255, 0.12);
+  --grid-line:       rgba(0, 212, 255, 0.05);
+
+  /* ── Typography ── */
+  --heading:  'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --serif:    'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;  /* remapped — was Cormorant Garamond */
+  --sans:     'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono:     'JetBrains Mono', monospace;
+
+  /* ── Motion ── */
+  --ease:     cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+
+  /* ── Layout ── */
+  --max-width: 1200px;
+  --max-width-wide: 1540px;
+  --page-max: 2560px;
+  --nav-height: 96px;
+  --container-pad: 48px;
+
+  /* ── Breakpoints (reference — can't use vars in @media) ──
+     --bp-mobile:    600px
+     --bp-tablet:    900px
+     --bp-desktop:   1200px
+     --bp-wide:      1600px
+     --bp-ultrawide: 2560px
+     ─────────────────────────────────────────────────────── */
+
+  /* ─────────────────────────────────────────────
+     LEGACY ALIASES
+     The case study pages were built with these
+     variable names. They map to the tokens above
+     so old markup still works after migration.
+     ───────────────────────────────────────────── */
+  --dark-bg:         var(--bg);
+  --dark-card:       var(--surface);
+  --dark-elevated:   var(--surface-elevated);
+  --text-primary:    var(--text);
+  --text-secondary:  var(--text-soft);
+  --text-tertiary:   var(--text-muted);
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   3. RESET & BASE
+   ───────────────────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection   { background: rgba(0, 212, 255, 0.25); color: var(--text); }
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 3px; }
+
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+
+
+/* ─────────────────────────────────────────────────────────
+   4. BACKGROUND EFFECTS
+   ───────────────────────────────────────────────────────── */
+
+/* Subtle grid overlay — apply class to a fixed div */
+.bg-grid {
+  position: fixed; inset: 0; z-index: 0;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  animation: gridPulse 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes gridPulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+
+/* Floating orbs — place as fixed divs with .bg-orb + orb-a/b/c */
+.bg-orb {
+  position: fixed; border-radius: 50%;
+  filter: blur(140px); pointer-events: none; z-index: 0;
+}
+.orb-a {
+  width: 650px; height: 650px;
+  background: radial-gradient(circle, var(--gold), transparent 70%);
+  top: -140px; left: -140px; opacity: 0.25;
+  animation: orbFloat1 20s ease-in-out infinite;
+}
+.orb-b {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, var(--copper), transparent 70%);
+  bottom: -120px; right: -120px; opacity: 0.10;
+  animation: orbFloat2 25s ease-in-out infinite;
+}
+.orb-c {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.5), transparent 70%);
+  top: 40%; right: 10%; opacity: 0.06;
+  animation: orbFloat3 18s ease-in-out infinite;
+}
+
+@keyframes orbFloat1 {
+  0%, 100% { transform: translate(0, 0); }
+  33%  { transform: translate(80px, 60px); }
+  66%  { transform: translate(-30px, 30px); }
+}
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate(0, 0); }
+  33%  { transform: translate(-60px, -80px); }
+  66%  { transform: translate(20px, -40px); }
+}
+@keyframes orbFloat3 {
+  0%, 100% { transform: translate(0, 0); }
+  50%  { transform: translate(40px, -50px); }
+}
+
+@keyframes logoGradient {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Mouse-following glow — DISABLED. Uncomment below to re-enable.
+#mouse-glow {
+  position: fixed;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 162, 39, 0.08) 0%, transparent 65%);
+  pointer-events: none; z-index: 1;
+  transition: left 0.5s ease-out, top 0.5s ease-out, opacity 0.4s ease;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+} */
+
+/* Progress bar — place as fixed div with #progress-bar */
+#progress-bar {
+  position: fixed; top: 0; left: 0; height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold-dim), var(--gold), var(--gold-light));
+  z-index: 2000;
+  transition: width 0.15s linear;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   5. NAVIGATION
+   ─────────────────────────────────────────────────────────
+   Use: <nav> with .nav-logo, .nav-links
+   ───────────────────────────────────────────────────────── */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 1000;
+  height: var(--nav-height);
+  display: flex; justify-content: center;
+  backdrop-filter: blur(24px);
+  background: rgba(10, 14, 26, 0.88);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  width: 100%; max-width: var(--max-width);
+  padding: 0 var(--container-pad);
+  display: flex; justify-content: space-between; align-items: center;
+  height: 100%;
+}
+
+.nav-logo {
+  font-family: var(--mono); font-weight: 700; font-size: 1.2rem;
+  letter-spacing: 1.5px;
+  display: flex; align-items: center; gap: 14px;
+  text-decoration: none;
+  background: linear-gradient(90deg, var(--gold), var(--copper), var(--gold-light), var(--gold));
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: logoGradient 8s ease infinite;
+}
+
+.nav-logo-icon {
+  display: inline-flex; align-items: center;
+  line-height: 0;
+}
+
+.nav-right {
+  display: flex; align-items: center; gap: 32px;
+}
+
+.nav-links {
+  display: flex; gap: 32px; list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--mono); color: var(--text-soft); text-decoration: none;
+  font-size: 0.82rem; font-weight: 500; letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+  display: flex; align-items: center; gap: 8px;
+}
+.nav-links a:hover { color: var(--gold-light); }
+
+.nav-num {
+  font-family: var(--mono); font-size: 0.68rem;
+  color: var(--gold); opacity: 0.5;
+}
+
+.nav-divider { display: none; }
+
+/* Resume button */
+.nav-resume-btn {
+  font-family: var(--mono); font-size: 0.78rem; font-weight: 500;
+  color: var(--gold) !important; letter-spacing: 0.5px;
+  text-decoration: none;
+  padding: 6px 14px;
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  border-radius: 6px;
+  transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+  display: flex; align-items: center; gap: 6px;
+}
+.nav-resume-btn:hover {
+  color: var(--gold-light) !important;
+  border-color: rgba(0, 212, 255, 0.35);
+  background: rgba(0, 212, 255, 0.04);
+}
+.nav-resume-btn svg { stroke: currentColor; flex-shrink: 0; }
+
+/* Back link (case study pages) */
+.nav-back {
+  font-family: var(--mono); font-size: 0.85rem;
+  color: var(--text-soft); text-decoration: none;
+  letter-spacing: 0.08em;
+  transition: color 0.3s ease;
+  display: flex; align-items: center; gap: 8px;
+}
+.nav-back:hover { color: var(--gold); }
+.nav-back::before { content: '←'; }
+
+
+/* ─────────────────────────────────────────────────────────
+   6. TYPOGRAPHY UTILITIES
+   ───────────────────────────────────────────────────────── */
+.container {
+  max-width: var(--max-width); margin: 0 auto;
+  padding: 0 var(--container-pad);
+  width: 100%; position: relative; z-index: 2;
+}
+
+.section-label {
+  font-family: var(--sans); font-size: 0.68rem;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.section-heading {
+  font-family: var(--heading);
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  font-weight: 700; line-height: 1.15;
+  letter-spacing: -0.02em; margin-bottom: 14px;
+  color: var(--text);
+}
+
+.section-sub {
+  font-size: 1rem; color: var(--text); opacity: 0.8;
+  max-width: 530px; line-height: 1.7; font-weight: 300;
+  margin-bottom: 56px;
+}
+.section-sub.centered { margin-left: auto; margin-right: auto; }
+
+/* Accent lines */
+.gold-line {
+  width: 48px; height: 2px;
+  background: var(--gold);
+  border-radius: 1px;
+}
+.gold-line-center {
+  width: 80px; height: 1px;
+  background: var(--gold);
+  margin: 0 auto;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   7. BADGES & TAGS
+   ───────────────────────────────────────────────────────── */
+
+/* AI badge — copper accent */
+.ai-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 12px; border-radius: 4px;
+  font-family: var(--mono); font-size: 0.58rem;
+  letter-spacing: 1px; text-transform: uppercase;
+  background: var(--copper-dim);
+  border: 1px solid rgba(74, 125, 255, 0.25);
+  color: var(--copper);
+}
+.ai-badge::before {
+  content: ''; width: 5px; height: 5px;
+  border-radius: 50%; background: var(--copper);
+  box-shadow: 0 0 6px var(--copper);
+}
+
+/* Generic tag — gold accent */
+.tag {
+  font-family: var(--mono); font-size: 0.55rem;
+  padding: 3px 8px; border-radius: 3px;
+  letter-spacing: 0.5px; text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--text-muted);
+}
+.tag-ai {
+  background: var(--copper-dim);
+  border-color: rgba(74, 125, 255, 0.25);
+  color: var(--copper);
+}
+.tag-gold {
+  background: var(--gold-glow);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  color: var(--gold);
+}
+
+/* Hero / page badge — pill style */
+.page-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 18px; border-radius: 100px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  font-family: var(--mono); font-size: 0.72rem;
+  font-weight: 500; color: var(--copper);
+  letter-spacing: 1.5px; text-transform: uppercase;
+}
+.page-badge .dot {
+  width: 7px; height: 7px;
+  border-radius: 50%; background: var(--copper);
+  box-shadow: 0 0 6px var(--copper), 0 0 14px var(--copper-glow);
+  animation: dotPulse 2.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 6px var(--copper), 0 0 14px var(--copper-glow); }
+  50%      { opacity: 0.6; box-shadow: 0 0 3px var(--copper), 0 0 8px var(--copper-glow); }
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   8. SCROLL & REVEAL ANIMATIONS
+   ───────────────────────────────────────────────────────── */
+
+/* Fade-in on scroll — add .reveal to any element, JS adds .visible */
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* Legacy name from case study pages */
+.fade-in { opacity: 0; transform: translateY(24px); transition: all 0.7s var(--ease-out); }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  display: none;
+}
+
+.scroll-indicator span {
+  font-family: var(--mono); font-size: 0.58rem;
+  color: var(--text-muted); letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.scroll-line {
+  width: 1px; height: 36px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  position: relative; overflow: hidden;
+}
+.scroll-line::after {
+  content: ''; position: absolute;
+  top: -36px; left: 0; width: 1px; height: 14px;
+  background: var(--gold-light);
+  animation: scrollDrop 2s ease-in-out infinite;
+}
+
+@keyframes scrollDrop {
+  0%   { top: -14px; opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { top: 36px; opacity: 0; }
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   9. METRIC / PROOF COMPONENTS
+   ─────────────────────────────────────────────────────────
+   Shared between portfolio proof section
+   and case study result cards.
+   ───────────────────────────────────────────────────────── */
+
+/* Metric card — dark elevated card with centered number */
+.metric-card {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: border-color 0.3s ease, transform 0.3s var(--ease);
+}
+.metric-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-3px);
+}
+
+.metric-number {
+  font-family: var(--mono); font-size: 2rem;
+  font-weight: 700; color: var(--gold);
+  line-height: 1.2; margin-bottom: 8px;
+}
+
+.metric-label {
+  font-family: var(--sans); font-size: 0.75rem;
+  color: var(--text-soft); letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Inline metric strip — used under case study card images */
+.metrics-strip {
+  display: flex; justify-content: space-around;
+  padding: 14px 28px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.01);
+}
+.ms-item { text-align: center; }
+.ms-val {
+  font-family: var(--mono); font-size: 1rem;
+  font-weight: 700; color: var(--gold); line-height: 1.2;
+}
+.ms-lbl {
+  font-size: 0.58rem; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   10. FOOTER
+   ───────────────────────────────────────────────────────── */
+footer {
+  position: relative; z-index: 2;
+  border-top: 1px solid var(--border);
+  padding: 36px var(--container-pad);
+  display: flex; justify-content: space-between; align-items: center;
+}
+
+.footer-logo {
+  font-family: var(--mono); font-weight: 700; font-size: 0.82rem;
+  color: var(--gold); letter-spacing: 1px;
+}
+
+.footer-right { text-align: right; }
+
+.footer-verse {
+  font-family: var(--heading); font-size: 0.78rem;
+  color: var(--text-muted); font-style: italic;
+  line-height: 1.5; margin-bottom: 4px;
+}
+
+.footer-text {
+  font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.1em;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   11. RESPONSIVE FOUNDATIONS
+   ─────────────────────────────────────────────────────────
+   Breakpoints:
+     600px   — mobile
+     900px   — tablet
+     1200px  — desktop
+     1600px  — wide
+     2560px  — ultrawide (page max)
+   ───────────────────────────────────────────────────────── */
+
+/* ── Ultrawide: 2560px ── */
+@media (min-width: 2560px) {
+  body { max-width: 2560px; margin: 0 auto; }
+  :root {
+    --container-pad: 80px;
+    --max-width: 1540px;
+  }
+  .section-heading { font-size: 3.6rem; }
+}
+
+/* ── Wide: 1600px ── */
+@media (min-width: 1600px) and (max-width: 2559px) {
+  :root {
+    --container-pad: 64px;
+    --max-width: 1400px;
+  }
+}
+
+/* ── Desktop: 1200px (default — no overrides needed) ── */
+
+/* ── Tablet: 900px ── */
+@media (max-width: 900px) {
+  :root { --container-pad: 24px; }
+  .nav-inner { padding: 0 24px; }
+  .nav-links { display: none; }
+  footer { flex-direction: column; gap: 16px; text-align: center; }
+  .footer-right { text-align: center; }
+}
+
+/* ── Mobile: 600px ── */
+@media (max-width: 600px) {
+  :root { --container-pad: 16px; }
+  .section-heading { font-size: 1.8rem; }
+  .section-sub { font-size: 0.9rem; margin-bottom: 36px; }
+  .metric-card { padding: 24px 16px; }
+  .metric-number { font-size: 1.6rem; }
+}
+
+</style>
+<style>
+  /* ═══════════════════════════════════════════
+     PAGE-SPECIFIC STYLES: Design-Led AI
+     Shared tokens, nav, footer, badges, reveal
+     animations, and backgrounds come from
+     design-system.css — edit there to retheme.
+     ═══════════════════════════════════════════ */
+
+  :root {
+    --dark-gray: #0f1528;
+    --mid-gray: #161e3a;
+  }
+
+  section {
+    position: relative;
+    z-index: 1;
+  }
+
+  .logo {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, var(--gold), var(--copper));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: 100px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--copper);
+    margin-bottom: 28px;
+    backdrop-filter: blur(10px);
+    animation: fadeInUp 0.8s ease;
+    font-family: var(--mono);
+    letter-spacing: 1px;
+  }
+
+  .hero-badge .pulse {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--copper);
+    animation: pulse 2s ease-in-out infinite;
+    box-shadow: 0 0 10px var(--copper);
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.5); }
+  }
+
+  .hero h1 {
+    font-family: var(--heading);
+    font-size: clamp(2.8rem, 5.5vw, 4.2rem);
+    font-weight: 900;
+    line-height: 1.08;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+    animation: fadeInUp 0.8s ease 0.1s both;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--gold), var(--copper), var(--copper-light), var(--gold));
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 6s ease-in-out infinite;
+  }
+
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .hero .subtitle {
+    font-size: 1.15rem;
+    color: var(--text); opacity: 0.8;
+    line-height: 1.7;
+    margin-bottom: 36px;
+    animation: fadeInUp 0.8s ease 0.2s both;
+    max-width: 570px;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 14px;
+    animation: fadeInUp 0.8s ease 0.3s both;
+  }
+
+  .btn-primary {
+    padding: 14px 32px;
+    border-radius: 12px;
+    border: none;
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, var(--copper), #3560cc);
+    color: var(--white);
+    box-shadow: 0 4px 30px rgba(74, 125, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--copper-light), var(--copper));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 40px rgba(74, 125, 255, 0.5);
+  }
+
+  .btn-primary:hover::before { opacity: 1; }
+  .btn-primary span { position: relative; z-index: 1; }
+
+  .btn-secondary {
+    padding: 14px 32px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.10);
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    color: var(--white);
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--copper);
+    background: rgba(74, 125, 255, 0.1);
+    transform: translateY(-2px);
+  }
+
+  /* Hero Visual — Orbit System */
+  .hero-visual {
+    position: relative;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeInUp 0.8s ease 0.4s both;
+  }
+
+  .orbit-system {
+    width: 380px;
+    height: 380px;
+    position: relative;
+  }
+
+  .orbit-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .orbit-ring::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    top: -6px; left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .o-ring-1 {
+    width: 120px; height: 120px;
+    border-color: rgba(74,125,255,0.5);
+    animation: ringRotate 8s linear infinite;
+  }
+  .o-ring-1::after {
+    width: 12px; height: 12px;
+    background: var(--copper);
+    box-shadow: 0 0 16px var(--copper);
+  }
+
+  .o-ring-2 {
+    width: 200px; height: 200px;
+    border-color: rgba(0,180,220,0.3);
+    animation: ringRotate 13s linear infinite reverse;
+  }
+  .o-ring-2::after {
+    width: 10px; height: 10px;
+    background: var(--gold);
+    box-shadow: 0 0 14px var(--gold);
+  }
+
+  .o-ring-3 {
+    width: 280px; height: 280px;
+    border-color: rgba(100,160,255,0.2);
+    animation: ringRotate 18s linear infinite;
+  }
+  .o-ring-3::after {
+    width: 8px; height: 8px;
+    background: var(--copper-light);
+    box-shadow: 0 0 12px var(--copper-light);
+  }
+
+  .o-ring-4 {
+    width: 360px; height: 360px;
+    border-color: rgba(0,180,220,0.08);
+    animation: ringRotate 24s linear infinite reverse;
+  }
+  .o-ring-4::after {
+    width: 6px; height: 6px;
+    background: rgba(74,125,255,0.5);
+    box-shadow: 0 0 8px var(--copper);
+  }
+
+  .orbit-core {
+    position: absolute;
+    width: 52px; height: 52px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--copper-light), var(--gold));
+    box-shadow: 0 0 40px rgba(74, 125, 255, 0.4), 0 0 80px rgba(0, 180, 220, 0.25);
+    animation: corePulse 3s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--dark-bg);
+    font-family: var(--mono);
+  }
+
+  /* Floating Labels on Orbit */
+  .orbit-label {
+    position: absolute;
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background: rgba(10, 14, 26, 0.8);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(8px);
+    white-space: nowrap;
+  }
+
+  .label-1 { top: 8%; right: 2%; color: var(--copper); }
+  .label-2 { bottom: 25%; left: -8%; color: var(--gold); }
+  .label-3 { bottom: 5%; right: 10%; color: var(--copper-light); }
+  .label-4 { top: 30%; left: -5%; color: rgba(255,255,255,0.45); }
+
+  @keyframes ringRotate { 0% { transform: translate(-50%, -50%) rotate(0deg); } 100% { transform: translate(-50%, -50%) rotate(360deg); } }
+  @keyframes corePulse { 0%, 100% { transform: translate(-50%, -50%) scale(1); } 50% { transform: translate(-50%, -50%) scale(1.1); } }
+
+  /* ── Stats Bar ── */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 80px 0 0;
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: 28px 20px;
+    border-radius: 16px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .stat-item:hover {
+    border-color: var(--copper);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(74, 125, 255, 0.12);
+  }
+
+  .stat-number {
+    font-family: var(--mono);
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--gold), var(--copper));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+
+  /* ── Section Headers ── */
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--copper);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 24px; height: 1px;
+    background: var(--copper);
+  }
+
+  .section-title {
+    font-family: var(--heading);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+    line-height: 1.12;
+  }
+
+  .section-subtitle {
+    font-size: 1.05rem;
+    color: var(--text); opacity: 0.8;
+    max-width: 620px;
+    margin-bottom: 56px;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* ── Three Pillars Section ── */
+  .pillars-section {
+    padding: 120px 0;
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .pillar-card {
+    padding: 40px 32px;
+    border-radius: 20px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pillar-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), var(--copper), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .pillar-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(74, 125, 255, 0.3);
+    box-shadow: 0 20px 60px rgba(74, 125, 255, 0.1);
+  }
+
+  .pillar-card:hover::before { opacity: 1; }
+
+  .pillar-number {
+    font-family: var(--mono);
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, rgba(0,180,220,0.2), rgba(74,125,255,0.1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+
+  .pillar-tag {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--copper);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .pillar-card h3 {
+    font-family: var(--heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    letter-spacing: -0.3px;
+  }
+
+  .pillar-card p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
+
+  .pillar-metric {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    background: rgba(74, 125, 255, 0.06);
+    border: 1px solid rgba(74, 125, 255, 0.12);
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .pillar-metric .metric-value {
+    font-family: var(--mono);
+    font-weight: 700;
+    color: var(--copper);
+    font-size: 0.85rem;
+  }
+
+  /* ── Design Process Section ── */
+  .process-section {
+    padding: 120px 0;
+  }
+
+  .process-flow {
+    display: flex;
+    gap: 0;
+    position: relative;
+    overflow-x: auto;
+    padding-bottom: 20px;
+  }
+
+  .process-flow::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--copper), var(--copper-light), var(--gold));
+    z-index: 0;
+  }
+
+  .process-step {
+    flex: 1;
+    min-width: 140px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    padding: 0 8px;
+  }
+
+  .step-dot {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: var(--dark-bg);
+    border: 3px solid var(--copper);
+    margin: 30px auto 20px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .process-step:hover .step-dot {
+    background: var(--copper);
+    box-shadow: 0 0 20px rgba(74, 125, 255, 0.5);
+    transform: scale(1.3);
+  }
+
+  .step-label {
+    font-family: var(--mono);
+    font-size: 0.55rem;
+    color: var(--copper);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .step-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    letter-spacing: -0.2px;
+  }
+
+  .step-desc {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.5;
+  }
+
+  .step-ai-tag {
+    display: inline-block;
+    margin-top: 8px;
+    font-family: var(--mono);
+    font-size: 0.55rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+  }
+
+  .tag-ai {
+    background: rgba(74, 125, 255, 0.15);
+    color: var(--copper);
+    border: 1px solid rgba(74, 125, 255, 0.25);
+  }
+
+  .tag-human {
+    background: rgba(0, 180, 220, 0.12);
+    color: var(--gold-light);
+    border: 1px solid rgba(0, 180, 220, 0.25);
+  }
+
+  .tag-both {
+    background: rgba(100, 160, 255, 0.08);
+    color: var(--copper-light);
+    border: 1px solid rgba(100, 160, 255, 0.2);
+  }
+
+  /* ── Case Study Section ── */
+  .case-section {
+    padding: 120px 0;
+  }
+
+  .logo-border-box {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    flex-shrink: 0;
+  }
+
+  .case-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .case-visual {
+    border-radius: 20px;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--dark-gray), #0a0e1a);
+    border: 1px solid var(--glass-border);
+    padding: 40px;
+    position: relative;
+  }
+
+  .case-before-after {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .case-ba-box {
+    padding: 24px;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .ba-before {
+    background: rgba(255, 60, 60, 0.06);
+    border: 1px solid rgba(255, 60, 60, 0.15);
+  }
+
+  .ba-after {
+    background: rgba(0, 255, 150, 0.06);
+    border: 1px solid rgba(0, 255, 150, 0.15);
+  }
+
+  .ba-label {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .ba-before .ba-label { color: rgba(255, 100, 100, 0.7); }
+  .ba-after .ba-label { color: rgba(0, 255, 150, 0.7); }
+
+  .ba-number {
+    font-family: var(--mono);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .ba-before .ba-number { color: rgba(255, 100, 100, 0.8); }
+  .ba-after .ba-number { color: rgba(0, 255, 150, 0.8); }
+
+  .ba-desc {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .case-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    color: var(--copper);
+    font-size: 0.7rem;
+    font-family: var(--mono);
+    letter-spacing: 2px;
+    gap: 12px;
+  }
+
+  .case-arrow::before,
+  .case-arrow::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--copper), transparent);
+  }
+
+  .case-content h3 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+  }
+
+  .case-content .case-desc {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+
+  .case-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .case-tag {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    padding: 6px 14px;
+    border-radius: 6px;
+    background: rgba(74, 125, 255, 0.08);
+    border: 1px solid rgba(74, 125, 255, 0.2);
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.5px;
+  }
+
+  .case-impact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .impact-item {
+    padding: 16px;
+    border-radius: 10px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+  }
+
+  .impact-item .impact-num {
+    font-family: var(--mono);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--copper);
+    margin-bottom: 4px;
+  }
+
+  .impact-item .impact-label {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* ── MCP Section ── */
+  .mcp-section {
+    padding: 120px 0;
+  }
+
+  .mcp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .mcp-visual {
+    border-radius: 20px;
+    background: linear-gradient(135deg, var(--dark-gray), #0a0e1a);
+    border: 1px solid var(--glass-border);
+    padding: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mcp-diagram {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .mcp-layer {
+    width: 100%;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    position: relative;
+  }
+
+  .mcp-layer-sub {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-top: 6px;
+    opacity: 0.6;
+  }
+
+  .layer-user {
+    background: rgba(100, 160, 255, 0.12);
+    border: 1px solid rgba(100, 160, 255, 0.3);
+    color: var(--copper-light);
+  }
+
+  .layer-agent {
+    background: rgba(0, 180, 220, 0.08);
+    border: 1px solid rgba(0, 180, 220, 0.25);
+    color: var(--gold-light);
+  }
+
+  .layer-mcp {
+    background: rgba(74, 125, 255, 0.12);
+    border: 1px solid rgba(74, 125, 255, 0.3);
+    color: var(--copper);
+    box-shadow: 0 0 30px rgba(74, 125, 255, 0.1);
+  }
+
+  .layer-product {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255,255,255,0.5);
+  }
+
+  .mcp-connector {
+    width: 2px;
+    height: 16px;
+    background: linear-gradient(to bottom, var(--gold), var(--copper));
+    opacity: 0.5;
+  }
+
+  .mcp-content h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.12;
+    margin-bottom: 20px;
+  }
+
+  .mcp-content .mcp-desc {
+    color: rgba(255,255,255,0.5);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+
+  .mcp-points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .mcp-points li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.5;
+  }
+
+  .mcp-bullet {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--copper);
+    box-shadow: 0 0 8px rgba(74, 125, 255, 0.4);
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+
+  /* ── Quote Section ── */
+  .quote-section {
+    padding: 100px 0;
+  }
+
+  .quote-box {
+    max-width: 880px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 60px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(0,180,220,0.04), rgba(74,125,255,0.04));
+    border: 1px solid var(--glass-border);
+    position: relative;
+  }
+
+  .quote-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), var(--copper), transparent);
+  }
+
+  .quote-mark {
+    font-size: 4rem;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--gold), var(--copper));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+  }
+
+  .quote-text {
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+
+  .quote-attr {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .quote-attr strong {
+    color: var(--copper);
+    font-weight: 600;
+  }
+
+  /* ── CTA Section ── */
+  .cta-section {
+    padding: 120px 0;
+    text-align: center;
+  }
+
+  .cta-box {
+    padding: 80px 60px;
+    border-radius: 28px;
+    background: linear-gradient(135deg, rgba(0,180,220,0.06), rgba(74,125,255,0.03));
+    border: 1px solid var(--glass-border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), var(--copper), transparent);
+  }
+
+  .cta-box h2 {
+    font-family: var(--heading);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+  }
+
+  .cta-box .cta-desc {
+    color: var(--text); opacity: 0.8;
+    font-size: 1.05rem;
+    margin-bottom: 36px;
+    max-width: 570px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  .cta-links {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ── Ultrawide: 2560px ── */
+  @media (min-width: 2560px) {
+    .container { max-width: 1540px; }
+    .hero h1 { font-size: 5rem; }
+    .hero .subtitle { font-size: 1.25rem; max-width: 770px; }
+    .section-title { font-size: 3rem; }
+    .section-subtitle { font-size: 1.15rem; max-width: 770px; }
+    .pillars-grid { gap: 32px; }
+    .pillar-card { padding: 44px 36px; }
+    .pillar-card h3 { font-size: 1.6rem; }
+    .orbit-system { width: 420px; height: 420px; }
+    .stats-bar { gap: 32px; padding: 80px 0 0; }
+    .stat-item { padding: 40px 32px; border-radius: 20px; }
+    .stat-number { font-size: 2.8rem; }
+    .stat-label { font-size: 0.85rem; letter-spacing: 1.5px; }
+    .case-grid { gap: 28px; }
+    .quote-box { padding: 56px 48px; }
+    .quote-box blockquote { font-size: 1.4rem; }
+    .cta-box { padding: 72px 48px; }
+    .cta-box h2 { font-size: 2.6rem; }
+  }
+
+  /* ── Wide: 1600px ── */
+  @media (min-width: 1600px) and (max-width: 2559px) {
+    .container { max-width: 1320px; }
+    .hero h1 { font-size: 4.5rem; }
+    .section-title { font-size: 2.6rem; }
+    .pillar-card { padding: 40px 32px; }
+    .pillar-card h3 { font-size: 1.45rem; }
+    .stats-bar { gap: 28px; }
+    .stat-item { padding: 36px 28px; border-radius: 18px; }
+    .stat-number { font-size: 2.4rem; }
+    .stat-label { font-size: 0.8rem; }
+    .quote-box blockquote { font-size: 1.25rem; }
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; text-align: center; }
+    .hero .subtitle { margin: 0 auto 36px; }
+    .hero-cta { justify-content: center; }
+    .hero-visual { display: none; }
+    .pillars-grid { grid-template-columns: 1fr; }
+    .case-grid { grid-template-columns: 1fr; }
+    .mcp-grid { grid-template-columns: 1fr; }
+    .stats-bar { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .stat-item { padding: 22px 16px; border-radius: 12px; }
+    .stat-number { font-size: 1.6rem; }
+    .stat-label { font-size: 0.65rem; }
+    .nav-inner { padding: 0 20px; }
+    .nav-links { display: none; }
+    .container { padding: 0 20px; }
+    .process-flow { flex-wrap: wrap; }
+    .process-flow::before { display: none; }
+    .process-step { min-width: calc(33% - 16px); }
+    .quote-box { padding: 40px 24px; }
+    .cta-box { padding: 50px 24px; }
+  }
+
+  /* ── Mobile: 600px ── */
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 2.2rem; letter-spacing: -1px; }
+    .section-title { font-size: 1.8rem; }
+    .stats-bar { grid-template-columns: repeat(2, 1fr); gap: 10px; padding-top: 48px; }
+    .stat-item { padding: 18px 12px; border-radius: 10px; }
+    .stat-number { font-size: 1.3rem; }
+    .stat-label { font-size: 0.58rem; letter-spacing: 0.5px; }
+    .process-step { min-width: calc(50% - 12px); }
+    .cta-box h2 { font-size: 1.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Background Effects -->
+<div class="bg-grid"></div>
+<div class="bg-orb orb-a"></div>
+<div class="bg-orb orb-b"></div>
+<div class="bg-orb orb-c"></div>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-inner">
+  <a href="index.html" class="nav-back">Back to Portfolio</a>
+  <div class="logo">JD McCULLEY</div>
+  <ul class="nav-links">
+    <li><a href="#pillars">AI Pillars</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#case">Case Study</a></li>
+    <li><a href="#mcp">MCP</a></li>
+    <li><a href="#connect">Connect</a></li>
+  </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="pulse"></span>
+          DESIGN-LED AI IN PRACTICE
+        </div>
+        <h1>
+          Creative Director<br>
+          of <span class="gradient-text">AI-Augmented</span><br>
+          Output
+        </h1>
+        <p class="subtitle">
+          I'm a product design leader who uses AI to generate volume and compress timelines, then applies 25 years of taste and judgment to find what's actually good. Hands-on at every level. That's not a compromise at my seniority — it's the job now.
+        </p>
+        <div class="hero-cta">
+          <button class="btn-primary" onclick="document.getElementById('pillars').scrollIntoView({behavior:'smooth'})"><span>See How It Works</span></button>
+          <button class="btn-secondary" onclick="document.getElementById('case').scrollIntoView({behavior:'smooth'})">View Case Study</button>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="orbit-system">
+          <div class="orbit-ring o-ring-1"></div>
+          <div class="orbit-ring o-ring-2"></div>
+          <div class="orbit-ring o-ring-3"></div>
+          <div class="orbit-ring o-ring-4"></div>
+          <div class="orbit-core">JD</div>
+          <div class="orbit-label label-1">Claude</div>
+          <div class="orbit-label label-2">Figma Make</div>
+          <div class="orbit-label label-3">Claude Code</div>
+          <div class="orbit-label label-4">MCP</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-bar fade-in">
+      <div class="stat-item">
+        <div class="stat-number">6.6M+</div>
+        <div class="stat-label">Monthly Active Users</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">5 → 9</div>
+        <div class="stat-label">Team Output Multiplier</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">25yr</div>
+        <div class="stat-label">Design Leadership</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">$9M</div>
+        <div class="stat-label">Cash Back Earned</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Three Pillars -->
+<section class="pillars-section" id="pillars">
+  <div class="container">
+    <div class="section-label">THE THREE PILLARS</div>
+    <h2 class="section-title fade-in">How I Leverage AI Across<br>the Full Product Lifecycle</h2>
+    <p class="section-subtitle fade-in">AI isn't a separate initiative. It's integrated into how my teams work — from discovery through delivery.</p>
+
+    <div class="pillars-grid">
+      <div class="pillar-card fade-in">
+        <div class="pillar-number">01</div>
+        <div class="pillar-tag">DISCOVERY & ANALYSIS</div>
+        <h3>AI-Accelerated Research</h3>
+        <p>Synthesizing thousands of survey responses, usage patterns, and competitive signals in hours instead of weeks. AI finds the haystacks. My researcher finds the needles.</p>
+        <div class="pillar-metric">
+          <span class="metric-value">1000s</span>
+          of survey responses synthesized via Claude — foundation for coupon discovery research
+        </div>
+      </div>
+
+      <div class="pillar-card fade-in">
+        <div class="pillar-number">02</div>
+        <div class="pillar-tag">DESIGN & PROTOTYPING</div>
+        <h3>AI-Augmented Creation</h3>
+        <p>Generate 5–10 directions in days, not weeks. AI gives you something to react to instead of starting from nothing. The cost to restart is effectively zero — that changes everything.</p>
+        <div class="pillar-metric">
+          <span class="metric-value">Figma Make + Claude Code</span>
+          Design-to-prototype loop with functional handoff
+        </div>
+      </div>
+
+      <div class="pillar-card fade-in">
+        <div class="pillar-number">03</div>
+        <div class="pillar-tag">PROCESS & LEADERSHIP</div>
+        <h3>AI-Informed Operations</h3>
+        <p>Built team workflows around AI tools at key decision points. Established evaluation criteria for when AI adds value — and critically, when it doesn't. A team of 5 delivering the work of 8–9.</p>
+        <div class="pillar-metric">
+          <span class="metric-value">~40%</span>
+          capacity gain through strategic AI integration across the design team
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Design Process -->
+<section class="process-section" id="process">
+  <div class="container">
+    <div class="section-label">THE NEW DESIGN PROCESS</div>
+    <h2 class="section-title fade-in">From Brain Dump to<br>Developer Handoff</h2>
+    <p class="section-subtitle fade-in">A 9-step workflow where AI compresses everything before and after the craft moment — but the craft moment is human.</p>
+
+    <div class="process-flow fade-in">
+      <div class="process-step">
+        <div class="step-dot"></div>
+        <div class="step-label">Step 01</div>
+        <div class="step-name">Brain Dump</div>
+        <div class="step-desc">Dictation + raw context</div>
+        <span class="step-ai-tag tag-human">Human</span>
+      </div>
+      <div class="process-step">
+        <div class="step-dot"></div>
+        <div class="step-label">Step 02</div>
+        <div class="step-name">Scope & Plan</div>
+        <div class="step-desc">Claude synthesizes into outline</div>
+        <span class="step-ai-tag tag-ai">AI</span>
+      </div>
+      <div class="process-step">
+        <div class="step-dot"></div>
+        <div class="step-label">Step 03</div>
+        <div class="step-name">The Bad Build</div>
+        <div class="step-desc">Terrible first draft — cost to restart: zero</div>
+        <span class="step-ai-tag tag-ai">AI</span>
+      </div>
+      <div class="process-step">
+        <div class="step-dot"></div>
+        <div class="step-label">Step 04</div>
+        <div class="step-name">Creative Director</div>
+        <div class="step-desc">Find the sparks, cut the noise</div>
+        <span class="step-ai-tag tag-human">Human</span>
+      </div>
+      <div class="process-step">
+        <div class="step-dot"></div>
+        <div class="step-label">Step 05</div>
+        <div class="step-name">Refine</div>
+        <div class="step-desc">Code-based iteration</div>
+        <span class="step-ai-tag tag-both">Both</span>
+      </div>
+      <div class="process-step">
+        <div class="step-dot"></div>
+        <div class="step-label">Step 06</div>
+        <div class="step-name">Save Context</div>
+        <div class="step-desc">Document learnings</div>
+        <span class="step-ai-tag tag-both">Both</span>
+      </div>
+      <div class="process-step">
+        <div class="step-dot"></div>
+        <div class="step-label">Step 07</div>
+        <div class="step-name">Figma & Craft</div>
+        <div class="step-desc">Flow state — where novel solutions emerge</div>
+        <span class="step-ai-tag tag-human">Human</span>
+      </div>
+      <div class="process-step">
+        <div class="step-dot"></div>
+        <div class="step-label">Step 08</div>
+        <div class="step-name">Build Again</div>
+        <div class="step-desc">Fresh conversation, refined context</div>
+        <span class="step-ai-tag tag-ai">AI</span>
+      </div>
+      <div class="process-step">
+        <div class="step-dot"></div>
+        <div class="step-label">Step 09</div>
+        <div class="step-name">Handoff</div>
+        <div class="step-desc">Mocks + functional prototype</div>
+        <span class="step-ai-tag tag-both">Both</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Case Study: RBA/2FA Redesign -->
+<section class="case-section" id="case">
+  <div class="container">
+    <div class="section-label">CASE STUDY</div>
+    <div style="display:flex; align-items:center; gap:24px;">
+      <svg width="62" height="62" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+        <rect width="40" height="40" rx="4" fill="black"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M13.2203 24.8846H11.8821V15.0659H12.8429C15.5414 15.0659 17.0871 15.8302 17.0871 19.8276C17.0871 22.9974 16.54 24.8846 13.2203 24.8846V24.8846ZM28.1545 19.7521V22.2993H29.8546V24.5072C29.3828 24.7336 28.6264 24.9034 27.9659 24.9034C25.5127 24.9034 24.3443 23.1485 24.3443 19.7899C24.3443 16.7549 25.4387 15.0377 27.079 15.0377C28.3622 15.0377 28.9849 15.8585 29.3072 17.3965L33.9054 16.6227C33.2481 13.3771 30.9269 11.6504 27.3431 11.6504C24.2245 11.6504 21.9457 12.8938 20.7039 15.1686C19.2736 12.6701 16.4061 11.965 12.316 11.965H5.82617V15.0659H7.44746V27.9794H12.7862C16.2728 27.9794 19.1305 27.1698 20.6229 24.7798C21.7042 26.9107 23.7175 28.2813 26.9091 28.2813C28.4942 28.2813 30.062 27.819 31.0779 27.1679L31.6064 27.9794H34.2073V19.7521H28.1545Z" fill="#FFF000"/>
+      </svg>
+      <h2 class="section-title fade-in" style="margin-bottom:0;">RBA/2FA Redesign at<br><span class="gradient-text">Dollar General</span></h2>
+    </div>
+    <p class="section-subtitle fade-in">How the new design process compressed a multi-sprint effort into weeks — while I was leading the team and making the strategic calls simultaneously.</p>
+
+    <div class="case-grid fade-in">
+      <div class="case-visual">
+        <div class="case-before-after">
+          <div class="case-ba-box ba-before">
+            <div class="ba-label">Before</div>
+            <div class="ba-number">25K+</div>
+            <div class="ba-desc">Users stuck in verification loops</div>
+          </div>
+          <div class="case-ba-box ba-after">
+            <div class="ba-label">After</div>
+            <div class="ba-number">75K</div>
+            <div class="ba-desc">Dead-ends prevented</div>
+          </div>
+        </div>
+        <div class="case-arrow">AI-AUGMENTED DESIGN PROCESS</div>
+        <div class="case-before-after">
+          <div class="case-ba-box ba-before">
+            <div class="ba-label">Email Verify</div>
+            <div class="ba-number">28%</div>
+            <div class="ba-desc">Completion rate — before</div>
+          </div>
+          <div class="case-ba-box ba-after">
+            <div class="ba-label">Email Verify</div>
+            <div class="ba-number">45%+</div>
+            <div class="ba-desc">Completion rate — after</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-content">
+        <h3>AI Didn't Do the Design Thinking.<br>It Made Design Thinking Possible.</h3>
+        <p class="case-desc">
+          Dollar General's Risk-Based Authentication system had bricked the experience for 25,000+ users. Phone-only verification was a dead end. I pulled this onto my own plate while my team was fully allocated across four workstreams.
+        </p>
+        <p class="case-desc">
+          AI analyzed stuck-user data and modeled verification paths. It generated the rough first pass — not looking for final designs, just the right direction. Then I put on the creative director hat: finding the edge cases and error states AI will never think about on its own. The real craft happened in Figma, where solutions emerged I couldn't have prompted my way to.
+        </p>
+        <div class="case-tags">
+          <span class="case-tag">Claude — Data Synthesis</span>
+          <span class="case-tag">AI — First-Pass Concepts</span>
+          <span class="case-tag">Figma — Craft & Precision</span>
+          <span class="case-tag">Player-Coach Leadership</span>
+        </div>
+        <div class="case-impact">
+          <div class="impact-item">
+            <div class="impact-num">Weeks</div>
+            <div class="impact-label">vs. multi-sprint timeline</div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-num">40%</div>
+            <div class="impact-label">Drop in support escalations</div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-num">IC + Lead</div>
+            <div class="impact-label">Simultaneous execution</div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-num">Proactive</div>
+            <div class="impact-label">Email campaign to prevent recurrence</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quote -->
+<section class="quote-section">
+  <div class="container">
+    <div class="quote-box fade-in">
+      <div class="quote-mark">"</div>
+      <p class="quote-text">AI compresses everything before and after the craft moment. But the craft moment is human. That's still where I have the most flow state. That's where novel solutions emerge that I couldn't have prompted my way to.</p>
+      <p class="quote-attr"><strong>JD McCulley</strong> — Sr. Director of Product Design</p>
+    </div>
+  </div>
+</section>
+
+<!-- MCP Section -->
+<section class="mcp-section" id="mcp">
+  <div class="container">
+    <div class="mcp-grid fade-in">
+      <div class="mcp-content">
+        <div class="section-label">THE NEXT PARADIGM</div>
+        <h2>MCP & AI Agents:<br><span class="gradient-text">The Interface Is Changing</span></h2>
+        <p class="mcp-desc">
+          We've spent 25 years designing interfaces people navigate — tapping, scrolling, searching. With MCP and AI agents, we're moving toward designing the information architecture and data structures that agents use to serve customers.
+        </p>
+        <ul class="mcp-points">
+          <li>
+            <span class="mcp-bullet"></span>
+            <span><strong>MCP (Model Context Protocol)</strong> is the bridge between a company's actual systems and the AI interfaces customers use. It's the standard that lets AI agents connect to real products and real data.</span>
+          </li>
+          <li>
+            <span class="mcp-bullet"></span>
+            <span><strong>The product-to-consumer relationship doesn't change</strong> — people still want the right product at the right price. But the medium shifts from "I'm browsing your app" to "I asked my AI to find me a deal."</span>
+          </li>
+          <li>
+            <span class="mcp-bullet"></span>
+            <span><strong>This is a design problem, not a technology problem.</strong> The leader who understands how product data gets structured for agent consumption — not just how screens get laid out — brings strategic value most orgs don't have yet.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mcp-visual">
+        <div class="mcp-diagram">
+          <div class="mcp-layer layer-user">
+            Customer
+            <div class="mcp-layer-sub">"Find me a deal on toothpaste"</div>
+          </div>
+          <div class="mcp-connector"></div>
+          <div class="mcp-layer layer-agent">
+            AI Agent
+            <div class="mcp-layer-sub">Interprets intent, orchestrates actions</div>
+          </div>
+          <div class="mcp-connector"></div>
+          <div class="mcp-layer layer-mcp">
+            MCP — Model Context Protocol
+            <div class="mcp-layer-sub">The bridge — connects agents to real data</div>
+          </div>
+          <div class="mcp-connector"></div>
+          <div class="mcp-layer layer-product">
+            Product Catalog · Deals · Inventory · Coupons
+            <div class="mcp-layer-sub">Dollar General's actual systems</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Where AI Falls Short -->
+<section class="pillars-section">
+  <div class="container">
+    <div style="max-width: 880px; margin: 0 auto;">
+      <div class="section-label" style="justify-content: center;">THE CREDIBILITY MOVE</div>
+      <h2 class="section-title fade-in" style="text-align: center;">Where AI Falls Short</h2>
+      <p class="section-subtitle fade-in" style="text-align: center; margin: 0 auto 56px; max-width: 660px;">Knowing where AI doesn't work is what separates a design leader from someone who just lists "AI" on their resume.</p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+        <div class="pillar-card fade-in" style="border-left: 3px solid rgba(74,125,255,0.4);">
+          <div class="pillar-tag" style="color: var(--copper-light);">THE SEVENTH PARTICIPANT</div>
+          <h3>Real Users Break Things AI Can't Predict</h3>
+          <p>In a split tender usability test, participant seven failed a task that six passed. If we'd stopped at six, we'd have shipped a broken flow. Synthetic users give directional signal — but they don't misread a button label because they're in a hurry.</p>
+        </div>
+        <div class="pillar-card fade-in" style="border-left: 3px solid rgba(74,125,255,0.4);">
+          <div class="pillar-tag" style="color: var(--copper-light);">TASTE IS HUMAN</div>
+          <h3>Precision Requires Design Judgment</h3>
+          <p>AI generates maximalist output — it throws chips, icons, and cards everywhere. The value is knowing what to keep, what to cut, what to refine. The designer's job shifts from producer to creative director and curator. Volume is AI. Taste is human.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="connect">
+  <div class="container">
+    <div class="cta-box fade-in">
+      <h2>Let's Talk About<br><span class="gradient-text">Design-Led AI</span></h2>
+      <p class="cta-desc">Product design leader building teams that deliver at enterprise scale — operating as creative director and curator of AI-augmented output, staying hands-on in the work.</p>
+      <div class="cta-links">
+        <a href="https://www.linkedin.com/in/jdmcculley/" target="_blank" class="btn-primary" style="text-decoration:none;display:inline-flex;align-items:center;"><span>LinkedIn</span></a>
+        <a href="mailto:jdmcculley@me.com" class="btn-secondary" style="text-decoration:none;">jdmcculley@me.com</a>
+        <a href="tel:7205302896" class="btn-secondary" style="text-decoration:none;">(720) 530-2896</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <span class="footer-logo">JD McCULLEY</span>
+  <div class="footer-right">
+    <div class="footer-text">Design-Led AI · Denver, CO · 2026</div>
+  </div>
+</footer>
+
+<script>
+  // Intersection Observer for fade-in animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Parallax mouse on orbs
+  document.addEventListener('mousemove', (e) => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 2;
+    const y = (e.clientY / window.innerHeight - 0.5) * 2;
+    document.querySelector('.orb-a').style.transform = `translate(${x * 25}px, ${y * 25}px)`;
+    document.querySelector('.orb-b').style.transform = `translate(${x * -18}px, ${y * -18}px)`;
+  });
+</script>
+
+</body>
+</html>
