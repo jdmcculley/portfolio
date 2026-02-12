@@ -20,12 +20,13 @@
         .hero-title-container {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 20px;
             margin-bottom: 16px;
         }
 
         .dg-logo-svg {
             flex-shrink: 0;
+            align-self: center;
         }
 
         .hero-title {
@@ -35,6 +36,8 @@
             line-height: 1.1;
             letter-spacing: -0.02em;
             color: var(--text);
+            margin: 0;
+            padding: 0;
         }
 
         .hero-subtitle {
@@ -42,8 +45,16 @@
             line-height: 1.7;
             color: var(--text);
             opacity: 0.8;
-            margin-bottom: 48px;
+            margin-bottom: 12px;
             font-weight: 300;
+        }
+
+        .hero-description {
+            font-size: 0.92rem;
+            line-height: 1.7;
+            color: var(--text-soft);
+            margin-bottom: 48px;
+            max-width: 680px;
         }
 
         /* ── Hero Chart (RBA-specific interactive timeline) ── */
@@ -488,7 +499,7 @@
             }
         }
 
-        @media (max-width: 640px) {
+        @media (max-width: 600px) {
             .ba-number {
                 font-size: 1.6rem;
             }
@@ -525,7 +536,14 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-inner">
-            <a href="index.html" class="nav-logo">JD McCULLEY</a>
+            <a href="index.html" class="nav-logo">
+              <span class="nav-logo-icon">
+                <svg width="40" height="33" viewBox="0 0 42 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10.1902 33.625L0.625 17.125M10.1902 33.625H31.0598M10.1902 33.625L8.45083 19.7303M10.1902 33.625L28.4509 30.1513M0.625 17.125L10.1902 0.625M0.625 17.125L8.45083 19.7303M10.1902 0.625H31.0598M10.1902 0.625L27.5813 9.30916M10.1902 0.625L8.45083 19.7303M31.0598 0.625L40.625 17.125M31.0598 0.625L27.5813 9.30916M40.625 17.125L31.0598 33.625M40.625 17.125L27.5813 9.30916M40.625 17.125L28.4509 30.1513M31.0598 33.625L28.4509 30.1513M27.5813 9.30916L8.45083 19.7303M27.5813 9.30916L28.4509 30.1513M8.45083 19.7303L28.4509 30.1513" stroke="#e4e8f0" stroke-width="1.25" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              JD McCULLEY
+            </a>
             <a href="index.html" class="nav-back">Back to Portfolio</a>
         </div>
     </nav>
@@ -544,6 +562,7 @@
                 <h1 class="hero-title">Rescuing Authentication at Scale</h1>
             </div>
             <p class="hero-subtitle">How a 5-day crisis became a 7-journey system protecting 9 million users</p>
+            <p class="hero-description">When Dollar General's risk-based authentication update locked 25,000+ users out of their accounts, I led the rapid redesign of the entire verification system — compressing what would normally be a multi-sprint effort into weeks. The result was a flexible, multi-channel authentication framework that rescued stuck users, prevented 75,000 future lockouts, and improved verification success rates by 61%.</p>
 
             <div class="metadata">
                 <div class="metadata-item">
@@ -752,6 +771,7 @@
                     <li>Stakeholder Alignment: 100% PRD coverage, 10 clarification questions resolved, 2 proactive gap closures</li>
                 </ul>
                 <p>AI accelerated the process: first-pass designs generated at volume, then refined with creative direction and design judgment. The result was a pace that matched the urgency — comprehensive redesign delivered in weeks, not months.</p>
+                <p>The work also reinforced a broader conviction: without a well-structured design system, this speed isn't sustainable. The component patterns and verification flows from this redesign fed directly into the broader system architecture — so the next team inheriting this work doesn't start from scratch.</p>
             </div>
 
             <!-- Case Tags -->
@@ -922,6 +942,7 @@
             <div class="section-body">
                 <p>This project changed how I think about design rescue versus starting from scratch. The October launch wasn't a design failure — it was a coverage failure. The happy path worked. What didn't work was every path that wasn't the happy path.</p>
                 <p>That reframe shaped the entire redesign: instead of asking "what should the verification screen look like?", the question became "what happens when verification doesn't work?" Nine customer care scenarios, 30+ error states, fallback paths between journeys — that's where the real design work happened.</p>
+                <p>I've come to think of product design like building sandcastles. The waves come — market shifts, technology changes, user feedback — and they erode what you built. You don't tear it down yourself; external forces do. And you rebuild, each time a little better, a little faster. The organizations that can rebuild at the speed these waves now arrive are the ones that win. That's what this system was designed for — not permanence, but resilient iteration.</p>
             </div>
 
             <div class="pull-quote">
@@ -1069,6 +1090,35 @@
             }
             return num.toString();
         }
+    </script>
+
+    <!-- ══════════════════════════════════════════════════════════
+         SCROLL POSITION RESTORATION - CASE STUDY PAGE
+         Saves navigation flag when clicking "Back to Portfolio"
+         ══════════════════════════════════════════════════════════ -->
+    <script>
+      // Disable browser's automatic scroll restoration
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+
+      // Listen for "Back to Portfolio" link clicks
+      const backLink = document.querySelector('a.nav-back[href="index.html"]');
+      if (backLink) {
+        backLink.addEventListener('click', function(e) {
+          // Mark that we're intentionally navigating back
+          sessionStorage.setItem('portfolio_navigating_back', 'true');
+        });
+      }
+
+      // Also handle browser back button
+      window.addEventListener('popstate', function() {
+        // If navigating back to index, mark it
+        if (document.referrer.includes('index.html') ||
+            window.location.href.includes('index.html')) {
+          sessionStorage.setItem('portfolio_navigating_back', 'true');
+        }
+      });
     </script>
 </body>
 </html>

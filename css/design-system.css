@@ -152,7 +152,7 @@ img { max-width: 100%; display: block; }
 .orb-a {
   width: 650px; height: 650px;
   background: radial-gradient(circle, var(--gold), transparent 70%);
-  top: -140px; left: -140px; opacity: 0.25;
+  top: -250px; left: -250px; opacity: 0.18;
   animation: orbFloat1 20s ease-in-out infinite;
 }
 .orb-b {

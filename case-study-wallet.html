@@ -275,7 +275,14 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-inner">
-        <a href="index.html" class="nav-logo">JD McCULLEY</a>
+        <a href="index.html" class="nav-logo">
+          <span class="nav-logo-icon">
+            <svg width="40" height="33" viewBox="0 0 42 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10.1902 33.625L0.625 17.125M10.1902 33.625H31.0598M10.1902 33.625L8.45083 19.7303M10.1902 33.625L28.4509 30.1513M0.625 17.125L10.1902 0.625M0.625 17.125L8.45083 19.7303M10.1902 0.625H31.0598M10.1902 0.625L27.5813 9.30916M10.1902 0.625L8.45083 19.7303M31.0598 0.625L40.625 17.125M31.0598 0.625L27.5813 9.30916M40.625 17.125L31.0598 33.625M40.625 17.125L27.5813 9.30916M40.625 17.125L28.4509 30.1513M31.0598 33.625L28.4509 30.1513M27.5813 9.30916L8.45083 19.7303M27.5813 9.30916L28.4509 30.1513M8.45083 19.7303L28.4509 30.1513" stroke="#e4e8f0" stroke-width="1.25" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          JD McCULLEY
+        </a>
         <a href="index.html" class="nav-back">Back to Portfolio</a>
         </div>
     </nav>
@@ -286,7 +293,13 @@
         <!-- ══════════════════ HERO ══════════════════ -->
         <section class="hero">
             <div class="case-study-label">Case Study</div>
-            <h1 class="hero-title">myDG Wallet: Reversing the Decline</h1>
+            <div class="hero-title-container">
+                <svg class="dg-logo-svg" width="62" height="62" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="40" height="40" rx="4" fill="black"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M13.2203 24.8846H11.8821V15.0659H12.8429C15.5414 15.0659 17.0871 15.8302 17.0871 19.8276C17.0871 22.9974 16.54 24.8846 13.2203 24.8846V24.8846ZM28.1545 19.7521V22.2993H29.8546V24.5072C29.3828 24.7336 28.6264 24.9034 27.9659 24.9034C25.5127 24.9034 24.3443 23.1485 24.3443 19.7899C24.3443 16.7549 25.4387 15.0377 27.079 15.0377C28.3622 15.0377 28.9849 15.8585 29.3072 17.3965L33.9054 16.6227C33.2481 13.3771 30.9269 11.6504 27.3431 11.6504C24.2245 11.6504 21.9457 12.8938 20.7039 15.1686C19.2736 12.6701 16.4061 11.965 12.316 11.965H5.82617V15.0659H7.44746V27.9794H12.7862C16.2728 27.9794 19.1305 27.1698 20.6229 24.7798C21.7042 26.9107 23.7175 28.2813 26.9091 28.2813C28.4942 28.2813 30.062 27.819 31.0779 27.1679L31.6064 27.9794H34.2073V19.7521H28.1545Z" fill="#FFF000"/>
+                </svg>
+                <h1 class="hero-title">myDG Wallet: Reversing the Decline</h1>
+            </div>
             <p class="hero-subtitle">Centralizing a fragmented wallet experience into a unified card-stack interface that reversed double-digit engagement decline and delivered 130%+ YoY growth — through strategic simplification and AI-augmented design exploration.</p>
 
             <div class="metadata">
@@ -367,7 +380,7 @@
                     <div class="sc-desc">Wallet engagement was dropping year-over-year with no sign of stabilization. Feature fragmentation was the root cause — not lack of features.</div>
                 </div>
                 <div class="sc-item">
-                    <div class="sc-stat">6.6M+ MAU Platform</div>
+                    <div class="sc-stat">12M+ MAU Platform</div>
                     <div class="sc-desc">The wallet served Dollar General's entire digital customer base. Every percentage point of engagement translated to millions of interactions monthly.</div>
                 </div>
                 <div class="sc-item">
@@ -476,7 +489,7 @@
                 <div>
                     <div class="biz-model-label">Why This Matters</div>
                     <div class="biz-model-title">Cognitive Load Is a Business Metric</div>
-                    <div class="biz-model-text">Every additional tap between a customer and their savings is friction that reduces clip rates, redemption, and return visits. At 6.6M MAU, even small reductions in cognitive load compound into significant engagement gains. The wallet isn't a feature — it's the front door to DG's entire digital value proposition.</div>
+                    <div class="biz-model-text">Every additional tap between a customer and their savings is friction that reduces clip rates, redemption, and return visits. At 12M MAU, even small reductions in cognitive load compound into significant engagement gains. The wallet isn't a feature — it's the front door to DG's entire digital value proposition.</div>
                 </div>
             </div>
         </section>
@@ -765,6 +778,7 @@
             <div class="section-body">
                 <p>The problem wasn't missing features — it was cognitive load. By centralizing and clarifying, usage exploded. The instinct in product development is always to add. The discipline is knowing when to subtract.</p>
                 <p>This project reinforced a core principle: excellence in product design often means constraint, clarity, and the courage to remove. Every element that remains must earn its place through evidence and user need. The best redesign often looks like it was always that way.</p>
+                <p>And the infrastructure that makes this kind of rapid consolidation possible — the tokenized design system, the shared component patterns, the AI-augmented exploration workflow — is what separates a one-time fix from a repeatable capability.</p>
             </div>
 
             <div class="pull-quote">
@@ -859,6 +873,35 @@
             const heroChart = document.querySelector('.hero-chart');
             if (heroChart) chartObs.observe(heroChart);
         });
+    </script>
+
+    <!-- ══════════════════════════════════════════════════════════
+         SCROLL POSITION RESTORATION - CASE STUDY PAGE
+         Saves navigation flag when clicking "Back to Portfolio"
+         ══════════════════════════════════════════════════════════ -->
+    <script>
+      // Disable browser's automatic scroll restoration
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+
+      // Listen for "Back to Portfolio" link clicks
+      const backLink = document.querySelector('a.nav-back[href="index.html"]');
+      if (backLink) {
+        backLink.addEventListener('click', function(e) {
+          // Mark that we're intentionally navigating back
+          sessionStorage.setItem('portfolio_navigating_back', 'true');
+        });
+      }
+
+      // Also handle browser back button
+      window.addEventListener('popstate', function() {
+        // If navigating back to index, mark it
+        if (document.referrer.includes('index.html') ||
+            window.location.href.includes('index.html')) {
+          sessionStorage.setItem('portfolio_navigating_back', 'true');
+        }
+      });
     </script>
 </body>
 </html>

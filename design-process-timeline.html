@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feature Design Process — JD McCulley</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── Design System Tokens ── */
+    :root {
+      --gold: #00d4ff;
+      --gold-light: #5ee6ff;
+      --gold-dim: #0a5e72;
+      --gold-glow: rgba(0, 212, 255, 0.12);
+      --copper: #4a7dff;
+      --copper-light: #7da3ff;
+      --copper-dim: rgba(74, 125, 255, 0.12);
+      --copper-glow: rgba(74, 125, 255, 0.30);
+      --bg: #0a0e1a;
+      --bg-alt: #0d1224;
+      --surface: #121830;
+      --surface-elevated: #161e3a;
+      --text: #e4e8f0;
+      --text-soft: #8892a8;
+      --text-muted: #4a5270;
+      --border: rgba(0, 212, 255, 0.10);
+      --border-strong: rgba(0, 212, 255, 0.25);
+      --glass-bg: rgba(10, 14, 26, 0.70);
+      --glass-border: rgba(0, 212, 255, 0.12);
+      --grid-line: rgba(0, 212, 255, 0.05);
+      --heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+      --max-width: 1200px;
+      --container-pad: 48px;
+    }
+
+    /* ── Reset ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+    }
+
+    ::selection { background: rgba(0, 212, 255, 0.25); color: var(--text); }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 3px; }
+
+    /* ── Background Effects ── */
+    .bg-grid {
+      position: fixed; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+      background-size: 64px 64px;
+      animation: gridPulse 8s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes gridPulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+
+    .bg-orb {
+      position: fixed; border-radius: 50%;
+      filter: blur(140px); pointer-events: none; z-index: 0;
+    }
+    .orb-a {
+      width: 650px; height: 650px;
+      background: radial-gradient(circle, var(--gold), transparent 70%);
+      top: -250px; left: -250px; opacity: 0.18;
+      animation: orbFloat1 20s ease-in-out infinite;
+    }
+    .orb-b {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, var(--copper), transparent 70%);
+      bottom: -120px; right: -120px; opacity: 0.10;
+      animation: orbFloat2 25s ease-in-out infinite;
+    }
+    .orb-c {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(0, 212, 255, 0.5), transparent 70%);
+      top: 40%; right: 10%; opacity: 0.06;
+      animation: orbFloat3 18s ease-in-out infinite;
+    }
+    @keyframes orbFloat1 {
+      0%, 100% { transform: translate(0, 0); }
+      33% { transform: translate(80px, 60px); }
+      66% { transform: translate(-30px, 30px); }
+    }
+    @keyframes orbFloat2 {
+      0%, 100% { transform: translate(0, 0); }
+      33% { transform: translate(-60px, -80px); }
+      66% { transform: translate(20px, -40px); }
+    }
+    @keyframes orbFloat3 {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(40px, -50px); }
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--container-pad);
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .page-wrapper {
+      padding: 80px 0 96px;
+    }
+
+    /* ── Header ── */
+    .page-header {
+      margin-bottom: 56px;
+    }
+
+    .section-label {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .section-heading {
+      font-family: var(--heading);
+      font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--text);
+      opacity: 0.8;
+      max-width: 530px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ── Timeline Track ── */
+    .timeline {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 31px;
+      top: 24px;
+      bottom: 24px;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--gold-dim), var(--border-strong), var(--gold-dim));
+      z-index: 0;
+    }
+
+    /* ── Milestone Card ── */
+    .milestone {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .milestone-dot {
+      width: 64px;
+      height: 64px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .milestone-dot svg {
+      width: 28px;
+      height: 28px;
+      stroke-width: 1.5;
+      transition: stroke 0.3s ease;
+    }
+
+    .milestone-body {
+      flex: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+      transition: border-color 0.3s ease, transform 0.3s var(--ease), box-shadow 0.3s ease;
+    }
+
+    .milestone:hover .milestone-body {
+      border-color: var(--border-strong);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .milestone:hover .milestone-dot {
+      border-color: var(--border-strong);
+    }
+
+    .milestone-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+
+    .milestone-title-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .milestone-title {
+      font-family: var(--heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .milestone-num {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .milestone-subtitle {
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      color: var(--text-soft);
+      margin-bottom: 14px;
+      font-weight: 400;
+    }
+
+    .milestone-stat {
+      text-align: right;
+      margin-left: 20px;
+      flex-shrink: 0;
+    }
+
+    .milestone-stat-number {
+      font-family: var(--mono);
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .milestone-stat-label {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 4px;
+    }
+
+    .milestone-desc {
+      font-size: 0.88rem;
+      color: var(--text-soft);
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 18px;
+    }
+
+    /* ── Role Tags ── */
+    .roles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .role-tag {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 4px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: background 0.2s ease;
+    }
+
+    .milestone:hover .role-tag {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* ── Milestones Toggle ── */
+    .deliverables-toggle {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 0;
+      user-select: none;
+      cursor: pointer;
+    }
+
+    .deliverables-toggle:hover {
+      color: var(--gold-light);
+    }
+
+    .deliverables-arrow {
+      display: inline-block;
+      transition: transform 0.25s var(--ease);
+      font-size: 0.8rem;
+    }
+
+    .deliverables-arrow.expanded {
+      transform: rotate(90deg);
+    }
+
+    .milestones-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 6px var(--gold);
+      animation: milestonesDotPulse 2.5s ease-in-out infinite;
+    }
+
+    @keyframes milestonesDotPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .deliverables-count {
+      color: var(--text-muted);
+    }
+
+    .deliverables-content {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.5s var(--ease), opacity 0.35s ease;
+    }
+
+    .deliverables-content.open {
+      max-height: 400px;
+      opacity: 1;
+    }
+
+    .deliverables-inner {
+      margin-top: 12px;
+      padding: 16px 24px;
+      border-radius: 10px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(10px);
+    }
+
+    .deliverables-list {
+      list-style: none;
+    }
+
+    .deliverables-list li {
+      font-size: 0.82rem;
+      color: var(--text-soft);
+      line-height: 2;
+      padding-left: 20px;
+      position: relative;
+      font-weight: 300;
+    }
+
+    .deliverables-list li::before {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(0, 212, 255, 0.4);
+    }
+
+    /* ── AI Augmentation Callout ── */
+    .ai-callout {
+      margin-bottom: 18px;
+    }
+
+    .ai-callout-toggle {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--copper);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 0;
+      user-select: none;
+      cursor: pointer;
+    }
+
+    .ai-callout-toggle:hover {
+      color: var(--copper-light);
+    }
+
+    .ai-callout-arrow {
+      display: inline-block;
+      transition: transform 0.25s var(--ease);
+      font-size: 0.8rem;
+    }
+
+    .ai-callout-arrow.expanded {
+      transform: rotate(90deg);
+    }
+
+    .ai-callout-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--copper);
+      box-shadow: 0 0 6px var(--copper);
+      animation: aiDotPulse 2.5s ease-in-out infinite;
+    }
+
+    @keyframes aiDotPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .ai-callout-content {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.5s var(--ease), opacity 0.35s ease;
+    }
+
+    .ai-callout-content.open {
+      max-height: 500px;
+      opacity: 1;
+    }
+
+    .ai-callout-inner {
+      margin-top: 12px;
+      padding: 20px 24px;
+      border-radius: 10px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(10px);
+    }
+
+    .ai-callout-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+
+    .badge-ai-accelerated {
+      background: var(--copper-dim);
+      border: 1px solid rgba(74, 125, 255, 0.25);
+      color: var(--copper);
+    }
+
+    .badge-human-led {
+      background: var(--gold-glow);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      color: var(--gold);
+    }
+
+    .badge-both {
+      background: rgba(100, 160, 255, 0.08);
+      border: 1px solid rgba(100, 160, 255, 0.2);
+      color: var(--copper-light);
+    }
+
+    .ai-callout-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 16px;
+    }
+
+    .ai-col-header {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ai-col-header-ai { color: var(--copper); }
+    .ai-col-header-human { color: var(--gold); }
+
+    .ai-col-header-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+    }
+
+    .ai-col-header-ai .ai-col-header-dot { background: var(--copper); box-shadow: 0 0 4px var(--copper); }
+    .ai-col-header-human .ai-col-header-dot { background: var(--gold); box-shadow: 0 0 4px var(--gold); }
+
+    .ai-col-list {
+      list-style: none;
+    }
+
+    .ai-col-list li {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      line-height: 1.8;
+      padding-left: 14px;
+      position: relative;
+      font-weight: 300;
+    }
+
+    .ai-col-list li::before {
+      content: '';
+      position: absolute;
+      left: 2px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+    }
+
+    .ai-col-ai li::before { background: rgba(74, 125, 255, 0.4); }
+    .ai-col-human li::before { background: rgba(0, 212, 255, 0.4); }
+
+    .ai-callout-principle {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-style: italic;
+      color: var(--text-muted);
+      line-height: 1.6;
+      padding-left: 12px;
+      border-left: 2px solid rgba(74, 125, 255, 0.2);
+    }
+
+    @media (max-width: 600px) {
+      .ai-callout-columns {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .ai-callout-inner {
+        padding: 16px 18px;
+      }
+    }
+
+    /* ── Role Legend ── */
+    .legend {
+      margin-top: 56px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+    }
+
+    .legend-title {
+      font-family: var(--heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    .legend-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 14px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .legend-swatch {
+      width: 14px;
+      height: 14px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    .legend-label {
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      color: var(--text-soft);
+      font-weight: 400;
+    }
+
+    /* ── Reveal Animation ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* ── Milestone Accent Colors ── */
+    .milestone[data-color="discovery"] .milestone-dot { border-color: rgba(44, 95, 124, 0.4); background: linear-gradient(rgba(44, 95, 124, 0.12), rgba(44, 95, 124, 0.12)), var(--surface); }
+    .milestone[data-color="discovery"] .milestone-dot svg { stroke: #5ba3cc; }
+    .milestone[data-color="discovery"] .milestone-stat-number { color: #5ba3cc; }
+    .milestone[data-color="discovery"]:hover .milestone-dot { border-color: rgba(44, 95, 124, 0.7); box-shadow: 0 0 20px rgba(44, 95, 124, 0.2); }
+    .milestone[data-color="discovery"]:hover .milestone-body { border-color: rgba(44, 95, 124, 0.3); }
+
+    .milestone[data-color="kickoff"] .milestone-dot { border-color: rgba(212, 119, 47, 0.4); background: linear-gradient(rgba(212, 119, 47, 0.12), rgba(212, 119, 47, 0.12)), var(--surface); }
+    .milestone[data-color="kickoff"] .milestone-dot svg { stroke: #e8984a; }
+    .milestone[data-color="kickoff"] .milestone-stat-number { color: #e8984a; }
+    .milestone[data-color="kickoff"]:hover .milestone-dot { border-color: rgba(212, 119, 47, 0.7); box-shadow: 0 0 20px rgba(212, 119, 47, 0.2); }
+    .milestone[data-color="kickoff"]:hover .milestone-body { border-color: rgba(212, 119, 47, 0.3); }
+
+    .milestone[data-color="design"] .milestone-dot { border-color: rgba(124, 58, 237, 0.4); background: linear-gradient(rgba(124, 58, 237, 0.12), rgba(124, 58, 237, 0.12)), var(--surface); }
+    .milestone[data-color="design"] .milestone-dot svg { stroke: #a675f5; }
+    .milestone[data-color="design"] .milestone-stat-number { color: #a675f5; }
+    .milestone[data-color="design"]:hover .milestone-dot { border-color: rgba(124, 58, 237, 0.7); box-shadow: 0 0 20px rgba(124, 58, 237, 0.2); }
+    .milestone[data-color="design"]:hover .milestone-body { border-color: rgba(124, 58, 237, 0.3); }
+
+    .milestone[data-color="handoff"] .milestone-dot { border-color: rgba(26, 107, 74, 0.4); background: linear-gradient(rgba(26, 107, 74, 0.12), rgba(26, 107, 74, 0.12)), var(--surface); }
+    .milestone[data-color="handoff"] .milestone-dot svg { stroke: #4aad7a; }
+    .milestone[data-color="handoff"] .milestone-stat-number { color: #4aad7a; }
+    .milestone[data-color="handoff"]:hover .milestone-dot { border-color: rgba(26, 107, 74, 0.7); box-shadow: 0 0 20px rgba(26, 107, 74, 0.2); }
+    .milestone[data-color="handoff"]:hover .milestone-body { border-color: rgba(26, 107, 74, 0.3); }
+
+    .milestone[data-color="postlaunch"] .milestone-dot { border-color: rgba(107, 142, 35, 0.4); background: linear-gradient(rgba(107, 142, 35, 0.12), rgba(107, 142, 35, 0.12)), var(--surface); }
+    .milestone[data-color="postlaunch"] .milestone-dot svg { stroke: #9cc040; }
+    .milestone[data-color="postlaunch"] .milestone-stat-number { color: #9cc040; }
+    .milestone[data-color="postlaunch"]:hover .milestone-dot { border-color: rgba(107, 142, 35, 0.7); box-shadow: 0 0 20px rgba(107, 142, 35, 0.2); }
+    .milestone[data-color="postlaunch"]:hover .milestone-body { border-color: rgba(107, 142, 35, 0.3); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      :root { --container-pad: 24px; }
+      .timeline::before { left: 23px; }
+      .milestone-dot { width: 48px; height: 48px; border-radius: 10px; }
+      .milestone-dot svg { width: 22px; height: 22px; }
+      .milestone-body { padding: 22px 24px; }
+      .milestone-stat-number { font-size: 1.6rem; }
+      .legend-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+    }
+
+    @media (max-width: 600px) {
+      :root { --container-pad: 16px; }
+      .page-wrapper { padding: 48px 0 64px; }
+      .section-heading { font-size: 1.8rem; }
+      .timeline::before { display: none; }
+      .milestone { flex-direction: column; gap: 0; }
+      .milestone-dot {
+        width: 40px; height: 40px; border-radius: 8px;
+        margin-bottom: -8px;
+        margin-left: 4px;
+        z-index: 3;
+      }
+      .milestone-dot svg { width: 18px; height: 18px; }
+      .milestone-body { width: 100%; }
+      .milestone-top { flex-direction: column; }
+      .milestone-stat { text-align: left; margin-left: 0; margin-top: 8px; display: flex; align-items: baseline; gap: 8px; }
+      .milestone-stat-number { font-size: 1.4rem; }
+      .milestone-stat-label { margin-top: 0; }
+      .legend-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Effects -->
+  <div class="bg-grid"></div>
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+  <div class="bg-orb orb-c"></div>
+
+  <div class="page-wrapper">
+    <div class="container">
+
+      <!-- Header -->
+      <div class="page-header reveal">
+        <p class="section-label">Process</p>
+        <h1 class="section-heading">Feature Design Process</h1>
+        <p class="section-sub">The digital product lifecycle is compressing. This is how I structure the process to move at that speed — with AI augmented at every phase and human judgment governing every decision.</p>
+      </div>
+
+      <!-- Timeline -->
+      <div class="timeline">
+
+        <!-- 1. Discovery -->
+        <div class="milestone reveal reveal-delay-1" data-color="discovery">
+          <div class="milestone-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <div class="milestone-body">
+            <div class="milestone-top">
+              <div>
+                <div class="milestone-title-row">
+                  <span class="milestone-title">Discovery</span>
+                  <span class="milestone-num">Phase 1</span>
+                </div>
+                <p class="milestone-subtitle">Problem Definition</p>
+              </div>
+              <div class="milestone-stat">
+                <div class="milestone-stat-number">9</div>
+                <div class="milestone-stat-label">goals</div>
+              </div>
+            </div>
+            <p class="milestone-desc">PM works with stakeholders to understand business needs, customer pain points, and desired outcomes. Research validates the problem space.</p>
+            <div class="ai-callout">
+              <div class="ai-callout-toggle" onclick="event.stopPropagation(); toggleAI(1)">
+                <span class="ai-callout-arrow" id="ai-arrow-1">&#9658;</span>
+                <span class="ai-callout-dot"></span>
+                AI Augmentation
+              </div>
+              <div class="ai-callout-content" id="ai-content-1">
+                <div class="ai-callout-inner">
+                  <span class="ai-callout-badge badge-ai-accelerated">AI-Accelerated</span>
+                  <div class="ai-callout-columns">
+                    <div>
+                      <div class="ai-col-header ai-col-header-ai"><span class="ai-col-header-dot"></span> AI Handles</div>
+                      <ul class="ai-col-list ai-col-ai">
+                        <li>Synthesize survey data & usage patterns</li>
+                        <li>Map competitive landscape</li>
+                        <li>Generate research outlines from raw context</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <div class="ai-col-header ai-col-header-human"><span class="ai-col-header-dot"></span> Human Leads</div>
+                      <ul class="ai-col-list ai-col-human">
+                        <li>Frame the right problem</li>
+                        <li>Conduct stakeholder interviews</li>
+                        <li>Apply judgment to what actually matters</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <p class="ai-callout-principle">"AI finds the haystacks. My researcher finds the needles."</p>
+                </div>
+              </div>
+            </div>
+            <div class="deliverables-toggle" onclick="event.stopPropagation(); toggleDeliverables(1)">
+              <span class="deliverables-arrow" id="arrow-1">&#9658;</span>
+              <span class="milestones-dot"></span>
+              Key Goals <span class="deliverables-count">(5)</span>
+            </div>
+            <div class="deliverables-content" id="deliverables-1">
+              <div class="deliverables-inner">
+                <ul class="deliverables-list">
+                  <li>Business requirements documented</li>
+                  <li>Technical constraints identified</li>
+                  <li>Research plan established</li>
+                  <li>Scope boundaries defined</li>
+                  <li>Stakeholder alignment confirmed</li>
+                </ul>
+              </div>
+            </div>
+            <div class="roles">
+              <span class="role-tag" style="color:#5ba3cc; border-color:rgba(44,95,124,0.4)">PM</span>
+              <span class="role-tag" style="color:#9cc040; border-color:rgba(107,142,35,0.4)">UX Research</span>
+              <span class="role-tag" style="color:#d06060; border-color:rgba(139,44,44,0.4)">Engineering</span>
+              <span class="role-tag" style="color:#c9a030; border-color:rgba(139,105,20,0.4)">Stakeholders</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Kickoff Meeting -->
+        <div class="milestone reveal reveal-delay-2" data-color="kickoff">
+          <div class="milestone-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <div class="milestone-body">
+            <div class="milestone-top">
+              <div>
+                <div class="milestone-title-row">
+                  <span class="milestone-title">Kickoff Meeting</span>
+                  <span class="milestone-num">Phase 2</span>
+                </div>
+                <p class="milestone-subtitle">Cross-Functional Alignment</p>
+              </div>
+              <div class="milestone-stat">
+                <div class="milestone-stat-number">12</div>
+                <div class="milestone-stat-label">goals</div>
+              </div>
+            </div>
+            <p class="milestone-desc">All stakeholders align on scope, constraints, approach, and timeline. Open questions are documented, and everyone leaves with clarity on next steps.</p>
+            <div class="ai-callout">
+              <div class="ai-callout-toggle" onclick="event.stopPropagation(); toggleAI(2)">
+                <span class="ai-callout-arrow" id="ai-arrow-2">&#9658;</span>
+                <span class="ai-callout-dot"></span>
+                AI Augmentation
+              </div>
+              <div class="ai-callout-content" id="ai-content-2">
+                <div class="ai-callout-inner">
+                  <span class="ai-callout-badge badge-human-led">Human-Led</span>
+                  <div class="ai-callout-columns">
+                    <div>
+                      <div class="ai-col-header ai-col-header-ai"><span class="ai-col-header-dot"></span> AI Handles</div>
+                      <ul class="ai-col-list ai-col-ai">
+                        <li>Pre-meeting context synthesis</li>
+                        <li>Constraint mapping from technical docs</li>
+                        <li>Draft agenda from discovery artifacts</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <div class="ai-col-header ai-col-header-human"><span class="ai-col-header-dot"></span> Human Leads</div>
+                      <ul class="ai-col-list ai-col-human">
+                        <li>Cross-functional alignment</li>
+                        <li>Reading the room & relationship building</li>
+                        <li>Real-time decision-making</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <p class="ai-callout-principle">"Alignment is a human act. AI can prepare the table — but can't read the room."</p>
+                </div>
+              </div>
+            </div>
+            <div class="deliverables-toggle" onclick="event.stopPropagation(); toggleDeliverables(2)">
+              <span class="deliverables-arrow" id="arrow-2">&#9658;</span>
+              <span class="milestones-dot"></span>
+              Key Goals <span class="deliverables-count">(5)</span>
+            </div>
+            <div class="deliverables-content" id="deliverables-2">
+              <div class="deliverables-inner">
+                <ul class="deliverables-list">
+                  <li>Requirements reviewed & confirmed</li>
+                  <li>Design approach agreed upon</li>
+                  <li>Timeline and goals set</li>
+                  <li>Action items assigned</li>
+                  <li>Next touchpoint scheduled</li>
+                </ul>
+              </div>
+            </div>
+            <div class="roles">
+              <span class="role-tag" style="color:#5ba3cc; border-color:rgba(44,95,124,0.4)">PM</span>
+              <span class="role-tag" style="color:#e8984a; border-color:rgba(212,119,47,0.4)">UX Design</span>
+              <span class="role-tag" style="color:#9cc040; border-color:rgba(107,142,35,0.4)">UX Research</span>
+              <span class="role-tag" style="color:#4aad7a; border-color:rgba(26,107,74,0.4)">UX Engineer</span>
+              <span class="role-tag" style="color:#d06060; border-color:rgba(139,44,44,0.4)">Engineering</span>
+              <span class="role-tag" style="color:#d0607a; border-color:rgba(139,34,82,0.4)">Marketing</span>
+              <span class="role-tag" style="color:#5b8ad0; border-color:rgba(26,84,144,0.4)">Merchandising</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Design Phase -->
+        <div class="milestone reveal reveal-delay-3" data-color="design">
+          <div class="milestone-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+              <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+              <path d="M2 2l7.586 7.586"/>
+              <circle cx="11" cy="11" r="2"/>
+            </svg>
+          </div>
+          <div class="milestone-body">
+            <div class="milestone-top">
+              <div>
+                <div class="milestone-title-row">
+                  <span class="milestone-title">Design Phase</span>
+                  <span class="milestone-num">Phase 3</span>
+                </div>
+                <p class="milestone-subtitle">Creation & Iteration</p>
+              </div>
+              <div class="milestone-stat">
+                <div class="milestone-stat-number">15</div>
+                <div class="milestone-stat-label">goals</div>
+              </div>
+            </div>
+            <p class="milestone-desc">UX Design creates solutions while UX Research validates assumptions. PM provides support and shields the team from scope creep.</p>
+            <div class="ai-callout">
+              <div class="ai-callout-toggle" onclick="event.stopPropagation(); toggleAI(3)">
+                <span class="ai-callout-arrow" id="ai-arrow-3">&#9658;</span>
+                <span class="ai-callout-dot"></span>
+                AI Augmentation
+              </div>
+              <div class="ai-callout-content" id="ai-content-3">
+                <div class="ai-callout-inner">
+                  <span class="ai-callout-badge badge-both">Human + AI</span>
+                  <div class="ai-callout-columns">
+                    <div>
+                      <div class="ai-col-header ai-col-header-ai"><span class="ai-col-header-dot"></span> AI Handles</div>
+                      <ul class="ai-col-list ai-col-ai">
+                        <li>Generate 5-10 directions fast ("The Bad Build")</li>
+                        <li>Code-based iteration via Claude Code</li>
+                        <li>Volume at near-zero restart cost</li>
+                        <li>Iterate against tokenized design system components</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <div class="ai-col-header ai-col-header-human"><span class="ai-col-header-dot"></span> Human Leads</div>
+                      <ul class="ai-col-list ai-col-human">
+                        <li>Creative direction — find sparks, cut noise</li>
+                        <li>Figma craft in flow state</li>
+                        <li>Novel solutions that can't be prompted</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <p class="ai-callout-principle">"Volume is AI. Taste is human. The craft moment is where novel solutions emerge."</p>
+                </div>
+              </div>
+            </div>
+            <div class="deliverables-toggle" onclick="event.stopPropagation(); toggleDeliverables(3)">
+              <span class="deliverables-arrow" id="arrow-3">&#9658;</span>
+              <span class="milestones-dot"></span>
+              Key Goals <span class="deliverables-count">(5)</span>
+            </div>
+            <div class="deliverables-content" id="deliverables-3">
+              <div class="deliverables-inner">
+                <ul class="deliverables-list">
+                  <li>User flows and UI designs</li>
+                  <li>Research insights and validation</li>
+                  <li>Promotional assets (if applicable)</li>
+                  <li>Ad placements integrated</li>
+                  <li>Design system components used</li>
+                </ul>
+              </div>
+            </div>
+            <div class="roles">
+              <span class="role-tag" style="color:#e8984a; border-color:rgba(212,119,47,0.4)">UX Design Lead</span>
+              <span class="role-tag" style="color:#9cc040; border-color:rgba(107,142,35,0.4)">UX Research</span>
+              <span class="role-tag" style="color:#5ba3cc; border-color:rgba(44,95,124,0.4)">PM Support</span>
+              <span class="role-tag" style="color:#4aad7a; border-color:rgba(26,107,74,0.4)">UX Engineer</span>
+              <span class="role-tag" style="color:#d0607a; border-color:rgba(139,34,82,0.4)">Marketing</span>
+              <span class="role-tag" style="color:#5b8ad0; border-color:rgba(26,84,144,0.4)">Merchandising</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Review & Handoff -->
+        <div class="milestone reveal reveal-delay-4" data-color="handoff">
+          <div class="milestone-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+          </div>
+          <div class="milestone-body">
+            <div class="milestone-top">
+              <div>
+                <div class="milestone-title-row">
+                  <span class="milestone-title">Review & Handoff</span>
+                  <span class="milestone-num">Phase 4</span>
+                </div>
+                <p class="milestone-subtitle">Validation & Preparation</p>
+              </div>
+              <div class="milestone-stat">
+                <div class="milestone-stat-number">19</div>
+                <div class="milestone-stat-label">goals</div>
+              </div>
+            </div>
+            <p class="milestone-desc">UX Engineer prepares dev-ready files and conducts handoff. Engineering reviews feasibility. All stakeholders approve before development begins.</p>
+            <div class="ai-callout">
+              <div class="ai-callout-toggle" onclick="event.stopPropagation(); toggleAI(4)">
+                <span class="ai-callout-arrow" id="ai-arrow-4">&#9658;</span>
+                <span class="ai-callout-dot"></span>
+                AI Augmentation
+              </div>
+              <div class="ai-callout-content" id="ai-content-4">
+                <div class="ai-callout-inner">
+                  <span class="ai-callout-badge badge-ai-accelerated">AI-Accelerated</span>
+                  <div class="ai-callout-columns">
+                    <div>
+                      <div class="ai-col-header ai-col-header-ai"><span class="ai-col-header-dot"></span> AI Handles</div>
+                      <ul class="ai-col-list ai-col-ai">
+                        <li>Generate functional prototypes & dev-ready specs</li>
+                        <li>Auto-document design decisions</li>
+                        <li>Build handoff artifacts from Figma</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <div class="ai-col-header ai-col-header-human"><span class="ai-col-header-dot"></span> Human Leads</div>
+                      <ul class="ai-col-list ai-col-human">
+                        <li>Design QA & edge case review</li>
+                        <li>Stakeholder approval</li>
+                        <li>Catch what AI misses ("the seventh participant")</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <p class="ai-callout-principle">"Real users break things AI can't predict. QA is where judgment earns its keep."</p>
+                </div>
+              </div>
+            </div>
+            <div class="deliverables-toggle" onclick="event.stopPropagation(); toggleDeliverables(4)">
+              <span class="deliverables-arrow" id="arrow-4">&#9658;</span>
+              <span class="milestones-dot"></span>
+              Key Goals <span class="deliverables-count">(5)</span>
+            </div>
+            <div class="deliverables-content" id="deliverables-4">
+              <div class="deliverables-inner">
+                <ul class="deliverables-list">
+                  <li>Dev-ready specs and files</li>
+                  <li>Design QA completed</li>
+                  <li>Handoff meeting conducted</li>
+                  <li>All approvals obtained</li>
+                  <li>Open questions resolved</li>
+                </ul>
+              </div>
+            </div>
+            <div class="roles">
+              <span class="role-tag" style="color:#4aad7a; border-color:rgba(26,107,74,0.4)">UX Engineer Lead</span>
+              <span class="role-tag" style="color:#d06060; border-color:rgba(139,44,44,0.4)">Engineering</span>
+              <span class="role-tag" style="color:#e8984a; border-color:rgba(212,119,47,0.4)">UX Design</span>
+              <span class="role-tag" style="color:#5ba3cc; border-color:rgba(44,95,124,0.4)">PM</span>
+              <span class="role-tag" style="color:#c9a030; border-color:rgba(139,105,20,0.4)">Stakeholders</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Post-Launch -->
+        <div class="milestone reveal reveal-delay-5" data-color="postlaunch">
+          <div class="milestone-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M3 3v18h18"/>
+              <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
+            </svg>
+          </div>
+          <div class="milestone-body">
+            <div class="milestone-top">
+              <div>
+                <div class="milestone-title-row">
+                  <span class="milestone-title">Post-Launch</span>
+                  <span class="milestone-num">Phase 5</span>
+                </div>
+                <p class="milestone-subtitle">Measurement & Iteration</p>
+              </div>
+              <div class="milestone-stat">
+                <div class="milestone-stat-number">9</div>
+                <div class="milestone-stat-label">goals</div>
+              </div>
+            </div>
+            <p class="milestone-desc">UX Research measures success metrics and collects user feedback. The team captures lessons learned and uses insights to inform future iterations.</p>
+            <div class="ai-callout">
+              <div class="ai-callout-toggle" onclick="event.stopPropagation(); toggleAI(5)">
+                <span class="ai-callout-arrow" id="ai-arrow-5">&#9658;</span>
+                <span class="ai-callout-dot"></span>
+                AI Augmentation
+              </div>
+              <div class="ai-callout-content" id="ai-content-5">
+                <div class="ai-callout-inner">
+                  <span class="ai-callout-badge badge-both">Human + AI</span>
+                  <div class="ai-callout-columns">
+                    <div>
+                      <div class="ai-col-header ai-col-header-ai"><span class="ai-col-header-dot"></span> AI Handles</div>
+                      <ul class="ai-col-list ai-col-ai">
+                        <li>Monitor success metrics & detect patterns</li>
+                        <li>Synthesize user feedback at scale</li>
+                        <li>Generate iteration candidates from data</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <div class="ai-col-header ai-col-header-human"><span class="ai-col-header-dot"></span> Human Leads</div>
+                      <ul class="ai-col-list ai-col-human">
+                        <li>Interpret what the numbers mean</li>
+                        <li>Make strategic iteration calls</li>
+                        <li>Document lessons for institutional memory</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <p class="ai-callout-principle">"AI shows you what happened. Humans decide what it means."</p>
+                </div>
+              </div>
+            </div>
+            <div class="deliverables-toggle" onclick="event.stopPropagation(); toggleDeliverables(5)">
+              <span class="deliverables-arrow" id="arrow-5">&#9658;</span>
+              <span class="milestones-dot"></span>
+              Key Goals <span class="deliverables-count">(5)</span>
+            </div>
+            <div class="deliverables-content" id="deliverables-5">
+              <div class="deliverables-inner">
+                <ul class="deliverables-list">
+                  <li>Success metrics monitored</li>
+                  <li>User feedback collected</li>
+                  <li>Post-launch research conducted</li>
+                  <li>Lessons learned documented</li>
+                  <li>Iteration plan created</li>
+                </ul>
+              </div>
+            </div>
+            <div class="roles">
+              <span class="role-tag" style="color:#9cc040; border-color:rgba(107,142,35,0.4)">UX Research Lead</span>
+              <span class="role-tag" style="color:#5ba3cc; border-color:rgba(44,95,124,0.4)">PM</span>
+              <span class="role-tag" style="color:#e8984a; border-color:rgba(212,119,47,0.4)">UX Design</span>
+              <span class="role-tag" style="color:#4aad7a; border-color:rgba(26,107,74,0.4)">UX Engineer</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Role Legend -->
+      <div class="legend reveal">
+        <h3 class="legend-title">Role Legend</h3>
+        <div class="legend-grid">
+          <div class="legend-item">
+            <div class="legend-swatch" style="background:#5ba3cc"></div>
+            <span class="legend-label">Product Manager</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-swatch" style="background:#e8984a"></div>
+            <span class="legend-label">UX Design</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-swatch" style="background:#9cc040"></div>
+            <span class="legend-label">UX Research</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-swatch" style="background:#4aad7a"></div>
+            <span class="legend-label">UX Engineer</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-swatch" style="background:#d06060"></div>
+            <span class="legend-label">Engineering Lead</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-swatch" style="background:#d0607a"></div>
+            <span class="legend-label">Marketing</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-swatch" style="background:#5b8ad0"></div>
+            <span class="legend-label">Merchandising</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-swatch" style="background:#c9a030"></div>
+            <span class="legend-label">Stakeholders</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    /* ── Toggle Milestones ── */
+    function toggleDeliverables(id) {
+      var content = document.getElementById('deliverables-' + id);
+      var arrow = document.getElementById('arrow-' + id);
+      if (!content || !arrow) return;
+
+      content.classList.toggle('open');
+      arrow.classList.toggle('expanded');
+    }
+
+    /* ── Toggle AI Augmentation ── */
+    function toggleAI(id) {
+      const content = document.getElementById('ai-content-' + id);
+      const arrow = document.getElementById('ai-arrow-' + id);
+      if (!content || !arrow) return;
+
+      content.classList.toggle('open');
+      arrow.classList.toggle('expanded');
+    }
+
+    /* ── Scroll Reveal ── */
+    function initReveal() {
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.reveal').forEach(function(el) {
+        observer.observe(el);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', initReveal);
+  </script>
+
+</body>
+</html>

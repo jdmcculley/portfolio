@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="assets/brand/jd-poly-logo-gradient.svg">
+<title>JD McCulley — Job Search Strategy</title>
+<link rel="stylesheet" href="css/design-system.css">
+<link rel="stylesheet" href="css/custom-styles.css">
+<style>
+/* ═══════════════════════════════════════════════════════════
+   PAGE-SPECIFIC STYLES — JOB SEARCH STRATEGY
+   ═══════════════════════════════════════════════════════════ */
+
+/* Layout */
+.strategy-page {
+  padding-top: calc(var(--nav-height) + 48px);
+  padding-bottom: 80px;
+}
+
+.strategy-section {
+  max-width: var(--max-width);
+  margin: 0 auto 72px;
+  padding: 0 var(--container-pad);
+  position: relative;
+  z-index: 2;
+}
+
+/* Hero */
+.strategy-hero {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-pad) 48px;
+  position: relative;
+  z-index: 2;
+}
+
+.strategy-hero h1 {
+  font-family: var(--heading);
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.strategy-hero h1 span { color: var(--gold); }
+
+.strategy-hero .subtitle {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  color: var(--copper);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.strategy-hero p {
+  font-size: 1rem;
+  color: var(--text-soft);
+  max-width: 640px;
+  line-height: 1.75;
+  font-weight: 300;
+}
+
+/* Section dividers */
+.section-divider {
+  border: none;
+  height: 1px;
+  background: var(--border);
+  max-width: var(--max-width);
+  margin: 0 auto 72px;
+}
+
+/* Section titles */
+.strategy-label {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.strategy-heading {
+  font-family: var(--heading);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+
+.strategy-desc {
+  font-size: 1rem;
+  color: var(--text-soft);
+  max-width: 640px;
+  line-height: 1.75;
+  font-weight: 300;
+  margin-bottom: 40px;
+}
+
+/* Subsection headings */
+.sub-heading {
+  font-family: var(--heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+  margin-top: 40px;
+}
+
+.sub-heading:first-of-type { margin-top: 0; }
+
+.sub-heading-sm {
+  font-family: var(--heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 10px;
+  margin-top: 32px;
+}
+
+/* Body text */
+.body-text {
+  font-size: 0.92rem;
+  color: var(--text-soft);
+  line-height: 1.75;
+  margin-bottom: 16px;
+  max-width: 720px;
+}
+
+.body-text strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Stat cards row */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-align: center;
+  transition: border-color 0.3s ease;
+}
+
+.stat-card:hover { border-color: var(--border-strong); }
+
+.stat-number {
+  font-family: var(--mono);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  color: var(--text-soft);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Asset status table */
+.status-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 40px;
+  max-width: 800px;
+}
+
+.status-table th {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.status-table td {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.status-table td:first-child {
+  color: var(--text);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.status-ready {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #4ade80;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+.status-ready::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 6px rgba(74, 222, 128, 0.4);
+}
+
+.status-progress {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--copper);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+.status-progress::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--copper);
+  box-shadow: 0 0 6px var(--copper-glow);
+  animation: dotPulse 2.5s ease-in-out infinite;
+}
+
+/* Rule cards (new rules section) */
+.rule-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px;
+  margin-bottom: 20px;
+}
+
+.rule-card h3 {
+  font-family: var(--heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.rule-card p {
+  font-size: 0.88rem;
+  color: var(--text-soft);
+  line-height: 1.7;
+}
+
+.rule-card .highlight {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* Tool cards */
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.tool-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+  transition: border-color 0.3s ease, transform 0.3s var(--ease);
+}
+
+.tool-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+}
+
+.tool-tier {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--copper);
+  margin-bottom: 8px;
+}
+
+.tool-name {
+  font-family: var(--heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.tool-price {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.tool-desc {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  line-height: 1.65;
+}
+
+/* Daily rhythm blocks */
+.rhythm-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.rhythm-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  border-radius: 3px 0 0 3px;
+}
+
+.rhythm-block.block-1::before { background: var(--gold); }
+.rhythm-block.block-2::before { background: var(--copper); }
+.rhythm-block.block-3::before { background: var(--gold-dim); }
+
+.rhythm-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 6px;
+}
+
+.rhythm-title {
+  font-family: var(--heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.rhythm-time {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--gold);
+  letter-spacing: 0.5px;
+}
+
+.rhythm-context {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.rhythm-items {
+  list-style: none;
+  padding: 0;
+}
+
+.rhythm-items li {
+  font-size: 0.88rem;
+  color: var(--text-soft);
+  line-height: 1.65;
+  padding: 6px 0 6px 24px;
+  position: relative;
+}
+
+.rhythm-items li::before {
+  content: '□';
+  position: absolute;
+  left: 0;
+  color: var(--gold-dim);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+}
+
+.rhythm-items li .sub-items {
+  list-style: none;
+  padding: 4px 0 4px 20px;
+}
+
+.rhythm-items li .sub-items li {
+  font-size: 0.82rem;
+  padding: 3px 0 3px 20px;
+  color: var(--text-muted);
+}
+
+.rhythm-items li .sub-items li::before {
+  content: '›';
+  color: var(--copper-dim);
+  font-size: 0.82rem;
+}
+
+/* Weekly cadence table */
+.cadence-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 40px;
+}
+
+.cadence-table th {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.cadence-table td {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.cadence-table td:first-child {
+  font-family: var(--mono);
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  width: 120px;
+}
+
+/* Outreach templates */
+.template-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+  margin-bottom: 20px;
+}
+
+.template-name {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+.template-text {
+  font-size: 0.88rem;
+  color: var(--text-soft);
+  line-height: 1.7;
+  font-style: italic;
+  padding-left: 16px;
+  border-left: 2px solid var(--gold-dim);
+}
+
+.template-text .placeholder {
+  color: var(--copper);
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* Checklist */
+.checklist {
+  list-style: none;
+  padding: 0;
+  max-width: 720px;
+}
+
+.checklist li {
+  font-size: 0.88rem;
+  color: var(--text-soft);
+  line-height: 1.7;
+  padding: 10px 0 10px 28px;
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.checklist li::before {
+  content: '□';
+  position: absolute;
+  left: 0;
+  color: var(--gold-dim);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+}
+
+.checklist li strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Metrics target table */
+.metrics-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 40px;
+}
+
+.metrics-table th {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.metrics-table td {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.metrics-table td:first-child {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.metrics-table td:nth-child(2) {
+  font-family: var(--mono);
+  color: var(--gold);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Not doing cards */
+.not-doing {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin-bottom: 16px;
+}
+
+.not-doing h4 {
+  font-family: var(--heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.not-doing p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* Compound effect timeline */
+.timeline {
+  position: relative;
+  padding-left: 32px;
+  margin-bottom: 40px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--gold), var(--gold-dim), transparent);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 28px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -28px;
+  top: 8px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  background: var(--bg);
+}
+
+.timeline-item h4 {
+  font-family: var(--heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.timeline-item p {
+  font-size: 0.88rem;
+  color: var(--text-soft);
+  line-height: 1.7;
+  max-width: 640px;
+}
+
+/* Positioning table */
+.position-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 40px;
+}
+
+.position-table th {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.position-table td {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.position-table td:first-child {
+  color: var(--text);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* NDA cards */
+.nda-do, .nda-dont {
+  border-radius: 12px;
+  padding: 28px;
+  margin-bottom: 20px;
+}
+
+.nda-do {
+  background: var(--surface);
+  border: 1px solid rgba(74, 222, 128, 0.12);
+}
+
+.nda-dont {
+  background: var(--surface);
+  border: 1px solid rgba(239, 68, 68, 0.12);
+}
+
+.nda-do h4 {
+  font-family: var(--heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #4ade80;
+  margin-bottom: 10px;
+}
+
+.nda-dont h4 {
+  font-family: var(--heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ef4444;
+  margin-bottom: 10px;
+}
+
+.nda-do p, .nda-dont p {
+  font-size: 0.88rem;
+  color: var(--text-soft);
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.nda-do p:last-child, .nda-dont p:last-child { margin-bottom: 0; }
+
+/* Avoid tier */
+.tool-avoid {
+  opacity: 0.5;
+  border-style: dashed;
+}
+
+.tool-avoid .tool-tier { color: var(--text-muted); }
+.tool-avoid .tool-name { color: var(--text-muted); }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .tool-grid { grid-template-columns: 1fr; }
+  .stat-row { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .stat-row { grid-template-columns: 1fr; }
+  .rhythm-header { flex-direction: column; gap: 4px; }
+  .strategy-hero h1 { font-size: 1.8rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ Background Effects ═══ -->
+<div class="bg-grid"></div>
+<div class="bg-orb orb-a"></div>
+<div class="bg-orb orb-b"></div>
+<div id="progress-bar"></div>
+
+<!-- ═══ Navigation ═══ -->
+<nav>
+  <a href="index.html" class="nav-back">Portfolio</a>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<main class="strategy-page">
+  <div class="strategy-hero reveal">
+    <div class="page-badge"><span class="dot"></span>Strategy Playbook</div>
+    <div style="height: 20px;"></div>
+    <h1>Job Search <span>Strategy</span></h1>
+    <div class="subtitle">AI-Powered Outbound Motion & Daily Rhythm</div>
+    <p>The 2026 hiring market has fundamentally changed. This is the system — daily, disciplined, and AI-augmented — designed for a product design leader who already has the positioning, the resume, and the story built. The job now is outbound motion.</p>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- ═══ THE LANDSCAPE ═══ -->
+  <section class="strategy-section reveal">
+    <div class="strategy-label">The Landscape</div>
+    <div class="strategy-heading">What You're Operating In</div>
+
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-number">93%</div>
+        <div class="stat-label">Recruiters Increasing AI Use</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">66%</div>
+        <div class="stat-label">Using AI Agents to Pre-Screen</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">80%</div>
+        <div class="stat-label">Workers Feel Unprepared</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">25M+</div>
+        <div class="stat-label">Weekly AI Job Searches</div>
+      </div>
+    </div>
+
+    <p class="body-text">Here's the good news: you're not most workers. You have a clear positioning statement, a strong brand, a current resume, a LinkedIn profile with recommendations, and a case study that demonstrates exactly what you do. Most candidates are scrambling to figure out their story. <strong>Yours is built.</strong></p>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ═══ NEW RULES ═══ -->
+  <section class="strategy-section reveal">
+    <div class="strategy-label">What's Changed</div>
+    <div class="strategy-heading">The New Rules</div>
+
+    <div class="rule-card">
+      <h3>LinkedIn Is Now an AI-Matching Engine</h3>
+      <p>The system no longer requires exact keyword matches. You can type conversational queries and get relevant results. LinkedIn's Job Match tool evaluates your profile against each listing and gives you a fit rating. The critical shift: recruiters no longer search by job title alone — they search by <span class="highlight">skill clusters</span>.</p>
+    </div>
+
+    <div class="rule-card">
+      <h3>Recruiters Use AI Agents to Pre-Screen</h3>
+      <p>Before a human reads your application, an AI agent has likely scored it. Your resume and LinkedIn profile must be machine-readable, keyword-aligned, and outcome-rich. Vague language gets filtered out. <span class="highlight">Specific metrics and skill alignment get surfaced.</span></p>
+    </div>
+
+    <div class="rule-card">
+      <h3>The 80/20 Rule Is Real</h3>
+      <p>Spend 20% of your time applying, 80% networking. A referral or warm introduction remains the only reliable way to guarantee a human reviews your application. At the leadership level, most VP/Director roles are <span class="highlight">filled through networks</span>, not cold applications.</p>
+    </div>
+
+    <div class="rule-card">
+      <h3>AI Tools Are Powerful but Require Governance</h3>
+      <p>AI can surface opportunities, tailor resumes, track applications, and prep you for interviews. But it cannot build relationships or tell your story with authenticity. Use AI the way you use it in design: <span class="highlight">it compresses the distance to the moment where your judgment matters.</span></p>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ═══ CURRENT ASSETS ═══ -->
+  <section class="strategy-section reveal">
+    <div class="strategy-label">Status Check</div>
+    <div class="strategy-heading">Your Current Assets</div>
+
+    <table class="status-table">
+      <thead>
+        <tr>
+          <th>Asset</th>
+          <th>Status</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>LinkedIn Profile</td>
+          <td><span class="status-ready">Ready</span></td>
+          <td>Recommendations filled, experience accurate</td>
+        </tr>
+        <tr>
+          <td>Resume</td>
+          <td><span class="status-ready">Ready</span></td>
+          <td>Current experience reflected</td>
+        </tr>
+        <tr>
+          <td>Portfolio / Case Study</td>
+          <td><span class="status-progress">In Progress</span></td>
+          <td>Strong RBA case study in progress; NDA considerations to resolve</td>
+        </tr>
+        <tr>
+          <td>Brand Positioning</td>
+          <td><span class="status-ready">Solid</span></td>
+          <td>Design-Led AI narrative, three pillars, audience-specific framing</td>
+        </tr>
+        <tr>
+          <td>Interview Prep</td>
+          <td><span class="status-ready">Available</span></td>
+          <td>Three-level answer framework, story bank, AI narrative</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ═══ NDA PORTFOLIO ═══ -->
+  <section class="strategy-section reveal">
+    <div class="strategy-label">Portfolio Guidance</div>
+    <div class="strategy-heading">The NDA Question</div>
+    <div class="strategy-desc">Two competing concerns: hiding work looks evasive at the leadership level, but violating NDAs signals poor judgment. Both are career risks. Here's the approach.</div>
+
+    <div class="nda-do">
+      <h4>What to Do</h4>
+      <p><strong>Lead with process, not product.</strong> Your RBA case study already does this well — it tells the story of how you identified 25,000+ stuck users, what framework you applied, how you validated, and what resulted. That's what Director+ hiring managers care about.</p>
+      <p><strong>Use the "broad strokes" method for NDA work.</strong> Describe scope, role, problem, approach, and outcomes. Use percentages rather than raw numbers. Dollar General's app is public — much of your work is visible in the wild.</p>
+      <p><strong>Password-protect only if necessary.</strong> Frame it as: "I take confidentiality seriously — here's access to the full work for your review." This signals professionalism, not evasiveness.</p>
+      <p><strong>Supplement with thought leadership.</strong> LinkedIn posts about your design-led AI approach are portfolio pieces under no NDA. They demonstrate your thinking publicly.</p>
+    </div>
+
+    <div class="nda-dont">
+      <h4>What Not to Do</h4>
+      <p>Don't lock your entire portfolio behind a password — the friction kills discovery. Don't show confidential data without permission. And don't apologize for having NDA work — at your level, everyone does.</p>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ═══ TOOL STACK ═══ -->
+  <section class="strategy-section reveal">
+    <div class="strategy-label">Tool Stack</div>
+    <div class="strategy-heading">AI-Powered Toolkit</div>
+
+    <div class="sub-heading">Tier 1 — Daily Drivers</div>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <div class="tool-tier">Daily Driver</div>
+        <div class="tool-name">LinkedIn Premium</div>
+        <div class="tool-price">Recommended</div>
+        <div class="tool-desc">Your primary channel. AI-powered conversational job search, Job Match scoring, skill gap analysis, People Search, Top Applicant visibility, and InMail credits for direct outreach.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-tier">Daily Driver</div>
+        <div class="tool-name">Teal</div>
+        <div class="tool-price">$29/month</div>
+        <div class="tool-desc">Chrome extension consolidates listings from 40+ boards. Paste a job description and your resume side by side — Teal identifies keyword gaps and match scores. Tailor without over-optimizing.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-tier">Daily Driver</div>
+        <div class="tool-name">Claude</div>
+        <div class="tool-price">You already have this</div>
+        <div class="tool-desc">Your unfair advantage. Research synthesis on target companies, interview prep, tailoring outreach, analyzing JDs for positioning alignment. You use it at a level most candidates don't.</div>
+      </div>
+    </div>
+
+    <div class="sub-heading">Tier 2 — Strategic Supplements</div>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <div class="tool-tier">Supplement</div>
+        <div class="tool-name">Careerflow</div>
+        <div class="tool-price">$19.99/month</div>
+        <div class="tool-desc">LinkedIn profile optimization and search pipeline analytics. Data-driven feedback on how your profile appears to recruiters.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-tier">Supplement</div>
+        <div class="tool-name">Jobright AI</div>
+        <div class="tool-price">Varies</div>
+        <div class="tool-desc">AI-powered matching with explanatory insights on why a role fits. Good for surfacing roles you might miss through keyword search alone.</div>
+      </div>
+    </div>
+
+    <div class="sub-heading">Tier 3 — Avoid for Your Level</div>
+    <div class="tool-grid">
+      <div class="tool-card tool-avoid">
+        <div class="tool-tier">Avoid</div>
+        <div class="tool-name">Auto-Apply Tools</div>
+        <div class="tool-price">Sonara, LoopCV, JobHire.AI</div>
+        <div class="tool-desc">Volume signals desperation at the leadership level. Auto-generated applications lack the specificity Director+ roles require. Your applications should be surgical, not spray-and-pray.</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ═══ DAILY RHYTHM ═══ -->
+  <section class="strategy-section reveal">
+    <div class="strategy-label">The System</div>
+    <div class="strategy-heading">Daily Rhythm</div>
+    <div class="strategy-desc">90 minutes per day, every day, structured into three blocks. Adjust timing to your schedule, but maintain the sequence.</div>
+
+    <div class="rhythm-block block-1">
+      <div class="rhythm-header">
+        <div class="rhythm-title">Block 1: Scan & Source</div>
+        <div class="rhythm-time">25 min</div>
+      </div>
+      <div class="rhythm-context">Morning, with coffee. Low energy required.</div>
+      <ul class="rhythm-items">
+        <li>Open LinkedIn AI job search. Run 2–3 conversational queries:
+          <ul class="sub-items">
+            <li>"Design leadership roles at enterprise companies building AI-powered products"</li>
+            <li>"VP or Director of Product Design at Series B+ startups"</li>
+            <li>"Head of Design roles in fintech, retail tech, or SaaS"</li>
+          </ul>
+        </li>
+        <li>Review top 10–15 results. Use LinkedIn's Job Match to filter high-fit roles.</li>
+        <li>Check Teal dashboard for new matches from other boards.</li>
+        <li>Save 2–5 strong leads. Don't apply yet — just capture.</li>
+      </ul>
+    </div>
+
+    <div class="rhythm-block block-2">
+      <div class="rhythm-header">
+        <div class="rhythm-title">Block 2: Target & Tailor</div>
+        <div class="rhythm-time">40 min</div>
+      </div>
+      <div class="rhythm-context">Focused work. This is where the quality happens.</div>
+      <ul class="rhythm-items">
+        <li>Pick 1–2 roles from saved leads for targeted action today.</li>
+        <li>For each role:
+          <ul class="sub-items">
+            <li>Run the JD through Teal to identify keyword gaps against your resume.</li>
+            <li>Use Claude to research the company: news, leadership, product direction, design maturity.</li>
+            <li>Use LinkedIn People Search for connections or references inside the company.</li>
+            <li>Tailor outreach or application with specific language that mirrors the role's priorities.</li>
+          </ul>
+        </li>
+        <li>Submit the application or send the outreach message.</li>
+        <li>Log the action in your tracker.</li>
+      </ul>
+    </div>
+
+    <div class="rhythm-block block-3">
+      <div class="rhythm-header">
+        <div class="rhythm-title">Block 3: Network & Nurture</div>
+        <div class="rhythm-time">25 min</div>
+      </div>
+      <div class="rhythm-context">Late morning or early afternoon. Relationship-building mode.</div>
+      <ul class="rhythm-items">
+        <li><strong>Micronetworking (10 min):</strong> Engage with 3–5 LinkedIn posts from people in target companies or design leadership circles. Thoughtful comments, not just likes.</li>
+        <li><strong>Direct outreach (10 min):</strong> Send 1–2 personalized messages to people who could provide warm introductions or insight into target companies.</li>
+        <li><strong>Content creation (5 min):</strong> Draft or publish one piece of thought leadership per week. Aim for Tuesday or Wednesday — highest LinkedIn engagement days.</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ═══ WEEKLY CADENCE ═══ -->
+  <section class="strategy-section reveal">
+    <div class="strategy-label">Weekly Structure</div>
+    <div class="strategy-heading">Cadence</div>
+
+    <table class="cadence-table">
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Focus</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Monday</td>
+          <td>Full daily rhythm + review pipeline from last week. What's stale? What needs follow-up?</td>
+        </tr>
+        <tr>
+          <td>Tuesday</td>
+          <td>Full daily rhythm + publish LinkedIn post (highest engagement day)</td>
+        </tr>
+        <tr>
+          <td>Wednesday</td>
+          <td>Full daily rhythm + targeted outreach to 2–3 new connections at target companies</td>
+        </tr>
+        <tr>
+          <td>Thursday</td>
+          <td>Full daily rhythm + interview prep work (practice one story, refine one answer)</td>
+        </tr>
+        <tr>
+          <td>Friday</td>
+          <td>Abbreviated scan (15 min) + reflect on week. What worked? What flopped? Adjust.</td>
+        </tr>
+        <tr>
+          <td>Weekend</td>
+          <td>Off. Or light content drafting if the spirit moves you. Don't burn out.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ═══ OUTREACH TEMPLATES ═══ -->
+  <section class="strategy-section reveal">
+    <div class="strategy-label">Templates</div>
+    <div class="strategy-heading">Outreach Messages</div>
+
+    <div class="template-card">
+      <div class="template-name">Warm Introduction Request</div>
+      <div class="template-text"><span class="placeholder">[Name]</span>, I noticed <span class="placeholder">[Company]</span> has an opening for <span class="placeholder">[Role]</span>. I've been following their work on <span class="placeholder">[specific initiative]</span> and it aligns closely with what I've been building — design leadership at enterprise scale with AI integrated into the product lifecycle, not bolted on. Would you be open to a quick conversation or an introduction to the hiring team?</div>
+    </div>
+
+    <div class="template-card">
+      <div class="template-name">Cold Outreach to Hiring Manager</div>
+      <div class="template-text"><span class="placeholder">[Name]</span>, I'm a product design leader with 25 years building UX teams across startup and enterprise. Most recently led design at Dollar General's digital platform through 6.6M+ MAU growth. I'm particularly drawn to <span class="placeholder">[Company]</span> because <span class="placeholder">[specific, researched reason]</span>. I'd welcome the chance to learn more about how design is positioned within your org. Would you be open to a brief conversation?</div>
+    </div>
+
+    <div class="template-card">
+      <div class="template-name">LinkedIn Post Framework</div>
+      <div class="template-text"><strong>Hook:</strong> One sentence that challenges a common assumption or shares a hard-won insight.<br><br><strong>Story:</strong> 3–4 sentences from your actual experience. Be specific.<br><br><strong>Takeaway:</strong> What does this mean for how design leadership is evolving?<br><br><strong>Invitation:</strong> Ask a question that invites conversation, not just agreement.</div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ═══ COMPANY RESEARCH ═══ -->
+  <section class="strategy-section reveal">
+    <div class="strategy-label">Research Pass</div>
+    <div class="strategy-heading">Target Company Checklist</div>
+    <div class="strategy-desc">When you identify a company worth pursuing, run this research pass. Claude can help with all of it.</div>
+
+    <ul class="checklist">
+      <li><strong>Product review:</strong> Download the app, use the site. Know what their product looks like today.</li>
+      <li><strong>Design team structure:</strong> LinkedIn search for designers at the company. How big is the team?</li>
+      <li><strong>Hiring manager:</strong> Who posted the role? Who would you report to?</li>
+      <li><strong>Recent news:</strong> Funding rounds, product launches, leadership changes.</li>
+      <li><strong>Design maturity signals:</strong> Design system? Research team? Accessibility commitment?</li>
+      <li><strong>Mutual connections:</strong> Who in your network could provide a warm introduction?</li>
+      <li><strong>Language alignment:</strong> What language do they use in the JD? Mirror it in your application.</li>
+    </ul>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ═══ METRICS ═══ -->
+  <section class="strategy-section reveal">
+    <div class="strategy-label">Pipeline Metrics</div>
+    <div class="strategy-heading">What to Track</div>
+    <div class="strategy-desc">Don't just track applications. Track the pipeline.</div>
+
+    <table class="metrics-table">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Target</th>
+          <th>Why It Matters</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Roles reviewed / week</td>
+          <td>30–50</td>
+          <td>Ensures you're seeing the market</td>
+        </tr>
+        <tr>
+          <td>Targeted applications / week</td>
+          <td>5–8</td>
+          <td>Quality over quantity at your level</td>
+        </tr>
+        <tr>
+          <td>Outreach messages / week</td>
+          <td>8–12</td>
+          <td>Warm intros are your highest-converting channel</td>
+        </tr>
+        <tr>
+          <td>LinkedIn engagement / week</td>
+          <td>15–25</td>
+          <td>Builds algorithmic visibility and human familiarity</td>
+        </tr>
+        <tr>
+          <td>LinkedIn posts / month</td>
+          <td>4</td>
+          <td>Establishes thought leadership, creates inbound</td>
+        </tr>
+        <tr>
+          <td>Conversations / week</td>
+          <td>2–3</td>
+          <td>Relationships convert to opportunities</td>
+        </tr>
+        <tr>
+          <td>Interview conversion</td>
+          <td>Track</td>
+          <td>Signals if your positioning is landing</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ═══ LINKEDIN OPTIMIZATION ═══ -->
+  <section class="strategy-section reveal">
+    <div class="strategy-label">One-Time Setup</div>
+    <div class="strategy-heading">LinkedIn Optimization</div>
+    <div class="strategy-desc">Your profile is in good shape. Run this pass to ensure algorithmic alignment.</div>
+
+    <ul class="checklist">
+      <li><strong>Headline:</strong> Lead with what you do for companies, not just your title. Example: "Product Design Leader | Design-Led AI | Enterprise Scale UX | Building Teams That Deliver"</li>
+      <li><strong>About section:</strong> Open 5–7 target job descriptions, highlight recurring skills and phrases, ensure your About reflects them naturally.</li>
+      <li><strong>Skills section:</strong> 50 skills listed, top 3 pinned to strongest positioning, LinkedIn Skill Assessments completed for "Verified" badge.</li>
+      <li><strong>Featured section:</strong> RBA case study linked. LinkedIn post demonstrating design-led AI thinking.</li>
+      <li><strong>Recommendations:</strong> 2–3 strongest from people at recognizable companies or in leadership roles.</li>
+      <li><strong>Open to Work:</strong> On for recruiters only (not public). Target titles and locations set.</li>
+      <li><strong>Creator mode:</strong> Consider enabling for the "Follow" button and increased post distribution.</li>
+    </ul>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ═══ WHAT YOU'RE NOT DOING ═══ -->
+  <section class="strategy-section reveal">
+    <div class="strategy-label">Boundaries</div>
+    <div class="strategy-heading">What You're NOT Doing</div>
+    <div class="strategy-desc">This strategy is deliberately opinionated.</div>
+
+    <div class="not-doing">
+      <h4>No mass applications.</h4>
+      <p>At your level, every application should be researched and tailored. AI helps you do this faster, not skip it.</p>
+    </div>
+    <div class="not-doing">
+      <h4>No automated outreach bots.</h4>
+      <p>Automated LinkedIn messages are immediately obvious and damage your brand. Every message should feel like it came from you — even if Claude helped draft it.</p>
+    </div>
+    <div class="not-doing">
+      <h4>No portfolio perfectionism.</h4>
+      <p>Your RBA case study is strong. Ship it. A live portfolio with one great case study beats a perfect portfolio that's never published.</p>
+    </div>
+    <div class="not-doing">
+      <h4>No waiting for the "right" role.</h4>
+      <p>Apply to roles that are 70%+ fit. Companies often reshape roles for the right candidate at the leadership level.</p>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ═══ COMPOUND EFFECT ═══ -->
+  <section class="strategy-section reveal">
+    <div class="strategy-label">30-Day Arc</div>
+    <div class="strategy-heading">The Compound Effect</div>
+    <div class="strategy-desc">This system is designed to compound. Here's what happens over 30 days of consistent execution.</div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <h4>Week 1 — Calibrating</h4>
+        <p>Learning what language companies use, which boards surface the best roles, how your positioning lands in outreach.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>Week 2 — Building Visibility</h4>
+        <p>LinkedIn engagement is growing. People start recognizing your name in comment threads. Your first post gets traction.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>Week 3 — Converting</h4>
+        <p>Warm introductions start converting. Someone from Week 1 responds. A recruiter who saw your post reaches out. Your pipeline has 3–5 active conversations.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>Week 4 — Interviewing</h4>
+        <p>You're in interviews. Your daily rhythm is automatic. You're spending less time scanning because your network is surfacing roles to you. The system is working.</p>
+      </div>
+    </div>
+
+    <p class="body-text" style="margin-top: 20px;"><strong>The key is not skipping days.</strong> 90 minutes, every day, in sequence. Outbound motion compounds.</p>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ═══ POSITIONING TABLE ═══ -->
+  <section class="strategy-section reveal">
+    <div class="strategy-label">Quick Reference</div>
+    <div class="strategy-heading">Positioning by Audience</div>
+
+    <table class="position-table">
+      <thead>
+        <tr>
+          <th>Company Type</th>
+          <th>Lead With</th>
+          <th>Follow With</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Fortune 500</td>
+          <td>Enterprise scale + team building</td>
+          <td>Design-led AI as operational governance + risk reduction</td>
+        </tr>
+        <tr>
+          <td>Series A–C Startup</td>
+          <td>Building from nothing + growth trajectory</td>
+          <td>Design-led AI as competitive advantage</td>
+        </tr>
+        <tr>
+          <td>Agency</td>
+          <td>Embedded model + deliverable quality</td>
+          <td>Design-led AI as capacity multiplier</td>
+        </tr>
+        <tr>
+          <td>Small Company</td>
+          <td>Hands-on design + craft</td>
+          <td>Design-led AI as way to punch above weight</td>
+        </tr>
+        <tr>
+          <td>Design-Focused</td>
+          <td>Design craft + judgment</td>
+          <td>Design-led AI as complement, not replacement</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</main>
+
+<!-- ═══ Footer ═══ -->
+<footer>
+  <div class="footer-logo">JD McCULLEY</div>
+  <div class="footer-right">
+    <div class="footer-verse">"Whatever you do, work at it with all your heart"</div>
+    <div class="footer-text">Updated February 2026</div>
+  </div>
+</footer>
+
+<!-- ═══ Scripts ═══ -->
+<script>
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => observer.observe(el));
+
+// Progress bar
+window.addEventListener('scroll', () => {
+  const bar = document.getElementById('progress-bar');
+  const scrolled = window.scrollY;
+  const height = document.documentElement.scrollHeight - window.innerHeight;
+  bar.style.width = (scrolled / height * 100) + '%';
+});
+</script>
+
+</body>
+</html>
