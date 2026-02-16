@@ -39,11 +39,7 @@ export default function ResumePage() {
           View Portfolio.
         </Link>
         <div className={s.cbControls}>
-          <button className={s.cbBtn} onClick={() => window.print()} title="Print resume">
-            <svg viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9" /><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" /><rect x="6" y="14" width="12" height="8" /></svg>
-            Print
-          </button>
-          <a className={s.cbBtn} href="/assets/resume/JD McCulley — Product Design Leader.pdf" download title="Download resume as PDF">
+          <a className={s.cbBtn} href="/assets/resume/JD 2026.pdf" download title="Download resume as PDF">
             <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
             PDF
           </a>
@@ -128,14 +124,15 @@ export default function ResumePage() {
                 <div className={s.skItem}>UX &amp; Product Strategy</div>
                 <div className={s.skItem}>Organizational Design</div>
                 <div className={s.skItem}>Executive Stakeholder Alignment</div>
-                <div className={s.skItem}>Servant Leadership</div>
+                <div className={s.skItem}>Team Building &amp; Talent Development</div>
+                <div className={s.skItem}>Research-Informed Decision Making</div>
               </div>
               <div className={s.skGroup}>
                 <div className={s.skGroupLabel}>Systems &amp; Delivery</div>
                 <div className={s.skItem}>Design Systems</div>
-                <div className={s.skItem}>Platform Thinking</div>
                 <div className={s.skItem}>Agile UX Operating Models</div>
                 <div className={s.skItem}>Cross-Functional Product Delivery</div>
+                <div className={s.skItem}>Metrics-Driven Design</div>
                 <div className={s.skItem}>Design-Led AI Workflows</div>
               </div>
             </div>
@@ -179,7 +176,7 @@ export default function ResumePage() {
               <ul className={s.expList}>
                 <li className={s.expP}>Owned UX strategy and execution across App, Web, POS, OMS, and in-store platforms for a Fortune 500 retailer &mdash; grew MAU from 6M to 12M+ in 4 years.</li>
                 <li className={s.expP}>Built and scaled a multidisciplinary design and research team across multiple product pods in 3 years; drove 130%+ YoY engagement growth.</li>
-                <li className={s.expP}>Reversed double-digit engagement decline via myDG Wallet redesign; drove Cash Back to nationwide rollout with nearly 200% YoY clip growth.</li>
+                <li className={s.expP}>Reversed double-digit engagement decline via myDG Wallet redesign; drove Cash Back to nationwide rollout — nearly 200% YoY clip growth.</li>
                 <li className={s.expP}>Established tokenized design systems for two retail brands with shared component architecture and Figma workflows adopted across engineering.</li>
                 <li className={s.expP}>Influenced executive roadmap through embedded research and CDO, Product, and Engineering partnerships; stood up Agile UX operating model.</li>
               </ul>
