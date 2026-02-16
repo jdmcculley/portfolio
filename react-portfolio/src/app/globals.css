@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+html {
+  /* scroll-behavior: smooth — replaced by JS scrollIntoView for resilience to layout shifts */
+}
+
+/* ═══════════════════════════════════════
+   TAILWIND V4 THEME
+   ═══════════════════════════════════════ */
+@theme {
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-accent-dim: var(--accent-dim);
+  --color-accent-glow: var(--accent-glow);
+  --color-secondary: var(--secondary);
+  --color-secondary-light: var(--secondary-light);
+  --color-secondary-dim: var(--secondary-dim);
+  --color-secondary-glow: var(--secondary-glow);
+  --color-bg: var(--bg);
+  --color-bg-alt: var(--bg-alt);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-text-primary: var(--text);
+  --color-text-soft: var(--text-soft);
+  --color-text-muted: var(--text-muted);
+  --color-border-default: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-glass-bg: var(--glass-bg);
+  --color-glass-border: var(--glass-border);
+  --color-grid-line: var(--grid-line);
+
+  --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-custom: cubic-bezier(0.23, 1, 0.32, 1);
+
+  --breakpoint-xs: 600px;
+  --breakpoint-sm: 900px;
+  --breakpoint-md: 1200px;
+  --breakpoint-lg: 1600px;
+  --breakpoint-xl: 2560px;
+}
+
+/* ═══════════════════════════════════════
+   THEME VARIABLES
+   ═══════════════════════════════════════ */
+
+/* Dark Theme (default) */
+:root,
+[data-theme="dark"] {
+  --accent: #00d4ff;
+  --accent-light: #5ee6ff;
+  --accent-dim: #0a5e72;
+  --accent-glow: rgba(0, 212, 255, 0.12);
+  --secondary: #4a7dff;
+  --secondary-light: #7da3ff;
+  --secondary-dim: rgba(74, 125, 255, 0.12);
+  --secondary-glow: rgba(74, 125, 255, 0.30);
+  --bg: #0a0e1a;
+  --bg-alt: #0d1224;
+  --surface: #121830;
+  --surface-elevated: #161e3a;
+  --text: #e4e8f0;
+  --text-soft: #b1bad0;
+  --text-muted: #4a5270;
+  --border: rgba(0, 212, 255, 0.10);
+  --border-strong: rgba(0, 212, 255, 0.25);
+  --glass-bg: rgba(10, 14, 26, 0.70);
+  --glass-border: rgba(0, 212, 255, 0.12);
+  --grid-line: rgba(0, 212, 255, 0.05);
+  --nav-bg: rgba(10, 14, 26, 0.88);
+  --nav-height: 96px;
+  --max-width: 1200px;
+  --container-pad: 48px;
+  --selection-bg: rgba(0, 212, 255, 0.25);
+  --orb-c-color: rgba(0, 212, 255, 0.5);
+  --orb-a-opacity: 0.18;
+  --orb-b-opacity: 0.10;
+  --orb-c-opacity: 0.06;
+  --orb-a-top: -250px;
+  --orb-a-left: -250px;
+}
+
+/* Light Theme */
+[data-theme="light"] {
+  --accent: #c9a227;
+  --accent-light: #e8c84a;
+  --accent-dim: #6e5f1a;
+  --accent-glow: rgba(201, 162, 39, 0.12);
+  --secondary: #c27c4e;
+  --secondary-light: #d4956a;
+  --secondary-dim: rgba(194, 124, 78, 0.12);
+  --secondary-glow: rgba(194, 124, 78, 0.30);
+  --bg: #ffffff;
+  --bg-alt: #f8f7f5;
+  --surface: #f0eeeb;
+  --surface-elevated: #e8e5e0;
+  --text: #1a1a1a;
+  --text-soft: #5e5a56;
+  --text-muted: #9e9890;
+  --border: rgba(201, 162, 39, 0.15);
+  --border-strong: rgba(201, 162, 39, 0.35);
+  --glass-bg: rgba(255, 255, 255, 0.80);
+  --glass-border: rgba(201, 162, 39, 0.18);
+  --grid-line: rgba(201, 162, 39, 0.04);
+  --nav-bg: rgba(255, 255, 255, 0.90);
+  --nav-height: 80px;
+  --max-width: 1200px;
+  --container-pad: 48px;
+  --selection-bg: rgba(201, 162, 39, 0.20);
+  --orb-c-color: rgba(201, 162, 39, 0.5);
+  --orb-a-opacity: 0.12;
+  --orb-b-opacity: 0.06;
+  --orb-c-opacity: 0.04;
+  --orb-a-top: -140px;
+  --orb-a-left: -140px;
+}
+
+/* Tech-Dark Theme */
+[data-theme="tech-dark"] {
+  --accent: #c9a227;
+  --accent-light: #e8c84a;
+  --accent-dim: #6e5f1a;
+  --accent-glow: rgba(201, 162, 39, 0.12);
+  --secondary: #c27c4e;
+  --secondary-light: #d4956a;
+  --secondary-dim: rgba(194, 124, 78, 0.12);
+  --secondary-glow: rgba(194, 124, 78, 0.30);
+  --bg: #08080c;
+  --bg-alt: #0c0c12;
+  --surface: #13131c;
+  --surface-elevated: #16161f;
+  --text: #ede9e3;
+  --text-soft: #b1b1b1;
+  --text-muted: #5e5a56;
+  --border: rgba(201, 162, 39, 0.10);
+  --border-strong: rgba(201, 162, 39, 0.25);
+  --glass-bg: rgba(19, 19, 28, 0.60);
+  --glass-border: rgba(201, 162, 39, 0.12);
+  --grid-line: rgba(201, 162, 39, 0.018);
+  --nav-bg: rgba(8, 8, 12, 0.85);
+  --nav-height: 80px;
+  --max-width: 1200px;
+  --container-pad: 48px;
+  --selection-bg: rgba(201, 162, 39, 0.25);
+  --orb-c-color: rgba(201, 162, 39, 0.5);
+  --orb-a-opacity: 0.32;
+  --orb-b-opacity: 0.09;
+  --orb-c-opacity: 0.06;
+  --orb-a-top: -140px;
+  --orb-a-left: -140px;
+}
+
+/* ═══════════════════════════════════════
+   BASE STYLES
+   ═══════════════════════════════════════ */
+::selection { background: var(--selection-bg); color: var(--text); }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--accent-dim); border-radius: 3px; }
+
+
+body {
+  background: var(--bg);
+  color: var(--text-soft);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* ═══════════════════════════════════════
+   KEYFRAME ANIMATIONS
+   ═══════════════════════════════════════ */
+@keyframes gridPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes orbFloat1 {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(80px, 60px); }
+  66% { transform: translate(-30px, 30px); }
+}
+
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(-60px, -80px); }
+  66% { transform: translate(20px, -40px); }
+}
+
+@keyframes orbFloat3 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(40px, -50px); }
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 6px var(--secondary), 0 0 14px var(--secondary-glow); }
+  50% { opacity: 0.6; box-shadow: 0 0 3px var(--secondary), 0 0 8px var(--secondary-glow); }
+}
+
+@keyframes logoGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scrollDrop {
+  0% { top: -14px; opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { top: 36px; opacity: 0; }
+}
+
+@keyframes ringRotate {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes corePulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.1); }
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE OVERRIDES
+   ═══════════════════════════════════════ */
+@media (min-width: 2560px) {
+  body { max-width: 2560px; margin: 0 auto; }
+  :root { --container-pad: 80px; --max-width: 1540px; }
+}
+
+@media (min-width: 1600px) and (max-width: 2559px) {
+  :root { --container-pad: 64px; --max-width: 1400px; }
+}
+
+@media (max-width: 900px) {
+  :root { --container-pad: 24px; }
+}
+
+@media (max-width: 600px) {
+  :root { --container-pad: 16px; }
+}

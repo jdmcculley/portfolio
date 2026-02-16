@@ -1,0 +1,1066 @@
+/* ═══════════════════════════════════════
+   DESIGN SYSTEM PREVIEW — CSS Module
+   Rebuilt from scratch
+   ═══════════════════════════════════════ */
+
+/* ── 00: Page Shell ── */
+.dsPage {
+  padding: 0 var(--container-pad);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-top: calc(var(--nav-height) + 48px);
+  padding-bottom: 120px;
+}
+
+/* ── 01: Hero ── */
+.dsHero {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.dsHeroBadge {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.dsHeroHeading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.dsHeroHeading span {
+  color: var(--accent);
+}
+
+.dsHeroDesc {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--text-soft);
+  max-width: 520px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.dsToc {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dsTocLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.dsTocLink:hover {
+  color: var(--accent);
+  border-color: var(--border-strong);
+  background: var(--glass-bg);
+}
+
+.dsTocNum {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ── Shared: Section Chrome ── */
+.dsSection {
+  margin-bottom: 0;
+}
+
+.sectionLabel {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.dsSectionTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.dsSectionSub {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: var(--text-soft);
+  line-height: 1.6;
+  max-width: 560px;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.dsSubTitle {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 20px;
+  margin-top: 48px;
+}
+
+.dsSubTitleFirst {
+  composes: dsSubTitle;
+  margin-top: 0;
+}
+
+.dsDivider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 64px 0;
+}
+
+/* ── Shared: Inline Code ── */
+.monoCode {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--secondary-light);
+}
+
+.monoCodeSm {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-muted);
+}
+
+/* ── 02: Color Palette ── */
+.swatchGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+.swatch {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.swatch:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+}
+
+.swatchPreview {
+  height: 72px;
+  width: 100%;
+}
+
+.swatchInfo {
+  padding: 12px;
+}
+
+.swatchName {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.swatchVar {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.swatchHex {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: var(--text-muted);
+}
+
+/* Surfaces */
+.surfaceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.surfaceCard {
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 20px;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 4px;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.surfaceCard:hover {
+  border-color: var(--border-strong);
+}
+
+.surfaceCardName {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.surfaceCardVar {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: var(--text-muted);
+}
+
+/* Text hierarchy */
+.textColorRow {
+  padding: 20px 24px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  margin-bottom: 10px;
+}
+
+.textColorSample {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+
+.textColorMeta {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: var(--text-muted);
+}
+
+/* ── 03: Borders & Glass ── */
+.borderGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.borderCard {
+  padding: 24px;
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.borderCardName {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.borderCardVar {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.borderCardDesc {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+
+.glassDemoWrap {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.glassDemoBg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 50%, var(--accent-glow) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 50%, var(--secondary-glow) 0%, transparent 60%),
+    var(--bg-alt);
+}
+
+.glassCardDemo {
+  position: relative;
+  z-index: 1;
+  padding: 32px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.glassCardDemo h4 {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.glassCardDemo p {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-soft);
+  line-height: 1.7;
+}
+
+/* ── 04: Typography ── */
+.typeRow {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px;
+  margin-bottom: 16px;
+}
+
+.typeMeta {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.typeMetaSep {
+  color: var(--border-strong);
+}
+
+.typeSampleHeading {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.typeSampleSans {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.typeSampleMono {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--secondary-light);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.typeUsage {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Type scale */
+.typeScaleRow {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.typeScaleRow:last-child {
+  border-bottom: none;
+}
+
+.typeScaleMeta {
+  flex: 0 0 200px;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.typeScaleMetaName {
+  color: var(--secondary-light);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.typeScaleSample {
+  flex: 1;
+  color: var(--text);
+  min-width: 0;
+}
+
+/* Accent lines */
+.accentLinesDemo {
+  display: flex;
+  gap: 48px;
+  margin-top: 32px;
+  align-items: center;
+}
+
+.accentLineWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.accentLineWrapCenter {
+  composes: accentLineWrap;
+  align-items: center;
+}
+
+.accentLineLabel {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.accentLine {
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--secondary));
+  border-radius: 1px;
+}
+
+.accentLineCenter {
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--secondary));
+  border-radius: 1px;
+}
+
+/* ── 05: Spacing & Layout ── */
+.spacingGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.spacingRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.spacingLabel {
+  flex: 0 0 48px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+.spacingBarWrap {
+  flex: 1;
+  height: 14px;
+  background: var(--surface);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.spacingBar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  border-radius: 4px;
+}
+
+/* Border radius */
+.radiusGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-end;
+}
+
+.radiusDemo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.radiusBox {
+  width: 72px;
+  height: 72px;
+  border: 2px solid var(--border-strong);
+  background: var(--surface);
+  transition: border-color 0.3s;
+}
+
+.radiusBox:hover {
+  border-color: var(--accent);
+}
+
+.radiusLabel {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* Layout tokens */
+.layoutTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.layoutTable th {
+  text-align: left;
+  padding: 10px 16px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.6rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+}
+
+.layoutTable td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.layoutTable td:first-child {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--secondary-light);
+}
+
+.layoutTable td:nth-child(2) {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text);
+}
+
+.layoutTable td:last-child {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--text-soft);
+}
+
+/* Breakpoints */
+.bpRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.bpCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bpCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+.bpCardName {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.bpCardRange {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.bpCardChanges {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bpCardChanges li {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: var(--text-soft);
+  padding: 3px 0;
+  line-height: 1.5;
+}
+
+.bpCardChanges li::before {
+  content: '\2192\0020';
+  color: var(--accent);
+}
+
+/* ── 06: Component Showcase ── */
+.componentCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px;
+  margin-bottom: 16px;
+}
+
+.componentCardLabel {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.badgeGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.metricGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.staggerGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.staggerCard {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 16px;
+  text-align: center;
+}
+
+.staggerCardLabel {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.staggerCardDelay {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ── 07: Motion & Animation ── */
+.motionBars {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.motionBar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.motionBarLabel {
+  flex: 0 0 160px;
+}
+
+.motionBarLabelName {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--secondary-light);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.motionBarLabelValue {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  color: var(--text-muted);
+}
+
+.motionBarTrack {
+  flex: 1;
+  height: 20px;
+  background: var(--surface);
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.motionBarFill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--secondary));
+  border-radius: 4px;
+}
+
+.motionBarTrack:hover .motionBarFillEase {
+  width: 100%;
+  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.motionBarTrack:hover .motionBarFillEaseOut {
+  width: 100%;
+  transition: width 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.motionBarTrack:hover .motionBarFillLinear {
+  width: 100%;
+  transition: width 1.2s linear;
+}
+
+.motionBarFillEase {
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.motionBarFillEaseOut {
+  transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.motionBarFillLinear {
+  transition: width 0.4s linear;
+}
+
+/* Keyframe reference table */
+.animTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 32px;
+}
+
+.animTable th {
+  text-align: left;
+  padding: 10px 16px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.6rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+}
+
+.animTable td {
+  padding: 10px 16px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.animTable td:first-child {
+  color: var(--secondary-light);
+}
+
+.animTable td:nth-child(2),
+.animTable td:nth-child(3) {
+  color: var(--text-soft);
+}
+
+.animTable td:last-child {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--text-soft);
+}
+
+/* Live animation demos */
+.animDemos {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.animDemoBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.animDemoLabel {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+.dotPulseDemo {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 6px var(--accent), 0 0 14px var(--accent-glow);
+  animation: dotPulse 2.5s ease-in-out infinite;
+}
+
+.scrollIndicatorDemo {
+  width: 20px;
+  height: 56px;
+  border: 1.5px solid var(--border-strong);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.scrollDot {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 2px;
+  animation: scrollDrop 2s ease-in-out infinite;
+}
+
+/* ── 08: Token Reference Table ── */
+.tokenTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tokenTable th {
+  text-align: left;
+  padding: 10px 16px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.6rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+}
+
+.tokenGroupLabel td {
+  padding: 16px 16px 8px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+}
+
+.tokenRow td {
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.tokenVar {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--secondary-light);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tokenSwatch {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+
+.tokenVal {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text);
+}
+
+.tokenUsage {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--text-soft);
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════ */
+@media (max-width: 900px) {
+  .dsHeroHeading {
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+  }
+
+  .dsToc {
+    gap: 6px;
+  }
+
+  .dsTocLink {
+    font-size: 0.6rem;
+    padding: 5px 10px;
+  }
+
+  .swatchGrid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  }
+
+  .surfaceGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .borderGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .typeScaleRow {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .typeScaleMeta {
+    flex: none;
+  }
+
+  .metricGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .staggerGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .bpRow {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .motionBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .motionBarLabel {
+    flex: none;
+  }
+
+  .motionBarTrack {
+    width: 100%;
+  }
+
+  .animDemos {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 600px) {
+  .dsPage {
+    padding-top: calc(var(--nav-height) + 32px);
+    padding-bottom: 80px;
+  }
+
+  .dsHero {
+    margin-bottom: 48px;
+  }
+
+  .dsDivider {
+    margin: 40px 0;
+  }
+
+  .swatchGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .surfaceGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .borderGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .typeRow {
+    padding: 20px;
+  }
+
+  .typeSampleHeading {
+    font-size: 1.4rem;
+  }
+
+  .metricGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .staggerGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bpRow {
+    grid-template-columns: 1fr;
+  }
+
+  .componentCard {
+    padding: 20px;
+  }
+
+  .radiusGrid {
+    gap: 16px;
+  }
+
+  .radiusBox {
+    width: 56px;
+    height: 56px;
+  }
+
+  .accentLinesDemo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+}

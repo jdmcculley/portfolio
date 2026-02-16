@@ -1,0 +1,447 @@
+/* ═══════════════════════════════════════════════════════════════
+   INTERVIEW PREP — Page Styles (CSS Module)
+   Reuses design patterns from strategy.module.css
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Page Layout ── */
+.page {
+  position: relative;
+  z-index: 10;
+  padding-bottom: 120px;
+}
+
+/* ── Section Container ── */
+.section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+/* ── Hero ── */
+.hero {
+  padding-top: 80px;
+  padding-bottom: 48px;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 100px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--copper);
+  margin-bottom: 28px;
+  backdrop-filter: blur(10px);
+  font-family: var(--font-mono);
+  letter-spacing: 1px;
+}
+
+.heroPulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--copper);
+  animation: pulse 2s ease-in-out infinite;
+  box-shadow: 0 0 10px var(--copper);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.5); }
+}
+
+.heroTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin-bottom: 16px;
+}
+
+.heroTitleAccent {
+  color: var(--gold);
+}
+
+.heroSubtitle {
+  font-size: 1.1rem;
+  color: var(--text);
+  opacity: 0.8;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.heroBody {
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--text-soft);
+  max-width: 700px;
+}
+
+.heroMeta {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  margin-top: 20px;
+  opacity: 0.7;
+}
+
+/* ── Section Divider ── */
+.divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-strong), transparent);
+  margin: 64px 0;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── Section Labels & Headings ── */
+.sectionLabel {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--copper);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sectionLabel::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--copper);
+}
+
+.sectionHeading {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 12px;
+  line-height: 1.15;
+}
+
+.sectionDesc {
+  font-size: 0.95rem;
+  color: var(--text-soft);
+  line-height: 1.7;
+  margin-bottom: 36px;
+  max-width: 680px;
+}
+
+.bodyText {
+  font-size: 0.92rem;
+  color: var(--text-soft);
+  line-height: 1.8;
+  max-width: 700px;
+  margin-top: 28px;
+}
+
+.bodyText strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ── Highlight ── */
+.highlight {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* ── Framework Cards (Three-Level Answer) ── */
+.frameworkGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.frameworkCard {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  padding: 24px;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.frameworkCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+.frameworkCardGold::before { background: var(--gold); }
+.frameworkCardCopper::before { background: var(--copper); }
+.frameworkCardDim::before { background: var(--text-muted); }
+
+.frameworkLevel {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 2.5px;
+  color: var(--copper);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.frameworkCard h3 {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.frameworkCard p {
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  line-height: 1.65;
+}
+
+.frameworkDuration {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--gold);
+  margin-top: 10px;
+}
+
+/* ── Story Cards ── */
+.storyGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.storyCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+  border-radius: 12px;
+  padding: 24px 28px;
+  transition: border-color 0.3s ease;
+}
+
+.storyCard:hover {
+  border-color: var(--border-strong);
+}
+
+.storyCategory {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 2.5px;
+  color: var(--copper);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.storyCard h4 {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.storyCard p {
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  line-height: 1.65;
+}
+
+.storyMetrics {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--gold);
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+/* ── Question Cards ── */
+.questionCards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.questionCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 28px;
+}
+
+.questionCard h4 {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.questionCard p {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  line-height: 1.7;
+}
+
+.questionCard p strong {
+  color: var(--text);
+}
+
+.questionLabel {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 2px;
+  color: var(--copper);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+/* ── Narrative Cards (AI framing) ── */
+.narrativeGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.narrativeDo {
+  background: var(--surface);
+  border: 1px solid rgba(74, 222, 128, 0.25);
+  border-left: 4px solid #4ade80;
+  border-radius: 12px;
+  padding: 28px;
+}
+
+.narrativeDont {
+  background: var(--surface);
+  border: 1px solid rgba(248, 113, 113, 0.25);
+  border-left: 4px solid #f87171;
+  border-radius: 12px;
+  padding: 28px;
+}
+
+.narrativeDo h3,
+.narrativeDont h3 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.narrativeDo h3 { color: #4ade80; }
+.narrativeDont h3 { color: #f87171; }
+
+.narrativeDo p,
+.narrativeDont p {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.narrativeDo p:last-child,
+.narrativeDont p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Checklist Items ── */
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.checklistItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.88rem;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+.checklistItem:last-child {
+  border-bottom: none;
+}
+
+.checkMark {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 1.5px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  font-size: 0.65rem;
+  color: var(--gold);
+}
+
+/* ── Sub-heading ── */
+.subHeading {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  margin-top: 36px;
+}
+
+.subHeading:first-of-type {
+  margin-top: 0;
+}
+
+/* ── Closing ── */
+.closingText {
+  font-size: 0.92rem;
+  color: var(--text-soft);
+  line-height: 1.75;
+  margin-top: 20px;
+  max-width: 720px;
+}
+
+.closingText strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE — 900px
+   ═══════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .hero { padding-top: 56px; }
+  .heroTitle { font-size: 2.2rem; }
+  .sectionHeading { font-size: 1.8rem; }
+  .frameworkGrid { grid-template-columns: 1fr; }
+  .storyGrid { grid-template-columns: 1fr; }
+  .narrativeGrid { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE — 600px
+   ═══════════════════════════════════════════ */
+@media (max-width: 600px) {
+  .hero { padding-top: 40px; }
+  .heroTitle { font-size: 1.9rem; letter-spacing: -1px; }
+  .sectionHeading { font-size: 1.5rem; }
+  .divider { margin: 48px 0; }
+  .frameworkGrid { grid-template-columns: 1fr; }
+  .storyGrid { grid-template-columns: 1fr; }
+  .narrativeGrid { grid-template-columns: 1fr; }
+}
