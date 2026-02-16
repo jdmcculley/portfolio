@@ -176,21 +176,13 @@ export default function ResumePage() {
                 Dollar General &times; Agilitee <span className={s.expCompanyLoc}>| Remote</span>
               </div>
               <div className={s.expRole}>Sr. Director of Product Design &mdash; Embedded via Agilitee</div>
-              <p className={s.expP}>
-                Owned UX strategy and execution across App, Web, POS, OMS, and in-store platforms for a Fortune 500 retailer &mdash; grew MAU from 6M to 12M+ in 4 years.
-              </p>
-              <p className={s.expP}>
-                Built and scaled a multidisciplinary design and research team across multiple product pods in 3 years; drove 130%+ YoY engagement growth.
-              </p>
-              <p className={s.expP}>
-                Reversed double-digit engagement decline via myDG Wallet redesign; drove Cash Back to nationwide rollout with nearly 200% YoY clip growth.
-              </p>
-              <p className={s.expP}>
-                Established tokenized design systems for two retail brands with shared component architecture and Figma workflows adopted across engineering.
-              </p>
-              <p className={s.expP}>
-                Influenced executive roadmap through embedded research and CDO, Product, and Engineering partnerships; stood up Agile UX operating model.
-              </p>
+              <ul className={s.expList}>
+                <li className={s.expP}>Owned UX strategy and execution across App, Web, POS, OMS, and in-store platforms for a Fortune 500 retailer &mdash; grew MAU from 6M to 12M+ in 4 years.</li>
+                <li className={s.expP}>Built and scaled a multidisciplinary design and research team across multiple product pods in 3 years; drove 130%+ YoY engagement growth.</li>
+                <li className={s.expP}>Reversed double-digit engagement decline via myDG Wallet redesign; drove Cash Back to nationwide rollout with nearly 200% YoY clip growth.</li>
+                <li className={s.expP}>Established tokenized design systems for two retail brands with shared component architecture and Figma workflows adopted across engineering.</li>
+                <li className={s.expP}>Influenced executive roadmap through embedded research and CDO, Product, and Engineering partnerships; stood up Agile UX operating model.</li>
+              </ul>
             </div>
 
             {/* Swimlane */}
@@ -203,15 +195,11 @@ export default function ResumePage() {
                 Swimlane <span className={s.expCompanyLoc}>| Louisville, CO</span>
               </div>
               <div className={s.expRole}>Sr. Director of UI/UX</div>
-              <p className={s.expP}>
-                Built the UI/UX function from zero to full design team in 5 years, scaling through Series A, B, and C while defining standards, processes, and culture.
-              </p>
-              <p className={s.expP}>
-                Led end-to-end product design for enterprise B2B SOAR platform serving Fortune 500 security teams; improved analyst efficiency by 35%.
-              </p>
-              <p className={s.expP}>
-                Partnered cross-functionally with Product and Engineering to define UX standards that supported the platform&apos;s growth from Series A to Series C.
-              </p>
+              <ul className={s.expList}>
+                <li className={s.expP}>Built the UI/UX function from zero to full design team in 5 years, scaling through Series A, B, and C while defining standards, processes, and culture.</li>
+                <li className={s.expP}>Led end-to-end product design for enterprise B2B SOAR platform serving Fortune 500 security teams; improved analyst efficiency by 35%.</li>
+                <li className={s.expP}>Partnered cross-functionally with Product and Engineering to define UX standards that supported the platform&apos;s growth from Series A to Series C.</li>
+              </ul>
             </div>
 
             {/* Anabliss */}
@@ -224,15 +212,11 @@ export default function ResumePage() {
                 Anabliss <span className={s.expCompanyLoc}>| Denver, CO</span>
               </div>
               <div className={s.expRole}>Sr. Interactive Director</div>
-              <p className={s.expP}>
-                Led digital strategy and design team at boutique agency; pioneered the embedded product designer model at SendGrid that became the foundation for enterprise engagements.
-              </p>
-              <p className={s.expP}>
-                Owned full project lifecycle &mdash; from strategy through delivery &mdash; across a diverse client portfolio including Denver Public Schools and Prime Health.
-              </p>
-              <p className={s.expP}>
-                Spearheaded product design for The Aspen Institute&apos;s Core Ready Schools, enhancing user engagement by 68% through intuitive self-assessment tools within 12 months.
-              </p>
+              <ul className={s.expList}>
+                <li className={s.expP}>Led digital strategy and design team at boutique agency; pioneered the embedded product designer model at SendGrid that became the foundation for enterprise engagements.</li>
+                <li className={s.expP}>Owned full project lifecycle &mdash; from strategy through delivery &mdash; across a diverse client portfolio including Denver Public Schools and Prime Health.</li>
+                <li className={s.expP}>Spearheaded product design for The Aspen Institute&apos;s Core Ready Schools, enhancing user engagement by 68% through intuitive self-assessment tools within 12 months.</li>
+              </ul>
             </div>
 
             {/* Earlier Career */}
@@ -242,9 +226,9 @@ export default function ResumePage() {
                 <div className={s.expDate}>2004 &ndash; 2013</div>
               </div>
               <div className={s.expCompany}>Earlier Career</div>
-              <p className={s.expP}>
-                Digital Director at Greenhouse Partners; Co-founded and led GreenTent Web Design &amp; Marketing for 8+ years, growing it from startup to sustainable business.
-              </p>
+              <ul className={s.expList}>
+                <li className={s.expP}>Digital Director at Greenhouse Partners; Co-founded and led GreenTent Web Design &amp; Marketing for 8+ years, growing it from startup to sustainable business.</li>
+              </ul>
             </div>
 
             <div className={s.foot}>&mdash; References available upon request &mdash;</div>

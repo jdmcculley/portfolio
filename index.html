@@ -15,6 +15,8 @@
      design-system.css — edit there to retheme.
      ═══════════════════════════════════════════ */
 
+  html { scroll-behavior: smooth; }
+
   /* ═══════════════════════════════════════════
      HERO
      ═══════════════════════════════════════════ */
@@ -143,45 +145,61 @@
   .hero-pillars.active { opacity: 1; transform: translateY(0); }
 
   .hero-pillar {
+    --pillar-accent: 0, 212, 255;
     flex: 1; min-width: 0;
     display: flex; flex-direction: row; align-items: center;
     justify-content: center; gap: 10px;
     padding: 16px 24px;
-    border: 1px solid rgba(0, 212, 255, 0.35);
+    border: 1px solid rgba(var(--pillar-accent), 0.22);
     border-radius: 8px;
-    background: rgba(0, 212, 255, 0.08);
+    background: rgba(var(--pillar-accent), 0.04);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.15);
-    transition: all 0.3s ease;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(var(--pillar-accent), 0.08);
+    transition: all 0.35s var(--ease);
     cursor: default;
+    position: relative;
   }
+  /* Per-pillar accent colors */
+  .hero-pillar:nth-child(1) { --pillar-accent: 0, 212, 255; }     /* cyan */
+  .hero-pillar:nth-child(3) { --pillar-accent: 74, 125, 255; }    /* blue */
+  .hero-pillar:nth-child(5) { --pillar-accent: 56, 224, 160; }    /* green */
+  .hero-pillar:nth-child(7) { --pillar-accent: 168, 130, 255; }   /* violet */
+
   .hero-pillar:hover {
-    border-color: rgba(0, 212, 255, 0.5);
-    background: rgba(0, 212, 255, 0.12);
-    box-shadow: 0 0 24px rgba(0, 212, 255, 0.25);
+    border-color: rgba(var(--pillar-accent), 0.45);
+    background: rgba(var(--pillar-accent), 0.08);
+    box-shadow: 0 4px 20px rgba(var(--pillar-accent), 0.12), inset 0 1px 0 rgba(var(--pillar-accent), 0.12);
     transform: translateY(-2px);
   }
 
   .hero-pillar-plus {
-    font-size: 1.4rem; font-weight: 600;
-    color: rgba(255, 255, 255, 0.45);
+    font-size: 1.2rem; font-weight: 400;
+    color: rgba(255, 255, 255, 0.85);
     flex-shrink: 0; user-select: none;
     line-height: 1;
   }
 
   .hero-pillar-icon {
     display: flex; align-items: center; justify-content: center;
-    color: var(--gold); flex-shrink: 0;
-    transition: color 0.3s ease;
+    color: rgba(var(--pillar-accent), 0.85); flex-shrink: 0;
+    transition: color 0.3s ease, filter 0.3s ease;
+    filter: drop-shadow(0 0 4px rgba(var(--pillar-accent), 0.3));
   }
-  .hero-pillar:hover .hero-pillar-icon { color: var(--copper); }
+  .hero-pillar:hover .hero-pillar-icon {
+    color: rgb(var(--pillar-accent));
+    filter: drop-shadow(0 0 6px rgba(var(--pillar-accent), 0.5));
+  }
   .hero-pillar-icon svg { width: 26px; height: 26px; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 
   .hero-pillar-label {
     font-family: var(--mono); font-size: 0.8rem;
-    font-weight: 500; color: var(--text-soft);
+    font-weight: 500; color: rgba(var(--pillar-accent), 0.7);
     letter-spacing: 1.5px; text-transform: uppercase; line-height: 1.35;
+    transition: color 0.3s ease;
+  }
+  .hero-pillar:hover .hero-pillar-label {
+    color: rgba(var(--pillar-accent), 0.9);
   }
 
   .hero-divider { display: none; }
@@ -207,9 +225,17 @@
     transform: translateY(0);
     pointer-events: auto;
   }
+  .pillar-descriptor {
+    --desc-accent: 0, 212, 255;
+  }
+  .pillar-descriptor:nth-child(1) { --desc-accent: 0, 212, 255; }
+  .pillar-descriptor:nth-child(3) { --desc-accent: 74, 125, 255; }
+  .pillar-descriptor:nth-child(5) { --desc-accent: 56, 224, 160; }
+  .pillar-descriptor:nth-child(7) { --desc-accent: 168, 130, 255; }
+
   .pillar-connector {
     width: 1px; height: 32px;
-    background: linear-gradient(to bottom, rgba(0, 212, 255, 0.25), rgba(0, 212, 255, 0.05));
+    background: linear-gradient(to bottom, rgba(var(--desc-accent), 0.3), rgba(var(--desc-accent), 0.03));
     margin: 0 auto;
     flex-shrink: 0;
   }
@@ -223,20 +249,20 @@
     text-align: center;
     line-height: 1.6;
     padding: 16px;
-    border: 1px solid rgba(0, 212, 255, 0.12);
+    border: 1px solid rgba(var(--desc-accent), 0.10);
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(var(--desc-accent), 0.02);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.15);
-    transition: all 0.3s ease;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+    transition: all 0.35s var(--ease);
     cursor: default;
   }
   .pillar-desc-text:hover,
   .pillar-desc-text.hovered {
-    border-color: rgba(0, 212, 255, 0.25);
-    background: rgba(255, 255, 255, 0.06);
-    box-shadow: 0 0 24px rgba(0, 212, 255, 0.2);
+    border-color: rgba(var(--desc-accent), 0.28);
+    background: rgba(var(--desc-accent), 0.05);
+    box-shadow: 0 4px 16px rgba(var(--desc-accent), 0.08);
     transform: translateY(-2px);
   }
   .pillar-desc-spacer {
@@ -1324,7 +1350,7 @@
   <div class="nav-right">
     <ul class="nav-links">
       <li><a href="#position"><span class="nav-num">01.</span> Position</a></li>
-      <li><a href="#process"><span class="nav-num">02.</span> Design-Led AI</a></li>
+      <li><a href="#perspective"><span class="nav-num">02.</span> Design-Led AI</a></li>
       <li><a href="#work"><span class="nav-num">03.</span> Case Studies</a></li>
       <li><a href="#journey"><span class="nav-num">04.</span> Experience</a></li>
       <li><a href="#contact"><span class="nav-num">05.</span> Contact</a></li>
@@ -1516,7 +1542,7 @@
 <section class="process-hub" id="process">
   <div class="container">
     <div class="text-center-mb-72">
-      <div class="reveal"><div class="section-label text-center">The Process</div></div>
+      <div class="reveal"><div class="section-label text-center">Process</div></div>
       <div class="reveal reveal-delay-1">
         <h2 class="section-heading text-center">DesignOps, Rewired</h2>
       </div>

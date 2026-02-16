@@ -421,14 +421,32 @@
   margin-bottom: 8px;
 }
 
+.expList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .expP {
   font-size: 14.5px;
   line-height: 1.5;
   color: var(--text-soft);
-  margin-bottom: 12px;
+  padding-left: 16px;
+  position: relative;
 }
-.expP:last-child {
-  margin-bottom: 0;
+.expP::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.5;
 }
 
 /* footer */
@@ -593,7 +611,9 @@
   .expDateRow { margin-bottom: 5px; }
   .expCompany { font-size: 20px; color: #0077cc; }
   .expRole { font-size: 16px; margin-top: 4px; margin-bottom: 7px; }
-  .expP { font-size: 15px; line-height: 1.5; margin-bottom: 10px; }
+  .expList { gap: 6px; }
+  .expP { font-size: 15px; line-height: 1.5; }
+  .expP::before { -webkit-print-color-adjust: exact; print-color-adjust: exact; background: #0077cc; }
 
   .skGroupLabel { color: #0055aa; }
   .expDate,
