@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -36,6 +36,7 @@ const pillars = [
       </svg>
     ),
     desc: 'Operates as creative director of an AI-powered design process — orchestrating Claude & Figma, automated pipelines, and custom tooling to multiply a small team\u2019s capacity by ~2x.',
+    tags: ['AI-augmented workflow', 'Claude & Figma', '~2x capacity'],
   },
   {
     label: 'Fortune 500 Retail',
@@ -48,6 +49,7 @@ const pillars = [
       </svg>
     ),
     desc: 'Embedded design leader at Dollar General — grew the app from 5M to 12M+ MAU, shipped Cash Back, myDG Wallet, Rewards and Same-Day Delivery across 15,000 stores.',
+    tags: ['5M to 12M+ MAU', '15,000 stores', 'Dollar General'],
   },
   {
     label: 'B2B Cyber Security',
@@ -58,6 +60,7 @@ const pillars = [
       </svg>
     ),
     desc: 'Led UX design for Swimlane\u2019s SOAR platform — translating complex security automation into intuitive interfaces that SOC analysts trust under pressure.',
+    tags: ['SOAR platform', 'Swimlane', 'Security automation'],
   },
   {
     label: 'Startup to Enterprise',
@@ -67,6 +70,7 @@ const pillars = [
       </svg>
     ),
     desc: 'Scaled design from Swimlane\u2019s Series A startup through Series C growth and into Dollar General\u2019s Fortune 500 enterprise org — building teams and systems at every stage.',
+    tags: ['Series A to C', 'Fortune 500', 'Team building'],
   },
 ];
 
@@ -120,12 +124,12 @@ const caseStudies = [
     delay: 0.15,
   },
   {
+    href: '/case-study/swimlane',
     metrics: [{ val: 'A\u2192C', lbl: 'Series' }, { val: '0\u21921', lbl: 'UX Build' }, { val: '6yr', lbl: 'Tenure' }],
     tags: ['Enterprise B2B', 'SOAR Platform'],
     title: 'Swimlane — 0 to 1 UX',
     desc: 'Early design hire at cybersecurity startup. Built the entire UI/UX function from scratch through Series A, B, and C — translating complex automation workflows into intuitive enterprise interfaces.',
     visual: 'dashboard',
-    disabled: true,
   },
   {
     metrics: [{ val: '180', lbl: 'Stores' }, { val: 'Sub-Brand', lbl: 'Identity' }, { val: 'App + Web', lbl: 'Launch' }],
@@ -361,13 +365,28 @@ const ArrowRight = () => (
    PAGE
    ═══════════════════════════════════════════ */
 export default function HomePage() {
-  const [hoveredPillar, setHoveredPillar] = useState<number | null>(null);
   const { isAuthenticated } = useAuth();
 
   return (
     <>
       {/* ══════════ HERO ══════════ */}
       <section className={s.hero} id="hero">
+        {/* Mesh gradient video background — disabled for now
+        <video
+          className={s.heroBgVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+        >
+          <source src="/assets/video/gradient-loop.webm" type="video/webm" />
+          <source src="/assets/video/gradient-loop.mp4" type="video/mp4" />
+        </video>
+        <div className={s.heroBgNoise} />
+        <div className={s.heroBgVignette} />
+        */}
+
         <Container>
           <motion.div className={s.heroGrid} initial="hidden" animate="visible" variants={stagger}>
             <div className={s.heroInner}>
@@ -378,7 +397,7 @@ export default function HomePage() {
               <motion.h1 className={s.heroTitle} variants={fadeUp(0.35)}>
                 <span className={s.line}>Building UX/AI teams</span>
                 <span className={s.line}>that deliver at</span>
-                <span className={s.line}><strong>enterprise scale</strong><span className="text-white">.</span></span>
+                <span className={s.line}><strong style={{ background: 'linear-gradient(90deg, var(--accent), var(--secondary), var(--accent-light), var(--accent))', backgroundSize: '300% 100%', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', animation: 'logoGradient 9s ease infinite' }}>enterprise scale</strong><span className="text-white">.</span></span>
               </motion.h1>
 
               <motion.p className={s.heroDesc} variants={fadeUp(0.55)}>
@@ -399,34 +418,21 @@ export default function HomePage() {
           </motion.div>
 
           {/* Pillars */}
-          <motion.div className={s.heroPillars} initial="hidden" animate="visible" variants={fadeUp(0.7)}>
+          <motion.div className={s.pillarCards} initial="hidden" animate="visible" variants={stagger}>
             {pillars.map((p, i) => (
-              <React.Fragment key={i}>
-                {i > 0 && <span className={s.heroPillarPlus}>&times;</span>}
-                <div
-                  className={s.heroPillar}
-                  onMouseEnter={() => setHoveredPillar(i)}
-                  onMouseLeave={() => setHoveredPillar(null)}
-                >
-                  <div className={s.heroPillarIcon}>{p.icon}</div>
-                  <span className={s.heroPillarLabel}>{p.label}</span>
+              <motion.div key={i} className={s.pillarCard} variants={fadeUp(0.7 + i * 0.1)}>
+                <div className={s.pillarCardHeader}>
+                  <div className={s.pillarCardIcon}>{p.icon}</div>
+                  <span className={s.pillarCardLabel}>{p.label}</span>
                 </div>
-              </React.Fragment>
-            ))}
-          </motion.div>
-
-          {/* Pillar descriptors */}
-          <motion.div className={s.pillarDescriptors} initial="hidden" animate="visible" variants={fadeUp(0.9)}>
-            {pillars.map((p, i) => (
-              <React.Fragment key={i}>
-                {i > 0 && <div className={s.pillarDescSpacer} />}
-                <div className={s.pillarDescriptor} style={{ opacity: hoveredPillar === null || hoveredPillar === i ? 1 : 0.4, transition: 'opacity 0.3s ease' }}>
-                  <div className={s.pillarConnector} />
-                  <div className={s.pillarDescText} style={hoveredPillar === i ? { borderColor: 'var(--border-strong)', background: 'rgba(255,255,255,0.06)', transform: 'translateY(-2px)' } : undefined}>
-                    {p.desc}
-                  </div>
+                <div className={s.pillarCardDivider} />
+                <p className={s.pillarCardDesc}>{p.desc}</p>
+                <div className={s.pillarCardTags}>
+                  {p.tags.map((t, j) => (
+                    <span key={j} className={s.pillarCardTag}>{t}</span>
+                  ))}
                 </div>
-              </React.Fragment>
+              </motion.div>
             ))}
           </motion.div>
         </Container>
@@ -704,19 +710,6 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* ══════════ DOMAINS ══════════ */}
-      <ScrollReveal>
-        <div className={s.domains}>
-          <div className={s.domainsInner}>
-            {domains.map((d, i) => (
-              <React.Fragment key={i}>
-                {i > 0 && <span className={s.domainsSep}>&#9670;</span>}
-                <span>{d}</span>
-              </React.Fragment>
-            ))}
-          </div>
-        </div>
-      </ScrollReveal>
     </>
   );
 }

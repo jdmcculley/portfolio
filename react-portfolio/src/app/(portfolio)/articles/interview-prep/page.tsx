@@ -214,6 +214,18 @@ export default function InterviewPrepPage() {
             <div className={s.narrativeDo}>
               <h3>What to Say</h3>
               <p>
+                <strong>&ldquo;Craft without speed is a luxury. Speed without craft is a liability.&rdquo;</strong>{' '}
+                This is your positioning statement. Traditional designers bring taste but
+                can&apos;t scale. Technologists ship fast but miss nuance. You do both &mdash;
+                and AI is the lever that makes it possible.
+              </p>
+              <p>
+                <strong>&ldquo;AI compresses everything before and after the craft moment. But the craft moment is human. That&apos;s still where novel solutions emerge.&rdquo;</strong>{' '}
+                Use this to frame AI as an accelerant, not a replacement. The insight,
+                the creative leap, the thing that makes the product actually work &mdash;
+                that still comes from you.
+              </p>
+              <p>
                 <strong>&ldquo;I use AI as a creative director uses a team.&rdquo;</strong>{' '}
                 AI generates volume, I apply judgment. The 9-step process I&apos;ve built
                 lets me explore 5&ndash;10 directions in days, but the creative direction,
@@ -484,7 +496,7 @@ export default function InterviewPrepPage() {
           <ul className={s.checklist}>
             <li className={s.checklistItem}>
               <span className={s.checkMark}>&#10003;</span>
-              <span><strong>Re-read the JD.</strong> Highlight the 3 things they care about most. Ensure your opening stories align.</span>
+              <span><strong>Re-read the job description.</strong> Highlight the 3 things they care about most. Ensure your opening stories align.</span>
             </li>
             <li className={s.checklistItem}>
               <span className={s.checkMark}>&#10003;</span>

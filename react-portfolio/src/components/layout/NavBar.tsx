@@ -13,7 +13,20 @@ const navLinks = [
 
 const LogoSvg = () => (
   <svg width="40" height="33" viewBox="0 0 42 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M10.1902 33.625L0.625 17.125M10.1902 33.625H31.0598M10.1902 33.625L8.45083 19.7303M10.1902 33.625L28.4509 30.1513M0.625 17.125L10.1902 0.625M0.625 17.125L8.45083 19.7303M10.1902 0.625H31.0598M10.1902 0.625L27.5813 9.30916M10.1902 0.625L8.45083 19.7303M31.0598 0.625L40.625 17.125M31.0598 0.625L27.5813 9.30916M40.625 17.125L31.0598 33.625M40.625 17.125L27.5813 9.30916M40.625 17.125L28.4509 30.1513M31.0598 33.625L28.4509 30.1513M27.5813 9.30916L8.45083 19.7303M27.5813 9.30916L28.4509 30.1513M8.45083 19.7303L28.4509 30.1513" stroke="currentColor" strokeWidth="1.25" strokeLinejoin="round"/>
+    <defs>
+      <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="0%" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stopColor="var(--accent)">
+          <animate attributeName="stop-color" values="var(--accent);var(--secondary);var(--accent-light);var(--accent)" dur="9s" repeatCount="indefinite" />
+        </stop>
+        <stop offset="50%" stopColor="var(--secondary)">
+          <animate attributeName="stop-color" values="var(--secondary);var(--accent-light);var(--accent);var(--secondary)" dur="9s" repeatCount="indefinite" />
+        </stop>
+        <stop offset="100%" stopColor="var(--accent-light)">
+          <animate attributeName="stop-color" values="var(--accent-light);var(--accent);var(--secondary);var(--accent-light)" dur="9s" repeatCount="indefinite" />
+        </stop>
+      </linearGradient>
+    </defs>
+    <path d="M10.1902 33.625L0.625 17.125M10.1902 33.625H31.0598M10.1902 33.625L8.45083 19.7303M10.1902 33.625L28.4509 30.1513M0.625 17.125L10.1902 0.625M0.625 17.125L8.45083 19.7303M10.1902 0.625H31.0598M10.1902 0.625L27.5813 9.30916M10.1902 0.625L8.45083 19.7303M31.0598 0.625L40.625 17.125M31.0598 0.625L27.5813 9.30916M40.625 17.125L31.0598 33.625M40.625 17.125L27.5813 9.30916M40.625 17.125L28.4509 30.1513M31.0598 33.625L28.4509 30.1513M27.5813 9.30916L8.45083 19.7303M27.5813 9.30916L28.4509 30.1513M8.45083 19.7303L28.4509 30.1513" stroke="url(#logoGrad)" strokeWidth="1.25" strokeLinejoin="round"/>
   </svg>
 );
 
@@ -52,17 +65,9 @@ export function NavBar() {
       >
         <Link
           href="/"
-          className="font-mono font-bold text-[1.2rem] tracking-[1.5px] flex items-center gap-3.5 no-underline"
-          style={{
-            background: 'linear-gradient(90deg, var(--accent), var(--secondary), var(--accent-light), var(--accent))',
-            backgroundSize: '300% 100%',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-            animation: 'logoGradient 8s ease infinite',
-          }}
+          className="font-mono font-bold text-[1.2rem] tracking-[1.5px] flex items-center gap-3.5 no-underline text-text-primary"
         >
-          <span className="inline-flex items-center leading-none text-text-primary">
+          <span className="inline-flex items-center leading-none">
             <LogoSvg />
           </span>
           JD McCULLEY

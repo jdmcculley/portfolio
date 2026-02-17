@@ -65,6 +65,9 @@
 .timeline {
   position: relative;
   padding-left: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .timeline::before {
@@ -89,11 +92,6 @@
 /* ── Milestone Card ── */
 .milestone {
   position: relative;
-  margin-bottom: 64px;
-}
-
-.milestone:last-child {
-  margin-bottom: 0;
 }
 
 /* ── Icon Dot ── */
@@ -610,7 +608,4 @@
     padding: 24px;
   }
 
-  .milestone {
-    margin-bottom: 48px;
-  }
 }

@@ -6,13 +6,16 @@ interface ExecQuoteProps {
   initials: string;
   text: string;
   source?: string;
+  avatar?: string;
 }
 
-export function ExecQuote({ name, role, initials, text, source }: ExecQuoteProps) {
+export function ExecQuote({ name, role, initials, text, source, avatar }: ExecQuoteProps) {
   return (
     <div className={s.execQuote}>
       <div className={s.execQuoteHeader}>
-        <div className={s.execQuoteAvatar}>{initials}</div>
+        <div className={s.execQuoteAvatar}>
+          {avatar ? <img src={avatar} alt={name} /> : initials}
+        </div>
         <div>
           <div className={s.execQuoteName}>{name}</div>
           <div className={s.execQuoteRole}>{role}</div>
