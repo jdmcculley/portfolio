@@ -27,6 +27,7 @@
   font-size: clamp(2.4rem, 5vw, 3.6rem);
   font-weight: 700; line-height: 1.1;
   letter-spacing: -0.02em; margin: 0; padding: 0;
+  color: var(--text);
 }
 .heroSubtitle {
   font-size: 1rem; line-height: 1.7;
@@ -51,6 +52,23 @@
 }
 .metadataValue {
   font-size: 14px; color: var(--text); font-weight: 500;
+}
+
+/* ── Hero Floating Image ── */
+.heroFloatingImage {
+  display: block; width: 100%; height: auto;
+  margin-top: 48px; border-radius: 12px;
+  animation: heroFloat 4s ease-in-out infinite;
+}
+@keyframes heroFloat {
+  0%, 100% {
+    transform: translateY(0);
+    filter: drop-shadow(0 8px 24px rgba(0, 212, 255, 0.08));
+  }
+  50% {
+    transform: translateY(-12px);
+    filter: drop-shadow(0 20px 40px rgba(0, 212, 255, 0.25));
+  }
 }
 
 /* ── Hero Chart ── */
@@ -154,6 +172,7 @@
 
 /* ── Strategic Context Panel ── */
 .strategicContext {
+  margin-top: 60px;
   padding: 36px 40px; background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   border-radius: 16px; backdrop-filter: blur(12px);
@@ -226,7 +245,7 @@
 }
 .sectionTitle {
   font-family: var(--font-heading); font-size: 38px;
-  font-weight: 600; margin-bottom: 28px;
+  font-weight: 600; margin-bottom: 28px; color: var(--text);
 }
 .sectionBody {
   font-size: 16px; color: var(--text-soft);
@@ -383,7 +402,7 @@
 
 /* ── Quote Components ── */
 .execQuote {
-  margin-top: 40px; padding: 36px 40px;
+  margin-top: 60px; padding: 36px 40px;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   border-radius: 16px; backdrop-filter: blur(12px);
@@ -551,7 +570,7 @@
 /* ── Device Showcase ── */
 .deviceShowcase {
   display: flex; align-items: center;
-  justify-content: center; gap: 48px;
+  justify-content: center; gap: 16px;
   margin-top: 64px; padding: 48px 0;
 }
 .deviceCol {
@@ -566,9 +585,10 @@
 .deviceColLabelAfter { color: var(--accent); }
 .deviceTransition {
   display: flex; align-items: center; justify-content: center;
-  width: 48px; height: 48px; color: var(--accent); opacity: 0.5;
+  width: 32px; height: 32px; color: var(--accent); opacity: 0.5;
+  flex-shrink: 0;
 }
-.deviceTransition svg { width: 28px; height: 28px; }
+.deviceTransition svg { width: 22px; height: 22px; }
 .deviceFrame {
   width: 320px; background: #08080f;
   border-radius: 48px;
@@ -697,6 +717,10 @@
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   margin-top: 120px; padding: 80px 0;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .nextStudyInner {
   max-width: var(--max-width); margin: 0 auto;
@@ -1236,6 +1260,211 @@
 }
 
 /* ═══════════════════════════════════════════
+   CASHBACK: PARTNERSHIP LOCKUP
+   ═══════════════════════════════════════════ */
+.problemBodyWrap {
+  display: flex; align-items: stretch; gap: 48px;
+}
+.problemBodyWrap .sectionBody {
+  flex: 1; min-width: 0;
+}
+.partnership {
+  display: flex; align-items: center;
+  justify-content: center; gap: 36px; flex-shrink: 0;
+}
+.partnerLogoDg {
+  display: flex; align-items: center;
+  justify-content: center;
+}
+.partnerLogoDg svg {
+  height: 120px; width: auto; border-radius: 14px;
+}
+.partnerLogoIbotta {
+  display: flex; align-items: center;
+  justify-content: center;
+}
+.partnerLogoIbotta svg {
+  height: 90px; width: auto;
+}
+.partnerConnector {
+  display: flex; align-items: center;
+}
+.partnerX {
+  font-family: var(--font-mono); font-size: 42px;
+  color: var(--text); font-weight: 300;
+}
+
+/* ═══════════════════════════════════════════
+   CASHBACK: INTEGRATION ARCHITECTURE
+   ═══════════════════════════════════════════ */
+.architecture {
+  margin-top: 48px; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 16px;
+  padding: 36px; position: relative; overflow: hidden;
+}
+.architecture::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.3;
+}
+.archLabel {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 2px; color: var(--text-muted);
+  text-transform: uppercase; margin-bottom: 28px;
+}
+.archFlow {
+  display: flex; align-items: center;
+  justify-content: center; gap: 0; flex-wrap: wrap;
+}
+.archNode {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 10px;
+  padding: 20px 24px; text-align: center; min-width: 140px;
+}
+.archIcon {
+  width: 48px; height: 48px; border-radius: 12px;
+  display: flex; align-items: center;
+  justify-content: center; font-size: 20px;
+}
+.archIconPartner {
+  background: rgba(74, 125, 255, 0.08);
+  border: 1px solid rgba(74, 125, 255, 0.25);
+}
+.archIconDesign {
+  background: rgba(0, 212, 255, 0.06);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+}
+.archIconNative {
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+}
+.archNodeLabel {
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.5px; color: var(--text-soft); font-weight: 500;
+}
+.archNodeSub {
+  font-size: 11px; color: var(--text-muted);
+  line-height: 1.4; max-width: 120px;
+}
+.archArrow {
+  color: var(--text-muted); font-size: 18px;
+  opacity: 0.4; padding: 0 8px; flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════
+   CASHBACK: RESULTS HERO DEVICES
+   ═══════════════════════════════════════════ */
+.deviceShowcaseHero {
+  display: flex; justify-content: center;
+  gap: 80px; margin-top: 48px; position: relative;
+}
+.heroDeviceCol {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 14px;
+}
+.heroDevice {
+  width: 300px;
+}
+.heroDeviceLabel {
+  font-family: var(--font-mono); font-size: 13px;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--accent);
+}
+.heroDeviceColAnnotated {
+  position: relative;
+}
+
+/* Hero left-side annotations */
+.heroAnnotation {
+  position: absolute;
+  display: flex; flex-direction: row-reverse;
+  align-items: center; gap: 0;
+  left: 0;
+  transform: translateX(calc(-100% - 16px));
+  white-space: nowrap; z-index: 3;
+}
+.heroAnnotationLine {
+  width: 32px; height: 2px;
+  flex-shrink: 0; position: relative;
+}
+.heroAnnotationLine::before {
+  content: ''; position: absolute;
+  left: 0; top: 50%; transform: translateY(-50%);
+  width: 100%; height: 1px;
+  background: linear-gradient(270deg, var(--accent), rgba(0, 212, 255, 0.3));
+}
+.heroAnnotationLine::after {
+  content: ''; position: absolute;
+  top: 50%; right: -2px; transform: translateY(-50%);
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--accent);
+}
+.heroAnnotationLabel {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 1px; color: var(--text-soft);
+  line-height: 1.3; padding: 6px 10px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 6px; white-space: normal; max-width: 160px;
+}
+.heroAnnotationLabel strong {
+  display: block; color: var(--accent);
+  font-weight: 600; font-size: 9px;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+/* Right-side insight note */
+.heroInsight {
+  position: absolute; right: 0; top: 50%;
+  transform: translateX(calc(100% + 24px)) translateY(-50%);
+  max-width: 200px; z-index: 3;
+}
+.heroInsightCard {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.5px; color: var(--text-soft);
+  line-height: 1.5; padding: 14px 16px;
+  background: linear-gradient(135deg, var(--surface), rgba(26, 34, 64, 0.6));
+  border: 1px solid var(--border); border-radius: 8px;
+}
+.heroInsightCard strong {
+  display: block; font-family: var(--font-mono);
+  font-size: 9px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 6px;
+}
+
+/* ── Wallet CTA ── */
+.walletCta {
+  display: flex; justify-content: center; margin-top: 36px;
+}
+.walletCtaLink {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--font-mono); font-size: 12px;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--accent); text-decoration: none;
+  padding: 12px 28px;
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  border-radius: 30px;
+  background: rgba(0, 212, 255, 0.06);
+  transition: all 0.3s ease;
+}
+.walletCtaLink:hover {
+  background: rgba(0, 212, 255, 0.12);
+  border-color: rgba(0, 212, 255, 0.4); gap: 14px;
+}
+.walletCtaLink:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.walletCtaLink svg {
+  transition: transform 0.3s ease;
+}
+.walletCtaLink:hover svg {
+  transform: translateX(3px);
+}
+
+/* ═══════════════════════════════════════════
    RESPONSIVE
    ═══════════════════════════════════════════ */
 @media (max-width: 900px) {
@@ -1256,12 +1485,21 @@
   .bizModelIcon { display: none; }
   .splitLayout { flex-direction: column; gap: 32px; }
   .splitVisual { flex: 1 1 auto; position: static; width: 100%; max-width: 480px; margin: 0 auto; }
-  .annotation, .annotationLeft { display: none; }
+  .annotation, .annotationLeft, .heroAnnotation, .heroInsight { display: none; }
   .deviceShowcase { gap: 24px; flex-wrap: wrap; justify-content: center; }
   .deviceFrame { width: 240px; border-radius: 36px; padding: 8px; }
   .deviceNotch { width: 68px; height: 18px; border-radius: 9px; top: 14px; }
   .deviceScreen { border-radius: 28px; height: 480px; }
   .deviceScreenshot { height: 480px; }
+  .problemBodyWrap { flex-direction: column; gap: 24px; }
+  .partnership { gap: 28px; }
+  .partnerLogoDg svg { height: 88px; }
+  .partnerLogoIbotta svg { height: 66px; }
+  .partnerX { font-size: 32px; }
+  .archFlow { flex-direction: column; gap: 8px; }
+  .archArrow { transform: rotate(90deg); }
+  .deviceShowcaseHero { gap: 48px; }
+  .heroDevice { width: 240px; }
   .nextStudyTitle { font-size: 24px; }
   .caseImpact { grid-template-columns: 1fr 1fr; }
   .caseBaGrid { grid-template-columns: 1fr; }
@@ -1302,6 +1540,9 @@
   .deviceScreen { height: 430px; border-radius: 24px; }
   .deviceScreenshot { height: 430px; }
   .deviceTransition { transform: rotate(90deg); width: 32px; height: 32px; }
+  .deviceShowcaseHero { flex-direction: column; align-items: center; gap: 32px; }
+  .heroDevice { width: 220px; }
+  .walletCtaLink { font-size: 11px; padding: 10px 22px; }
   .phaseCards { grid-template-columns: 1fr 1fr; }
   .pipeline { grid-template-columns: 1fr; }
   .pipelineNode::after { display: none; }
