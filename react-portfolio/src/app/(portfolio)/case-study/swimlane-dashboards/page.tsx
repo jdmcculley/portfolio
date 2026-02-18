@@ -455,6 +455,8 @@ export default function SwimlaneDashboards() {
 
       {/* ══════════ NEXT STUDY ══════════ */}
       <NextStudy
+        prevHref="/case-study/cashback"
+        prevTitle="Cash Back"
         href="/case-study/rba"
         title="Risk-Based Authentication Redesign"
         desc="Rescued 25,000+ stuck users and prevented 75,000 future lockouts by redesigning the complete authentication flow for Dollar General's digital platforms."

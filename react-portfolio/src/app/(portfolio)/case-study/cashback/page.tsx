@@ -539,6 +539,8 @@ export default function CashBackCaseStudy() {
 
       {/* ══════════ Next Study ══════════ */}
       <NextStudy
+        prevHref="/case-study/wallet"
+        prevTitle="myDG Wallet"
         href="/case-study/swimlane-dashboards"
         title="Swimlane — SOAR Platform Design"
         desc="Led design across Swimlane's Security Orchestration, Automation & Response platform — from dashboards and analytics to workflow and design systems."

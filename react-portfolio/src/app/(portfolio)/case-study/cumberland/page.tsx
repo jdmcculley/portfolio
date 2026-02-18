@@ -292,6 +292,8 @@ export default function CumberlandCaseStudy() {
 
       {/* Next Study */}
       <NextStudy
+        prevHref="/case-study/swimlane-dashboards"
+        prevTitle="Swimlane SOAR"
         href="/case-study/rba"
         title="Rescuing Authentication at Scale"
         desc="How a 5-day crisis became a 7-journey system protecting 9 million users — and proved why the design system matters."

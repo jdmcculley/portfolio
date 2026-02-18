@@ -805,6 +805,11 @@
 .nextStudyInner {
   max-width: var(--max-width); margin: 0 auto;
   padding: 0 var(--container-pad);
+  display: flex; align-items: center; gap: 40px;
+}
+.nextStudyContent {
+  flex: 1; text-align: center;
+  display: flex; flex-direction: column; align-items: center;
 }
 .nextStudyLabel {
   font-family: var(--font-mono); font-size: 11px;
@@ -813,20 +818,37 @@
 }
 .nextStudyLink {
   display: block; text-decoration: none; color: inherit;
-  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-}
-.nextStudyLink:hover { transform: translateX(8px); }
-.nextStudyLink:hover .nextArrow { transform: translateX(6px); }
-.nextStudyTop {
-  display: flex; justify-content: space-between;
-  align-items: flex-start; margin-bottom: 12px;
 }
 .nextStudyTitle {
   font-family: var(--font-heading); font-size: 28px;
-  font-weight: 600; margin: 0;
+  font-weight: 600; margin: 0 0 12px;
 }
-.nextArrow {
-  font-size: 24px; color: var(--accent);
+.prevArrowLink, .nextArrowLink {
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; width: 48px; height: 48px;
+  border-radius: 50%; border: 1px solid var(--border);
+  text-decoration: none; color: var(--accent);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.prevArrowLink { position: relative; }
+.prevArrowLink:hover, .nextArrowLink:hover {
+  border-color: var(--accent);
+  background: rgba(var(--accent-rgb, 100, 200, 255), 0.08);
+}
+.prevArrowLink:hover .prevArrow { transform: translateX(-3px); }
+.nextArrowLink:hover .nextArrow { transform: translateX(3px); }
+.prevTooltip {
+  position: absolute; left: calc(100% + 12px); top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.5px; color: var(--text-soft);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.prevArrowLink:hover .prevTooltip { opacity: 1; }
+.prevArrow, .nextArrow {
+  font-size: 22px; color: var(--accent);
   transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .nextStudyDesc {
@@ -835,6 +857,7 @@
 }
 .nextStudyMetrics {
   display: flex; gap: 32px; margin-top: 20px;
+  justify-content: center;
 }
 .nextMetric {
   font-family: var(--font-mono); font-size: 13px;
@@ -1595,6 +1618,9 @@
   .heroDevice .deviceScreen { height: 480px; border-radius: 28px; }
   .heroDevice .deviceScreenshot { height: 480px; }
   .nextStudyTitle { font-size: 24px; }
+  .prevArrowLink, .nextArrowLink { width: 40px; height: 40px; }
+  .nextStudyInner { gap: 24px; }
+  .prevTooltip { display: none; }
   .caseImpact { grid-template-columns: 1fr 1fr; }
   .caseBaGrid { grid-template-columns: 1fr; }
   .phaseCards { grid-template-columns: repeat(3, 1fr); }
@@ -1624,6 +1650,9 @@
   .decision { grid-template-columns: 1fr; }
   .decisionIcon { display: none; }
   .nextStudyMetrics { flex-wrap: wrap; gap: 16px; }
+  .prevArrowLink, .nextArrowLink { width: 36px; height: 36px; }
+  .prevArrow, .nextArrow { font-size: 18px; }
+  .nextStudyInner { gap: 16px; }
   .chartSvg { height: 140px; }
   .execQuote { padding: 24px; }
   .splitVisual { max-width: 100%; }

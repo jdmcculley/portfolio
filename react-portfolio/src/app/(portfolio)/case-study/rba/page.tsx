@@ -295,6 +295,8 @@ export default function RBACaseStudy() {
 
       {/* Next Study */}
       <NextStudy
+        prevHref="/case-study/swimlane-dashboards"
+        prevTitle="Swimlane SOAR"
         href="/case-study/wallet"
         title="myDG Wallet: Reversing the Decline"
         desc="Reversed double-digit engagement decline by centralizing rewards, deals, and payments into a unified card stack UI."

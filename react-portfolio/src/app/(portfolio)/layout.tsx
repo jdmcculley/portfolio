@@ -3,6 +3,7 @@ import { Footer } from "@/components/layout/Footer";
 import { BackgroundEffects } from "@/components/layout/BackgroundEffects";
 import { ScrollProgressBar } from "@/components/layout/ScrollProgressBar";
 import { ProtectedRoute } from "@/components/auth/ProtectedRoute";
+import { BackToTop } from "@/components/ui/BackToTop";
 
 export default function PortfolioLayout({
   children,
@@ -18,6 +19,7 @@ export default function PortfolioLayout({
         <ProtectedRoute>{children}</ProtectedRoute>
       </main>
       <Footer />
+      <BackToTop />
     </>
   );
 }
