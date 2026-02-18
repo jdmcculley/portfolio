@@ -73,8 +73,7 @@
 
 .heroSubtitle {
   font-size: 1.15rem;
-  color: var(--text);
-  opacity: 0.8;
+  color: var(--text-soft);
   line-height: 1.7;
   margin-bottom: 36px;
   max-width: 570px;
@@ -86,45 +85,65 @@
 }
 
 .btnPrimary {
-  padding: 14px 32px;
+  padding: 14px 36px;
   border-radius: 12px;
   border: none;
-  font-family: var(--font-body);
-  font-size: 0.9rem;
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  background: linear-gradient(135deg, var(--secondary), #3560cc);
-  color: white;
-  box-shadow: 0 4px 30px rgba(74, 125, 255, 0.3);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  background: linear-gradient(135deg, var(--accent), var(--secondary));
+  color: var(--bg);
+  box-shadow: 0 4px 24px rgba(0, 212, 255, 0.25);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  gap: 8px;
+  letter-spacing: -0.01em;
 }
 
 .btnPrimary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 40px rgba(74, 125, 255, 0.5);
+  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.4);
+}
+
+.btnPrimary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 12px rgba(0, 212, 255, 0.2);
 }
 
 .btnSecondary {
-  padding: 14px 32px;
+  padding: 14px 36px;
   border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.10);
+  border: 1px solid var(--border-strong);
   background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  color: white;
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  font-weight: 500;
+  backdrop-filter: blur(12px);
+  color: var(--text);
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  letter-spacing: -0.01em;
 }
 
 .btnSecondary:hover {
-  border-color: var(--secondary);
+  border-color: var(--accent);
+  color: var(--accent-light);
   transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.12);
+}
+
+.btnSecondary:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 /* ── Orbit System ── */
@@ -235,7 +254,7 @@
 .orbitLabel {
   position: absolute;
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   padding: 6px 12px;
@@ -296,7 +315,7 @@
 
 .statLabel {
   font-size: 0.75rem;
-  color: rgba(255,255,255,0.45);
+  color: #8b90a8;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 500;
@@ -333,8 +352,7 @@
 
 .sectionSubtitle {
   font-size: 1.05rem;
-  color: var(--text);
-  opacity: 0.8;
+  color: var(--text-soft);
   max-width: 620px;
   margin-bottom: 56px;
   font-weight: 300;
@@ -342,7 +360,7 @@
 }
 
 /* ── Three Pillars ── */
-.section { padding: 120px 0; position: relative; z-index: 1; }
+.section { padding: 75px 0; position: relative; z-index: 1; }
 
 .pillarsGrid {
   display: grid;
@@ -392,7 +410,7 @@
 
 .pillarTag {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   color: var(--secondary);
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -409,7 +427,7 @@
 
 .pillarDesc {
   font-size: 0.9rem;
-  color: rgba(255,255,255,0.5);
+  color: #8b90a8;
   line-height: 1.65;
   margin-bottom: 20px;
 }
@@ -423,7 +441,7 @@
   background: rgba(74, 125, 255, 0.06);
   border: 1px solid rgba(74, 125, 255, 0.12);
   font-size: 0.8rem;
-  color: rgba(255,255,255,0.5);
+  color: #8b90a8;
 }
 
 .metricValue {
@@ -480,7 +498,7 @@
 
 .stepLabel {
   font-family: var(--font-mono);
-  font-size: 0.55rem;
+  font-size: 0.65rem;
   color: var(--secondary);
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -496,7 +514,7 @@
 
 .stepDesc {
   font-size: 0.7rem;
-  color: rgba(255,255,255,0.4);
+  color: #8b90a8;
   line-height: 1.5;
 }
 
@@ -504,7 +522,7 @@
   display: inline-block;
   margin-top: 8px;
   font-family: var(--font-mono);
-  font-size: 0.55rem;
+  font-size: 0.65rem;
   padding: 3px 8px;
   border-radius: 4px;
   letter-spacing: 0.5px;
@@ -580,7 +598,7 @@
 
 .baLabel {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 12px;
@@ -601,7 +619,7 @@
 
 .baDesc {
   font-size: 0.75rem;
-  color: rgba(255,255,255,0.45);
+  color: #8b90a8;
 }
 
 .caseArrow {
@@ -633,7 +651,7 @@
 
 .caseDesc {
   font-size: 0.95rem;
-  color: rgba(255,255,255,0.5);
+  color: #8b90a8;
   line-height: 1.7;
   margin-bottom: 28px;
 }
@@ -647,12 +665,12 @@
 
 .caseTag {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   padding: 6px 14px;
   border-radius: 6px;
   background: rgba(74, 125, 255, 0.08);
   border: 1px solid rgba(74, 125, 255, 0.2);
-  color: rgba(255,255,255,0.5);
+  color: #8b90a8;
   letter-spacing: 0.5px;
 }
 
@@ -679,7 +697,7 @@
 
 .impactLabel {
   font-size: 0.7rem;
-  color: rgba(255,255,255,0.45);
+  color: #8b90a8;
 }
 
 /* ── Quote Box ── */
@@ -723,7 +741,7 @@
 
 .quoteAttr {
   font-size: 0.8rem;
-  color: rgba(255,255,255,0.4);
+  color: #8b90a8;
 }
 
 .quoteAttr strong {
@@ -768,7 +786,7 @@
   font-weight: 400;
   letter-spacing: 1px;
   margin-top: 6px;
-  opacity: 0.6;
+  color: #8b90a8;
 }
 
 .layerUser {
@@ -793,7 +811,7 @@
 .layerProduct {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255,255,255,0.5);
+  color: #8b90a8;
 }
 
 .mcpConnector {
@@ -812,7 +830,7 @@
 }
 
 .mcpDesc {
-  color: rgba(255,255,255,0.5);
+  color: #8b90a8;
   font-size: 1rem;
   line-height: 1.7;
   margin-bottom: 28px;
@@ -831,8 +849,8 @@
   align-items: flex-start;
   gap: 12px;
   font-size: 0.9rem;
-  color: rgba(255,255,255,0.5);
-  line-height: 1.5;
+  color: #8b90a8;
+  line-height: 1.6;
 }
 
 .mcpBullet {
@@ -884,7 +902,7 @@
 
 /* ── CTA Section ── */
 .ctaSection {
-  padding: 120px 0;
+  padding: 75px 0;
   text-align: center;
 }
 
@@ -914,8 +932,7 @@
 }
 
 .ctaDesc {
-  color: var(--text);
-  opacity: 0.8;
+  color: var(--text-soft);
   font-size: 1.05rem;
   margin-bottom: 36px;
   max-width: 570px;

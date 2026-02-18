@@ -263,6 +263,17 @@ export default function AIDesignTrendsArticle() {
                 <span className={clsx(s.stepAiTag, s.tagBoth)}>Both</span>
               </div>
             </div>
+
+            <div style={{ textAlign: 'center', marginTop: 32 }}>
+              <a
+                href="/articles/design-process-timeline"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={s.btnPrimary}
+              >
+                Explore the Full Process Timeline →
+              </a>
+            </div>
           </ScrollReveal>
         </Container>
       </section>

@@ -542,6 +542,25 @@ export default function DesignSystemPreviewPage() {
             rendered with real imports.
           </p>
 
+          {/* Buttons */}
+          <div className={s.componentCard}>
+            <div className={s.componentCardLabel}>Buttons</div>
+            <div className={s.buttonGrid}>
+              <button type="button" className={s.btnPrimary}>
+                Primary Action
+              </button>
+              <button type="button" className={s.btnSecondary}>
+                Secondary Action
+              </button>
+              <button type="button" className={s.btnPrimary} disabled>
+                Primary Disabled
+              </button>
+              <button type="button" className={s.btnSecondary} disabled>
+                Secondary Disabled
+              </button>
+            </div>
+          </div>
+
           {/* Badges */}
           <div className={s.componentCard}>
             <div className={s.componentCardLabel}>Badges</div>
