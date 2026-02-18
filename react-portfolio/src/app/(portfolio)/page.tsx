@@ -90,50 +90,58 @@ const spectrumCards = [
 const caseStudies = [
   {
     href: '/case-study/rba',
+    company: 'Dollar General' as const,
     metrics: [{ val: '25K+', lbl: 'Rescued' }, { val: '75K', lbl: 'Prevented' }, { val: '61%', lbl: 'Improvement' }],
-    tags: ['RBA Redesign', 'Authentication'],
+    tags: ['Design-Led AI', 'IC-Creative Director', 'Redesign', 'Authentication'],
+    tagVariants: ['ai', 'default', 'default', 'default'],
     title: 'Risk-Based Authentication Redesign',
     desc: 'Rescued 25,000+ stuck users and prevented 75,000 future lockouts by redesigning the complete authentication flow for Dollar General\u2019s digital platforms.',
     visual: 'shield',
   },
   {
-    href: '/case-study/cashback',
-    metrics: [{ val: '435M', lbl: 'Clips' }, { val: '$9M', lbl: 'Savings' }, { val: '191%', lbl: 'YoY Growth' }],
-    tags: ['Ibotta Partnership', 'Commerce'],
-    title: 'Cash Back at Scale',
-    desc: 'Led UX for the white-label Ibotta integration — a co-mingled deals gallery that put $9 million back in customers\u2019 pockets.',
-    visual: 'bars',
-    delay: 0.15,
-  },
-  {
     href: '/case-study/wallet',
+    company: 'Dollar General' as const,
     metrics: [{ val: '130%+', lbl: 'Engagement' }, { val: '40%', lbl: 'Faster' }, { val: '28%', lbl: 'Discovery' }],
-    tags: ['AI-Assisted Exploration', 'Wallet Redesign'],
-    tagVariants: ['ai', 'default'],
+    tags: ['AI-Assisted Exploration', 'Wallet Redesign', 'In-Store', 'Deals & Savings'],
+    tagVariants: ['ai', 'default', 'default', 'default'],
     title: 'myDG Wallet Turnaround',
     desc: 'Reversed double-digit engagement decline by centralizing rewards, deals, and payments into a unified card stack UI.',
     visual: 'cards',
-  },
-  {
-    metrics: [{ val: '35%', lbl: 'Velocity' }, { val: '89%', lbl: 'Consistency' }, { val: '5-day', lbl: 'Onboarding' }],
-    tags: ['Design System', 'Figma + AEM'],
-    title: 'Cumberland Design System',
-    desc: 'Enterprise design system for Dollar General — the tokenized foundation that enables AI-accelerated design iteration and consistent design-to-development handoff across both brands.',
-    visual: 'system',
-    disabled: true,
     delay: 0.15,
   },
   {
-    href: '/case-study/swimlane-dashboards',
-    metrics: [{ val: 'A\u2192C', lbl: 'Series' }, { val: '0\u21921', lbl: 'UX Build' }, { val: '6yr', lbl: 'Tenure' }],
-    tags: ['Enterprise B2B', 'SOAR Platform'],
-    title: 'Swimlane — 0 to 1 UX',
-    desc: 'Early design hire at cybersecurity startup. Built the entire UI/UX function from scratch through Series A, B, and C — translating complex automation workflows into intuitive enterprise interfaces.',
-    visual: 'dashboard',
+    href: '/case-study/cashback',
+    company: 'Dollar General' as const,
+    metrics: [{ val: '435M', lbl: 'Clips' }, { val: '$9M', lbl: 'Savings' }, { val: '191%', lbl: 'YoY Growth' }],
+    tags: ['Ibotta Partnership', 'New Feature', 'Deals and Savings', 'E-Commerce'],
+    title: 'Cash Back at Scale',
+    desc: 'Led UX for the white-label Ibotta integration — a co-mingled deals gallery that put $9 million back in customers\u2019 pockets.',
+    visual: 'cashback',
   },
   {
+    href: '/case-study/swimlane-dashboards',
+    company: 'Swimlane' as const,
+    public: true,
+    metrics: [{ val: 'A\u2192C', lbl: 'Series' }, { val: '0\u21921', lbl: 'UX Build' }, { val: '6yr', lbl: 'Tenure' }],
+    tags: ['Enterprise B2B', 'SOAR Platform', 'Data Visualization', 'Design System', 'Corporate Brand'],
+    title: 'Swimlane — SOAR Platform Design',
+    desc: 'Led design across Swimlane\u2019s Security Orchestration, Automation & Response platform — from dashboards and analytics to applications, workflow, and design systems — transforming a startup product into an enterprise-grade intelligence platform.',
+    visual: 'soar',
+    delay: 0.15,
+  },
+  {
+    company: 'Dollar General' as const,
+    metrics: [{ val: '35%', lbl: 'Velocity' }, { val: '89%', lbl: 'Consistency' }, { val: '5-day', lbl: 'Onboarding' }],
+    tags: ['Design System', 'Figma + AEM', 'Tokenization', 'Handoff Architecture'],
+    title: 'Cumberland Design System',
+    desc: 'Enterprise design system for Dollar General — the tokenized foundation that enables AI-accelerated design iteration and consistent design-to-development handoff across both brands.',
+    visual: 'tokens',
+    disabled: true,
+  },
+  {
+    company: 'pOpshelf' as const,
     metrics: [{ val: '180', lbl: 'Stores' }, { val: 'Sub-Brand', lbl: 'Identity' }, { val: 'App + Web', lbl: 'Launch' }],
-    tags: ['Retail', 'Dollar General Sub-Brand'],
+    tags: ['Retail', 'App & Web', 'Design System', 'Loyalty', 'E-Commerce'],
     title: 'pOpshelf Digital Experience',
     desc: 'App and website for Dollar General\u2019s boutique retail concept — translating a curated, discovery-driven in-store experience into a cohesive digital presence across 180 locations.',
     visual: 'storefront',
@@ -236,21 +244,37 @@ function ShieldVisual() {
   );
 }
 
-function BarsVisual() {
+function CashbackLoopVisual() {
   const bars = [
-    { h: '35%', bg: 'linear-gradient(to top, #2a5a5a, #4a8a8a)' },
-    { h: '45%', bg: 'linear-gradient(to top, #2a3060, #3d4a80)' },
-    { h: '40%', bg: 'linear-gradient(to top, #2a6868, #4a9a9a)' },
-    { h: '65%', bg: 'linear-gradient(to top, #303870, #4a5aa0)' },
-    { h: '55%', bg: 'linear-gradient(to top, #1a8a9a, #40d0e0)' },
-    { h: '85%', bg: 'linear-gradient(to top, #3848a0, #6878d0)' },
-    { h: '100%', bg: 'linear-gradient(to top, #30a0e0, #70c8ff)' },
+    { x: 9, h: 20 },
+    { x: 27, h: 28 },
+    { x: 45, h: 25 },
+    { x: 63, h: 40 },
+    { x: 81, h: 35 },
+    { x: 99, h: 52 },
+    { x: 117, h: 65 },
   ];
   return (
-    <div className={s.visBars}>
-      {bars.map((b, i) => (
-        <div key={i} className={s.visBar} style={{ height: b.h, background: b.bg, animationDelay: `${i * 0.1}s` }} />
-      ))}
+    <div className={s.visCashback}>
+      <div className={s.visCashbackGlow} />
+      <svg className={s.visCashbackSvg} viewBox="0 0 140 100" fill="none">
+        <defs>
+          {bars.map((_, i) => (
+            <linearGradient key={i} id={`cb${i}`} x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor={`hsl(${185 + i * 6}, ${55 + i * 5}%, ${28 + i * 5}%)`} />
+              <stop offset="100%" stopColor={`hsl(${185 + i * 6}, ${45 + i * 4}%, ${16 + i * 2}%)`} />
+            </linearGradient>
+          ))}
+        </defs>
+
+        {/* Baseline */}
+        <line x1="6" y1="90" x2="134" y2="90" stroke="var(--accent)" strokeWidth="0.5" opacity="0.15" />
+
+        {/* Bars */}
+        {bars.map((b, i) => (
+          <rect key={i} className={s.visCashbackBar} x={b.x} y={90 - b.h} width={14} height={b.h} rx={3} fill={`url(#cb${i})`} opacity={0.5 + i * 0.07} />
+        ))}
+      </svg>
     </div>
   );
 }
@@ -265,14 +289,44 @@ function WalletCardsVisual() {
   );
 }
 
-function SystemGridVisual() {
+function DesignTokensVisual() {
   return (
-    <div className={s.visSystem}>
-      <div className={s.visSystemGrid}>
-        {Array.from({ length: 8 }).map((_, i) => (
-          <div key={i} className={s.visSystemBlock} />
-        ))}
-      </div>
+    <div className={s.visTokens}>
+      <div className={s.visTokensGlow} />
+      <svg className={s.visTokensSvg} viewBox="0 0 130 120" fill="none">
+        {/* Outer container — the full design system */}
+        <circle className={s.visTokensCircle} cx="65" cy="58" r="54" fill="var(--accent)" fillOpacity="0.02" stroke="var(--accent)" strokeWidth="0.8" opacity="0.25" />
+
+        {/* Inner boundary — dashed */}
+        <circle className={s.visTokensCircle} cx="65" cy="58" r="46" fill="none" stroke="var(--accent)" strokeWidth="0.6" strokeDasharray="4 4" opacity="0.15" />
+
+        {/* Large — design process, left-center */}
+        <circle className={s.visTokensCircle} cx="48" cy="52" r="28" fill="var(--accent)" fillOpacity="0.06" stroke="var(--accent)" strokeWidth="0.8" opacity="0.45" />
+
+        {/* Large — development process, upper-right */}
+        <circle className={s.visTokensCircle} cx="88" cy="38" r="24" fill="var(--secondary)" fillOpacity="0.05" stroke="var(--secondary)" strokeWidth="0.8" opacity="0.35" />
+
+        {/* Medium — component system, center overlap hub */}
+        <circle className={s.visTokensCircle} cx="65" cy="58" r="16" fill="var(--accent)" fillOpacity="0.1" stroke="var(--accent)" strokeWidth="0.9" opacity="0.6" />
+
+        {/* Medium — documentation, bottom */}
+        <circle className={s.visTokensCircle} cx="58" cy="82" r="15" fill="var(--secondary)" fillOpacity="0.04" stroke="var(--secondary)" strokeWidth="0.6" opacity="0.3" />
+
+        {/* Small — design assets, inside left */}
+        <circle className={s.visTokensCircle} cx="38" cy="40" r="12" fill="var(--accent)" fillOpacity="0.07" stroke="var(--accent)" strokeWidth="0.6" opacity="0.4" />
+
+        {/* Small — component library, inside right */}
+        <circle className={s.visTokensCircle} cx="82" cy="34" r="10" fill="var(--secondary)" fillOpacity="0.07" stroke="var(--secondary)" strokeWidth="0.6" opacity="0.35" />
+
+        {/* Small — issue tracking, right edge */}
+        <circle className={s.visTokensCircle} cx="98" cy="60" r="9" fill="var(--accent)" fillOpacity="0.04" stroke="var(--accent)" strokeWidth="0.5" opacity="0.25" />
+
+        {/* Small — content strategy, bottom-right */}
+        <circle className={s.visTokensCircle} cx="90" cy="80" r="10" fill="var(--accent)" fillOpacity="0.08" stroke="var(--accent)" strokeWidth="0.7" opacity="0.45" />
+
+        {/* Small — top, between the two large circles */}
+        <circle className={s.visTokensCircle} cx="68" cy="22" r="8" fill="var(--accent)" fillOpacity="0.06" stroke="var(--accent)" strokeWidth="0.6" opacity="0.35" />
+      </svg>
     </div>
   );
 }
@@ -305,18 +359,82 @@ function DashboardVisual() {
 
 function StorefrontVisual() {
   return (
-    <div className={s.visDash}>
-      <div className={s.visDashFrame}>
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 24, background: 'linear-gradient(90deg, rgba(var(--secondary-rgb,194,124,78),0.15), rgba(var(--accent-rgb,201,162,39),0.1))', borderBottom: '1px solid var(--glass-border)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 6, letterSpacing: 2, textTransform: 'uppercase', color: 'var(--secondary)', opacity: 0.7 }}>pOpshelf</span>
-        </div>
-        <div style={{ position: 'absolute', top: 32, left: 8, right: 8, display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 4 }}>
-          {[0, 1, 2, 3, 4, 5].map(i => (
-            <div key={i} style={{ height: 32, borderRadius: 6, background: i < 3 ? 'rgba(var(--secondary-rgb,194,124,78),0.08)' : 'var(--accent-glow)', border: '1px solid var(--glass-border)' }} />
-          ))}
-        </div>
-        <div style={{ position: 'absolute', bottom: 8, left: 8, right: 8, height: 20, borderRadius: 5, background: 'linear-gradient(90deg, rgba(var(--secondary-rgb,194,124,78),0.12), var(--accent-glow))', border: '1px solid var(--glass-border)' }} />
-      </div>
+    <div className={s.visPopshelf}>
+      <div className={s.visPopshelfGlow} />
+      <svg className={s.visPopshelfSvg} viewBox="0 0 160 100" fill="none">
+        <defs>
+          <linearGradient id="psFrame" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.12" />
+            <stop offset="100%" stopColor="var(--accent)" stopOpacity="0.03" />
+          </linearGradient>
+        </defs>
+
+        {/* Browser window */}
+        <rect className={s.visPopshelfBrowser} x="4" y="6" width="100" height="70" rx="5" fill="url(#psFrame)" stroke="var(--accent)" strokeWidth="0.8" />
+        {/* Browser title bar */}
+        <line x1="4" y1="18" x2="104" y2="18" stroke="var(--accent)" strokeWidth="0.5" opacity="0.2" />
+        <circle cx="14" cy="12" r="2" fill="var(--accent)" opacity="0.2" />
+        <circle cx="22" cy="12" r="2" fill="var(--accent)" opacity="0.15" />
+        <circle cx="30" cy="12" r="2" fill="var(--accent)" opacity="0.1" />
+        {/* Browser placeholder blocks */}
+        <rect x="10" y="24" width="88" height="10" rx="2" fill="var(--accent)" fillOpacity="0.08" />
+        <rect x="10" y="38" width="40" height="30" rx="2" fill="var(--accent)" fillOpacity="0.06" />
+        <rect x="54" y="38" width="44" height="14" rx="2" fill="var(--accent)" fillOpacity="0.06" />
+        <rect x="54" y="56" width="44" height="12" rx="2" fill="var(--accent)" fillOpacity="0.04" />
+
+        {/* Mobile device */}
+        <rect className={s.visPopshelfPhone} x="116" y="12" width="38" height="72" rx="6" fill="url(#psFrame)" stroke="var(--accent)" strokeWidth="0.8" />
+        {/* Phone notch */}
+        <rect x="128" y="16" width="14" height="3" rx="1.5" fill="var(--accent)" opacity="0.15" />
+        {/* Phone placeholder blocks */}
+        <rect x="121" y="24" width="28" height="6" rx="1.5" fill="var(--accent)" fillOpacity="0.08" />
+        <rect x="121" y="34" width="28" height="18" rx="1.5" fill="var(--accent)" fillOpacity="0.06" />
+        <rect x="121" y="56" width="13" height="13" rx="1.5" fill="var(--accent)" fillOpacity="0.06" />
+        <rect x="136" y="56" width="13" height="13" rx="1.5" fill="var(--accent)" fillOpacity="0.04" />
+        {/* Phone home bar */}
+        <rect x="129" y="76" width="12" height="2" rx="1" fill="var(--accent)" opacity="0.15" />
+      </svg>
+    </div>
+  );
+}
+
+function SoarVisual() {
+  return (
+    <div className={s.visSoar}>
+      <div className={s.visSoarGlow} />
+      <svg className={s.visSoarSvg} viewBox="0 0 140 110" fill="none">
+        <defs>
+          <radialGradient id="soarHub">
+            <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.85" />
+            <stop offset="100%" stopColor="var(--secondary)" stopOpacity="0.4" />
+          </radialGradient>
+        </defs>
+
+        {/* Connection paths */}
+        <path d="M22 22 C44 22 52 42 70 50" stroke="var(--accent)" strokeWidth="0.8" opacity="0.25" />
+        <path d="M22 88 C44 88 52 68 70 60" stroke="var(--accent)" strokeWidth="0.8" opacity="0.25" />
+        <path d="M78 48 C96 36 104 24 118 22" stroke="var(--accent)" strokeWidth="0.8" opacity="0.25" />
+        <path d="M78 55 C96 55 104 55 118 55" stroke="var(--accent)" strokeWidth="0.8" opacity="0.3" />
+        <path d="M78 62 C96 74 104 86 118 88" stroke="var(--accent)" strokeWidth="0.8" opacity="0.25" />
+
+        {/* Input nodes — rounded rects (data sources / alerts) */}
+        <rect x="10" y="14" width="24" height="16" rx="4" fill="var(--secondary)" fillOpacity="0.1" stroke="var(--secondary)" strokeWidth="0.8" opacity="0.5" />
+        <rect x="10" y="80" width="24" height="16" rx="4" fill="var(--secondary)" fillOpacity="0.1" stroke="var(--secondary)" strokeWidth="0.8" opacity="0.5" />
+
+        {/* Center orchestrator hub */}
+        <circle cx="70" cy="55" r="14" fill="url(#soarHub)" stroke="var(--accent)" strokeWidth="1.2" />
+        <circle cx="70" cy="55" r="5" fill="var(--bg)" opacity="0.7" />
+
+        {/* Output nodes — circles (automated responses) */}
+        <circle cx="118" cy="22" r="6" fill="var(--accent)" fillOpacity="0.1" stroke="var(--accent)" strokeWidth="0.8" opacity="0.45" />
+        <circle cx="118" cy="55" r="6" fill="var(--accent)" fillOpacity="0.15" stroke="var(--accent)" strokeWidth="0.8" opacity="0.55" />
+        <circle cx="118" cy="88" r="6" fill="var(--accent)" fillOpacity="0.1" stroke="var(--accent)" strokeWidth="0.8" opacity="0.45" />
+
+        {/* Animated pulse dot */}
+        <circle r="2" fill="var(--accent)" opacity="0.9">
+          <animateMotion dur="3.5s" repeatCount="indefinite" path="M22 88 C44 88 52 68 70 60 C96 55 104 55 118 55" />
+        </circle>
+      </svg>
     </div>
   );
 }
@@ -349,11 +467,12 @@ function AiRingsVisual() {
 
 const visuals: Record<string, () => React.JSX.Element> = {
   shield: ShieldVisual,
-  bars: BarsVisual,
+  cashback: CashbackLoopVisual,
   cards: WalletCardsVisual,
-  system: SystemGridVisual,
+  tokens: DesignTokensVisual,
   dashboard: DashboardVisual,
   storefront: StorefrontVisual,
+  soar: SoarVisual,
 };
 
 /* ── Arrow icon ── */
@@ -564,7 +683,7 @@ export default function HomePage() {
               const inner = (
                 <>
                   {/* Lock / Unlock badge */}
-                  {hasLink && (
+                  {hasLink && !cs.public && (
                     <div className="absolute top-3 right-3 z-10">
                       {isAuthenticated ? (
                         <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-accent-glow border border-accent/20 font-mono text-[0.6rem] tracking-[0.5px] text-accent">
@@ -588,6 +707,14 @@ export default function HomePage() {
                   </div>
                   <div className={s.csContent}>
                     <div className={s.csTags}>
+                      <span className={clsx(
+                        s.csCompany,
+                        cs.company === 'Dollar General' && s.csCompanyDg,
+                        cs.company === 'Swimlane' && s.csCompanySwimlane,
+                        cs.company === 'pOpshelf' && s.csCompanyPopshelf,
+                      )}>
+                        {cs.company}
+                      </span>
                       {cs.tags.map((t, j) => {
                         const isAi = cs.tagVariants?.[j] === 'ai';
                         return (
@@ -608,7 +735,7 @@ export default function HomePage() {
                     <span className={clsx(s.csLink, cs.disabled && s.disabledLink)}>
                       {cs.disabled
                         ? 'Case Study Coming Soon'
-                        : isAuthenticated
+                        : cs.public || isAuthenticated
                           ? 'View Case Study'
                           : 'Unlock to View Details'}
                       <ArrowRight />
@@ -665,7 +792,7 @@ export default function HomePage() {
             <SectionHeader label="What&apos;s Next" heading="Let&apos;s build something." centered />
 
             <ScrollReveal delay={0.2}>
-              <p className="text-base text-text-primary opacity-80 max-w-[580px] mx-auto leading-[1.7] font-light mb-14 text-center">
+              <p className="text-base text-text-soft max-w-[640px] mx-auto leading-[1.7] font-light mb-14 text-center">
                 I&apos;m looking for my next opportunity to lead product design at scale —
                 bridging the full product lifecycle with design systems, AI-augmented workflows,
                 and the cross-functional leadership that turns a shifting landscape into shipped product.

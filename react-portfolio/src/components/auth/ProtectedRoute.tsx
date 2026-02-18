@@ -10,9 +10,12 @@ export function ProtectedRoute({ children }: { children: ReactNode }) {
   const { isAuthenticated, isLoading } = useAuth();
   const pathname = usePathname();
 
-  const isProtected = AUTH_CONFIG.protectedRoutes.some((route) =>
+  const isPublic = AUTH_CONFIG.publicRoutes.some((route) =>
     pathname.startsWith(route),
   );
+  const isProtected =
+    !isPublic &&
+    AUTH_CONFIG.protectedRoutes.some((route) => pathname.startsWith(route));
 
   if (isLoading) {
     return (

@@ -382,11 +382,11 @@ export default function WalletCaseStudy() {
       <NextStudy
         href="/case-study/cashback"
         title="myDG Cash Back at Scale"
-        desc="Designing the Ibotta partnership integration that put $9 million back in customers' pockets and grew deal engagement 191% YoY."
+        desc="Led UX for the white-label Ibotta integration — a co-mingled deals gallery that put $9 million back in customers' pockets."
         metrics={[
           { value: '435M', label: 'Clips' },
-          { value: '$9M', label: 'Earned' },
-          { value: '209%', label: 'Redemption' },
+          { value: '$9M', label: 'Savings' },
+          { value: '191%', label: 'YoY Growth' },
         ]}
       />
     </main>

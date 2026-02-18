@@ -6,10 +6,12 @@ export const AUTH_CONFIG = {
   sessionKey: 'jd_portfolio_auth',
   protectedRoutes: [
     '/case-study',
-    '/articles/design-process-timeline',
     '/articles/job-search-strategy',
     '/articles/interview-prep',
     '/quote-gallery',
     '/design-system-preview',
+  ],
+  publicRoutes: [
+    '/case-study/swimlane-dashboards',
   ],
 } as const;

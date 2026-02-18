@@ -4,6 +4,7 @@ import { SmoothAnchor } from '@/components/ui/SmoothAnchor';
 import { Container } from '@/components/layout/Container';
 import clsx from 'clsx';
 import s from '../articles.module.css';
+import { CaseStudyButton } from './CaseStudyButton';
 
 export const metadata: Metadata = {
   title: 'Design-Led AI in Practice — JD McCulley',
@@ -56,15 +57,28 @@ export default function AIDesignTrendsArticle() {
             {/* Right — Orbit System */}
             <ScrollReveal delay={0.2}>
               <div className={s.heroVisual}>
+                {/* Ambient particles */}
+                <div className={s.particleField}>
+                  <div className={clsx(s.particle, s.p1)} />
+                  <div className={clsx(s.particle, s.p2)} />
+                  <div className={clsx(s.particle, s.p3)} />
+                  <div className={clsx(s.particle, s.p4)} />
+                  <div className={clsx(s.particle, s.p5)} />
+                  <div className={clsx(s.particle, s.p6)} />
+                </div>
                 <div className={s.orbitSystem}>
                   <div className={clsx(s.orbitRing, s.ring1)} />
                   <div className={clsx(s.orbitRing, s.ring2)} />
                   <div className={clsx(s.orbitRing, s.ring3)} />
                   <div className={clsx(s.orbitRing, s.ring4)} />
+                  {/* Data stream connectors */}
+                  <div className={clsx(s.dataStream, s.stream1)} />
+                  <div className={clsx(s.dataStream, s.stream2)} />
+                  <div className={clsx(s.dataStream, s.stream3)} />
                   <div className={s.orbitCore}>JD</div>
-                  <div className={clsx(s.orbitLabel, s.label1)}>Claude</div>
-                  <div className={clsx(s.orbitLabel, s.label2)}>Figma Make</div>
-                  <div className={clsx(s.orbitLabel, s.label3)}>Claude Code</div>
+                  <div className={clsx(s.orbitLabel, s.label1)}>Claude Code</div>
+                  <div className={clsx(s.orbitLabel, s.label2)}>Figma</div>
+                  <div className={clsx(s.orbitLabel, s.label3)}>Pencil Dev</div>
                   <div className={clsx(s.orbitLabel, s.label4)}>MCP</div>
                 </div>
               </div>
@@ -83,12 +97,12 @@ export default function AIDesignTrendsArticle() {
                 <div className={s.statLabel}>Team Output Multiplier</div>
               </div>
               <div className={s.statItem}>
-                <div className={s.statNumber}>25yr</div>
+                <div className={s.statNumber}>25+ yrs</div>
                 <div className={s.statLabel}>Design Leadership</div>
               </div>
               <div className={s.statItem}>
-                <div className={s.statNumber}>$9M</div>
-                <div className={s.statLabel}>Cash Back Earned</div>
+                <div className={s.statNumber}>~40%</div>
+                <div className={s.statLabel}>Team Capacity Gain</div>
               </div>
             </div>
           </ScrollReveal>
@@ -138,7 +152,7 @@ export default function AIDesignTrendsArticle() {
                   restart is effectively zero — that changes everything.
                 </p>
                 <div className={s.pillarMetric}>
-                  <span className={s.metricValue}>Figma Make + Claude Code</span>{' '}
+                  <span className={s.metricValue}>Figma + Claude Code</span>{' '}
                   Design-to-prototype loop with functional handoff
                 </div>
               </div>
@@ -298,33 +312,36 @@ export default function AIDesignTrendsArticle() {
 
           <ScrollReveal delay={0.1}>
             <div className={s.caseGrid}>
-              {/* Left — Before / After Visual */}
+              {/* Left — Transformation Visual */}
               <div className={s.caseVisual}>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', letterSpacing: '2px', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: 12, fontWeight: 600 }}>The Problem</div>
                 <div className={s.caseBeforeAfter}>
                   <div className={clsx(s.baBox, s.baBefore)}>
-                    <div className={s.baLabel}>Before</div>
+                    <div className={s.baLabel}>Users Stuck</div>
                     <div className={s.baNumber}>25K+</div>
-                    <div className={s.baDesc}>Users stuck in verification loops</div>
+                    <div className={s.baDesc}>In verification loops</div>
                   </div>
-                  <div className={clsx(s.baBox, s.baAfter)}>
-                    <div className={s.baLabel}>After</div>
-                    <div className={s.baNumber}>75K</div>
-                    <div className={s.baDesc}>Dead-ends prevented</div>
-                  </div>
-                </div>
-                <div className={s.caseArrow}>AI-AUGMENTED DESIGN PROCESS</div>
-                <div className={s.caseBeforeAfter}>
                   <div className={clsx(s.baBox, s.baBefore)}>
                     <div className={s.baLabel}>Email Verify</div>
                     <div className={s.baNumber}>28%</div>
-                    <div className={s.baDesc}>Completion rate — before</div>
+                    <div className={s.baDesc}>Completion rate</div>
+                  </div>
+                </div>
+                <div className={s.caseArrow}>AI-AUGMENTED DESIGN PROCESS</div>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 12, fontWeight: 600 }}>The Result</div>
+                <div className={s.caseBeforeAfter}>
+                  <div className={clsx(s.baBox, s.baAfter)}>
+                    <div className={s.baLabel}>Dead-Ends</div>
+                    <div className={s.baNumber}>75K</div>
+                    <div className={s.baDesc}>Prevented</div>
                   </div>
                   <div className={clsx(s.baBox, s.baAfter)}>
                     <div className={s.baLabel}>Email Verify</div>
                     <div className={s.baNumber}>45%+</div>
-                    <div className={s.baDesc}>Completion rate — after</div>
+                    <div className={s.baDesc}>Completion rate</div>
                   </div>
                 </div>
+                <CaseStudyButton />
               </div>
 
               {/* Right — Case Content */}
@@ -333,20 +350,28 @@ export default function AIDesignTrendsArticle() {
                   AI Didn&apos;t Do the Design Thinking.<br />
                   It Made Design Thinking Possible.
                 </h3>
-                <p className={s.caseDesc}>
-                  Dollar General&apos;s Risk-Based Authentication system had bricked the
-                  experience for 25,000+ users. Phone-only verification was a dead end.
-                  I pulled this onto my own plate while my team was fully allocated
-                  across four workstreams.
-                </p>
-                <p className={s.caseDesc}>
-                  AI analyzed stuck-user data and modeled verification paths. It
-                  generated the rough first pass — not looking for final designs, just
-                  the right direction. Then I put on the creative director hat: finding
-                  the edge cases and error states AI will never think about on its own.
-                  The real craft happened in Figma, where solutions emerged I
-                  couldn&apos;t have prompted my way to.
-                </p>
+                <div className={s.dsBlocks} style={{ marginBottom: 24 }}>
+                  <div className={s.dsBlock} style={{ borderLeftColor: 'var(--secondary)' }}>
+                    <div className={s.dsBlockLabel} style={{ color: 'var(--secondary)' }}>The Problem</div>
+                    <p className={s.dsBlockText}>
+                      Dollar General&apos;s Risk-Based Authentication system had bricked the
+                      experience for 25,000+ users. Phone-only verification was a dead end.
+                      I pulled this onto my own plate while my team was fully allocated
+                      across four workstreams.
+                    </p>
+                  </div>
+                  <div className={s.dsBlock} style={{ borderLeftColor: 'var(--accent)' }}>
+                    <div className={s.dsBlockLabel} style={{ color: 'var(--accent)' }}>The Approach</div>
+                    <p className={s.dsBlockText}>
+                      AI analyzed stuck-user data and modeled verification paths. It
+                      generated the rough first pass — not looking for final designs, just
+                      the right direction. Then I put on the creative director hat: finding
+                      the edge cases and error states AI will never think about on its own.
+                      The real craft happened in Figma, where solutions emerged I
+                      couldn&apos;t have prompted my way to.
+                    </p>
+                  </div>
+                </div>
                 <div className={s.caseTags}>
                   <span className={s.caseTag}>Claude &mdash; Data Synthesis</span>
                   <span className={s.caseTag}>AI &mdash; First-Pass Concepts</span>
@@ -404,54 +429,56 @@ export default function AIDesignTrendsArticle() {
             <div className={s.mcpGrid}>
               {/* Left — Content */}
               <div>
-                <div className={s.sectionLabel}>THE NEXT PARADIGM</div>
+                <div className={s.sectionLabel}>HOW I USE MCPs</div>
                 <h2 className={s.mcpContentTitle}>
-                  MCP &amp; AI Agents:<br />
-                  <span className={s.gradientText}>The Interface Is Changing</span>
+                  MCP: The Bridge Between<br />
+                  <span className={s.gradientText}>Design Intent and Production Code</span>
                 </h2>
                 <p className={s.mcpDesc}>
-                  We&apos;ve spent 25 years designing interfaces people navigate — tapping,
-                  scrolling, searching. With MCP and AI agents, we&apos;re moving toward
-                  designing the information architecture and data structures that agents
-                  use to serve customers.
+                  Model Context Protocol is the standard that lets AI tools talk to
+                  specialized systems — design editors, file systems, APIs, databases.
+                  It&apos;s the wiring between AI and everything it touches. I use it every day.
                 </p>
                 <ul className={s.mcpPoints}>
                   <li>
                     <span className={s.mcpBullet} />
                     <span>
-                      <strong>MCP (Model Context Protocol)</strong> is the bridge between
-                      a company&apos;s actual systems and the AI interfaces customers use.
-                      It&apos;s the standard that lets AI agents connect to real products and
-                      real data.
+                      <strong>Claude Code is the orchestrator.</strong> It connects to
+                      specialized MCP servers — Pencil Dev for visual design, Figma
+                      for component generation, the file system for code output. One
+                      conversation, multiple tools, no context switching.
                     </span>
                   </li>
                   <li>
                     <span className={s.mcpBullet} />
                     <span>
-                      <strong>The product-to-consumer relationship doesn&apos;t change</strong>
-                      {' '}&mdash; people still want the right product at the right price.
-                      But the medium shifts from &quot;I&apos;m browsing your app&quot; to
-                      &quot;I asked my AI to find me a deal.&quot;
+                      <strong>This portfolio is the proof.</strong> Every page you&apos;re
+                      reading was designed and built through this MCP-connected pipeline.
+                      Design intent flows through Claude Code, which reaches into design
+                      tools and code editors simultaneously — then I curate, refine, and
+                      ship.
                     </span>
                   </li>
                   <li>
                     <span className={s.mcpBullet} />
                     <span>
-                      <strong>This is a design problem, not a technology problem.</strong>
-                      {' '}The leader who understands how product data gets structured for
-                      agent consumption — not just how screens get laid out — brings
-                      strategic value most orgs don&apos;t have yet.
+                      <strong>The craft moment is still human.</strong> MCP collapses the
+                      distance between idea and artifact. But taste, judgment, and the
+                      creative direction that makes output worth shipping — that&apos;s the
+                      designer&apos;s job. The protocol handles the plumbing. I handle the
+                      decisions.
                     </span>
                   </li>
                   <li>
                     <span className={s.mcpBullet} />
                     <span>
-                      <strong>There are two dimensions companies need to understand.</strong>
-                      {' '}<em>Internal MCPs</em> build an AI brain inside your own product
-                      — agents working with your proprietary data, taking actions within
-                      your ecosystem. <em>External MCPs</em> are the marketplace layer —
-                      third-party capabilities your agents can consume. The companies that
-                      build both will have a compounding advantage.
+                      <strong>This same protocol will reshape product design.</strong>
+                      {' '}The MCP servers connecting my design tools today are the same
+                      architecture that will connect products to AI agents tomorrow —
+                      a customer asking their AI to &quot;find me a deal on toothpaste&quot;
+                      at Dollar General. The designer who understands MCP at the tooling
+                      level now is the leader who architects agent-ready product
+                      experiences next.
                     </span>
                   </li>
                 </ul>
@@ -461,23 +488,23 @@ export default function AIDesignTrendsArticle() {
               <div className={s.mcpVisual}>
                 <div className={s.mcpDiagram}>
                   <div className={clsx(s.mcpLayer, s.layerUser)}>
-                    Customer
-                    <div className={s.mcpLayerSub}>&quot;Find me a deal on toothpaste&quot;</div>
+                    Creative Direction
+                    <div className={s.mcpLayerSub}>Design intent, constraints, taste</div>
                   </div>
                   <div className={s.mcpConnector} />
                   <div className={clsx(s.mcpLayer, s.layerAgent)}>
-                    AI Agent
-                    <div className={s.mcpLayerSub}>Interprets intent, orchestrates actions</div>
+                    Claude Code
+                    <div className={s.mcpLayerSub}>AI agent &mdash; orchestrates via MCP</div>
                   </div>
                   <div className={s.mcpConnector} />
                   <div className={clsx(s.mcpLayer, s.layerMcp)}>
-                    MCP &mdash; Model Context Protocol
-                    <div className={s.mcpLayerSub}>The bridge — connects agents to real data</div>
+                    MCP Servers
+                    <div className={s.mcpLayerSub}>Pencil Dev &middot; Figma &middot; File System</div>
                   </div>
                   <div className={s.mcpConnector} />
                   <div className={clsx(s.mcpLayer, s.layerProduct)}>
-                    Product Catalog &middot; Deals &middot; Inventory &middot; Coupons
-                    <div className={s.mcpLayerSub}>Dollar General&apos;s actual systems</div>
+                    Production Output
+                    <div className={s.mcpLayerSub}>This portfolio &mdash; designed and built live</div>
                   </div>
                 </div>
               </div>
@@ -490,42 +517,147 @@ export default function AIDesignTrendsArticle() {
       <section className={s.section}>
         <Container>
           <ScrollReveal>
-            <div className={s.glassContent}>
-              <div className={s.sectionLabel} style={{ justifyContent: 'center' }}>
-                THE FOUNDATION
+            <div className={s.sectionLabel} style={{ justifyContent: 'center' }}>
+              THE FOUNDATION
+            </div>
+            <h2 className={s.sectionTitle} style={{ textAlign: 'center' }}>
+              Design Systems as Strategic Infrastructure
+            </h2>
+            <p className={s.sectionSubtitle} style={{ textAlign: 'center', margin: '0 auto 56px' }}>
+              A tokenized, well-structured design system is no longer a nice-to-have
+              — it&apos;s the infrastructure that determines whether your team can move
+              at the speed these tools enable.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.1}>
+            <div className={s.dsGrid}>
+              {/* Left — Architecture Visual */}
+              <div className={s.dsStack}>
+                <div className={s.dsStackTitle}>Design System Architecture</div>
+
+                <div className={clsx(s.dsLayer, s.dsLayerAi)}>
+                  <div className={s.dsLayerIcon}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></svg>
+                  </div>
+                  <div>
+                    <div className={s.dsLayerTitle}>AI Acceleration Layer</div>
+                    <div className={s.dsLayerDesc}>Claude + Figma + MCP pipelines</div>
+                  </div>
+                </div>
+
+                <div className={s.dsConnector} />
+
+                <div className={clsx(s.dsLayer, s.dsLayerScreens)}>
+                  <div className={s.dsLayerIcon}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></svg>
+                  </div>
+                  <div>
+                    <div className={s.dsLayerTitle}>Screens &amp; Flows</div>
+                    <div className={s.dsLayerDesc}>Full experiences composed from patterns</div>
+                  </div>
+                </div>
+
+                <div className={s.dsConnector} />
+
+                <div className={clsx(s.dsLayer, s.dsLayerPatterns)}>
+                  <div className={s.dsLayerIcon}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" /><rect x="3" y="14" width="7" height="7" rx="1" /><rect x="14" y="14" width="7" height="7" rx="1" /></svg>
+                  </div>
+                  <div>
+                    <div className={s.dsLayerTitle}>Patterns</div>
+                    <div className={s.dsLayerDesc}>Navigation, forms, cards, data display</div>
+                  </div>
+                </div>
+
+                <div className={s.dsConnector} />
+
+                <div className={clsx(s.dsLayer, s.dsLayerComponents)}>
+                  <div className={s.dsLayerIcon}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" /></svg>
+                  </div>
+                  <div>
+                    <div className={s.dsLayerTitle}>Components</div>
+                    <div className={s.dsLayerDesc}>Buttons, inputs, badges, modals</div>
+                  </div>
+                </div>
+
+                <div className={s.dsConnector} />
+
+                <div className={clsx(s.dsLayer, s.dsLayerTokens)}>
+                  <div className={s.dsLayerIcon}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3" /><circle cx="12" cy="12" r="8" strokeDasharray="2 3" /></svg>
+                  </div>
+                  <div>
+                    <div className={s.dsLayerTitle}>Design Tokens</div>
+                    <div className={s.dsLayerDesc}>Colors, spacing, typography, motion</div>
+                  </div>
+                </div>
+
+                <div className={s.dsStackFooter}>
+                  <span>DG Brand</span>
+                  <span className={s.dsStackDivider} />
+                  <span>pOpshelf Brand</span>
+                </div>
               </div>
-              <h2 className={s.sectionTitle} style={{ textAlign: 'center' }}>
-                Design Systems as Strategic Infrastructure
-              </h2>
-              <p className={s.sectionSubtitle} style={{ textAlign: 'center', margin: '0 auto 56px' }}>
-                A tokenized, well-structured design system is no longer a nice-to-have
-                — it&apos;s the infrastructure that determines whether your team can move
-                at the speed these tools enable.
-              </p>
-              <div className={s.glassCard}>
-                <p>
-                  At Dollar General, I led the creation of multi-phase design systems
-                  for both the DG and pOpshelf brands. Tokenized naming conventions,
-                  shared component architecture, custom Figma workflows adopted across
-                  engineering teams. At the time, the value proposition was consistency
-                  and handoff efficiency.
-                </p>
-                <p>
-                  But what I&apos;ve come to understand — and what the industry is catching
-                  up to — is that without that systematic foundation, you cannot iterate
-                  at the pace AI makes possible. If you&apos;re using AI to generate design
-                  directions, or you&apos;re working in tools that integrate design directly
-                  into your IDE, your components need to be structured so the system can
-                  work with them. Your tokens need to be consistent. Your naming
-                  conventions need to be clear enough that both humans and AI agents can
-                  navigate them.
-                </p>
-                <p>
-                  The companies that don&apos;t have this foundation are going to find
-                  themselves stuck — all the speed tools, no systematic way to use them.
-                  {' '}<strong>The design system is what makes the accelerated product
-                  lifecycle actually work.</strong>
-                </p>
+
+              {/* Right — Narrative Blocks */}
+              <div className={s.dsBlocks}>
+                <div className={s.dsBlock} style={{ borderLeftColor: 'var(--secondary)' }}>
+                  <div className={s.dsBlockLabel} style={{ color: 'var(--secondary)' }}>What We Built</div>
+                  <p className={s.dsBlockText}>
+                    At Dollar General, I led the creation of multi-phase design systems
+                    for both the DG and pOpshelf brands. Tokenized naming conventions,
+                    shared component architecture, custom Figma workflows adopted across
+                    engineering teams. At the time, the value proposition was consistency
+                    and handoff efficiency.
+                  </p>
+                </div>
+
+                <div className={s.dsBlock} style={{ borderLeftColor: 'var(--accent)' }}>
+                  <div className={s.dsBlockLabel} style={{ color: 'var(--accent)' }}>Why It Matters Now</div>
+                  <p className={s.dsBlockText}>
+                    Without that systematic foundation, you cannot iterate at the pace
+                    AI makes possible. Your components need to be structured so the system
+                    can work with them. Your tokens need to be consistent. Your naming
+                    conventions need to be clear enough that both humans and AI agents
+                    can navigate them.
+                  </p>
+                </div>
+
+                <div className={s.dsBlock} style={{ borderLeftColor: 'var(--secondary-light)' }}>
+                  <div className={s.dsBlockLabel} style={{ color: 'var(--secondary-light)' }}>The Warning</div>
+                  <p className={s.dsBlockText}>
+                    The companies that don&apos;t have this foundation are going to find
+                    themselves stuck — all the speed tools, no systematic way to use them.
+                    <strong> The design system is what makes the accelerated product
+                    lifecycle actually work.</strong>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* With vs Without comparison */}
+          <ScrollReveal delay={0.2}>
+            <div className={s.dsCompare}>
+              <div className={clsx(s.dsCompareCard, s.dsCompareWith)}>
+                <div className={s.dsCompareTitle} style={{ color: 'rgba(0,255,150,0.8)' }}>With Design System</div>
+                <div className={s.dsCompareItems}>
+                  <div className={s.dsCompareItem}><span className={s.dsCompareCheck} style={{ color: 'rgba(0,255,150,0.7)' }}>&#10003;</span> AI generates within constraints</div>
+                  <div className={s.dsCompareItem}><span className={s.dsCompareCheck} style={{ color: 'rgba(0,255,150,0.7)' }}>&#10003;</span> Consistent across both brands</div>
+                  <div className={s.dsCompareItem}><span className={s.dsCompareCheck} style={{ color: 'rgba(0,255,150,0.7)' }}>&#10003;</span> Engineering handoff is clean</div>
+                  <div className={s.dsCompareItem}><span className={s.dsCompareCheck} style={{ color: 'rgba(0,255,150,0.7)' }}>&#10003;</span> Iteration speed compounds</div>
+                </div>
+              </div>
+              <div className={clsx(s.dsCompareCard, s.dsCompareWithout)}>
+                <div className={s.dsCompareTitle} style={{ color: 'rgba(255,100,100,0.8)' }}>Without Design System</div>
+                <div className={s.dsCompareItems}>
+                  <div className={s.dsCompareItem}><span className={s.dsCompareCheck} style={{ color: 'rgba(255,100,100,0.7)' }}>&#10007;</span> AI output is inconsistent</div>
+                  <div className={s.dsCompareItem}><span className={s.dsCompareCheck} style={{ color: 'rgba(255,100,100,0.7)' }}>&#10007;</span> Every screen is bespoke</div>
+                  <div className={s.dsCompareItem}><span className={s.dsCompareCheck} style={{ color: 'rgba(255,100,100,0.7)' }}>&#10007;</span> Dev rebuilds from scratch</div>
+                  <div className={s.dsCompareItem}><span className={s.dsCompareCheck} style={{ color: 'rgba(255,100,100,0.7)' }}>&#10007;</span> Speed tools, no system to use them</div>
+                </div>
               </div>
             </div>
           </ScrollReveal>
@@ -594,7 +726,7 @@ export default function AIDesignTrendsArticle() {
               </p>
               <div className={s.ctaLinks}>
                 <a
-                  href="https://www.linkedin.com/in/jdmcculley/"
+                  href="https://www.linkedin.com/in/jdmcc/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={s.btnPrimary}

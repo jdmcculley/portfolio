@@ -88,7 +88,7 @@ export default function ResumePage() {
               <div className={s.cLabel}>Email</div>
               <div className={s.cVal}><a href="mailto:jdmcculley@me.com" style={{ color: 'inherit', textDecoration: 'none' }}>jdmcculley@me.com</a></div>
               <div className={s.cLabel}>LinkedIn</div>
-              <div className={s.cVal}><a href="https://linkedin.com/in/jdmcc" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>linkedin.com/in/jdmcc</a></div>
+              <div className={s.cVal}><a href="https://www.linkedin.com/in/jdmcc/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>linkedin.com/in/jdmcc</a></div>
               <div className={s.cLabel}>Website</div>
               <div className={s.cVal}><a href="https://jdmcculley.com" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>jdmcculley.com</a></div>
             </div>

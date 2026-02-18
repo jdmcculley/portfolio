@@ -1,5 +1,4 @@
 import { type Metadata } from 'next';
-import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { ContentSection } from '@/components/case-study/ContentSection';
 import { StrategicContext } from '@/components/case-study/StrategicContext';
 import { ResultsGrid } from '@/components/case-study/ResultsGrid';
@@ -89,7 +88,6 @@ export default function RBACaseStudy() {
   return (
     <main className={s.main}>
       {/* ══════════ HERO ══════════ */}
-      <ScrollReveal>
         <section className={s.hero}>
           <div className={s.caseStudyLabel}>Case Study</div>
           <div className={s.heroTitleContainer}>
@@ -112,22 +110,21 @@ export default function RBACaseStudy() {
           {/* ── Verification Coverage Chart ── */}
           <CoverageChart />
 
+          {/* Strategic Context */}
+          <StrategicContext
+            label="Strategic Context"
+            stats={[
+              { value: '33 JTBD Jobs', desc: 'User data analysis identifying every dead-end scenario' },
+              { value: '8 Interconnected Journeys', desc: 'Complete authentication system with cross-journey fallbacks' },
+              { value: '9M Users at April Relaunch', desc: 'System designed to handle enterprise-scale authentication' },
+            ]}
+          />
+
           {/* ─── HERO VISUAL: System Overview ─── */}
           <div style={{ marginTop: 48 }}>
             <JourneyMap />
           </div>
         </section>
-      </ScrollReveal>
-
-      {/* Strategic Context */}
-      <StrategicContext
-        label="Strategic Context"
-        stats={[
-          { value: '33 JTBD Jobs', desc: 'User data analysis identifying every dead-end scenario' },
-          { value: '8 Interconnected Journeys', desc: 'Complete authentication system with cross-journey fallbacks' },
-          { value: '9M Users at April Relaunch', desc: 'System designed to handle enterprise-scale authentication' },
-        ]}
-      />
 
       {/* ══════════ 01 — THE PROBLEM ══════════ */}
       <ContentSection number="01 — THE PROBLEM" title="The October Crisis">
@@ -298,13 +295,13 @@ export default function RBACaseStudy() {
 
       {/* Next Study */}
       <NextStudy
-        href="/case-study/cashback"
-        title="myDG Cash Back at Scale"
-        desc="How we scaled a cash back program from pilot to enterprise, achieving 160K cards per week and $2.8M incremental revenue."
+        href="/case-study/wallet"
+        title="myDG Wallet: Reversing the Decline"
+        desc="Reversed double-digit engagement decline by centralizing rewards, deals, and payments into a unified card stack UI."
         metrics={[
-          { value: '+38%', label: 'Engagement' },
-          { value: '160K', label: 'Cards/Week' },
-          { value: '$2.8M', label: 'Incremental' },
+          { value: '130%+', label: 'Engagement' },
+          { value: '40%', label: 'Faster' },
+          { value: '28%', label: 'Discovery' },
         ]}
       />
     </main>

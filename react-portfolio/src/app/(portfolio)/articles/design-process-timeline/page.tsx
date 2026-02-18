@@ -111,7 +111,7 @@ const milestones: MilestoneData[] = [
     ],
   },
   {
-    title: 'Kickoff Meeting',
+    title: 'Convergence',
     phaseNum: 2,
     subtitle: 'Cross-Functional Alignment',
     statNum: 12,
@@ -162,7 +162,7 @@ const milestones: MilestoneData[] = [
     ],
   },
   {
-    title: 'Design Phase',
+    title: 'Build',
     phaseNum: 3,
     subtitle: 'Creation & Iteration',
     statNum: 15,

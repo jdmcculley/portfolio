@@ -1,0 +1,29 @@
+.footerLink {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #8b90a8;
+  letter-spacing: 0.1em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+
+.layerTop,
+.layerMid,
+.layerBot {
+  transition: transform 0.25s ease;
+}
+
+.footerLink:hover {
+  color: #00d4ff;
+}
+
+.footerLink:hover .layerTop {
+  transform: translateY(-1.5px);
+}
+
+.footerLink:hover .layerBot {
+  transform: translateY(1.5px);
+}

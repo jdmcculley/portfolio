@@ -66,9 +66,9 @@
 .heroTitle strong { font-weight: 700; color: var(--accent); }
 .heroTitle .line { display: block; white-space: nowrap; }
 .heroDesc {
-  font-size: 1.15rem; color: var(--text);
+  font-size: 1.15rem; color: var(--text-soft);
   line-height: 1.75; max-width: 680px;
-  font-weight: 300; opacity: 0.8;
+  font-weight: 300;
 }
 .heroPositionLink {
   display: inline-flex; align-items: center; gap: 8px;
@@ -160,7 +160,7 @@
   font-weight: 700; line-height: 1.25; margin-bottom: 36px;
 }
 .manifestoBody {
-  font-size: 1.05rem; color: var(--text); opacity: 0.8;
+  font-size: 1.05rem; color: var(--text-soft);
   line-height: 1.85; max-width: 660px; margin: 0 auto;
 }
 
@@ -270,6 +270,38 @@
   background: var(--accent-glow); border: 1px solid rgba(0,212,255,0.15);
   color: var(--accent);
 }
+
+/* Company badge */
+.csCompany {
+  font-family: var(--font-mono); font-size: 0.52rem;
+  padding: 4px 10px; border-radius: 4px;
+  letter-spacing: 1.2px; text-transform: uppercase;
+  font-weight: 600;
+  display: inline-flex; align-items: center; gap: 5px;
+}
+.csCompany::before {
+  content: ''; display: block;
+  width: 5px; height: 5px; border-radius: 50%;
+  flex-shrink: 0;
+}
+.csCompanyDg {
+  background: rgba(253, 216, 53, 0.08);
+  border: 1px solid rgba(253, 216, 53, 0.2);
+  color: #fdd835;
+}
+.csCompanyDg::before { background: #fdd835; }
+.csCompanySwimlane {
+  background: rgba(0, 140, 255, 0.12);
+  border: 1px solid rgba(0, 140, 255, 0.35);
+  color: #fff;
+}
+.csCompanySwimlane::before { background: #2196ff; }
+.csCompanyPopshelf {
+  background: rgba(186, 104, 255, 0.1);
+  border: 1px solid rgba(186, 104, 255, 0.25);
+  color: #ba68ff;
+}
+.csCompanyPopshelf::before { background: #ba68ff; }
 .csContent h3 {
   font-family: var(--font-heading);
   font-size: 1.35rem; font-weight: 700; line-height: 1.2;
@@ -383,7 +415,7 @@
   font-size: 1.15rem; font-style: italic;
   color: var(--text-soft); line-height: 1.55;
   margin-bottom: 8px;
-  max-width: 580px; margin-left: auto; margin-right: auto;
+  max-width: 640px; margin-left: auto; margin-right: auto;
 }
 .contactCite {
   font-family: var(--font-mono); font-size: 0.65rem;
@@ -598,14 +630,30 @@
   50% { opacity: 0.35; transform: translate(-50%, -50%) scale(1.1); }
 }
 
-/* Bars visual */
-.visBars { display: flex; align-items: flex-end; gap: 8px; height: 120px; }
-.visBar {
-  width: 24px; border-radius: 4px 4px 0 0;
-  animation: barGrow 1.5s ease-out both;
-  transition: filter 0.4s ease, box-shadow 0.4s ease;
+/* Cashback visual — growth bar chart */
+.visCashback { position: relative; width: 241px; height: 177px; }
+.visCashbackGlow {
+  position: absolute; top: 8%; right: 6%;
+  width: 60px; height: 50px; border-radius: 50%;
+  background: radial-gradient(ellipse, var(--accent-glow), transparent 70%);
+  opacity: 0; animation: cashbackGlow 3.5s ease-in-out infinite;
 }
-@keyframes barGrow { from { height: 0; opacity: 0; } to { opacity: 1; } }
+.visCashbackSvg {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 221px; height: 158px;
+}
+.visCashbackBar {
+  transition: opacity 0.4s ease, filter 0.4s ease;
+}
+@keyframes cashbackGlow {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 0.5; }
+}
+.csCard:hover .visCashbackGlow { opacity: 0.6; }
+.csCard:hover .visCashbackBar {
+  opacity: 1 !important;
+  filter: drop-shadow(0 0 8px var(--accent-glow));
+}
 
 /* Wallet cards visual */
 .visCards { position: relative; width: 200px; height: 140px; perspective: 600px; }
@@ -632,36 +680,73 @@
   border-color: rgba(0,240,240,0.55);
 }
 
-/* Bars hover */
-.csCard:hover .visBar {
-  filter: brightness(1.3);
-  box-shadow: 0 0 12px rgba(48,160,224,0.3);
-}
-.csCard:hover .visBar:last-child {
-  box-shadow: 0 0 20px rgba(48,160,224,0.45), 0 0 40px rgba(48,160,224,0.15);
-}
-
 /* Dashboard visual */
-.visDash { position: relative; width: 210px; height: 140px; }
-.visDashFrame {
-  position: absolute; inset: 0; border-radius: 10px;
-  background: var(--bg); border: 1px solid var(--glass-border);
-  overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+/* pOpshelf visual — app + web */
+.visPopshelf { position: relative; width: 220px; height: 150px; }
+.visPopshelfGlow {
+  position: absolute; top: 20%; left: 30%;
+  width: 80px; height: 60px; border-radius: 50%;
+  background: radial-gradient(ellipse, var(--accent-glow), transparent 70%);
+  opacity: 0; animation: popshelfGlow 3.5s ease-in-out infinite;
+}
+.visPopshelfSvg {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 210px; height: 131px;
+}
+.visPopshelfBrowser, .visPopshelfPhone {
+  transition: opacity 0.4s ease, filter 0.4s ease;
+}
+@keyframes popshelfGlow {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 0.4; }
+}
+.csCard:hover .visPopshelfGlow { opacity: 0.6; }
+.csCard:hover .visPopshelfBrowser,
+.csCard:hover .visPopshelfPhone {
+  filter: drop-shadow(0 0 10px var(--accent-glow));
 }
 
-/* System grid visual */
-.visSystem { position: relative; width: 180px; height: 140px; }
-.visSystemGrid {
-  display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr);
-  gap: 6px; width: 100%; height: 100%; padding: 8px;
+/* Design tokens visual — Venn diagram */
+.visTokens { position: relative; width: 200px; height: 160px; }
+.visTokensGlow {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 70px; height: 60px; border-radius: 50%;
+  background: radial-gradient(ellipse, var(--accent-glow), transparent 70%);
+  opacity: 0; animation: tokensGlow 4s ease-in-out infinite;
 }
-.visSystemBlock {
-  border-radius: 6px; background: var(--accent-glow);
-  border: 1px solid var(--glass-border);
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+.visTokensSvg {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 185px; height: 171px;
 }
-.visSystemBlock:nth-child(1) { grid-column: span 2; }
-.visSystemBlock:nth-child(7) { grid-column: span 2; }
+.visTokensCircle {
+  transition: opacity 0.4s ease, filter 0.4s ease;
+}
+@keyframes tokensGlow {
+  0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.45; transform: translate(-50%, -50%) scale(1.15); }
+}
+.csCard:hover .visTokensGlow { opacity: 0.5; }
+.csCard:hover .visTokensCircle {
+  filter: drop-shadow(0 0 8px var(--accent-glow));
+}
+
+/* SOAR workflow visual */
+.visSoar { position: relative; width: 200px; height: 150px; }
+.visSoarGlow {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 80px; height: 80px; border-radius: 50%;
+  background: radial-gradient(ellipse, var(--accent-glow), transparent 70%);
+  opacity: 0; animation: soarGlow 4s ease-in-out infinite;
+}
+.visSoarSvg {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 180px; height: 142px;
+}
+@keyframes soarGlow {
+  0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.4; transform: translate(-50%, -50%) scale(1.15); }
+}
+.csCard:hover .visSoarGlow { opacity: 0.5; }
 
 /* AI Rings visual */
 .visAi { position: relative; width: 160px; height: 160px; }

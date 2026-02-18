@@ -19,7 +19,7 @@ export function SectionHeader({ label, heading, sub, centered, className }: Sect
       </h2>
       {sub && (
         <p className={clsx(
-          'text-base text-text-primary opacity-80 max-w-[530px] leading-[1.7] font-light mb-14',
+          'text-base text-text-soft max-w-[530px] leading-[1.7] font-light mb-14',
           centered && 'mx-auto'
         )}>
           {sub}

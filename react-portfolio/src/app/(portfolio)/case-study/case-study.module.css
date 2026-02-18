@@ -11,7 +11,7 @@
 
 /* ── Hero Section ── */
 .hero {
-  margin-top: 75px; padding-bottom: 80px;
+  margin-top: 75px; padding-bottom: 24px;
 }
 .caseStudyLabel {
   font-family: var(--font-mono); font-size: 12px;
@@ -1445,6 +1445,14 @@
 }
 .heroDevice {
   width: 300px;
+  border-radius: 44px;
+}
+.heroDevice .deviceScreen {
+  height: 606px;
+  border-radius: 36px;
+}
+.heroDevice .deviceScreenshot {
+  height: 606px;
 }
 .heroDeviceLabel {
   font-family: var(--font-mono); font-size: 13px;
@@ -1583,7 +1591,9 @@
   .archFlow { flex-direction: column; gap: 8px; }
   .archArrow { transform: rotate(90deg); }
   .deviceShowcaseHero { gap: 48px; }
-  .heroDevice { width: 240px; }
+  .heroDevice { width: 240px; border-radius: 36px; }
+  .heroDevice .deviceScreen { height: 480px; border-radius: 28px; }
+  .heroDevice .deviceScreenshot { height: 480px; }
   .nextStudyTitle { font-size: 24px; }
   .caseImpact { grid-template-columns: 1fr 1fr; }
   .caseBaGrid { grid-template-columns: 1fr; }
@@ -1624,7 +1634,9 @@
   .deviceScreenshot { height: 430px; }
   .deviceTransition { transform: rotate(90deg); width: 32px; height: 32px; }
   .deviceShowcaseHero { flex-direction: column; align-items: center; gap: 32px; }
-  .heroDevice { width: 220px; }
+  .heroDevice { width: 220px; border-radius: 32px; }
+  .heroDevice .deviceScreen { height: 430px; border-radius: 24px; }
+  .heroDevice .deviceScreenshot { height: 430px; }
   .devicePair { gap: 12px; }
   .walletCtaLink { font-size: 11px; padding: 10px 22px; }
   .phaseCards { grid-template-columns: 1fr 1fr; }

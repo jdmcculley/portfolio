@@ -19,7 +19,7 @@ export function PasswordGate() {
 
     const ok = await authenticate(password);
     if (!ok) {
-      setError('Incorrect password. Contact JD for access.');
+      setError('That\u2019s not it \u2014 reach out if you need the password.');
       setPassword('');
     }
     setSubmitting(false);
@@ -43,14 +43,15 @@ export function PasswordGate() {
           </motion.div>
 
           <h2 className="font-heading text-3xl font-semibold text-text-primary mb-4">
-            Exclusive Access
+            One Quick Step
           </h2>
           <p className="text-text-soft leading-relaxed mb-2">
-            This portfolio contains confidential work from Fortune&nbsp;500
-            clients and proprietary processes.
+            I know&nbsp;&mdash; nobody loves a password prompt. But the work
+            in here involves real clients who trust me with their strategies,
+            so I keep things under wraps.
           </p>
           <p className="text-text-muted text-sm">
-            Enter the password to view full case studies and materials.
+            Thanks for understanding.
           </p>
         </div>
 
@@ -60,7 +61,7 @@ export function PasswordGate() {
               htmlFor="portfolio-password"
               className="block text-sm font-medium text-text-soft mb-2"
             >
-              Access Password
+              Password
             </label>
             <input
               id="portfolio-password"
@@ -92,20 +93,20 @@ export function PasswordGate() {
             disabled={submitting || !password}
             className="w-full py-3 px-6 bg-gradient-to-r from-accent to-secondary text-bg font-semibold rounded-lg hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer"
           >
-            {submitting ? 'Verifying\u2026' : 'Unlock Portfolio'}
+            {submitting ? 'Verifying\u2026' : 'Let Me In'}
           </button>
         </form>
 
         <div className="mt-8 pt-6 border-t border-border-default text-center">
           <p className="text-sm text-text-muted mb-3">
-            Don&apos;t have access?
+            Need the password?
           </p>
           <a
             href="mailto:jdmcculley@me.com?subject=Portfolio Access Request"
             className="inline-flex items-center gap-2 text-sm text-accent hover:text-accent-light transition-colors"
           >
             <Mail className="w-4 h-4" />
-            Request Access from JD
+            Ask JD for access
           </a>
         </div>
       </GlassCard>
