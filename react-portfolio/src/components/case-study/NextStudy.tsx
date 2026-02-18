@@ -17,9 +17,9 @@ export function NextStudy({ href, title, desc, metrics }: NextStudyProps) {
       <div className={s.nextStudy}>
         <div className={s.nextStudyInner}>
           <div className={s.nextStudyLabel}>Next Case Study</div>
-          <Link href={href} replace className={s.nextStudyLink}>
+          <Link href={href} className={s.nextStudyLink}>
             <div className={s.nextStudyTop}>
-              <div className={s.nextStudyTitle}>{title}</div>
+              <h3 className={s.nextStudyTitle}>{title}</h3>
               <span className={s.nextArrow}>&rarr;</span>
             </div>
             <div className={s.nextStudyDesc}>{desc}</div>

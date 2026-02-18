@@ -15,14 +15,14 @@ interface ContentSectionProps {
 export function ContentSection({ number, title, children, reduced }: ContentSectionProps) {
   return (
     <ScrollReveal>
-      <div className={clsx(s.contentSection, reduced && s.contentSectionReduced)}>
+      <section className={clsx(s.contentSection, reduced && s.contentSectionReduced)}>
         <div className={s.sectionHeader}>
           <span className={s.sectionNumber}>{number}</span>
           <div className={s.sectionDivider} />
         </div>
-        <h3 className={s.sectionTitle}>{title}</h3>
+        <h2 className={s.sectionTitle}>{title}</h2>
         {children}
-      </div>
+      </section>
     </ScrollReveal>
   );
 }

@@ -124,7 +124,7 @@ const caseStudies = [
     delay: 0.15,
   },
   {
-    href: '/case-study/swimlane',
+    href: '/case-study/swimlane-dashboards',
     metrics: [{ val: 'A\u2192C', lbl: 'Series' }, { val: '0\u21921', lbl: 'UX Build' }, { val: '6yr', lbl: 'Tenure' }],
     tags: ['Enterprise B2B', 'SOAR Platform'],
     title: 'Swimlane — 0 to 1 UX',
