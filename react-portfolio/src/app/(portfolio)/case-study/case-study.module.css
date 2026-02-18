@@ -249,6 +249,19 @@
 .tooltipAlignLeft:hover .chartTooltip { transform: translateX(0) translateY(-4px) scale(0.75); }
 .tooltipAlignRight .chartTooltip { left: auto; right: -4px; transform: translateX(0) scale(0.75); transform-origin: bottom right; }
 .tooltipAlignRight:hover .chartTooltip { transform: translateX(0) translateY(-4px) scale(0.75); }
+/* tooltip below dot — for dots near the top of the chart */
+.tooltipBelow .chartTooltip { bottom: auto; top: calc(100% + 12px); transform: translateX(-50%) scale(0.75); transform-origin: top center; }
+.tooltipBelow:hover .chartTooltip { transform: translateX(-50%) translateY(4px) scale(0.75); }
+.tooltipBelow.tooltipAlignLeft .chartTooltip { left: -4px; transform: translateX(0) scale(0.75); transform-origin: top left; }
+.tooltipBelow.tooltipAlignLeft:hover .chartTooltip { transform: translateX(0) translateY(4px) scale(0.75); }
+.tooltipBelow.tooltipAlignRight .chartTooltip { left: auto; right: -4px; transform: translateX(0) scale(0.75); transform-origin: top right; }
+.tooltipBelow.tooltipAlignRight:hover .chartTooltip { transform: translateX(0) translateY(4px) scale(0.75); }
+/* tooltip to the right of the dot — for left-edge dots near the bottom */
+.tooltipSideRight .chartTooltip { bottom: auto; top: 50%; left: calc(100% + 12px); transform: translateY(-50%) scale(0.75); transform-origin: center left; }
+.tooltipSideRight:hover .chartTooltip { transform: translateY(-50%) translateX(4px) scale(0.75); }
+/* tooltip to the left of the dot — for right-edge dots near the bottom */
+.tooltipSideLeft .chartTooltip { bottom: auto; top: 50%; left: auto; right: calc(100% + 12px); transform: translateY(-50%) scale(0.75); transform-origin: center right; }
+.tooltipSideLeft:hover .chartTooltip { transform: translateY(-50%) translateX(-4px) scale(0.75); }
 
 
 /* ── Strategic Context Panel ── */

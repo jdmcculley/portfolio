@@ -12,17 +12,18 @@ interface DotData {
   color: string;
   variant: 'phone' | 'multi';
   align?: 'left' | 'right';
+  side?: 'right' | 'left';
 }
 
 const phoneDots: DotData[] = [
-  { left: '0%', top: '77.5%', label: 'Dec 2025 · Phone Only', value: '28%', sub: 'Launch baseline coverage', color: PHONE_COLOR, variant: 'phone', align: 'left' },
-  { left: '100%', top: '70%', label: 'Mar 2026 · Phone Only', value: '32%', sub: 'Plateau reached', color: PHONE_COLOR, variant: 'phone', align: 'right' },
+  { left: '0%', top: '77.5%', label: 'Dec 2025 · Phone Only', value: '28%', sub: 'Launch baseline coverage', color: PHONE_COLOR, variant: 'phone', side: 'right' },
+  { left: '100%', top: '70%', label: 'Mar 2026 · Phone Only', value: '32%', sub: 'Plateau reached', color: PHONE_COLOR, variant: 'phone', side: 'left' },
 ];
 
 const multiDots: DotData[] = [
-  { left: '0%', top: '85%', label: 'Dec 2025 · Multi-Auth', value: '0%', sub: 'Before redesign launch', color: MULTI_COLOR, variant: 'multi', align: 'left' },
+  { left: '0%', top: '85%', label: 'Dec 2025 · Multi-Auth', value: '0%', sub: 'Before redesign launch', color: MULTI_COLOR, variant: 'multi', side: 'right' },
   { left: '57%', top: '52.5%', label: 'Feb 2026 · Multi-Auth', value: '18%', sub: 'Prerequisite campaign launches', color: MULTI_COLOR, variant: 'multi' },
-  { left: '100%', top: '4%', label: 'Mar 2026 · Multi-Auth', value: '45%+', sub: 'Target — rescued users', color: MULTI_COLOR, variant: 'multi', align: 'right' },
+  { left: '100%', top: '4%', label: 'Mar 2026 · Multi-Auth', value: '45%+', sub: 'Target — rescued users', color: MULTI_COLOR, variant: 'multi', side: 'left' },
 ];
 
 export function CoverageChart() {
@@ -63,11 +64,12 @@ export function CoverageChart() {
         {allDots.map((dot, i) => {
           const dotClass = dot.variant === 'phone' ? s.phoneDot : s.multiDot;
           const alignClass = dot.align === 'left' ? s.tooltipAlignLeft : dot.align === 'right' ? s.tooltipAlignRight : '';
+          const sideClass = dot.side === 'right' ? s.tooltipSideRight : dot.side === 'left' ? s.tooltipSideLeft : '';
 
           return (
             <div
               key={i}
-              className={`${s.chartDot} ${dotClass} ${alignClass}`}
+              className={`${s.chartDot} ${dotClass} ${alignClass} ${sideClass}`}
               style={{ left: dot.left, top: dot.top }}
             >
               <div className={s.chartTooltip}>

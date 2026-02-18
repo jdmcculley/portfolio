@@ -111,7 +111,7 @@ export default function CashBackCaseStudy() {
               </svg>
 
               {/* Clips data points */}
-              <div className={`${s.chartDot} ${s.tooltipAlignLeft}`} style={{ left: '0%', top: '90%', background: '#00d4ff', boxShadow: '0 0 0 3px rgba(0, 212, 255, 0.15)' }}>
+              <div className={`${s.chartDot} ${s.tooltipSideRight}`} style={{ left: '0%', top: '90%', background: '#00d4ff', boxShadow: '0 0 0 3px rgba(0, 212, 255, 0.15)' }}>
                 <div className={s.chartTooltip}>
                   <div className={s.chartTooltipLabel}>Q1 2023 &middot; Clips</div>
                   <div className={s.chartTooltipValue} style={{ color: '#00d4ff' }}>1.2M</div>
@@ -132,14 +132,14 @@ export default function CashBackCaseStudy() {
                   <div className={s.chartTooltipSub}>Co-mingled feed drives discovery</div>
                 </div>
               </div>
-              <div className={s.chartDot} style={{ left: '75%', top: '20%', background: '#00d4ff', boxShadow: '0 0 0 3px rgba(0, 212, 255, 0.15)' }}>
+              <div className={`${s.chartDot} ${s.tooltipBelow}`} style={{ left: '75%', top: '20%', background: '#00d4ff', boxShadow: '0 0 0 3px rgba(0, 212, 255, 0.15)' }}>
                 <div className={s.chartTooltip}>
                   <div className={s.chartTooltipLabel}>Q4 2023 &middot; Clips</div>
                   <div className={s.chartTooltipValue} style={{ color: '#00d4ff' }}>14.6M</div>
                   <div className={s.chartTooltipSub}>Holiday peak — 191% YoY growth</div>
                 </div>
               </div>
-              <div className={`${s.chartDot} ${s.tooltipAlignRight}`} style={{ left: '100%', top: '6%', background: '#00d4ff', boxShadow: '0 0 0 3px rgba(0, 212, 255, 0.15)' }}>
+              <div className={`${s.chartDot} ${s.tooltipSideLeft}`} style={{ left: '100%', top: '6%', background: '#00d4ff', boxShadow: '0 0 0 3px rgba(0, 212, 255, 0.15)' }}>
                 <div className={s.chartTooltip}>
                   <div className={s.chartTooltipLabel}>Q1 2024 &middot; Clips</div>
                   <div className={s.chartTooltipValue} style={{ color: '#00d4ff' }}>17.2M</div>
@@ -148,7 +148,7 @@ export default function CashBackCaseStudy() {
               </div>
 
               {/* Redemptions data points */}
-              <div className={`${s.chartDot} ${s.tooltipAlignLeft}`} style={{ left: '0%', top: '92.5%', background: '#4a7dff', width: 8, height: 8, boxShadow: '0 0 0 3px rgba(74, 125, 255, 0.15)' }}>
+              <div className={`${s.chartDot} ${s.tooltipSideRight}`} style={{ left: '0%', top: '92.5%', background: '#4a7dff', width: 8, height: 8, boxShadow: '0 0 0 3px rgba(74, 125, 255, 0.15)' }}>
                 <div className={s.chartTooltip}>
                   <div className={s.chartTooltipLabel}>Q1 2023 &middot; Redemptions</div>
                   <div className={s.chartTooltipValue} style={{ color: '#4a7dff' }}>0.4M</div>
@@ -169,14 +169,14 @@ export default function CashBackCaseStudy() {
                   <div className={s.chartTooltipSub}>$9M back in customers&apos; pockets</div>
                 </div>
               </div>
-              <div className={s.chartDot} style={{ left: '75%', top: '15%', background: '#4a7dff', width: 8, height: 8, boxShadow: '0 0 0 3px rgba(74, 125, 255, 0.15)' }}>
+              <div className={`${s.chartDot} ${s.tooltipBelow}`} style={{ left: '75%', top: '15%', background: '#4a7dff', width: 8, height: 8, boxShadow: '0 0 0 3px rgba(74, 125, 255, 0.15)' }}>
                 <div className={s.chartTooltip}>
                   <div className={s.chartTooltipLabel}>Q4 2023 &middot; Redemptions</div>
                   <div className={s.chartTooltipValue} style={{ color: '#4a7dff' }}>12.1M</div>
                   <div className={s.chartTooltipSub}>Conversion rate exceeds projections</div>
                 </div>
               </div>
-              <div className={`${s.chartDot} ${s.tooltipAlignRight}`} style={{ left: '100%', top: '2.5%', background: '#4a7dff', width: 8, height: 8, boxShadow: '0 0 0 3px rgba(74, 125, 255, 0.15)' }}>
+              <div className={`${s.chartDot} ${s.tooltipSideLeft}`} style={{ left: '100%', top: '2.5%', background: '#4a7dff', width: 8, height: 8, boxShadow: '0 0 0 3px rgba(74, 125, 255, 0.15)' }}>
                 <div className={s.chartTooltip}>
                   <div className={s.chartTooltipLabel}>Q1 2024 &middot; Redemptions</div>
                   <div className={s.chartTooltipValue} style={{ color: '#4a7dff' }}>15.8M</div>
