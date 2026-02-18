@@ -398,9 +398,9 @@ const PhoneEmailFallbackPrototype = () => {
         </div>
 
         {/* Main Content: Phone + Details side by side */}
-        <div className="flex flex-col lg:flex-row gap-8 items-start justify-center">
+        <div className="flex flex-row gap-6 items-start justify-center">
           {/* iPhone Mockup */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0" style={{ transform: 'scale(0.8)', transformOrigin: 'top center', marginBottom: -175 }}>
             <div className="flex items-center justify-center">
               <div className="relative">
                 <div className={styles.iphoneFrame} style={{ border: '2px solid #334155', boxShadow: '0 0 40px rgba(0,0,0,0.5), 0 0 80px rgba(15,23,42,0.4)' }}>
@@ -887,7 +887,7 @@ const PhoneEmailFallbackPrototype = () => {
           </div>
 
           {/* Details Panel */}
-          <div className="flex-1 min-w-0 lg:max-w-md">
+          <div className="flex-1 min-w-[280px]">
             {/* Current Screen Info */}
             <div className="bg-[#0f172a] border border-slate-800 rounded-lg shadow-lg p-6 mb-4">
               <div className="flex items-center gap-2 mb-3">

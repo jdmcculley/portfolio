@@ -3,21 +3,9 @@
   "children": [
     {
       "type": "frame",
-      "id": "bi8Au",
-      "x": 0,
-      "y": 0,
-      "name": "Frame",
-      "clip": true,
-      "width": 800,
-      "height": 600,
-      "fill": "#FFFFFF",
-      "layout": "none"
-    },
-    {
-      "type": "frame",
       "id": "5uaqi",
-      "x": 1214,
-      "y": -8708,
+      "x": -2845,
+      "y": -11555,
       "name": "Portfolio",
       "clip": true,
       "width": 1244,

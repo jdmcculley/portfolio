@@ -427,11 +427,6 @@ export default function HomePage() {
                 </div>
                 <div className={s.pillarCardDivider} />
                 <p className={s.pillarCardDesc}>{p.desc}</p>
-                <div className={s.pillarCardTags}>
-                  {p.tags.map((t, j) => (
-                    <span key={j} className={s.pillarCardTag}>{t}</span>
-                  ))}
-                </div>
               </motion.div>
             ))}
           </motion.div>

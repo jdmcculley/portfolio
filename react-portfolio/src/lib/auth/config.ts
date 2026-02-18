@@ -2,7 +2,7 @@
 // To change: echo -n "your-password" | shasum -a 256
 export const AUTH_CONFIG = {
   passwordHash:
-    '4097889236a2af26c293033feb964c4cf118c0224e0d063fec0a89e9d0569ef2', // "placeholder"
+    '3c53083bf1a9d56e17eaa29362d5181f143a250d6212ab686567e12cded2eeb0', // "JD1234"
   sessionKey: 'jd_portfolio_auth',
   protectedRoutes: [
     '/case-study',
