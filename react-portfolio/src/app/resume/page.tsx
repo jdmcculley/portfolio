@@ -63,7 +63,7 @@ export default function ResumePage() {
               <PolyLogo />
             </div>
             <div className={s.headerHeadline}>
-              Product Design Leader <span className={s.accent}>building and scaling</span><br />UX organizations for the enterprise.
+              Product Design Leader <span className={s.accent}>| Building UX/AI Teams</span><br />That Deliver at Enterprise Scale
             </div>
             <div className={s.headerTags}>
               Fortune 500 Retail <span>/</span> B2B Cybersecurity <span>/</span> Startup-to-Enterprise Scale <span>/</span> Design-Led AI
@@ -124,16 +124,25 @@ export default function ResumePage() {
                 <div className={s.skItem}>UX &amp; Product Strategy</div>
                 <div className={s.skItem}>Organizational Design</div>
                 <div className={s.skItem}>Executive Stakeholder Alignment</div>
+                <div className={s.skItem}>Servant Leadership</div>
                 <div className={s.skItem}>Team Building &amp; Talent Development</div>
                 <div className={s.skItem}>Research-Informed Decision Making</div>
               </div>
               <div className={s.skGroup}>
                 <div className={s.skGroupLabel}>Systems &amp; Delivery</div>
                 <div className={s.skItem}>Design Systems</div>
+                <div className={s.skItem}>Platform Thinking</div>
                 <div className={s.skItem}>Agile UX Operating Models</div>
                 <div className={s.skItem}>Cross-Functional Product Delivery</div>
                 <div className={s.skItem}>Metrics-Driven Design</div>
                 <div className={s.skItem}>Design-Led AI Workflows</div>
+              </div>
+              <div className={s.skGroup}>
+                <div className={s.skGroupLabel}>Design Infrastructure</div>
+                <div className={s.skItem}>Figma Enterprise &amp; MCP</div>
+                <div className={s.skItem}>Claude Code</div>
+                <div className={s.skItem}>Design Tokens / System Architecture</div>
+                <div className={s.skItem}>AI-Assisted Design Workflows</div>
               </div>
             </div>
 
@@ -141,16 +150,16 @@ export default function ResumePage() {
             <div>
               <div className={s.sTitle}>Education</div>
               <div className={s.edu}>
-                <div className={s.eduSchool}>Texas Tech University</div>
-                <div className={s.eduDegree}>Management Info Systems</div>
-                <div className={s.eduLine} />
-                <div className={s.eduDate}>AUG 1995 &ndash; DEC 1998</div>
-              </div>
-              <div className={s.edu}>
                 <div className={s.eduSchool}>Wayland Baptist University</div>
                 <div className={s.eduDegree}>BBA, Management Info Systems</div>
                 <div className={s.eduLine} />
                 <div className={s.eduDate}>JAN 1999 &ndash; DEC 2000</div>
+              </div>
+              <div className={s.edu}>
+                <div className={s.eduSchool}>Texas Tech University</div>
+                <div className={s.eduDegree}>Management Info Systems</div>
+                <div className={s.eduLine} />
+                <div className={s.eduDate}>AUG 1995 &ndash; DEC 1998</div>
               </div>
             </div>
           </div>
@@ -158,7 +167,7 @@ export default function ResumePage() {
           {/* ── MAIN ── */}
           <div className={s.main}>
             <div className={s.summary}>
-              <strong>Product design executive with 25+ years</strong> leading UX organizations in Fortune 500 retail, B2B cybersecurity, and startup-to-enterprise environments. Specializes in UX strategy, design systems, organizational design, cross-functional product delivery, and design-led AI workflows. Grew enterprise digital user base by 100% in 4 years.
+              <strong>Product design leader with 25+ years</strong> building UX organizations across Fortune 500 retail, B2B cybersecurity, and high-growth startups. Leads UX strategy and execution for enterprise platforms serving millions of users &mdash; driving growth, engagement recovery, revenue enablement, and risk reduction. I practice design-led AI: design governs where, when, and how AI is applied, with human intent before automation and design judgment over output. Player-coach, not corner office.
             </div>
 
             <div className={s.expTitle}>Experience</div>
@@ -174,11 +183,13 @@ export default function ResumePage() {
               </div>
               <div className={s.expRole}>Sr. Director of Product Design &mdash; Embedded via Agilitee</div>
               <ul className={s.expList}>
-                <li className={s.expP}>Owned UX strategy and execution across App, Web, POS, OMS, and in-store platforms for a Fortune 500 retailer &mdash; grew MAU from 6M to 12M+ in 4 years.</li>
-                <li className={s.expP}>Built and scaled a multidisciplinary design and research team across multiple product pods in 3 years; drove 130%+ YoY engagement growth.</li>
-                <li className={s.expP}>Reversed double-digit engagement decline via myDG Wallet redesign; drove Cash Back to nationwide rollout — nearly 200% YoY clip growth.</li>
-                <li className={s.expP}>Established tokenized design systems for two retail brands with shared component architecture and Figma workflows adopted across engineering.</li>
-                <li className={s.expP}>Influenced executive roadmap through embedded research and CDO, Product, and Engineering partnerships; stood up Agile UX operating model.</li>
+                <li className={s.expP}>Owned UX strategy and execution across App, Web, POS, OMS, and in-store platforms for a Fortune 500 retailer &mdash; grew digital user base from 5M to 6.6M+ MAU (+20.9% YoY), with trajectory toward 12M+ following company expansion strategy.</li>
+                <li className={s.expP}>Built and led a multidisciplinary design and research team supporting multiple product pods; reversed double-digit engagement decline via myDG Wallet redesign &mdash; consolidating fragmented rewards, deals, and payment experiences into a centralized platform that achieved 130%+ YoY engagement growth.</li>
+                <li className={s.expP}>Drove Cash Back and Same-Day Delivery from pilot to nationwide rollout &mdash; Cash Back achieved $9M in customer savings with 191% YoY clip growth and 209% YoY redemption growth; Same-Day Delivery launched across 2,000+ pilot stores.</li>
+                <li className={s.expP}>Supported $18M DGMN onsite advertising revenue goal through GAM integration, Criteo display placements, native ad implementations, and seasonal gamification. Led UX for a 1,200+ deliverable website migration across 52 team members spanning 12 time zones.</li>
+                <li className={s.expP}>Directed redesign of risk-based authentication and TFA flows &mdash; preventing 75,000 potential user dead-ends and increasing email verification from 28% to 45%+ while maintaining security and compliance standards.</li>
+                <li className={s.expP}>Established tokenized design systems for DG and pOpshelf brands &mdash; shared component architecture, naming conventions, and custom Figma workflows adopted across engineering. Integrated AI into the design workflow to compress multi-sprint efforts into weeks.</li>
+                <li className={s.expP}>Implemented Agile UX operating model with sprint planning, cross-functional reviews, and embedded research rhythms. Influenced executive roadmap through CDO, Product, and Engineering partnerships. Built team culture rooted in servant leadership: protecting focus time, removing blockers, and maintaining hands-on contribution.</li>
               </ul>
             </div>
 
@@ -193,9 +204,9 @@ export default function ResumePage() {
               </div>
               <div className={s.expRole}>Sr. Director of UI/UX</div>
               <ul className={s.expList}>
-                <li className={s.expP}>Built the UI/UX function from zero to full design team in 5 years, scaling through Series A, B, and C while defining standards, processes, and culture.</li>
-                <li className={s.expP}>Led end-to-end product design for enterprise B2B SOAR platform serving Fortune 500 security teams; improved analyst efficiency by 35%.</li>
-                <li className={s.expP}>Partnered cross-functionally with Product and Engineering to define UX standards that supported the platform&apos;s growth from Series A to Series C.</li>
+                <li className={s.expP}>Early design leader responsible for establishing and scaling the UI/UX function through Series A, B, and C growth &mdash; built the design organization from individual contributor to team leadership, defining standards, processes, and culture.</li>
+                <li className={s.expP}>Led end-to-end product design for enterprise B2B SOAR platform serving Fortune 500 security operations teams. Translated complex automation workflows into intuitive interfaces that reduced analyst fatigue and accelerated incident response.</li>
+                <li className={s.expP}>Partnered cross-functionally with Product and Engineering to define UX standards that supported the platform&apos;s growth from startup to enterprise scale.</li>
               </ul>
             </div>
 
@@ -210,21 +221,41 @@ export default function ResumePage() {
               </div>
               <div className={s.expRole}>Sr. Interactive Director</div>
               <ul className={s.expList}>
-                <li className={s.expP}>Led digital strategy and design team at boutique agency; pioneered the embedded product designer model at SendGrid that became the foundation for enterprise engagements.</li>
-                <li className={s.expP}>Owned full project lifecycle &mdash; from strategy through delivery &mdash; across a diverse client portfolio including Denver Public Schools and Prime Health.</li>
-                <li className={s.expP}>Spearheaded product design for The Aspen Institute&apos;s Core Ready Schools, enhancing user engagement by 68% through intuitive self-assessment tools within 12 months.</li>
+                <li className={s.expP}>Led digital strategy and delivery at boutique agency, owning full digital team across diverse client portfolio including Denver Public Schools, The Aspen Institute, and Prime Health.</li>
+                <li className={s.expP}>Served as embedded product designer at SendGrid during transactional email platform redesign &mdash; first embedded partnership model that became the foundation for later enterprise engagements.</li>
+                <li className={s.expP}>Spearheaded product design for The Aspen Institute&apos;s Core Ready Schools, delivering intuitive self-assessment tools that drove measurable engagement improvements.</li>
               </ul>
             </div>
 
-            {/* Earlier Career */}
+            {/* Greenhouse Partners */}
             <div className={s.exp}>
               <div className={s.expDateRow}>
                 <div className={s.expDot} />
-                <div className={s.expDate}>2004 &ndash; 2013</div>
+                <div className={s.expDate}>Apr 2012 &ndash; Jun 2013</div>
               </div>
-              <div className={s.expCompany}>Earlier Career</div>
+              <div className={s.expCompany}>
+                Greenhouse Partners <span className={s.expCompanyLoc}>| Boulder, CO</span>
+              </div>
+              <div className={s.expRole}>Sr. Digital Director</div>
               <ul className={s.expList}>
-                <li className={s.expP}>Digital Director at Greenhouse Partners; Co-founded and led GreenTent Web Design &amp; Marketing for 8+ years, growing it from startup to sustainable business.</li>
+                <li className={s.expP}>First director-level role at a Boulder-based brand strategy and creative firm known for its &ldquo;Whole Brand&rdquo; methodology &mdash; aligning internal culture with external brand identity.</li>
+                <li className={s.expP}>Led digital strategy and delivery across all projects within the agency, owning client presentations, project management, and vendor relationships while operating at a larger scale with national brand clients.</li>
+              </ul>
+            </div>
+
+            {/* GreenTent Web Design & Marketing */}
+            <div className={s.exp}>
+              <div className={s.expDateRow}>
+                <div className={s.expDot} />
+                <div className={s.expDate}>Jan 2004 &ndash; Mar 2012</div>
+              </div>
+              <div className={s.expCompany}>
+                GreenTent Web Design &amp; Marketing <span className={s.expCompanyLoc}>| Denver, CO</span>
+              </div>
+              <div className={s.expRole}>Co-founder, Digital Design</div>
+              <ul className={s.expList}>
+                <li className={s.expP}>Co-founded and led web design and marketing firm for 8+ years, providing full-stack digital services to non-profit, small business, and professional services clients.</li>
+                <li className={s.expP}>Owned creative direction, UX design, graphic design, and front-end development across the entire project lifecycle. Won the 2008 W3 Silver Award for Good Seed in the web design category.</li>
               </ul>
             </div>
 
