@@ -327,7 +327,7 @@ function MilestoneCard({ data, index }: { data: MilestoneData; index: number }) 
   const [goalsOpen, setGoalsOpen] = useState(false);
 
   return (
-    <ScrollReveal delay={index * 0.08}>
+    <ScrollReveal>
       <div className={s.milestone}>
         {/* Dot */}
         <div className={`${s.dot} ${data.dotCls}`}>{data.icon}</div>
@@ -482,7 +482,7 @@ export default function DesignProcessTimelinePage() {
       </div>
 
       {/* ── Role Legend ── */}
-      <ScrollReveal delay={0.1}>
+      <ScrollReveal>
         <section className={s.legend}>
           <h3 className={s.legendTitle}>Role Legend</h3>
           <div className={s.legendGrid}>

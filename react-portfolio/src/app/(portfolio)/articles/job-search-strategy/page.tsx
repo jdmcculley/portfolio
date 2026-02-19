@@ -195,7 +195,7 @@ export default function JobSearchStrategyPage() {
               <tr>
                 <td>Portfolio / Case Studies</td>
                 <td><span className={s.statusReady}>Live</span></td>
-                <td>RBA, Cash Back, and Wallet case studies published. Cumberland design system case study in final review.</td>
+                <td>Auth Redesign, Cash Back, and Wallet case studies published. Cumberland design system case study in final review.</td>
               </tr>
               <tr>
                 <td>Brand Positioning</td>
@@ -270,14 +270,14 @@ export default function JobSearchStrategyPage() {
             <div className={s.ndaDo}>
               <h3>What to Do</h3>
               <p>
-                <strong>Lead with process, not product.</strong> Your RBA case study already does
+                <strong>Lead with process, not product.</strong> Your auth redesign case study already does
                 this well &mdash; it tells the story of how you identified 25,000+ stuck users,
                 what framework you applied, how you validated, and what resulted. That&apos;s what
                 Director+ hiring managers care about.
               </p>
               <p>
                 <strong>Research confirms this approach.</strong> Portfolios showing process
-                consistently outperform polished-only portfolios in hiring evaluations. Your RBA,
+                consistently outperform polished-only portfolios in hiring evaluations. Your auth redesign,
                 Cash Back, and Wallet case studies demonstrate the full journey &mdash; problem
                 identification, framework application, validation, and measurable results.
               </p>
@@ -719,7 +719,7 @@ export default function JobSearchStrategyPage() {
             </li>
             <li className={s.checklistItem}>
               <span className={s.checkMark}>&#10003;</span>
-              <span><strong>Featured section:</strong> RBA case study linked. LinkedIn post demonstrating design-led AI thinking.</span>
+              <span><strong>Featured section:</strong> Auth redesign case study linked. LinkedIn post demonstrating design-led AI thinking.</span>
             </li>
             <li className={s.checklistItem}>
               <span className={s.checkMark}>&#10003;</span>
@@ -767,7 +767,7 @@ export default function JobSearchStrategyPage() {
             <div className={s.notDoingCard}>
               <h4><span className={s.notDoingX}>&times;</span> No portfolio perfectionism.</h4>
               <p>
-                Your RBA case study is strong. Ship it. A live portfolio with one great case
+                Your auth redesign case study is strong. Ship it. A live portfolio with one great case
                 study beats a perfect portfolio that&apos;s never published.
               </p>
             </div>

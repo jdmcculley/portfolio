@@ -113,7 +113,7 @@ export default function InterviewPrepPage() {
             </div>
             <div className={s.storyCard}>
               <div className={s.storyCategory}>Player-Coach</div>
-              <h4>RBA Crisis Response</h4>
+              <h4>Auth Redesign Crisis Response</h4>
               <p>
                 Auth update locked 25K+ users out in 5 days. Shifted from directing to
                 hands-on &mdash; designed 8 interconnected journeys, validated edge cases,
@@ -244,7 +244,7 @@ export default function InterviewPrepPage() {
               </p>
               <p>
                 <strong>&ldquo;I can show you what this looks like in practice.&rdquo;</strong>{' '}
-                Reference specific case studies. RBA was designed with AI-augmented exploration
+                Reference specific case studies. The auth redesign was designed with AI-augmented exploration
                 but shipped because of craft and systems thinking. The Cash Back integration
                 used AI for competitive synthesis but succeeded because of design decisions
                 about native vs. bolt-on.
@@ -308,7 +308,7 @@ export default function InterviewPrepPage() {
               <p>
                 <strong>L1:</strong> I lead with data and user evidence, but I also know when to
                 commit and iterate.{' '}
-                <strong>L2:</strong> RBA story &mdash; when the crisis hit, I had to align engineering,
+                <strong>L2:</strong> Auth redesign story &mdash; when the crisis hit, I had to align engineering,
                 product, and security on a redesign scope under time pressure.{' '}
                 <strong>L3:</strong> The framework: present options with trade-offs, recommend one,
                 commit to whatever is decided, then measure.

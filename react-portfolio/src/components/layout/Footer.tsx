@@ -8,7 +8,7 @@ export function Footer() {
         className="w-full flex justify-center items-center gap-3"
         style={{ maxWidth: 'var(--max-width)', padding: '36px var(--container-pad)' }}
       >
-        <Link href="/articles/design-led-ai" className={s.footerLink}>
+        <Link href="/articles/design-led-ai" prefetch={false} className={s.footerLink}>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path className={s.layerTop} d="M12 2L2 7l10 5 10-5-10-5z" />
             <path className={s.layerBot} d="M2 17l10 5 10-5" />

@@ -458,7 +458,7 @@ export default function SwimlaneDashboards() {
         prevHref="/case-study/cashback"
         prevTitle="Cash Back"
         href="/case-study/rba"
-        title="Risk-Based Authentication Redesign"
+        title="Authentication Redesign Under Pressure"
         desc="Rescued 25,000+ stuck users and prevented 75,000 future lockouts by redesigning the complete authentication flow for Dollar General's digital platforms."
         metrics={[
           { value: '25K+', label: 'Rescued' },

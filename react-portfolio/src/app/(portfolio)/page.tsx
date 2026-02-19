@@ -94,7 +94,7 @@ const caseStudies = [
     metrics: [{ val: '25K+', lbl: 'Rescued' }, { val: '75K', lbl: 'Prevented' }, { val: '61%', lbl: 'Improvement' }],
     tags: ['Design-Led AI', 'IC-Creative Director', 'Redesign', 'Authentication'],
     tagVariants: ['ai', 'default', 'default', 'default'],
-    title: 'Risk-Based Authentication Redesign',
+    title: 'Authentication Redesign Under Pressure',
     desc: 'Rescued 25,000+ stuck users and prevented 75,000 future lockouts by redesigning the complete authentication flow for Dollar General\u2019s digital platforms.',
     visual: 'shield',
   },
@@ -614,7 +614,7 @@ export default function HomePage() {
           <SectionHeader label="Perspective" heading="A Point of View on Design + AI" sub="Not a case study — a thesis on how design leadership and AI fluency combine to change what&apos;s possible." centered />
 
           <ScrollReveal delay={0.3}>
-            <Link href="/articles/design-led-ai" className={s.povBanner}>
+            <Link href="/articles/design-led-ai" prefetch={false} className={s.povBanner}>
               <div className={s.povVisual}>
                 <AiRingsVisual />
               </div>
@@ -746,7 +746,7 @@ export default function HomePage() {
               return (
                 <ScrollReveal key={i} delay={cs.delay ?? 0}>
                   {cs.href ? (
-                    <Link href={cs.href} className={clsx(s.csCard, 'relative')}>{inner}</Link>
+                    <Link href={cs.href} prefetch={false} className={clsx(s.csCard, 'relative')}>{inner}</Link>
                   ) : (
                     <div className={clsx(s.csCard, cs.disabled && s.disabledCard, 'relative')}>{inner}</div>
                   )}

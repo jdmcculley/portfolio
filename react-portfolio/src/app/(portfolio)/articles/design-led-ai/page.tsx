@@ -10,16 +10,6 @@ export const metadata: Metadata = {
   title: 'Design-Led AI in Practice — JD McCulley',
 };
 
-/* DG Logo */
-function DGLogo() {
-  return (
-    <svg width="62" height="62" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
-      <rect width="40" height="40" rx="4" fill="black" />
-      <path fillRule="evenodd" clipRule="evenodd" d="M13.22 24.88H11.88V15.07H12.84C15.54 15.07 17.09 15.83 17.09 19.83C17.09 23 16.54 24.88 13.22 24.88ZM28.15 19.75V22.3H29.85V24.51C29.38 24.73 28.63 24.9 27.97 24.9C25.51 24.9 24.34 23.15 24.34 19.79C24.34 16.75 25.44 15.04 27.08 15.04C28.36 15.04 28.98 15.86 29.31 17.4L33.91 16.62C33.25 13.38 30.93 11.65 27.34 11.65C24.22 11.65 21.95 12.89 20.7 15.17C19.27 12.67 16.41 11.97 12.32 11.97H5.83V15.07H7.45V27.98H12.79C16.27 27.98 19.13 27.17 20.62 24.78C21.7 26.91 23.72 28.28 26.91 28.28C28.49 28.28 30.06 27.82 31.08 27.17L31.61 27.98H34.21V19.75H28.15Z" fill="#FFF000" />
-    </svg>
-  );
-}
-
 export default function AIDesignTrendsArticle() {
   return (
     <main>
@@ -55,7 +45,7 @@ export default function AIDesignTrendsArticle() {
             </ScrollReveal>
 
             {/* Right — Orbit System */}
-            <ScrollReveal delay={0.2}>
+            <ScrollReveal>
               <div className={s.heroVisual}>
                 {/* Ambient particles */}
                 <div className={s.particleField}>
@@ -123,7 +113,7 @@ export default function AIDesignTrendsArticle() {
             </p>
           </ScrollReveal>
 
-          <ScrollReveal delay={0.1}>
+          <ScrollReveal>
             <div className={s.pillarsGrid}>
               {/* Pillar 1 */}
               <div className={s.pillarCard}>
@@ -190,7 +180,7 @@ export default function AIDesignTrendsArticle() {
             </p>
           </ScrollReveal>
 
-          <ScrollReveal delay={0.15}>
+          <ScrollReveal>
             <div className={s.processFlow}>
               {/* Step 01 */}
               <div className={s.processStep}>
@@ -297,24 +287,22 @@ export default function AIDesignTrendsArticle() {
         <Container>
           <ScrollReveal>
             <div className={s.sectionLabel}>CASE STUDY</div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 16 }}>
-              <div className={s.logoBorderBox}><DGLogo /></div>
-              <h2 className={s.sectionTitle} style={{ marginBottom: 0 }}>
-                RBA/2FA Redesign at<br />
-                <span className={s.gradientText}>Dollar General</span>
-              </h2>
-            </div>
+            <h2 className={s.sectionTitle}>
+              Authentication Redesign<br />
+              <span className={s.gradientText}>Under Pressure</span>
+            </h2>
             <p className={s.sectionSubtitle}>
-              How the new design process compressed a multi-sprint effort into weeks —
-              while I was leading the team and making the strategic calls simultaneously.
+              A real-world example of the process above — compressing a multi-sprint
+              authentication overhaul into weeks while leading the team and making the
+              strategic calls simultaneously.
             </p>
           </ScrollReveal>
 
-          <ScrollReveal delay={0.1}>
+          <ScrollReveal>
             <div className={s.caseGrid}>
               {/* Left — Transformation Visual */}
               <div className={s.caseVisual}>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', letterSpacing: '2px', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: 12, fontWeight: 600 }}>The Problem</div>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', letterSpacing: '2px', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: 12, fontWeight: 600 }}>The Constraint</div>
                 <div className={s.caseBeforeAfter}>
                   <div className={clsx(s.baBox, s.baBefore)}>
                     <div className={s.baLabel}>Users Stuck</div>
@@ -352,12 +340,12 @@ export default function AIDesignTrendsArticle() {
                 </h3>
                 <div className={s.dsBlocks} style={{ marginBottom: 24 }}>
                   <div className={s.dsBlock} style={{ borderLeftColor: 'var(--secondary)' }}>
-                    <div className={s.dsBlockLabel} style={{ color: 'var(--secondary)' }}>The Problem</div>
+                    <div className={s.dsBlockLabel} style={{ color: 'var(--secondary)' }}>The Constraint</div>
                     <p className={s.dsBlockText}>
-                      Dollar General&apos;s Risk-Based Authentication system had bricked the
-                      experience for 25,000+ users. Phone-only verification was a dead end.
-                      I pulled this onto my own plate while my team was fully allocated
-                      across four workstreams.
+                      A risk-based authentication system had locked 25,000+ users out of
+                      their accounts. Phone-only verification was a dead end. I pulled this
+                      onto my own plate while my team was fully allocated across four
+                      workstreams — a player-coach moment under real pressure.
                     </p>
                   </div>
                   <div className={s.dsBlock} style={{ borderLeftColor: 'var(--accent)' }}>
@@ -530,7 +518,7 @@ export default function AIDesignTrendsArticle() {
             </p>
           </ScrollReveal>
 
-          <ScrollReveal delay={0.1}>
+          <ScrollReveal>
             <div className={s.dsGrid}>
               {/* Left — Architecture Visual */}
               <div className={s.dsStack}>
@@ -639,7 +627,7 @@ export default function AIDesignTrendsArticle() {
           </ScrollReveal>
 
           {/* With vs Without comparison */}
-          <ScrollReveal delay={0.2}>
+          <ScrollReveal>
             <div className={s.dsCompare}>
               <div className={clsx(s.dsCompareCard, s.dsCompareWith)}>
                 <div className={s.dsCompareTitle} style={{ color: 'rgba(0,255,150,0.8)' }}>With Design System</div>

@@ -64,7 +64,7 @@ export default function QuoteGalleryPage() {
         </ScrollReveal>
 
         {/* ── Option 2: Centered Stack ── */}
-        <ScrollReveal delay={0.1}>
+        <ScrollReveal>
           <div className={s.optionCard}>
             <div className={s.optionLabel}>
               <span className={s.optionNumber}>Option 02</span>
@@ -90,7 +90,7 @@ export default function QuoteGalleryPage() {
         </ScrollReveal>
 
         {/* ── Option 3: Big Quote + Meta Header ── */}
-        <ScrollReveal delay={0.15}>
+        <ScrollReveal>
           <div className={s.optionCard}>
             <div className={s.optionLabel}>
               <span className={s.optionNumber}>Option 03</span>
@@ -117,7 +117,7 @@ export default function QuoteGalleryPage() {
         </ScrollReveal>
 
         {/* ── Option 4: Left-bar Inline ── */}
-        <ScrollReveal delay={0.2}>
+        <ScrollReveal>
           <div className={s.optionCard}>
             <div className={s.optionLabel}>
               <span className={s.optionNumber}>Option 04</span>
@@ -147,7 +147,7 @@ export default function QuoteGalleryPage() {
         </ScrollReveal>
 
         {/* ── Option 5: Split Pane ── */}
-        <ScrollReveal delay={0.25}>
+        <ScrollReveal>
           <div className={s.optionCard}>
             <div className={s.optionLabel}>
               <span className={s.optionNumber}>Option 05</span>
@@ -176,7 +176,7 @@ export default function QuoteGalleryPage() {
         </ScrollReveal>
 
         {/* ── Option 6: Glass Card + Rounded Square ── */}
-        <ScrollReveal delay={0.3}>
+        <ScrollReveal>
           <div className={s.optionCard}>
             <div className={s.optionLabel}>
               <span className={s.optionNumber}>Option 06</span>

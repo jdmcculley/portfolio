@@ -1,18 +1,41 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useRef, useEffect } from 'react';
 
 export function BackToTop() {
-  const [visible, setVisible] = useState(false);
+  const btnRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 600);
+    let ticking = false;
+    let wasVisible = false;
+
+    const update = () => {
+      const el = btnRef.current;
+      if (!el) return;
+      const visible = window.scrollY > 600;
+      if (visible !== wasVisible) {
+        el.style.opacity = visible ? '1' : '0';
+        el.style.pointerEvents = visible ? 'auto' : 'none';
+        el.style.transform = visible ? 'translateY(0)' : 'translateY(12px)';
+        wasVisible = visible;
+      }
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    };
+
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
     <button
+      ref={btnRef}
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       aria-label="Back to top"
       style={{
@@ -33,9 +56,9 @@ export function BackToTop() {
         alignItems: 'center',
         justifyContent: 'center',
         cursor: 'pointer',
-        opacity: visible ? 1 : 0,
-        pointerEvents: visible ? 'auto' : 'none',
-        transform: visible ? 'translateY(0)' : 'translateY(12px)',
+        opacity: 0,
+        pointerEvents: 'none',
+        transform: 'translateY(12px)',
         transition: 'opacity 0.3s ease, transform 0.3s ease, border-color 0.3s ease, background 0.3s ease',
       }}
       onMouseEnter={e => {

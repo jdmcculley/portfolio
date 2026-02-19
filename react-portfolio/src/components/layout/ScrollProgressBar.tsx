@@ -1,25 +1,39 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useRef, useEffect } from 'react';
 
 export function ScrollProgressBar() {
-  const [progress, setProgress] = useState(0);
+  const barRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
+    let ticking = false;
+
+    const update = () => {
+      const el = barRef.current;
+      if (!el) return;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      setProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
+      const pct = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+      el.style.width = `${pct}%`;
+      ticking = false;
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
     <div
-      className="fixed top-0 left-0 h-[2px] z-[2000] transition-[width] duration-150 ease-linear"
+      ref={barRef}
+      className="fixed top-0 left-0 h-[2px] z-[2000]"
       style={{
-        width: `${progress}%`,
+        width: '0%',
         background: 'linear-gradient(90deg, var(--accent-dim), var(--accent), var(--accent-light))',
       }}
     />

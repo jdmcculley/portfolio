@@ -17,7 +17,7 @@ import PhoneEmailFallbackPrototype from '@/components/PhoneEmailFallbackPrototyp
 import s from '../case-study.module.css';
 
 export const metadata: Metadata = {
-  title: 'Case Study: RBA/2FA Redesign at Dollar General — JD McCulley',
+  title: 'Case Study: Authentication Redesign Under Pressure — JD McCulley',
 };
 
 /* ── Placeholder: marks where YOU provide an asset ── */
@@ -92,7 +92,7 @@ export default function RBACaseStudy() {
           <div className={s.caseStudyLabel}>Case Study</div>
           <div className={s.heroTitleContainer}>
             <DGLogo />
-            <h1 className={s.heroTitle}>Rescuing Authentication at Scale</h1>
+            <h1 className={s.heroTitle}>Authentication Redesign Under Pressure</h1>
           </div>
           <p className={s.heroSubtitle}>How a 5-day crisis became a 7-journey system protecting 9 million users</p>
           <p className={s.heroDescription}>
@@ -198,7 +198,7 @@ export default function RBACaseStudy() {
       {/* ══════════ 03 — THE PROCESS ══════════ */}
       <ContentSection number="03 — THE PROCESS" title="8 Journeys, 113 Screens, Complete Coverage">
         <div className={s.sectionBody}>
-          <p>The core of the RBA/2FA redesign: eight user journeys that together form a complete authentication system.</p>
+          <p>The core of the authentication redesign: eight user journeys that together form a complete verification system.</p>
           <ul style={{ listStyle: 'disc', paddingLeft: 24, marginBottom: 16 }}>
             <li style={{ marginBottom: 8, lineHeight: 1.7 }}><strong>Journey 1: Trusted Devices</strong> — Silent bypass for returning customers (9 screens).</li>
             <li style={{ marginBottom: 8, lineHeight: 1.7 }}><strong>Journeys 2–4: Verification Paths</strong> — Phone (12 screens), email with TFA/OTP logic (15 screens), email re-auth for masked emails (19 screens).</li>

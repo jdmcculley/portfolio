@@ -381,7 +381,7 @@ export default function WalletCaseStudy() {
       {/* ══════════ Next Study ══════════ */}
       <NextStudy
         prevHref="/case-study/rba"
-        prevTitle="RBA Redesign"
+        prevTitle="Auth Redesign"
         href="/case-study/cashback"
         title="myDG Cash Back at Scale"
         desc="Led UX for the white-label Ibotta integration — a co-mingled deals gallery that put $9 million back in customers' pockets."

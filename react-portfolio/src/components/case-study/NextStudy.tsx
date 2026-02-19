@@ -19,14 +19,14 @@ export function NextStudy({ href, prevHref, prevTitle, title, desc, metrics }: N
       <div className={s.nextStudy}>
         <div className={s.nextStudyInner}>
           {prevHref && (
-            <Link href={prevHref} className={s.prevArrowLink} aria-label={`Previous: ${prevTitle}`}>
+            <Link href={prevHref} prefetch={false} className={s.prevArrowLink} aria-label={`Previous: ${prevTitle}`}>
               {prevTitle && <span className={s.prevTooltip}>{prevTitle}</span>}
               <span className={s.prevArrow}>&larr;</span>
             </Link>
           )}
           <div className={s.nextStudyContent}>
             <div className={s.nextStudyLabel}>Next Case Study</div>
-            <Link href={href} className={s.nextStudyLink}>
+            <Link href={href} prefetch={false} className={s.nextStudyLink}>
               <h3 className={s.nextStudyTitle}>{title}</h3>
               <div className={s.nextStudyDesc}>{desc}</div>
               <div className={s.nextStudyMetrics}>
@@ -38,7 +38,7 @@ export function NextStudy({ href, prevHref, prevTitle, title, desc, metrics }: N
               </div>
             </Link>
           </div>
-          <Link href={href} className={s.nextArrowLink} aria-label="Next case study">
+          <Link href={href} prefetch={false} className={s.nextArrowLink} aria-label="Next case study">
             <span className={s.nextArrow}>&rarr;</span>
           </Link>
         </div>
