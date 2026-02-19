@@ -13,6 +13,7 @@ import s from '../case-study.module.css';
 
 export const metadata: Metadata = {
   title: 'Case Study: Cumberland Design System — JD McCulley',
+  openGraph: { images: [{ url: '/api/og/?page=cumberland', width: 1200, height: 630 }] },
 };
 
 /* ── Cumberland Logo Icon ── */

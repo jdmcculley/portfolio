@@ -13,6 +13,7 @@ import s from '../case-study.module.css';
 
 export const metadata: Metadata = {
   title: 'Case Study: Swimlane — Improving Dashboard Experiences | JD McCulley',
+  openGraph: { images: [{ url: '/api/og/?page=swimlane', width: 1200, height: 630 }] },
 };
 
 /* Swimlane Logo */

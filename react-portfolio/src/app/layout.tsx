@@ -8,6 +8,23 @@ export const metadata: Metadata = {
   description:
     "Product design leader who bridges the full digital product lifecycle — using AI-augmented workflows and design systems to compress what used to take teams of 10 into what a team of 5 delivers.",
   icons: { icon: "/assets/brand/jd-poly-logo-gradient.svg" },
+  metadataBase: new URL("https://jdmcculley.com"),
+  openGraph: {
+    type: "website",
+    siteName: "JD McCulley",
+    locale: "en_US",
+    images: [
+      {
+        url: "/api/og/?page=home",
+        width: 1200,
+        height: 630,
+        alt: "JD McCulley — Product Design Leader",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({

@@ -18,6 +18,7 @@ import s from '../case-study.module.css';
 
 export const metadata: Metadata = {
   title: 'Case Study: Authentication Redesign Under Pressure — JD McCulley',
+  openGraph: { images: [{ url: '/api/og/?page=rba', width: 1200, height: 630 }] },
 };
 
 /* ── Placeholder: marks where YOU provide an asset ── */

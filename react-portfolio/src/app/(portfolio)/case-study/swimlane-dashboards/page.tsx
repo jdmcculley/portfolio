@@ -15,6 +15,7 @@ import s from './swimlane-dashboards.module.css';
 
 export const metadata: Metadata = {
   title: 'Case Study: Swimlane — SOAR Platform Design | JD McCulley',
+  openGraph: { images: [{ url: '/api/og/?page=swimlane-dashboards', width: 1200, height: 630 }] },
 };
 
 

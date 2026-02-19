@@ -8,6 +8,7 @@ import { CaseStudyButton } from './CaseStudyButton';
 
 export const metadata: Metadata = {
   title: 'Design-Led AI in Practice — JD McCulley',
+  openGraph: { images: [{ url: '/api/og/?page=design-led-ai', width: 1200, height: 630 }] },
 };
 
 export default function AIDesignTrendsArticle() {

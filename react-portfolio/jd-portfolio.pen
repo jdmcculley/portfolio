@@ -7,11 +7,1651 @@
       "x": 0,
       "y": 0,
       "name": "Frame",
-      "clip": true,
-      "width": 800,
-      "height": 600,
-      "fill": "#FFFFFF",
-      "layout": "none"
+      "width": 1440,
+      "fill": "#0A0E1A",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "Cc0Zq",
+          "name": "nav",
+          "width": "fill_container",
+          "height": 92,
+          "fill": "#0A0E1AF2",
+          "stroke": {
+            "align": "inside",
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": "#1B3550"
+          },
+          "padding": [
+            0,
+            56
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "Qd24a",
+              "name": "logo",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width-height",
+              "width": 260,
+              "height": 36,
+              "content": "JD McCULLEY",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 22,
+              "fontWeight": "700",
+              "letterSpacing": 1.2
+            },
+            {
+              "type": "frame",
+              "id": "wy4A8",
+              "name": "navItems",
+              "gap": 20,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "divkH",
+                  "name": "navText",
+                  "fill": "#C5CEE2",
+                  "textGrowth": "fixed-width-height",
+                  "width": 620,
+                  "height": 24,
+                  "content": "01 Position   02 Design-Led AI   03 Case Studies   04 Experience   05 Contact",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "frame",
+                  "id": "jjqFb",
+                  "name": "resumeBtn",
+                  "width": 112,
+                  "height": 34,
+                  "fill": "#0F1A30",
+                  "cornerRadius": 8,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#28577C"
+                  },
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "aRByM",
+                      "name": "resumeText",
+                      "fill": "#00D4FF",
+                      "textGrowth": "fixed-width-height",
+                      "width": 70,
+                      "height": 18,
+                      "content": "Resume",
+                      "textAlign": "center",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "dAcfl",
+          "name": "hero",
+          "width": "fill_container",
+          "fill": "#0A0E1A",
+          "layout": "vertical",
+          "gap": 32,
+          "children": [
+            {
+              "type": "frame",
+              "id": "29yxp",
+              "name": "heroTop",
+              "width": "fill_container",
+              "height": 448,
+              "gap": 36,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "wnQwD",
+                  "name": "heroLeft",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "layout": "vertical",
+                  "gap": 20,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "M8Jnb",
+                      "name": "badge",
+                      "fill": "#00D4FF",
+                      "textGrowth": "fixed-width-height",
+                      "width": 340,
+                      "height": 22,
+                      "content": "PRODUCT DESIGN LEADER • DENVER, CO",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 11,
+                      "fontWeight": "600",
+                      "letterSpacing": 1.3
+                    },
+                    {
+                      "type": "text",
+                      "id": "5r9Ig",
+                      "name": "heroTitle",
+                      "fill": "#FFFFFF",
+                      "textGrowth": "fixed-width-height",
+                      "width": "fill_container",
+                      "height": 190,
+                      "content": "Building UX/AI teams\nthat deliver at\nenterprise scale.",
+                      "lineHeight": 1.08,
+                      "fontFamily": "Space Grotesk",
+                      "fontSize": 56,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "WW1uv",
+                      "name": "heroDesc",
+                      "fill": "#C5CEE2",
+                      "textGrowth": "fixed-width-height",
+                      "width": "fill_container",
+                      "height": 116,
+                      "content": "Product design leader bridging the full digital lifecycle with AI-augmented workflows and design systems. 25+ years of craft and judgment from research through release.",
+                      "lineHeight": 1.7,
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "vLYiY",
+                      "name": "heroCta",
+                      "fill": "#00D4FF",
+                      "textGrowth": "fixed-width-height",
+                      "width": 220,
+                      "height": 24,
+                      "content": "See if we align ↓",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "EfdjJ",
+                  "name": "heroRight",
+                  "width": 430,
+                  "height": "fill_container",
+                  "layout": "vertical",
+                  "justifyContent": "end",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": [
+                        18,
+                        18,
+                        22,
+                        22
+                      ],
+                      "id": "iAhTQ",
+                      "name": "headshot",
+                      "fill": {
+                        "type": "gradient",
+                        "gradientType": "linear",
+                        "enabled": true,
+                        "rotation": 180,
+                        "size": {
+                          "height": 1
+                        },
+                        "colors": [
+                          {
+                            "color": "#14304A",
+                            "position": 0
+                          },
+                          {
+                            "color": "#0A0E1A",
+                            "position": 1
+                          }
+                        ]
+                      },
+                      "width": 360,
+                      "height": 410,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#1F4E70"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "id": "QjL0J",
+                      "name": "headshotLabel",
+                      "fill": "#7DA3FF",
+                      "textGrowth": "fixed-width-height",
+                      "width": 220,
+                      "height": 20,
+                      "content": "JD Headshot",
+                      "textAlign": "center",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Zhoe9",
+              "name": "pillars",
+              "width": "fill_container",
+              "height": 270,
+              "gap": 18,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "RivT6",
+                  "name": "p1",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#121830",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#1C3249"
+                  },
+                  "layout": "vertical",
+                  "padding": [
+                    20,
+                    18
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ce1TD",
+                      "name": "p1t",
+                      "fill": "#B1BAD0",
+                      "textGrowth": "fixed-width-height",
+                      "width": "fill_container",
+                      "height": 210,
+                      "content": "Design-Led AI\n\nCreative direction of AI workflows that multiply a small team's output by ~2x.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "dGmTk",
+                  "name": "p2",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#121830",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#1C3249"
+                  },
+                  "layout": "vertical",
+                  "padding": [
+                    20,
+                    18
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "UDGxv",
+                      "name": "p2t",
+                      "fill": "#B1BAD0",
+                      "textGrowth": "fixed-width-height",
+                      "width": "fill_container",
+                      "height": 210,
+                      "content": "Fortune 500 Retail\n\nGrew Dollar General app from 5M to 12M+ MAU across 15,000 stores.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "OtCOy",
+                  "name": "p3",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#121830",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#1C3249"
+                  },
+                  "layout": "vertical",
+                  "padding": [
+                    20,
+                    18
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "aSdUj",
+                      "name": "p3t",
+                      "fill": "#B1BAD0",
+                      "textGrowth": "fixed-width-height",
+                      "width": "fill_container",
+                      "height": 210,
+                      "content": "B2B Cyber Security\n\nLed UX for Swimlane SOAR platform, simplifying high-pressure analyst workflows.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "TxhRQ",
+                  "name": "p4",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#121830",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#1C3249"
+                  },
+                  "layout": "vertical",
+                  "padding": [
+                    20,
+                    18
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "OHWG6",
+                      "name": "p4t",
+                      "fill": "#B1BAD0",
+                      "textGrowth": "fixed-width-height",
+                      "width": "fill_container",
+                      "height": 210,
+                      "content": "Startup to Enterprise\n\nScaled design from startup Series A to Fortune 500 systems and teams.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "uYj6J",
+          "name": "position",
+          "width": "fill_container",
+          "fill": "#0D1224",
+          "stroke": {
+            "align": "inside",
+            "thickness": {
+              "top": 1,
+              "bottom": 1
+            },
+            "fill": "#1C3249"
+          },
+          "layout": "vertical",
+          "gap": 22,
+          "padding": [
+            96,
+            120
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "B5mrC",
+              "name": "posLabel",
+              "fill": "#00D4FF",
+              "textGrowth": "fixed-width-height",
+              "width": 220,
+              "height": 20,
+              "content": "POSITION",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 11,
+              "fontWeight": "700",
+              "letterSpacing": 2
+            },
+            {
+              "type": "text",
+              "id": "BSvEL",
+              "name": "posQuote",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width-height",
+              "width": 980,
+              "height": 138,
+              "content": "Craft without speed is a luxury.\nSpeed without craft is a liability.",
+              "lineHeight": 1.2,
+              "textAlign": "center",
+              "fontFamily": "Space Grotesk",
+              "fontSize": 54,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "sgOT1",
+              "name": "posBody",
+              "fill": "#B1BAD0",
+              "textGrowth": "fixed-width-height",
+              "width": 980,
+              "height": 132,
+              "content": "Traditional designers bring taste but cannot scale. Technologists ship fast but lack design rigor. The rare hire combines 25+ years of product craft with AI fluency to turn a team of 5 into output of 9.",
+              "lineHeight": 1.75,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 19,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "ndel1",
+              "name": "spectrum",
+              "width": "fill_container",
+              "height": 132,
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "DZ46x",
+                  "name": "spLeft",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#121830",
+                  "cornerRadius": 14,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#1F3047"
+                  },
+                  "layout": "vertical",
+                  "padding": [
+                    16,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ey4ge",
+                      "name": "spLeftText",
+                      "fill": "#B1BAD0",
+                      "textGrowth": "fixed-width-height",
+                      "width": "fill_container",
+                      "height": 96,
+                      "content": "Traditional Designer\n\nStrong craft, limited scalability.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "EDL0I",
+                  "name": "spCenter",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#103044",
+                  "cornerRadius": 14,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#00D4FF"
+                  },
+                  "layout": "vertical",
+                  "padding": [
+                    16,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "2bhmE",
+                      "name": "spCenterText",
+                      "fill": "#E6F9FF",
+                      "textGrowth": "fixed-width-height",
+                      "width": "fill_container",
+                      "height": 96,
+                      "content": "Creative Director + AI Operator\n\nDesign leadership with production-level AI execution.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "37Iy8",
+                  "name": "spRight",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#121830",
+                  "cornerRadius": 14,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#1F3047"
+                  },
+                  "layout": "vertical",
+                  "padding": [
+                    16,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "hEJcR",
+                      "name": "spRightText",
+                      "fill": "#B1BAD0",
+                      "textGrowth": "fixed-width-height",
+                      "width": "fill_container",
+                      "height": 96,
+                      "content": "Pure Technologist\n\nHigh speed, lower design quality ceiling.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Zi7oy",
+          "name": "perspective",
+          "width": "fill_container",
+          "fill": "#0A0E1A",
+          "stroke": {
+            "align": "inside",
+            "thickness": {
+              "top": 1
+            },
+            "fill": "#1C3249"
+          },
+          "layout": "vertical",
+          "gap": 24,
+          "children": [
+            {
+              "type": "text",
+              "id": "74ORy",
+              "name": "perLabel",
+              "fill": "#00D4FF",
+              "textGrowth": "fixed-width-height",
+              "width": 220,
+              "height": 20,
+              "content": "PERSPECTIVE",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 11,
+              "fontWeight": "700",
+              "letterSpacing": 2
+            },
+            {
+              "type": "text",
+              "id": "BdrRx",
+              "name": "perHeading",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width-height",
+              "width": 980,
+              "height": 70,
+              "content": "A Point of View on Design + AI",
+              "fontFamily": "Space Grotesk",
+              "fontSize": 48,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "k7vwR",
+              "name": "perSub",
+              "fill": "#B1BAD0",
+              "textGrowth": "fixed-width-height",
+              "width": 980,
+              "height": 66,
+              "content": "Not a case study, a thesis on how design leadership and AI fluency change what is possible.",
+              "lineHeight": 1.65,
+              "fontFamily": "Inter",
+              "fontSize": 19,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "OTg9E",
+              "name": "povCard",
+              "width": "fill_container",
+              "height": 220,
+              "fill": "#121830",
+              "cornerRadius": 16,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1,
+                "fill": "#1F4E70"
+              },
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 24,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n4FhD",
+                  "name": "povLabel",
+                  "fill": "#7DA3FF",
+                  "textGrowth": "fixed-width-height",
+                  "width": 300,
+                  "height": 18,
+                  "content": "POV · Design-Led AI",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 11,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "eqvvF",
+                  "name": "povTitle",
+                  "fill": "#FFFFFF",
+                  "textGrowth": "fixed-width-height",
+                  "width": "fill_container",
+                  "height": 52,
+                  "content": "Design-Led AI in Practice",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 34,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "5eBCo",
+                  "name": "povDesc",
+                  "fill": "#B1BAD0",
+                  "textGrowth": "fixed-width-height",
+                  "width": "fill_container",
+                  "height": 60,
+                  "content": "How I direct AI-augmented output to compress multi-sprint initiatives into weeks while raising quality.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "YLJgb",
+                  "name": "povCta",
+                  "fill": "#00D4FF",
+                  "textGrowth": "fixed-width-height",
+                  "width": 260,
+                  "height": 24,
+                  "content": "Explore My Perspective →",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "JowVa",
+          "name": "process",
+          "width": "fill_container",
+          "fill": "#0D1224",
+          "stroke": {
+            "align": "inside",
+            "thickness": {
+              "top": 1
+            },
+            "fill": "#1C3249"
+          },
+          "layout": "vertical",
+          "gap": 22,
+          "children": [
+            {
+              "type": "text",
+              "id": "ApUbJ",
+              "name": "procLabel",
+              "fill": "#00D4FF",
+              "textGrowth": "fixed-width-height",
+              "width": 220,
+              "height": 20,
+              "content": "PROCESS",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 11,
+              "fontWeight": "700",
+              "letterSpacing": 2
+            },
+            {
+              "type": "text",
+              "id": "nPjQD",
+              "name": "procHeading",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width-height",
+              "width": 980,
+              "height": 66,
+              "content": "DesignOps, Rewired",
+              "fontFamily": "Space Grotesk",
+              "fontSize": 46,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "BlM7y",
+              "name": "procSub",
+              "fill": "#C5CEE2",
+              "textGrowth": "fixed-width-height",
+              "width": 980,
+              "height": 60,
+              "content": "One orchestrator. Six capabilities. AI generates, leadership directs, and craft ships.",
+              "lineHeight": 1.65,
+              "fontFamily": "Inter",
+              "fontSize": 19,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "D4YLc",
+              "name": "hub",
+              "width": "fill_container",
+              "height": 170,
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Adk0x",
+                  "name": "hubCenter",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#14304A",
+                  "cornerRadius": 14,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#00D4FF"
+                  },
+                  "layout": "vertical",
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "pK9VJ",
+                      "name": "hubCenterText",
+                      "fill": "#E6F9FF",
+                      "textGrowth": "fixed-width-height",
+                      "width": "fill_container",
+                      "height": 110,
+                      "content": "Design Leadership\nOrchestrator\n25+ Years",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "OLQnq",
+                  "name": "hubSpoke1",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#121830",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#1F3047"
+                  },
+                  "layout": "vertical",
+                  "padding": 14,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "G9eHA",
+                      "name": "hubSpoke1Text",
+                      "fill": "#B1BAD0",
+                      "textGrowth": "fixed-width-height",
+                      "width": "fill_container",
+                      "height": 110,
+                      "content": "Generation Engine\nClaude Code · Pencil Dev · Figma AI",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "AWdOX",
+                  "name": "hubSpoke2",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#121830",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#1F3047"
+                  },
+                  "layout": "vertical",
+                  "padding": 14,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "hZvEs",
+                      "name": "hubSpoke2Text",
+                      "fill": "#B1BAD0",
+                      "textGrowth": "fixed-width-height",
+                      "width": "fill_container",
+                      "height": 110,
+                      "content": "Creative Direction\nTaste filters output and keeps quality high.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Z1IwU",
+                  "name": "hubSpoke3",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#121830",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#1F3047"
+                  },
+                  "layout": "vertical",
+                  "padding": 14,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "5jdyU",
+                      "name": "hubSpoke3Text",
+                      "fill": "#B1BAD0",
+                      "textGrowth": "fixed-width-height",
+                      "width": "fill_container",
+                      "height": 110,
+                      "content": "Production Ready\nDesign system + handoff + acceptance criteria.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "elULb",
+          "name": "work",
+          "width": "fill_container",
+          "fill": "#0A0E1A",
+          "stroke": {
+            "align": "inside",
+            "thickness": {
+              "top": 1
+            },
+            "fill": "#1C3249"
+          },
+          "layout": "vertical",
+          "gap": 22,
+          "children": [
+            {
+              "type": "text",
+              "id": "nDduO",
+              "name": "workLabel",
+              "fill": "#00D4FF",
+              "textGrowth": "fixed-width-height",
+              "width": 260,
+              "height": 20,
+              "content": "SELECTED WORK",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 11,
+              "fontWeight": "700",
+              "letterSpacing": 2
+            },
+            {
+              "type": "text",
+              "id": "sxgvs",
+              "name": "workHeading",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width-height",
+              "width": 980,
+              "height": 66,
+              "content": "Case Studies",
+              "fontFamily": "Space Grotesk",
+              "fontSize": 46,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "BaJvK",
+              "name": "workSub",
+              "fill": "#C5CEE2",
+              "textGrowth": "fixed-width-height",
+              "width": 980,
+              "height": 64,
+              "content": "Enterprise-scale product design from Fortune 500 retail platforms to cybersecurity workflows.",
+              "lineHeight": 1.65,
+              "fontFamily": "Inter",
+              "fontSize": 19,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "9t2Rn",
+              "name": "row1",
+              "width": "fill_container",
+              "height": 260,
+              "gap": 18,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "f8R8I",
+                  "name": "cs1",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#121830",
+                  "cornerRadius": 14,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#1F3047"
+                  },
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "U1gFI",
+                      "name": "cs1t",
+                      "fill": "#CFE0FF",
+                      "textGrowth": "fixed-width-height",
+                      "width": "fill_container",
+                      "height": 188,
+                      "content": "Risk-Based Authentication Redesign\n\n25K+ rescued · 75K prevented · 61% improvement\n\nRescued stuck users by redesigning authentication flow across DG digital platforms.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "7DPjX",
+                  "name": "cs2",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#121830",
+                  "cornerRadius": 14,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#1F3047"
+                  },
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "R57di",
+                      "name": "cs2t",
+                      "fill": "#CFE0FF",
+                      "textGrowth": "fixed-width-height",
+                      "width": "fill_container",
+                      "height": 188,
+                      "content": "Cash Back at Scale\n\n435M clips · $9M savings · 191% YoY\n\nLed UX for Ibotta white-label integration in co-mingled deals gallery.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "myzG9",
+                  "name": "cs3",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#121830",
+                  "cornerRadius": 14,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#1F3047"
+                  },
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "vYVAu",
+                      "name": "cs3t",
+                      "fill": "#CFE0FF",
+                      "textGrowth": "fixed-width-height",
+                      "width": "fill_container",
+                      "height": 188,
+                      "content": "myDG Wallet Turnaround\n\n130%+ engagement · 40% faster · 28% discovery\n\nReversed decline by centralizing rewards, deals, and payments.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "XfCJZ",
+              "name": "row2",
+              "width": "fill_container",
+              "height": 260,
+              "gap": 18,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "e6IbG",
+                  "name": "cs4",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#121830",
+                  "cornerRadius": 14,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#1F3047"
+                  },
+                  "layout": "vertical",
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "TTwjk",
+                      "name": "cs4t",
+                      "fill": "#CFE0FF",
+                      "textGrowth": "fixed-width-height",
+                      "width": "fill_container",
+                      "height": 188,
+                      "content": "Cumberland Design System\n\n35% velocity · 89% consistency · 5-day onboarding\n\nTokenized foundation for AI-accelerated design and dev handoff.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Ts1Q9",
+                  "name": "cs5",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#121830",
+                  "cornerRadius": 14,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#1F3047"
+                  },
+                  "layout": "vertical",
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "71DoU",
+                      "name": "cs5t",
+                      "fill": "#CFE0FF",
+                      "textGrowth": "fixed-width-height",
+                      "width": "fill_container",
+                      "height": 188,
+                      "content": "Swimlane — 0 to 1 UX\n\nA→C series · 0→1 UX build · 6yr tenure\n\nBuilt UI/UX function from scratch for enterprise cybersecurity platform.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "gCS8W",
+                  "name": "cs6",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#121830",
+                  "cornerRadius": 14,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#1F3047"
+                  },
+                  "layout": "vertical",
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "QWXOQ",
+                      "name": "cs6t",
+                      "fill": "#CFE0FF",
+                      "textGrowth": "fixed-width-height",
+                      "width": "fill_container",
+                      "height": 188,
+                      "content": "pOpshelf Digital Experience\n\n180 stores · sub-brand identity · app + web launch\n\nTranslated discovery-driven retail concept into cohesive digital product.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "A8T2g",
+          "name": "journey",
+          "width": "fill_container",
+          "fill": "#0D1224",
+          "stroke": {
+            "align": "inside",
+            "thickness": {
+              "top": 1
+            },
+            "fill": "#1C3249"
+          },
+          "layout": "vertical",
+          "gap": 22,
+          "children": [
+            {
+              "type": "text",
+              "id": "W1N8Y",
+              "name": "journeyLabel",
+              "fill": "#00D4FF",
+              "textGrowth": "fixed-width-height",
+              "width": 220,
+              "height": 20,
+              "content": "THE JOURNEY",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 11,
+              "fontWeight": "700",
+              "letterSpacing": 2
+            },
+            {
+              "type": "text",
+              "id": "7xtqZ",
+              "name": "journeyHeading",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width-height",
+              "width": 980,
+              "height": 66,
+              "content": "25 Years of Building",
+              "fontFamily": "Space Grotesk",
+              "fontSize": 46,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "2fNrq",
+              "name": "timeline",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "sSlE4",
+                  "name": "tlCard1",
+                  "width": "fill_container",
+                  "height": 120,
+                  "fill": "#121830",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#1F3047"
+                  },
+                  "layout": "vertical",
+                  "padding": [
+                    16,
+                    18
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "LEdqR",
+                      "name": "tlText1",
+                      "fill": "#E6F9FF",
+                      "textGrowth": "fixed-width-height",
+                      "width": "fill_container",
+                      "height": 88,
+                      "content": "2022 – 2026 · Agilitee × Dollar General · Sr. Director of Product Design\nLed team of 6 across 12M+ MAU products. Player-coach execution with AI-augmented workflows.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Phrqs",
+                  "name": "tlCard2",
+                  "width": "fill_container",
+                  "height": 116,
+                  "fill": "#121830",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#1F3047"
+                  },
+                  "layout": "vertical",
+                  "padding": [
+                    16,
+                    18
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "bJnRt",
+                      "name": "tlText2",
+                      "fill": "#C5CEE2",
+                      "textGrowth": "fixed-width-height",
+                      "width": "fill_container",
+                      "height": 84,
+                      "content": "2016 – 2022 · Swimlane · Sr. Director of UI/UX\nBuilt UX function from 0→1 through Series A/B/C for enterprise SOAR platform.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "mWgKN",
+                  "name": "tlCard3",
+                  "width": "fill_container",
+                  "height": 116,
+                  "fill": "#121830",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#1F3047"
+                  },
+                  "layout": "vertical",
+                  "padding": [
+                    16,
+                    18
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ZRdzK",
+                      "name": "tlText3",
+                      "fill": "#C5CEE2",
+                      "textGrowth": "fixed-width-height",
+                      "width": "fill_container",
+                      "height": 84,
+                      "content": "2013 – 2016 · Anabliss · Sr. Interactive Director\nLed agency digital strategy and embedded product design at SendGrid.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "6go6k",
+                  "name": "tlCard4",
+                  "width": "fill_container",
+                  "height": 116,
+                  "fill": "#121830",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#1F3047"
+                  },
+                  "layout": "vertical",
+                  "padding": [
+                    16,
+                    18
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "bbVhD",
+                      "name": "tlText4",
+                      "fill": "#C5CEE2",
+                      "textGrowth": "fixed-width-height",
+                      "width": "fill_container",
+                      "height": 84,
+                      "content": "2012 – 2013 · Greenhouse Partners · Sr. Digital Director\nLed digital team with whole-brand methodology across initiatives.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "xbB6n",
+                  "name": "tlCard5",
+                  "width": "fill_container",
+                  "height": 116,
+                  "fill": "#121830",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#1F3047"
+                  },
+                  "layout": "vertical",
+                  "padding": [
+                    16,
+                    18
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Ezmop",
+                      "name": "tlText5",
+                      "fill": "#C5CEE2",
+                      "textGrowth": "fixed-width-height",
+                      "width": "fill_container",
+                      "height": 84,
+                      "content": "2002 – 2012 · GreenTent · Co-founder & Digital Design\n10 years of full-stack digital leadership and award-winning nonprofit work.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "OW2nr",
+          "name": "contact",
+          "width": "fill_container",
+          "fill": "#0A0E1A",
+          "stroke": {
+            "align": "inside",
+            "thickness": {
+              "top": 1
+            },
+            "fill": "#1C3249"
+          },
+          "layout": "vertical",
+          "gap": 22,
+          "children": [
+            {
+              "type": "text",
+              "id": "rTZst",
+              "name": "contactLabel",
+              "fill": "#00D4FF",
+              "textGrowth": "fixed-width-height",
+              "width": 220,
+              "height": 20,
+              "content": "WHAT'S NEXT",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 11,
+              "fontWeight": "700",
+              "letterSpacing": 2
+            },
+            {
+              "type": "text",
+              "id": "fiN9V",
+              "name": "contactHeading",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width-height",
+              "width": 980,
+              "height": 66,
+              "content": "Let's build something.",
+              "fontFamily": "Space Grotesk",
+              "fontSize": 46,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "8KR3D",
+              "name": "contactBody",
+              "fill": "#C5CEE2",
+              "textGrowth": "fixed-width-height",
+              "width": 980,
+              "height": 70,
+              "content": "I am looking for my next opportunity to lead product design at scale with design systems, AI workflows, and cross-functional leadership.",
+              "lineHeight": 1.65,
+              "fontFamily": "Inter",
+              "fontSize": 19,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "jkeXL",
+              "name": "contactItems",
+              "width": "fill_container",
+              "height": 64,
+              "gap": 18,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "zS1Kr",
+                  "name": "ci1",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#121830",
+                  "cornerRadius": 10,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#1F3047"
+                  },
+                  "padding": [
+                    0,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "PineG",
+                      "name": "ci1t",
+                      "fill": "#E6F9FF",
+                      "textGrowth": "fixed-width-height",
+                      "width": "fill_container",
+                      "height": 22,
+                      "content": "jdmcculley@me.com",
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "6y0H2",
+                  "name": "ci2",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#121830",
+                  "cornerRadius": 10,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#1F3047"
+                  },
+                  "padding": [
+                    0,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "DIo6Q",
+                      "name": "ci2t",
+                      "fill": "#E6F9FF",
+                      "textGrowth": "fixed-width-height",
+                      "width": "fill_container",
+                      "height": 22,
+                      "content": "linkedin.com/in/jdmcc",
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "aB0PU",
+                  "name": "ci3",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#121830",
+                  "cornerRadius": 10,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#1F3047"
+                  },
+                  "padding": [
+                    0,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "sCPhF",
+                      "name": "ci3t",
+                      "fill": "#E6F9FF",
+                      "textGrowth": "fixed-width-height",
+                      "width": "fill_container",
+                      "height": 22,
+                      "content": "Denver, CO",
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "a8NXA",
+              "name": "contactQuote",
+              "fill": "#9AB9FF",
+              "textGrowth": "fixed-width-height",
+              "width": 980,
+              "height": 62,
+              "content": "\"AI compresses everything before and after the craft moment. But the craft moment is human.\"",
+              "lineHeight": 1.6,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 19,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "ponI6",
+              "name": "contactCite",
+              "fill": "#B1BAD0",
+              "textGrowth": "fixed-width-height",
+              "width": 980,
+              "height": 24,
+              "content": "— JD McCULLEY",
+              "textAlign": "center",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "9tuRs",
+          "name": "footer",
+          "width": "fill_container",
+          "height": 72,
+          "fill": "#0D1224",
+          "stroke": {
+            "align": "inside",
+            "thickness": {
+              "top": 1
+            },
+            "fill": "#1C3249"
+          },
+          "gap": 12,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "IFci1",
+              "name": "footerText",
+              "fill": "#A4ABC0",
+              "textGrowth": "fixed-width-height",
+              "width": 520,
+              "height": 20,
+              "content": "Powered by Design-Led AI · © 2026 JD McCulley",
+              "textAlign": "center",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

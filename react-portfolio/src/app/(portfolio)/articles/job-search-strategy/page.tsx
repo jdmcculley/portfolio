@@ -5,6 +5,7 @@ import s from './strategy.module.css';
 
 export const metadata: Metadata = {
   title: 'Job Search Strategy — JD McCulley',
+  openGraph: { images: [{ url: '/api/og/?page=job-search-strategy', width: 1200, height: 630 }] },
 };
 
 export default function JobSearchStrategyPage() {

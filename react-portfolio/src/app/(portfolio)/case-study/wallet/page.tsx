@@ -14,6 +14,7 @@ import s from '../case-study.module.css';
 
 export const metadata: Metadata = {
   title: 'Case Study: myDG Wallet — Reversing the Decline | JD McCulley',
+  openGraph: { images: [{ url: '/api/og/?page=wallet', width: 1200, height: 630 }] },
 };
 
 /* ── DG Logo ── */

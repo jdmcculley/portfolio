@@ -7,6 +7,7 @@ import s from './swimlane-portfolio.module.css';
 
 export const metadata: Metadata = {
   title: 'Swimlane Portfolio — UI/UX Design Work | JD McCulley',
+  openGraph: { images: [{ url: '/api/og/?page=swimlane-portfolio', width: 1200, height: 630 }] },
 };
 
 /* ── Design Thinking Phases visual ── */

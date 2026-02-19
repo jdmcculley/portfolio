@@ -4,6 +4,7 @@ import s from './interview.module.css';
 
 export const metadata: Metadata = {
   title: 'Interview Prep — JD McCulley',
+  openGraph: { images: [{ url: '/api/og/?page=interview-prep', width: 1200, height: 630 }] },
 };
 
 export default function InterviewPrepPage() {

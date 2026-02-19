@@ -14,6 +14,7 @@ import s from '../case-study.module.css';
 
 export const metadata: Metadata = {
   title: 'Case Study: myDG Cash Back at Scale — JD McCulley',
+  openGraph: { images: [{ url: '/api/og/?page=cashback', width: 1200, height: 630 }] },
 };
 
 /* ── Inline SVG Components ── */
