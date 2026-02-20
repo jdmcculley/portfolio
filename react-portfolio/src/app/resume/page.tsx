@@ -63,7 +63,7 @@ export default function ResumePage() {
               <PolyLogo />
             </div>
             <div className={s.headerHeadline}>
-              Product Design Leader <span className={s.accent}>| Building UX/AI Teams</span><br />That Deliver at Enterprise Scale
+              Product Design Leader <span className={s.accent}>Building UX/AI Teams</span><br />That Deliver at Enterprise Scale
             </div>
             <div className={s.headerTags}>
               Fortune 500 Retail <span>/</span> B2B Cybersecurity <span>/</span> Startup-to-Enterprise Scale <span>/</span> Design-Led AI
