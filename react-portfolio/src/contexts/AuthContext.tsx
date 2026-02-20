@@ -24,10 +24,33 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsAuthenticated(
-      sessionStorage.getItem(AUTH_CONFIG.sessionKey) === 'true',
-    );
-    setIsLoading(false);
+    const init = async () => {
+      // Check session first
+      if (sessionStorage.getItem(AUTH_CONFIG.sessionKey) === 'true') {
+        setIsAuthenticated(true);
+        setIsLoading(false);
+        return;
+      }
+
+      // Check for ?pw= URL parameter
+      const params = new URLSearchParams(window.location.search);
+      const pw = params.get('pw');
+      if (pw) {
+        const valid = await verifyPassword(pw, AUTH_CONFIG.passwordHash);
+        if (valid) {
+          sessionStorage.setItem(AUTH_CONFIG.sessionKey, 'true');
+          setIsAuthenticated(true);
+        }
+        // Strip pw param from URL without reload
+        params.delete('pw');
+        const clean = params.toString();
+        const newUrl = window.location.pathname + (clean ? `?${clean}` : '') + window.location.hash;
+        window.history.replaceState({}, '', newUrl);
+      }
+
+      setIsLoading(false);
+    };
+    init();
   }, []);
 
   const authenticate = async (password: string) => {
