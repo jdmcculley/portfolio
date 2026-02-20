@@ -187,10 +187,11 @@ const milestones: MilestoneData[] = [
         'Code-based iteration via Claude Code',
         'Volume at near-zero restart cost',
         'Iterate against tokenized design system components',
+        'Code to Canvas \u2014 working UI pushed to Figma as editable frames',
       ],
       humanLeads: [
         'Creative direction \u2014 find sparks, cut noise',
-        'Figma craft in flow state',
+        'Figma craft in flow state \u2014 starting from working UI, not blank canvas',
         'Novel solutions that can\u2019t be prompted',
       ],
       principle:
@@ -234,7 +235,7 @@ const milestones: MilestoneData[] = [
       aiHandles: [
         'Generate functional prototypes & dev-ready specs',
         'Auto-document design decisions',
-        'Build handoff artifacts from Figma',
+        'Bidirectional handoff \u2014 design context flows from Figma back into Claude Code via MCP',
       ],
       humanLeads: [
         'Design QA & edge case review',

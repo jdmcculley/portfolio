@@ -35,8 +35,8 @@ const pillars = [
         <path d="M13.75 5.68c2.31-.46 4.17-2.35 4.64-4.72.47 2.37 2.33 4.26 4.64 4.72m0 0c-2.31.47-4.17 2.35-4.64 4.72-.47-2.37-2.33-4.26-4.64-4.72" />
       </svg>
     ),
-    desc: 'Operates as creative director of an AI-powered design process — orchestrating Claude & Figma, automated pipelines, and custom tooling to multiply a small team\u2019s capacity by ~2x.',
-    tags: ['AI-augmented workflow', 'Claude & Figma', '~2x capacity'],
+    desc: 'Operates as creative director of an AI-powered design process — orchestrating Claude Code via Code to Canvas and automated pipelines to multiply a small team\u2019s capacity ~2x.',
+    tags: ['AI-augmented workflow', 'Code to Canvas', '~2x capacity'],
   },
   {
     label: 'Fortune 500 Retail',
@@ -151,7 +151,7 @@ const caseStudies = [
 ];
 
 const hubSpokes = [
-  { icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>, iconType: 'ai' as const, label: 'AI Service', title: 'Generation Engine', desc: 'Claude Code, Pencil Dev, Figma AI. Volume and speed at zero marginal cost.', style: { top: 0, left: '50%', transform: 'translateX(-50%)' } },
+  { icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>, iconType: 'ai' as const, label: 'AI Service', title: 'Generation Engine', desc: 'Claude Code, Figma Code to Canvas. Volume and speed at zero marginal cost.', style: { top: 0, left: '50%', transform: 'translateX(-50%)' } },
   { icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>, iconType: 'human' as const, label: 'Human Service', title: 'Creative Direction', desc: 'Taste filters AI output. 25+ years of pattern recognition applied in real time.', style: { top: '12%', right: 0 } },
   { icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>, iconType: 'human' as const, label: 'Craft Service', title: 'Design Precision', desc: 'Flow state in Figma. Novel solutions prompting alone would never find.', style: { bottom: '12%', right: 0 } },
   { icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>, iconType: 'output' as const, label: 'Output', title: 'Production Ready', desc: 'Eng handoff with specs, edge cases, and acceptance criteria. Ready to ship.', style: { bottom: 0, left: '50%', transform: 'translateX(-50%)' } },
@@ -168,7 +168,7 @@ const timeline: { side: 'left' | 'right'; years: string; company: string; role: 
     desc: 'Embedded design leader for Fortune 500 retailer. Led team of 6 across digital products serving 12M+ monthly active users. Player-coach model \u2014 doing IC work on critical initiatives while running four workstreams. AI-augmented workflows compressed a team of 5 to deliver the output of 8\u20139.',
     tags: [
       { label: 'AI-Augmented Workflow', ai: true },
-      { label: 'Claude + Figma Make', ai: true },
+      { label: 'Code to Canvas', ai: true },
       { label: '12M MAU' },
       { label: 'Design System' },
     ],

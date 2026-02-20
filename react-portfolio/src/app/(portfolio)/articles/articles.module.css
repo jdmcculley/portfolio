@@ -559,16 +559,9 @@
 
 .pillarCard:hover::before { opacity: 1; }
 
-.pillarNumber {
-  font-family: var(--font-mono);
-  font-size: 3rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, rgba(0,180,220,0.2), rgba(74,125,255,0.1));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  line-height: 1;
+.pillarIcon {
   margin-bottom: 20px;
+  color: rgba(0, 180, 220, 0.25);
 }
 
 .pillarTag {
@@ -616,61 +609,103 @@
   font-size: 0.85rem;
 }
 
-/* ── Process Flow ── */
-.processFlow {
-  display: flex;
-  gap: 0;
-  position: relative;
-  overflow-x: auto;
-  padding-bottom: 20px;
+/* ── Process Grid ── */
+.processGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
 }
 
-.processFlow::before {
-  content: '';
+.processCard {
+  position: relative;
+  overflow: hidden;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 20px 16px 16px;
+  text-align: center;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.processCard:hover {
+  border-color: rgba(74, 125, 255, 0.3);
+  box-shadow: 0 4px 24px rgba(74, 125, 255, 0.08);
+}
+
+.stepNum {
   position: absolute;
-  top: 40px;
-  left: 40px;
-  right: 40px;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent), var(--secondary), var(--secondary-light), var(--accent));
+  top: 6px;
+  left: 10px;
+  font-family: var(--font-mono);
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, rgba(0,180,220,0.18), rgba(74,125,255,0.08));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  pointer-events: none;
   z-index: 0;
 }
 
-.processStep {
-  flex: 1;
-  min-width: 140px;
-  text-align: center;
+.stepIconPair {
   position: relative;
   z-index: 1;
-  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 10px;
 }
 
-.stepDot {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: var(--bg);
-  border: 3px solid var(--secondary);
-  margin: 30px auto 20px;
-  transition: all 0.3s ease;
+.stepIconPair .stepIcon {
+  margin: 0;
 }
 
-.processStep:hover .stepDot {
-  background: var(--secondary);
-  box-shadow: 0 0 20px rgba(74, 125, 255, 0.5);
-  transform: scale(1.3);
+.stepIconArrow {
+  font-size: 0.55rem;
+  color: #555e7e;
+  line-height: 1;
 }
 
-.stepLabel {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  color: var(--secondary);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 6px;
+.stepIcon {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  margin: 0 auto 10px;
+}
+
+.stepIconHuman {
+  background: rgba(0, 180, 220, 0.12);
+  color: var(--accent-light);
+  border: 1px solid rgba(0, 180, 220, 0.2);
+}
+
+.stepIconClaude {
+  background: rgba(217, 119, 87, 0.12);
+  color: #d97757;
+  border: 1px solid rgba(217, 119, 87, 0.2);
+}
+
+.stepIconFigma {
+  background: rgba(162, 89, 255, 0.1);
+  border: 1px solid rgba(162, 89, 255, 0.2);
+}
+
+.stepIconBoth {
+  background: rgba(100, 160, 255, 0.08);
+  color: var(--secondary-light);
+  border: 1px solid rgba(100, 160, 255, 0.15);
 }
 
 .stepName {
+  position: relative;
+  z-index: 1;
   font-size: 0.8rem;
   font-weight: 600;
   margin-bottom: 6px;
@@ -678,16 +713,20 @@
 }
 
 .stepDesc {
-  font-size: 0.7rem;
+  position: relative;
+  z-index: 1;
+  font-size: 0.68rem;
   color: #8b90a8;
   line-height: 1.5;
 }
 
 .stepAiTag {
+  position: relative;
+  z-index: 1;
   display: inline-block;
-  margin-top: 8px;
+  margin-top: 10px;
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   padding: 3px 8px;
   border-radius: 4px;
   letter-spacing: 0.5px;
@@ -709,6 +748,103 @@
   background: rgba(100, 160, 255, 0.08);
   color: var(--secondary-light);
   border: 1px solid rgba(100, 160, 255, 0.2);
+}
+
+/* ── Timeline Teaser ── */
+.timelineTeaser {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+  margin-top: 40px;
+  padding: 32px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timelineTeaser:hover {
+  border-color: rgba(74, 125, 255, 0.3);
+  box-shadow: 0 8px 40px rgba(74, 125, 255, 0.08);
+}
+
+.teaserLabel {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  color: var(--secondary);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.teaserTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  margin-bottom: 8px;
+}
+
+.teaserDesc {
+  font-size: 0.78rem;
+  color: #8b90a8;
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+
+.teaserCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.teaserPhases {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.teaserPhase {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.teaserPhaseDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tpDiscovery { background: var(--accent); }
+.tpKickoff { background: var(--secondary); }
+.tpBuild { background: var(--secondary-light); }
+.tpHandoff { background: var(--accent); }
+.tpPostlaunch { background: var(--secondary-light); }
+
+.teaserPhaseLabel {
+  font-size: 0.78rem;
+  font-weight: 600;
+  min-width: 90px;
+}
+
+.teaserPhaseBadge {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.5px;
+  color: #8b90a8;
+  padding: 2px 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: 4px;
 }
 
 /* ── Logo Border Box ── */
@@ -1370,9 +1506,8 @@
   .mcpGrid { grid-template-columns: 1fr; }
   .grid2col { grid-template-columns: 1fr; }
   .statsBar { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-  .processFlow { flex-wrap: wrap; }
-  .processFlow::before { display: none; }
-  .processStep { min-width: calc(33% - 16px); }
+  .processGrid { grid-template-columns: repeat(3, 1fr); }
+  .timelineTeaser { grid-template-columns: 1fr; }
   .quoteBox { padding: 40px 24px; }
   .ctaBox { padding: 50px 24px; }
   .dsGrid { grid-template-columns: 1fr; }
@@ -1385,6 +1520,6 @@
   .statsBar { grid-template-columns: repeat(2, 1fr); gap: 10px; padding-top: 48px; }
   .statItem { padding: 18px 12px; border-radius: 10px; }
   .statNumber { font-size: 1.3rem; }
-  .processStep { min-width: calc(50% - 12px); }
+  .processGrid { grid-template-columns: repeat(2, 1fr); }
   .ctaBox h2 { font-size: 1.6rem; }
 }
