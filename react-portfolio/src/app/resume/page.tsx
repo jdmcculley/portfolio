@@ -39,7 +39,7 @@ export default function ResumePage() {
           View Portfolio.
         </Link>
         <div className={s.cbControls}>
-          <a className={s.cbBtn} href="/assets/resume/JD 2026.pdf" download title="Download resume as PDF">
+          <a className={s.cbBtn} href="/assets/resume/JD-2026-Branded.pdf" download title="Download resume as PDF">
             <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
             PDF
           </a>
