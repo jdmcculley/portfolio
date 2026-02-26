@@ -95,7 +95,7 @@ export default function RBACaseStudy() {
             <DGLogo />
             <h1 className={s.heroTitle}>Authentication Redesign Under Pressure</h1>
           </div>
-          <p className={s.heroSubtitle}>How a 5-day crisis became a 7-journey system protecting 9 million users</p>
+          <p className={s.heroSubtitle}>How a 5-day crisis became a 8-journey system protecting 12 million users</p>
           <p className={s.heroDescription}>
             When Dollar General&apos;s risk-based authentication update locked 25,000+ users out of their accounts, I led the rapid redesign of the entire verification system — compressing what would normally be a multi-sprint effort into weeks. The result was a flexible, multi-channel authentication framework that rescued stuck users, prevented 75,000 future lockouts, and improved verification success rates by 61%.
           </p>
