@@ -29,7 +29,7 @@ export default function ArticlesIndexPage() {
 
         {/* ── Article Grid ── */}
         <div className={s.grid}>
-          {sortedArticles.map((article, i) => (
+          {sortedArticles.filter((a) => !a.hidden).map((article, i) => (
             <ScrollReveal key={article.slug} delay={i * 0.1}>
               <Link href={`/articles/${article.slug}`} className={s.card}>
                 {article.featured && (

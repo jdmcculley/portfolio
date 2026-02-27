@@ -17,6 +17,7 @@ export interface Article {
   tags: string[];
   featured?: boolean;
   protected?: boolean;
+  hidden?: boolean;
 }
 
 export const articles: Article[] = [
@@ -66,6 +67,7 @@ export const articles: Article[] = [
     readTime: '10 min read',
     tags: ['Interview', 'Career Strategy', 'Frameworks'],
     protected: true,
+    hidden: true,
   },
   {
     slug: 'job-search-strategy',
@@ -76,6 +78,7 @@ export const articles: Article[] = [
     readTime: '9 min read',
     tags: ['Job Search', 'Strategy', 'Positioning'],
     protected: true,
+    hidden: true,
   },
 ];
 
