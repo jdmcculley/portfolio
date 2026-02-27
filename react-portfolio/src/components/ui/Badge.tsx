@@ -10,7 +10,7 @@ export function Badge({ children, variant = 'tag', className }: BadgeProps) {
   const base = {
     page: 'inline-flex items-center gap-2 px-[18px] py-2 rounded-full bg-glass-bg border border-accent-dim font-mono text-[0.72rem] font-medium text-text-soft tracking-[1.5px] uppercase',
     ai: 'inline-flex items-center gap-1.5 px-3 py-1 rounded font-mono text-[0.58rem] tracking-[1px] uppercase bg-secondary-dim border border-secondary/25 text-secondary',
-    tag: 'font-mono text-[0.55rem] px-2 py-[3px] rounded-[3px] tracking-[0.5px] uppercase bg-white/[0.03] border border-white/[0.06] text-text-muted',
+    tag: 'font-mono text-[0.55rem] px-2 py-[3px] rounded-[3px] tracking-[1px] uppercase bg-white/[0.03] border border-white/[0.06] text-text-muted',
     'tag-ai': 'font-mono text-[0.55rem] px-2 py-[3px] rounded-[3px] tracking-[0.5px] uppercase bg-secondary-dim border border-secondary/25 text-secondary',
     'tag-accent': 'font-mono text-[0.55rem] px-2 py-[3px] rounded-[3px] tracking-[0.5px] uppercase bg-accent-glow border border-accent/15 text-accent',
   };

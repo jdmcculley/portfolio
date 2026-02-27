@@ -1,0 +1,308 @@
+{
+  "$schema": "https://forge.jdmcculley.com/tokens.schema.json",
+  "name": "Forge Design System",
+  "version": "2.0.0",
+  "description": "Every token, component, and pattern — one canonical source.",
+
+  "themes": {
+    "dark": {
+      "colors": {
+        "accent":           "#00d4ff",
+        "accent-light":     "#5ee6ff",
+        "accent-dim":       "#0a5e72",
+        "accent-glow":      "rgba(0, 212, 255, 0.12)",
+        "secondary":        "#4a7dff",
+        "secondary-light":  "#7da3ff",
+        "secondary-dim":    "rgba(74, 125, 255, 0.12)",
+        "secondary-glow":   "rgba(74, 125, 255, 0.30)"
+      },
+      "surfaces": {
+        "bg":               "#0a0e1a",
+        "bg-alt":           "#0d1224",
+        "surface":          "#121830",
+        "surface-elevated": "#161e3a"
+      },
+      "text": {
+        "text":       "#ffffff",
+        "text-soft":  "#b1bad0",
+        "text-muted": "#4a5270"
+      },
+      "borders": {
+        "border":        "rgba(0, 212, 255, 0.10)",
+        "border-strong": "rgba(0, 212, 255, 0.25)",
+        "glass-bg":      "rgba(10, 14, 26, 0.70)",
+        "glass-border":  "rgba(0, 212, 255, 0.12)",
+        "grid-line":     "rgba(0, 212, 255, 0.05)"
+      },
+      "nav": {
+        "nav-bg":      "rgba(10, 14, 26, 0.88)",
+        "nav-height":  "96px"
+      },
+      "selection": {
+        "selection-bg": "rgba(0, 212, 255, 0.25)"
+      },
+      "orb": {
+        "orb-c-color":   "rgba(0, 212, 255, 0.5)",
+        "orb-a-opacity": "0.18",
+        "orb-b-opacity": "0.10",
+        "orb-c-opacity": "0.06",
+        "orb-a-top":     "-250px",
+        "orb-a-left":    "-250px"
+      }
+    },
+
+    "light": {
+      "colors": {
+        "accent":           "#c9a227",
+        "accent-light":     "#e8c84a",
+        "accent-dim":       "#6e5f1a",
+        "accent-glow":      "rgba(201, 162, 39, 0.12)",
+        "secondary":        "#c27c4e",
+        "secondary-light":  "#d4956a",
+        "secondary-dim":    "rgba(194, 124, 78, 0.12)",
+        "secondary-glow":   "rgba(194, 124, 78, 0.30)"
+      },
+      "surfaces": {
+        "bg":               "#ffffff",
+        "bg-alt":           "#f8f7f5",
+        "surface":          "#f0eeeb",
+        "surface-elevated": "#e8e5e0"
+      },
+      "text": {
+        "text":       "#1a1a1a",
+        "text-soft":  "#5e5a56",
+        "text-muted": "#9e9890"
+      },
+      "borders": {
+        "border":        "rgba(201, 162, 39, 0.15)",
+        "border-strong": "rgba(201, 162, 39, 0.35)",
+        "glass-bg":      "rgba(255, 255, 255, 0.80)",
+        "glass-border":  "rgba(201, 162, 39, 0.18)",
+        "grid-line":     "rgba(201, 162, 39, 0.04)"
+      },
+      "nav": {
+        "nav-bg":      "rgba(255, 255, 255, 0.90)",
+        "nav-height":  "80px"
+      },
+      "selection": {
+        "selection-bg": "rgba(201, 162, 39, 0.20)"
+      },
+      "orb": {
+        "orb-c-color":   "rgba(201, 162, 39, 0.5)",
+        "orb-a-opacity": "0.12",
+        "orb-b-opacity": "0.06",
+        "orb-c-opacity": "0.04",
+        "orb-a-top":     "-140px",
+        "orb-a-left":    "-140px"
+      }
+    },
+
+    "tech-dark": {
+      "colors": {
+        "accent":           "#c9a227",
+        "accent-light":     "#e8c84a",
+        "accent-dim":       "#6e5f1a",
+        "accent-glow":      "rgba(201, 162, 39, 0.12)",
+        "secondary":        "#c27c4e",
+        "secondary-light":  "#d4956a",
+        "secondary-dim":    "rgba(194, 124, 78, 0.12)",
+        "secondary-glow":   "rgba(194, 124, 78, 0.30)"
+      },
+      "surfaces": {
+        "bg":               "#08080c",
+        "bg-alt":           "#0c0c12",
+        "surface":          "#13131c",
+        "surface-elevated": "#16161f"
+      },
+      "text": {
+        "text":       "#ede9e3",
+        "text-soft":  "#b1b1b1",
+        "text-muted": "#5e5a56"
+      },
+      "borders": {
+        "border":        "rgba(201, 162, 39, 0.10)",
+        "border-strong": "rgba(201, 162, 39, 0.25)",
+        "glass-bg":      "rgba(19, 19, 28, 0.60)",
+        "glass-border":  "rgba(201, 162, 39, 0.12)",
+        "grid-line":     "rgba(201, 162, 39, 0.018)"
+      },
+      "nav": {
+        "nav-bg":      "rgba(8, 8, 12, 0.85)",
+        "nav-height":  "80px"
+      },
+      "selection": {
+        "selection-bg": "rgba(201, 162, 39, 0.25)"
+      },
+      "orb": {
+        "orb-c-color":   "rgba(201, 162, 39, 0.5)",
+        "orb-a-opacity": "0.32",
+        "orb-b-opacity": "0.09",
+        "orb-c-opacity": "0.06",
+        "orb-a-top":     "-140px",
+        "orb-a-left":    "-140px"
+      }
+    }
+  },
+
+  "typography": {
+    "families": {
+      "heading": {
+        "stack": "'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif",
+        "weights": [400, 500, 600, 700],
+        "usage": "Headings, nav, section titles, bold labels",
+        "googleFont": "Space+Grotesk:wght@400;500;600;700"
+      },
+      "sans": {
+        "stack": "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+        "weights": [300, 400, 500, 600, 700, 800, 900],
+        "usage": "Body text, descriptions, UI copy",
+        "googleFont": "Inter:wght@300;400;500;600;700;800;900"
+      },
+      "mono": {
+        "stack": "'JetBrains Mono', monospace",
+        "weights": [400, 500, 700],
+        "usage": "Code, labels, tags, metrics, navigation numbers",
+        "googleFont": "JetBrains+Mono:wght@400;500;700"
+      }
+    },
+    "scale": [
+      { "name": "section-label",   "size": "0.68rem",                       "weight": 600, "family": "sans",    "tracking": "0.22em", "transform": "uppercase",  "lineHeight": null },
+      { "name": "section-heading", "size": "clamp(2.2rem, 4.5vw, 3.2rem)", "weight": 700, "family": "heading", "tracking": "-0.02em", "transform": null,        "lineHeight": "1.15" },
+      { "name": "section-sub",     "size": "1rem",                          "weight": 300, "family": "sans",    "tracking": null,      "transform": null,        "lineHeight": "1.7" },
+      { "name": "body",            "size": "1rem",                          "weight": 400, "family": "sans",    "tracking": null,      "transform": null,        "lineHeight": "1.6" },
+      { "name": "code-lg",         "size": "0.9rem",                        "weight": 400, "family": "mono",    "tracking": null,      "transform": null,        "lineHeight": null },
+      { "name": "code-md",         "size": "0.72rem",                       "weight": 400, "family": "mono",    "tracking": null,      "transform": null,        "lineHeight": null },
+      { "name": "code-sm",         "size": "0.68rem",                       "weight": 400, "family": "mono",    "tracking": "1px",     "transform": "uppercase", "lineHeight": null },
+      { "name": "code-xs",         "size": "0.62rem",                       "weight": 400, "family": "mono",    "tracking": "1.5px",   "transform": null,        "lineHeight": null },
+      { "name": "code-xxs",        "size": "0.58rem",                       "weight": 400, "family": "mono",    "tracking": null,      "transform": null,        "lineHeight": null }
+    ]
+  },
+
+  "spacing": {
+    "scale": [4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 72, 80],
+    "unit": "px"
+  },
+
+  "radii": {
+    "sm":   "4px",
+    "md":   "12px",
+    "lg":   "16px",
+    "pill": "100px"
+  },
+
+  "layout": {
+    "max-width":      "1200px",
+    "max-width-wide": "1540px",
+    "page-max":       "2560px",
+    "nav-height":     "96px",
+    "container-pad":  "48px"
+  },
+
+  "breakpoints": {
+    "xs":  "600px",
+    "sm":  "900px",
+    "md":  "1200px",
+    "lg":  "1600px",
+    "xl":  "2560px"
+  },
+
+  "responsive": {
+    ">=2560": { "container-pad": "80px", "max-width": "1540px" },
+    ">=1600": { "container-pad": "64px", "max-width": "1400px" },
+    "<=900":  { "container-pad": "24px" },
+    "<=600":  { "container-pad": "16px" }
+  },
+
+  "motion": {
+    "easing": {
+      "ease":     "cubic-bezier(0.16, 1, 0.3, 1)",
+      "ease-out": "cubic-bezier(0.23, 1, 0.32, 1)"
+    },
+    "keyframes": {
+      "dotPulse":      { "duration": "2.5s", "easing": "ease-in-out", "loop": true,  "description": "Badge indicator pulse" },
+      "gridPulse":     { "duration": "8s",   "easing": "ease-in-out", "loop": true,  "description": "Background grid opacity" },
+      "orbFloat1":     { "duration": "20s",  "easing": "ease-in-out", "loop": true,  "description": "Accent orb drift" },
+      "orbFloat2":     { "duration": "25s",  "easing": "ease-in-out", "loop": true,  "description": "Secondary orb drift" },
+      "fadeInUp":      { "duration": "0.8s", "easing": "var(--ease-out)", "loop": false, "description": "Scroll reveal entrance" },
+      "logoGradient":  { "duration": "8s",   "easing": "ease",        "loop": true,  "description": "Nav logo gradient shift" },
+      "scrollDrop":    { "duration": "2s",   "easing": "ease-in-out", "loop": true,  "description": "Scroll indicator drop" },
+      "ringRotate":    { "duration": null,    "easing": "linear",      "loop": true,  "description": "Ring rotation" },
+      "corePulse":     { "duration": null,    "easing": null,          "loop": true,  "description": "Core element pulse" }
+    }
+  },
+
+  "components": {
+    "Badge": {
+      "import": "@/components/ui/Badge",
+      "variants": ["page", "ai", "tag", "tag-ai", "tag-accent"],
+      "defaultVariant": "tag",
+      "props": {
+        "children": { "type": "ReactNode", "required": true },
+        "variant":  { "type": "string",    "required": false, "default": "tag" },
+        "className": { "type": "string",   "required": false }
+      }
+    },
+    "DotBadge": {
+      "import": "@/components/ui/Badge",
+      "description": "Badge with animated pulsing dot indicator. Uses variant='page' internally.",
+      "props": {
+        "children":  { "type": "ReactNode", "required": true },
+        "className": { "type": "string",    "required": false }
+      }
+    },
+    "GlassCard": {
+      "import": "@/components/ui/GlassCard",
+      "description": "Frosted glass surface with backdrop-blur(24px) and glass-border.",
+      "props": {
+        "children":  { "type": "ReactNode", "required": true },
+        "className": { "type": "string",    "required": false }
+      }
+    },
+    "MetricCard": {
+      "import": "@/components/ui/MetricCard",
+      "description": "Animated stat display with counter. Elevated surface + accent value.",
+      "props": {
+        "value":     { "type": "string",  "required": true },
+        "label":     { "type": "string",  "required": true },
+        "animate":   { "type": "boolean", "required": false, "default": true },
+        "className": { "type": "string",  "required": false }
+      }
+    },
+    "ScrollReveal": {
+      "import": "@/components/ui/ScrollReveal",
+      "description": "Framer Motion wrapper — fade-in-up on scroll into viewport.",
+      "props": {
+        "children":  { "type": "ReactNode", "required": true },
+        "delay":     { "type": "number",    "required": false, "default": 0 },
+        "className": { "type": "string",    "required": false }
+      }
+    },
+    "SectionHeader": {
+      "import": "@/components/ui/SectionHeader",
+      "description": "Standard section header: label + heading + optional sub text.",
+      "props": {
+        "label":     { "type": "string",  "required": true },
+        "heading":   { "type": "string",  "required": true },
+        "sub":       { "type": "string",  "required": false },
+        "centered":  { "type": "boolean", "required": false },
+        "className": { "type": "string",  "required": false }
+      }
+    },
+    "Container": {
+      "import": "@/components/layout/Container",
+      "description": "Centered content wrapper using --max-width and --container-pad.",
+      "props": {
+        "children":  { "type": "ReactNode", "required": true },
+        "className": { "type": "string",    "required": false }
+      }
+    }
+  },
+
+  "patterns": {
+    "glass-effect": "bg-glass-bg backdrop-blur-[24px] border border-glass-border rounded-xl",
+    "accent-line":  "height: 2px; width: 48px; background: var(--accent); border-radius: 2px;",
+    "accent-line-center": "height: 2px; width: 48px; background: var(--accent); border-radius: 2px; margin: 0 auto;",
+    "card-hover": "transition-all duration-300 hover:border-border-strong hover:-translate-y-[3px]",
+    "stagger": "ScrollReveal with delay increments of 0.1s (0, 0.1, 0.2, 0.3, 0.4)"
+  }
+}
