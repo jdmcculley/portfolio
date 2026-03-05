@@ -1,0 +1,145 @@
+{
+  "Forge: Badge": {
+    "prefix": ["forge-badge", "fbadge"],
+    "scope": "typescriptreact,javascriptreact",
+    "body": [
+      "<Badge variant=\"${1|tag,ai,page,tag-ai,tag-accent|}\">${2:Label}</Badge>"
+    ],
+    "description": "Forge Badge component with variant selector"
+  },
+  "Forge: DotBadge": {
+    "prefix": ["forge-dotbadge", "fdotbadge"],
+    "scope": "typescriptreact,javascriptreact",
+    "body": [
+      "<DotBadge>${1:Status Text}</DotBadge>"
+    ],
+    "description": "Forge DotBadge — Badge with animated pulsing dot"
+  },
+  "Forge: GlassCard": {
+    "prefix": ["forge-glass", "fglass"],
+    "scope": "typescriptreact,javascriptreact",
+    "body": [
+      "<GlassCard className=\"${1:p-6}\">",
+      "  ${2:content}",
+      "</GlassCard>"
+    ],
+    "description": "Forge GlassCard — frosted glass surface"
+  },
+  "Forge: MetricCard": {
+    "prefix": ["forge-metric", "fmetric"],
+    "scope": "typescriptreact,javascriptreact",
+    "body": [
+      "<MetricCard value=\"${1:94%}\" label=\"${2:CSAT Score}\" />"
+    ],
+    "description": "Forge MetricCard — animated stat display"
+  },
+  "Forge: ScrollReveal": {
+    "prefix": ["forge-reveal", "freveal"],
+    "scope": "typescriptreact,javascriptreact",
+    "body": [
+      "<ScrollReveal delay={${1:0}}>",
+      "  ${2:content}",
+      "</ScrollReveal>"
+    ],
+    "description": "Forge ScrollReveal — fade-in-up on scroll"
+  },
+  "Forge: SectionHeader": {
+    "prefix": ["forge-section", "fsection"],
+    "scope": "typescriptreact,javascriptreact",
+    "body": [
+      "<SectionHeader",
+      "  label=\"${1:SECTION LABEL}\"",
+      "  heading=\"${2:Section heading text.}\"",
+      "  sub=\"${3:Supporting description text.}\"",
+      "  ${4:centered}",
+      "/>"
+    ],
+    "description": "Forge SectionHeader — label + heading + sub"
+  },
+  "Forge: Container": {
+    "prefix": ["forge-container", "fcontainer"],
+    "scope": "typescriptreact,javascriptreact",
+    "body": [
+      "<Container className=\"${1}\">",
+      "  ${2:content}",
+      "</Container>"
+    ],
+    "description": "Forge Container — centered layout wrapper"
+  },
+  "Forge: Stagger Pattern": {
+    "prefix": ["forge-stagger", "fstagger"],
+    "scope": "typescriptreact,javascriptreact",
+    "body": [
+      "{${1:items}.map((item, i) => (",
+      "  <ScrollReveal key={${2:item.id}} delay={i * 0.1}>",
+      "    ${3:<div>{item}</div>}",
+      "  </ScrollReveal>",
+      "))}"
+    ],
+    "description": "Forge stagger pattern — ScrollReveal with incremented delays"
+  },
+  "Forge: Glass Effect (Tailwind)": {
+    "prefix": ["forge-glass-tw", "fglasstw"],
+    "scope": "typescriptreact,javascriptreact",
+    "body": [
+      "bg-glass-bg backdrop-blur-[24px] border border-glass-border rounded-xl"
+    ],
+    "description": "Forge glass effect — Tailwind class string"
+  },
+  "Forge: Card Hover (Tailwind)": {
+    "prefix": ["forge-card-hover", "fcardhover"],
+    "scope": "typescriptreact,javascriptreact",
+    "body": [
+      "bg-surface-elevated border border-border-default rounded-xl transition-all duration-300 hover:border-border-strong hover:-translate-y-[3px]"
+    ],
+    "description": "Forge card with hover lift — Tailwind class string"
+  },
+  "Forge: Import Badge": {
+    "prefix": ["forge-import-badge", "fimport-badge"],
+    "scope": "typescriptreact,javascriptreact,typescript,javascript",
+    "body": [
+      "import { Badge, DotBadge } from '@/components/ui/Badge';"
+    ],
+    "description": "Import Forge Badge components"
+  },
+  "Forge: Import GlassCard": {
+    "prefix": ["forge-import-glass", "fimport-glass"],
+    "scope": "typescriptreact,javascriptreact,typescript,javascript",
+    "body": [
+      "import { GlassCard } from '@/components/ui/GlassCard';"
+    ],
+    "description": "Import Forge GlassCard"
+  },
+  "Forge: Import MetricCard": {
+    "prefix": ["forge-import-metric", "fimport-metric"],
+    "scope": "typescriptreact,javascriptreact,typescript,javascript",
+    "body": [
+      "import { MetricCard } from '@/components/ui/MetricCard';"
+    ],
+    "description": "Import Forge MetricCard"
+  },
+  "Forge: Import ScrollReveal": {
+    "prefix": ["forge-import-reveal", "fimport-reveal"],
+    "scope": "typescriptreact,javascriptreact,typescript,javascript",
+    "body": [
+      "import { ScrollReveal } from '@/components/ui/ScrollReveal';"
+    ],
+    "description": "Import Forge ScrollReveal"
+  },
+  "Forge: Import SectionHeader": {
+    "prefix": ["forge-import-section", "fimport-section"],
+    "scope": "typescriptreact,javascriptreact,typescript,javascript",
+    "body": [
+      "import { SectionHeader } from '@/components/ui/SectionHeader';"
+    ],
+    "description": "Import Forge SectionHeader"
+  },
+  "Forge: Import Container": {
+    "prefix": ["forge-import-container", "fimport-container"],
+    "scope": "typescriptreact,javascriptreact,typescript,javascript",
+    "body": [
+      "import { Container } from '@/components/layout/Container';"
+    ],
+    "description": "Import Forge Container"
+  }
+}
