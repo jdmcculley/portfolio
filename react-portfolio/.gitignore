@@ -41,6 +41,12 @@ yarn-error.log*
 # vercel
 .vercel
 
+# scratch/temp
+/tmp/
+/showcase/
+image.png
+mobin-showcase.zip
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
