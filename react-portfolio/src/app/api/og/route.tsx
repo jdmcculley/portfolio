@@ -8,7 +8,7 @@ const pages: Record<string, () => Promise<Response>> = {
       title: 'JD McCulley',
       subtitle: 'Product Design Leader',
       description:
-        'Building UX/AI teams that deliver at enterprise scale. 25+ years of design leadership with AI-augmented workflows.',
+        'Building UX/AI teams that deliver at enterprise scale. 15+ years of design leadership with AI-augmented workflows.',
     }),
 
   /* Case studies */

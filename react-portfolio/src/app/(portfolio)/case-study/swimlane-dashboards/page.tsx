@@ -456,15 +456,13 @@ export default function SwimlaneDashboards() {
 
       {/* ══════════ NEXT STUDY ══════════ */}
       <NextStudy
-        prevHref="/case-study/cashback"
-        prevTitle="Cash Back"
-        href="/case-study/rba"
-        title="Authentication Redesign Under Pressure"
-        desc="Rescued 25,000+ stuck users and prevented 75,000 future lockouts by redesigning the complete authentication flow for Dollar General's digital platforms."
+        href="/case-study/rewards"
+        title="DG Rewards Loyalty Program"
+        desc="Designed Dollar General's first native loyalty program — a points-based rewards system serving 9 million+ active users."
         metrics={[
-          { value: '25K+', label: 'Rescued' },
-          { value: '75K', label: 'Prevented' },
-          { value: '61%', label: 'Improvement' },
+          { value: '9M+', label: 'Users' },
+          { value: '20%', label: 'Engagement' },
+          { value: '3mo', label: 'Launch' },
         ]}
       />
     </main>

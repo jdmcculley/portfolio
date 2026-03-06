@@ -521,7 +521,7 @@ export default function InterviewPrepPage() {
             </li>
             <li className={s.checklistItem}>
               <span className={s.checkMark}>&#10003;</span>
-              <span><strong>30-second positioning statement.</strong> &ldquo;I&apos;m a product design leader with 25 years of experience building UX teams at enterprise scale. Most recently I led design at Dollar General&apos;s digital platform through 12M+ MAU, integrating AI into the design process in a way that actually ships.&rdquo;</span>
+              <span><strong>30-second positioning statement.</strong> &ldquo;I&apos;m a product design leader with 15+ years of experience building UX teams at enterprise scale. Most recently I led design at Dollar General&apos;s digital platform through 12M+ MAU, integrating AI into the design process in a way that actually ships.&rdquo;</span>
             </li>
           </ul>
 

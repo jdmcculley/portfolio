@@ -65,25 +65,24 @@ export function NavBar() {
       >
         <Link
           href="/"
-          className="font-mono font-bold text-[1.2rem] tracking-[1.5px] flex items-center gap-3.5 no-underline text-text-primary"
+          className="font-mono font-bold text-[1.2rem] tracking-[1px] flex items-center gap-3.5 no-underline text-text-primary"
         >
           <span className="inline-flex items-center leading-none">
             <LogoSvg />
           </span>
-          JD McCULLEY
+          <span>JD<span className="text-[#22d3ee] tracking-normal -ml-[1px]">.</span>McCULLEY</span>
         </Link>
 
         <div className="flex items-center gap-8">
           {isHome && (
-            <ul className="hidden sm:flex gap-8 list-none">
+            <ul className="hidden sm:flex gap-12 list-none">
               {navLinks.map((link) => (
                 <li key={link.num}>
                   <a
                     href={link.href}
                     onClick={(e) => smoothScrollTo(e, link.href)}
-                    className="font-mono text-text-soft text-[0.82rem] font-medium tracking-[0.5px] transition-colors duration-300 flex items-center gap-2 no-underline hover:text-accent-light"
+                    className="font-mono text-text-soft text-[0.82rem] font-medium tracking-[0.5px] transition-all duration-300 flex items-center gap-2 no-underline hover:text-accent-light hover:underline underline-offset-4 decoration-transparent hover:decoration-accent-light"
                   >
-                    <span className="font-mono text-[0.68rem] text-accent opacity-50">{link.num}.</span>
                     {link.label}
                   </a>
                 </li>
@@ -99,6 +98,13 @@ export function NavBar() {
               <span>&#8592;</span> Portfolio
             </Link>
           )}
+
+          <Link
+            href="/articles"
+            className="font-mono text-text-soft text-[0.82rem] font-medium tracking-[0.5px] transition-all duration-300 no-underline hover:text-accent-light hover:underline underline-offset-4 decoration-transparent hover:decoration-accent-light"
+          >
+            Articles
+          </Link>
 
           <Link
             href="/resume"

@@ -233,7 +233,7 @@ export default function JobSearchStrategyPage() {
           <ol className={s.targetRolesList}>
             <li className={s.targetRoleItem}>
               <strong>VP of Product Design</strong>
-              <span className={s.targetRoleDesc}>Enterprise and growth-stage companies where design reports to the C-suite. Your 25 years and org-building experience position you here.</span>
+              <span className={s.targetRoleDesc}>Enterprise and growth-stage companies where design reports to the C-suite. Your 15+ years of org-building experience position you here.</span>
             </li>
             <li className={s.targetRoleItem}>
               <strong>Senior Director of Product Design</strong>
@@ -566,7 +566,7 @@ export default function JobSearchStrategyPage() {
           <div className={s.templateCard}>
             <h3>Cold Outreach to Hiring Manager</h3>
             <p className={s.templateBody}>
-              <span className={s.templatePlaceholder}>[Name]</span>, I&apos;m a product design leader with 25 years building UX teams across startup and enterprise. Most recently led design at Dollar General&apos;s digital platform through 6.6M+ MAU growth. I&apos;m particularly drawn to <span className={s.templatePlaceholder}>[Company]</span> because <span className={s.templatePlaceholder}>[specific, researched reason]</span>. I&apos;d welcome the chance to learn more about how design is positioned within your org. Would you be open to a brief conversation?
+              <span className={s.templatePlaceholder}>[Name]</span>, I&apos;m a product design leader with 15+ years building UX teams across startup and enterprise. Most recently led design at Dollar General&apos;s digital platform through 6.6M+ MAU growth. I&apos;m particularly drawn to <span className={s.templatePlaceholder}>[Company]</span> because <span className={s.templatePlaceholder}>[specific, researched reason]</span>. I&apos;d welcome the chance to learn more about how design is positioned within your org. Would you be open to a brief conversation?
             </p>
           </div>
 

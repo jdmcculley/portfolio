@@ -144,6 +144,27 @@
   color: var(--accent);
 }
 
+/* Logo banner */
+.logoBanner {
+  padding: 48px 0;
+  position: relative;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--glass-bg);
+}
+.logoBannerInner {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+}
+.logoBannerItem {
+  display: flex; align-items: center; justify-content: center;
+  padding: 0;
+}
+.logoBannerImg {
+  filter: grayscale(100%);
+  object-fit: contain;
+}
+
 /* Manifesto */
 .manifesto {
   min-height: 65vh;
@@ -633,35 +654,34 @@
 }
 
 /* Cashback visual — growth bar chart */
-.visCashback { position: relative; width: 241px; height: 177px; }
+.visCashback { position: relative; width: 200px; height: 160px; }
 .visCashbackGlow {
-  position: absolute; top: 8%; right: 6%;
-  width: 60px; height: 50px; border-radius: 50%;
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 80px; height: 80px; border-radius: 50%;
   background: radial-gradient(ellipse, var(--accent-glow), transparent 70%);
   opacity: 0; animation: cashbackGlow 3.5s ease-in-out infinite;
 }
 .visCashbackSvg {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  width: 221px; height: 158px;
+  width: 200px; height: 150px;
 }
-.visCashbackBar {
-  transition: opacity 0.4s ease, filter 0.4s ease;
+.visCashbackCard {
+  transition: transform 0.4s ease, filter 0.4s ease;
 }
 @keyframes cashbackGlow {
   0%, 100% { opacity: 0; }
   50% { opacity: 0.5; }
 }
 .csCard:hover .visCashbackGlow { opacity: 0.6; }
-.csCard:hover .visCashbackBar {
-  opacity: 1 !important;
-  filter: drop-shadow(0 0 8px var(--accent-glow));
+.csCard:hover .visCashbackCard {
+  filter: drop-shadow(0 0 12px var(--accent-glow));
 }
 
 /* Wallet cards visual */
-.visCards { position: relative; width: 200px; height: 140px; perspective: 600px; }
+.visCards { position: relative; width: 265px; height: 185px; perspective: 600px; }
 .visCard {
-  position: absolute; border-radius: 12px;
-  width: 130px; height: 82px; left: 50%; top: 50%;
+  position: absolute; border-radius: 16px;
+  width: 172px; height: 108px; left: 50%; top: 50%;
   transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -733,22 +753,82 @@
 }
 
 /* SOAR workflow visual */
-.visSoar { position: relative; width: 200px; height: 150px; }
+.visSoar { position: relative; width: 200px; height: 180px; }
 .visSoarGlow {
-  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  position: absolute; top: 45%; left: 45%; transform: translate(-50%, -50%);
   width: 80px; height: 80px; border-radius: 50%;
   background: radial-gradient(ellipse, var(--accent-glow), transparent 70%);
   opacity: 0; animation: soarGlow 4s ease-in-out infinite;
 }
 .visSoarSvg {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  width: 180px; height: 142px;
+  width: 180px; height: 180px;
 }
 @keyframes soarGlow {
   0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(1); }
   50% { opacity: 0.4; transform: translate(-50%, -50%) scale(1.15); }
 }
+.visSoarRing { fill: none; }
+.visSoarDot { transition: opacity 0.4s ease; }
+.visSoarSweep { animation: soarSweepRotate 8s linear infinite; }
+@keyframes soarSweepRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 .csCard:hover .visSoarGlow { opacity: 0.5; }
+.csCard:hover .visSoarDot { opacity: 0.85 !important; }
+.csCard:hover .visSoarSweep { animation-duration: 5s; }
+
+/* DG Rewards visual — star badge with progress rings */
+.visRewards { position: relative; width: 200px; height: 160px; }
+.visRewardsGlow {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 100px; height: 100px; border-radius: 50%;
+  background: radial-gradient(ellipse, var(--accent-glow), transparent 70%);
+  opacity: 0; animation: rewardsGlow 4s ease-in-out infinite;
+}
+.visRewardsSvg {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 200px; height: 160px;
+}
+.visRewardsCard {
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.visRewardsCardFront {
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.visRewardsDot {
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.visRewardsGift {
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.visRewardsLabel {
+  font-family: var(--font-body);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+@keyframes rewardsGlow {
+  0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.35; transform: translate(-50%, -50%) scale(1.12); }
+}
+.csCard:hover .visRewardsGlow { opacity: 0.5; }
+.csCard:hover .visRewardsCardFront {
+  opacity: 0.7;
+  filter: drop-shadow(0 0 12px var(--accent-glow));
+}
+.csCard:hover .visRewardsCard {
+  filter: drop-shadow(0 0 6px var(--accent-glow));
+}
+.csCard:hover .visRewardsDot {
+  opacity: 0.8;
+  filter: drop-shadow(0 0 6px var(--accent-glow));
+}
+.csCard:hover .visRewardsGift {
+  filter: drop-shadow(0 0 8px var(--accent-glow));
+}
+.csCard:hover .visRewardsLabel {
+  opacity: 0.7;
+}
 
 /* AI Rings visual */
 .visAi { position: relative; width: 160px; height: 160px; }
@@ -826,6 +906,8 @@
 
 /* Responsive */
 @media (max-width: 900px) {
+  .logoBannerInner { grid-template-columns: repeat(2, 1fr); }
+  .logoBannerImg { max-width: 100px; height: auto; }
   .heroGrid { grid-template-columns: 1fr; }
   .heroHeadshot { display: none; }
   .pillarCards { grid-template-columns: repeat(2, 1fr); gap: 16px; }

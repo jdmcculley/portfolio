@@ -381,15 +381,15 @@ export default function WalletCaseStudy() {
 
       {/* ══════════ Next Study ══════════ */}
       <NextStudy
-        prevHref="/case-study/rba"
-        prevTitle="Auth Redesign"
-        href="/case-study/cashback"
-        title="myDG Cash Back at Scale"
-        desc="Led UX for the white-label Ibotta integration — a co-mingled deals gallery that put $9 million back in customers' pockets."
+        prevHref="/case-study/cashback"
+        prevTitle="Cash Back"
+        href="/case-study/swimlane-dashboards"
+        title="Swimlane — SOAR Platform Design"
+        desc="Led design across Swimlane's Security Orchestration, Automation & Response platform — from dashboards and analytics to workflow and design systems."
         metrics={[
-          { value: '435M', label: 'Clips' },
-          { value: '$9M', label: 'Savings' },
-          { value: '191%', label: 'YoY Growth' },
+          { value: 'A→C', label: 'Series' },
+          { value: '0→1', label: 'UX Build' },
+          { value: '6yr', label: 'Tenure' },
         ]}
       />
     </main>

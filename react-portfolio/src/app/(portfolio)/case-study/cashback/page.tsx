@@ -540,15 +540,15 @@ export default function CashBackCaseStudy() {
 
       {/* ══════════ Next Study ══════════ */}
       <NextStudy
-        prevHref="/case-study/wallet"
-        prevTitle="myDG Wallet"
-        href="/case-study/swimlane-dashboards"
-        title="Swimlane — SOAR Platform Design"
-        desc="Led design across Swimlane's Security Orchestration, Automation & Response platform — from dashboards and analytics to workflow and design systems."
+        prevHref="/case-study/rba"
+        prevTitle="Auth Redesign"
+        href="/case-study/wallet"
+        title="myDG Wallet: Reversing the Decline"
+        desc="Reversed double-digit engagement decline by centralizing rewards, deals, and payments into a unified card stack UI."
         metrics={[
-          { value: 'A→C', label: 'Series' },
-          { value: '0→1', label: 'UX Build' },
-          { value: '6yr', label: 'Tenure' },
+          { value: '130%+', label: 'Engagement' },
+          { value: '40%', label: 'Faster' },
+          { value: '28%', label: 'Discovery' },
         ]}
       />
     </main>

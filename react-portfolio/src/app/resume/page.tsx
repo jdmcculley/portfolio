@@ -167,7 +167,7 @@ export default function ResumePage() {
           {/* ── MAIN ── */}
           <div className={s.main}>
             <div className={s.summary}>
-              <strong>Product design leader with 25+ years</strong> building UX organizations across Fortune 500 retail, B2B cybersecurity, and high-growth startups. Leads UX strategy and execution for enterprise platforms serving millions of users &mdash; driving growth, engagement recovery, revenue enablement, and risk reduction. I practice design-led AI: design governs where, when, and how AI is applied, with human intent before automation and design judgment over output. Player-coach, not corner office.
+              <strong>Product design leader with 15+ years</strong> building UX organizations across Fortune 500 retail, B2B cybersecurity, and high-growth startups. Leads UX strategy and execution for enterprise platforms serving millions of users &mdash; driving growth, engagement recovery, revenue enablement, and risk reduction. I practice design-led AI: design governs where, when, and how AI is applied, with human intent before automation and design judgment over output. Player-coach, not corner office.
             </div>
 
             <div className={s.expTitle}>Experience</div>

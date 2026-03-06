@@ -296,15 +296,15 @@ export default function RBACaseStudy() {
 
       {/* Next Study */}
       <NextStudy
-        prevHref="/case-study/swimlane-dashboards"
-        prevTitle="Swimlane SOAR"
-        href="/case-study/wallet"
-        title="myDG Wallet: Reversing the Decline"
-        desc="Reversed double-digit engagement decline by centralizing rewards, deals, and payments into a unified card stack UI."
+        prevHref="/case-study/rewards"
+        prevTitle="DG Rewards"
+        href="/case-study/cashback"
+        title="myDG Cash Back at Scale"
+        desc="Led UX for the white-label Ibotta integration — a co-mingled deals gallery that put $9 million back in customers' pockets."
         metrics={[
-          { value: '130%+', label: 'Engagement' },
-          { value: '40%', label: 'Faster' },
-          { value: '28%', label: 'Discovery' },
+          { value: '435M', label: 'Clips' },
+          { value: '$9M', label: 'Savings' },
+          { value: '191%', label: 'YoY Growth' },
         ]}
       />
     </main>

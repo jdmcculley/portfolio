@@ -89,6 +89,26 @@ const spectrumCards = [
 
 const caseStudies = [
   {
+    href: '/case-study/swimlane-dashboards',
+    company: 'Swimlane' as const,
+    public: true,
+    metrics: [{ val: 'A\u2192C', lbl: 'Series' }, { val: '0\u21921', lbl: 'UX Build' }, { val: '6yr', lbl: 'Tenure' }],
+    tags: ['Enterprise B2B', 'SOAR Platform', 'Data Visualization', 'Design System', 'Corporate Brand'],
+    title: 'Swimlane — SOAR Platform Design',
+    desc: 'Led design across Swimlane\u2019s Security Orchestration, Automation & Response platform — from dashboards and analytics to applications, workflow, and design systems — transforming a startup product into an enterprise-grade intelligence platform.',
+    visual: 'soar',
+  },
+  {
+    href: '/case-study/rewards',
+    company: 'Dollar General' as const,
+    metrics: [{ val: '12M+', lbl: 'Members' }, { val: '3.2×', lbl: 'Engagement' }, { val: '47%', lbl: 'Retention' }],
+    tags: ['Loyalty & Rewards', 'Program Strategy', 'Personalization', 'Engagement'],
+    title: 'DG Rewards Program Redesign',
+    desc: 'Reimagined Dollar General\u2019s loyalty rewards experience — transforming a basic points system into an engaging, personalized program that drove measurable lifts in member retention and repeat visits.',
+    visual: 'rewards',
+    delay: 0.15,
+  },
+  {
     href: '/case-study/rba',
     company: 'Dollar General' as const,
     metrics: [{ val: '25K+', lbl: 'Rescued' }, { val: '75K', lbl: 'Prevented' }, { val: '61%', lbl: 'Improvement' }],
@@ -99,6 +119,16 @@ const caseStudies = [
     visual: 'shield',
   },
   {
+    href: '/case-study/cashback',
+    company: 'Dollar General' as const,
+    metrics: [{ val: '435M', lbl: 'Clips' }, { val: '$9M', lbl: 'Savings' }, { val: '191%', lbl: 'YoY Growth' }],
+    tags: ['Ibotta Partnership', 'New Feature', 'Deals and Savings', 'E-Commerce'],
+    title: 'Cash Back at Scale',
+    desc: 'Led UX for the white-label Ibotta integration — a co-mingled deals gallery that put $9 million back in customers\u2019 pockets.',
+    visual: 'cashback',
+    delay: 0.15,
+  },
+  {
     href: '/case-study/wallet',
     company: 'Dollar General' as const,
     metrics: [{ val: '130%+', lbl: 'Engagement' }, { val: '40%', lbl: 'Faster' }, { val: '28%', lbl: 'Discovery' }],
@@ -107,27 +137,6 @@ const caseStudies = [
     title: 'myDG Wallet Turnaround',
     desc: 'Reversed double-digit engagement decline by centralizing rewards, deals, and payments into a unified card stack UI.',
     visual: 'cards',
-    delay: 0.15,
-  },
-  {
-    href: '/case-study/cashback',
-    company: 'Dollar General' as const,
-    metrics: [{ val: '435M', lbl: 'Clips' }, { val: '$9M', lbl: 'Savings' }, { val: '191%', lbl: 'YoY Growth' }],
-    tags: ['Ibotta Partnership', 'New Feature', 'Deals and Savings', 'E-Commerce'],
-    title: 'Cash Back at Scale',
-    desc: 'Led UX for the white-label Ibotta integration — a co-mingled deals gallery that put $9 million back in customers\u2019 pockets.',
-    visual: 'cashback',
-  },
-  {
-    href: '/case-study/swimlane-dashboards',
-    company: 'Swimlane' as const,
-    public: true,
-    metrics: [{ val: 'A\u2192C', lbl: 'Series' }, { val: '0\u21921', lbl: 'UX Build' }, { val: '6yr', lbl: 'Tenure' }],
-    tags: ['Enterprise B2B', 'SOAR Platform', 'Data Visualization', 'Design System', 'Corporate Brand'],
-    title: 'Swimlane — SOAR Platform Design',
-    desc: 'Led design across Swimlane\u2019s Security Orchestration, Automation & Response platform — from dashboards and analytics to applications, workflow, and design systems — transforming a startup product into an enterprise-grade intelligence platform.',
-    visual: 'soar',
-    delay: 0.15,
   },
   {
     company: 'Dollar General' as const,
@@ -137,6 +146,7 @@ const caseStudies = [
     desc: 'Enterprise design system for Dollar General — the tokenized foundation that enables AI-accelerated design iteration and consistent design-to-development handoff across both brands.',
     visual: 'tokens',
     disabled: true,
+    hidden: true,
   },
   {
     company: 'pOpshelf' as const,
@@ -146,6 +156,7 @@ const caseStudies = [
     desc: 'App and website for Dollar General\u2019s boutique retail concept — translating a curated, discovery-driven in-store experience into a cohesive digital presence across 180 locations.',
     visual: 'storefront',
     disabled: true,
+    hidden: true,
     delay: 0.15,
   },
 ];
@@ -230,8 +241,8 @@ function ShieldVisual() {
         <path className={s.visShieldPath} d="M40 4 C56 4 70 8 72 16 V46 C72 70 56 84 40 92 C24 84 8 70 8 46 V16 C10 8 24 4 40 4 Z" fill="url(#shieldFill)" stroke="var(--accent)" strokeWidth="1" />
         {/* Top accent divider */}
         <line x1="14" y1="28" x2="66" y2="28" stroke="var(--accent)" strokeWidth="0.5" opacity="0.2" />
-        {/* Checkmark in top band */}
-        <path d="M34 17 L39 22 L47 13" stroke="var(--accent)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" opacity="0.4" />
+        {/* 2FA/OTP label in top band */}
+        <text x="40" y="22" textAnchor="middle" fill="var(--accent)" fontSize="7" fontWeight="500" letterSpacing="1.5" opacity="0.5">2FA/OTP</text>
         {/* Lock shackle */}
         <path className={s.visShieldShackle} d="M33 52 V46 C33 39.4 36 36 40 36 C44 36 47 39.4 47 46 V52" stroke="var(--accent)" strokeWidth="1.8" strokeLinecap="round" fill="none" />
         {/* Lock body */}
@@ -245,35 +256,79 @@ function ShieldVisual() {
 }
 
 function CashbackLoopVisual() {
-  const bars = [
-    { x: 9, h: 20 },
-    { x: 27, h: 28 },
-    { x: 45, h: 25 },
-    { x: 63, h: 40 },
-    { x: 81, h: 35 },
-    { x: 99, h: 52 },
-    { x: 117, h: 65 },
-  ];
   return (
     <div className={s.visCashback}>
       <div className={s.visCashbackGlow} />
-      <svg className={s.visCashbackSvg} viewBox="0 0 140 100" fill="none">
+      <svg className={s.visCashbackSvg} viewBox="-10 -10 220 170" fill="none">
         <defs>
-          {bars.map((_, i) => (
-            <linearGradient key={i} id={`cb${i}`} x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor={`hsl(${185 + i * 6}, ${55 + i * 5}%, ${28 + i * 5}%)`} />
-              <stop offset="100%" stopColor={`hsl(${185 + i * 6}, ${45 + i * 4}%, ${16 + i * 2}%)`} />
-            </linearGradient>
-          ))}
+          <linearGradient id="cbCardFill" x1="100" y1="10" x2="100" y2="130" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="var(--surface-elevated)" />
+            <stop offset="100%" stopColor="var(--surface)" />
+          </linearGradient>
+          <linearGradient id="cbAmountFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="var(--secondary)" stopOpacity="0.8" />
+          </linearGradient>
+          <linearGradient id="cbBackCardFill" x1="100" y1="0" x2="100" y2="120" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="var(--surface)" />
+            <stop offset="100%" stopColor="var(--bg-alt)" />
+          </linearGradient>
+          <linearGradient id="cbMidCardFill" x1="100" y1="0" x2="100" y2="120" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="var(--surface-elevated)" />
+            <stop offset="100%" stopColor="var(--surface)" />
+          </linearGradient>
         </defs>
 
-        {/* Baseline */}
-        <line x1="6" y1="90" x2="134" y2="90" stroke="var(--accent)" strokeWidth="0.5" opacity="0.15" />
+        {/* Third card (back-most) */}
+        <g className={s.visCashbackCard} transform="translate(25, 3) rotate(-8, 100, 75) skewX(-8)">
+          <rect x="24" y="0" width="148" height="95" rx="10" fill="url(#cbBackCardFill)" stroke="var(--accent)" strokeWidth="0.8" opacity="0.4" />
+        </g>
 
-        {/* Bars */}
-        {bars.map((b, i) => (
-          <rect key={i} className={s.visCashbackBar} x={b.x} y={90 - b.h} width={14} height={b.h} rx={3} fill={`url(#cb${i})`} opacity={0.5 + i * 0.07} />
-        ))}
+        {/* Second card — peeking behind, offset up-right */}
+        <g className={s.visCashbackCard} transform="translate(10, 17) rotate(-8, 100, 75) skewX(-8)">
+          <rect x="18" y="0" width="160" height="100" rx="10" fill="url(#cbMidCardFill)" stroke="var(--secondary)" strokeWidth="0.8" opacity="0.6" />
+          <text x="34" y="36" fill="var(--secondary)" fontSize="7" fontWeight="500" letterSpacing="1" opacity="0.35">JD MCCULLEY</text>
+          <text x="34" y="50" fill="var(--secondary)" fontSize="6" fontWeight="400" letterSpacing="0.5" opacity="0.25">Member Since 2017</text>
+        </g>
+
+        {/* Front card — isometric tilt */}
+        <g className={s.visCashbackCard} transform="translate(0, 32) rotate(-8, 100, 75) skewX(-8)">
+          {/* Card body */}
+          <rect x="8" y="0" width="170" height="110" rx="12" fill="url(#cbCardFill)" stroke="var(--accent)" strokeWidth="0.8" opacity="0.85" />
+
+          {/* DG CASH label */}
+          <text x="26" y="26" fill="var(--accent)" fontSize="8" fontWeight="500" letterSpacing="1.2" opacity="0.6">DG CASH</text>
+
+          {/* Star icon */}
+          <path d="M160 16 l1.5 3 3.3.5-2.4 2.3.6 3.3-3-1.6-3 1.6.6-3.3-2.4-2.3 3.3-.5z" fill="var(--accent)" opacity="0.4" />
+
+          {/* $23.50 amount */}
+          <text x="26" y="62" fill="url(#cbAmountFill)" fontSize="32" fontWeight="700" letterSpacing="-0.5">$23.50</text>
+
+          {/* Barcode — bottom right corner */}
+          <g opacity="0.25" transform="translate(100, 82)">
+            <rect x="0" y="0" width="2" height="18" fill="var(--accent)" />
+            <rect x="4" y="0" width="1" height="18" fill="var(--accent)" />
+            <rect x="7" y="0" width="3" height="18" fill="var(--accent)" />
+            <rect x="12" y="0" width="1" height="18" fill="var(--accent)" />
+            <rect x="14" y="0" width="2" height="18" fill="var(--accent)" />
+            <rect x="18" y="0" width="1" height="18" fill="var(--accent)" />
+            <rect x="20" y="0" width="3" height="18" fill="var(--accent)" />
+            <rect x="25" y="0" width="1" height="18" fill="var(--accent)" />
+            <rect x="27" y="0" width="2" height="18" fill="var(--accent)" />
+            <rect x="31" y="0" width="1" height="18" fill="var(--accent)" />
+            <rect x="33" y="0" width="3" height="18" fill="var(--accent)" />
+            <rect x="38" y="0" width="2" height="18" fill="var(--accent)" />
+            <rect x="42" y="0" width="1" height="18" fill="var(--accent)" />
+            <rect x="45" y="0" width="2" height="18" fill="var(--accent)" />
+            <rect x="49" y="0" width="1" height="18" fill="var(--accent)" />
+            <rect x="51" y="0" width="3" height="18" fill="var(--accent)" />
+            <rect x="56" y="0" width="1" height="18" fill="var(--accent)" />
+            <rect x="59" y="0" width="2" height="18" fill="var(--accent)" />
+            <rect x="63" y="0" width="1" height="18" fill="var(--accent)" />
+            <rect x="66" y="0" width="2" height="18" fill="var(--accent)" />
+          </g>
+        </g>
       </svg>
     </div>
   );
@@ -282,9 +337,20 @@ function CashbackLoopVisual() {
 function WalletCardsVisual() {
   return (
     <div className={s.visCards}>
-      <div className={s.visCard} style={{ background: 'linear-gradient(145deg, rgba(70,45,120,0.55), rgba(45,25,85,0.7))', border: '1px solid rgba(160,120,255,0.25)', transform: 'translate(-50%,-50%) rotate(-12deg) translateX(-18px) translateY(6px) scale(0.9)' }} />
-      <div className={s.visCard} style={{ background: 'linear-gradient(145deg, rgba(30,55,140,0.6), rgba(20,35,100,0.75))', border: '1px solid rgba(100,140,255,0.3)', transform: 'translate(-50%,-50%) rotate(-4deg) translateX(-6px) translateY(-2px) scale(0.95)', boxShadow: '0 4px 16px rgba(60,100,220,0.12)' }} />
-      <div className={s.visCard} style={{ background: 'linear-gradient(145deg, rgba(15,100,120,0.65), rgba(10,65,85,0.8))', border: '1px solid rgba(0,220,220,0.35)', transform: 'translate(-50%,-50%) rotate(4deg) translateX(10px) translateY(-8px)', boxShadow: '0 12px 40px rgba(0,0,0,0.3), 0 0 24px rgba(0,200,210,0.15)' }} />
+      <div className={s.visCard} style={{ background: 'linear-gradient(145deg, var(--surface), var(--bg-alt))', border: '1px solid var(--accent)', opacity: 0.4, transform: 'translate(-50%,-50%) rotate(-12deg) translateX(-18px) translateY(6px) scale(0.9)' }} />
+      <div className={s.visCard} style={{ background: 'linear-gradient(145deg, var(--surface-elevated), var(--surface))', border: '1px solid var(--secondary)', opacity: 0.6, transform: 'translate(-50%,-50%) rotate(-4deg) translateX(-6px) translateY(-2px) scale(0.95)' }} />
+      <div className={s.visCard} style={{ background: 'linear-gradient(145deg, var(--surface-elevated), var(--surface))', border: '1px solid var(--accent)', opacity: 0.85, transform: 'translate(-50%,-50%) rotate(4deg) translateX(10px) translateY(-8px)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 8, paddingTop: 4 }}>
+        <svg width="36" height="36" viewBox="0 0 40 40" fill="none">
+          <defs>
+            <linearGradient id="mydgFill" x1="20" y1="0" x2="20" y2="40" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="var(--secondary)" stopOpacity="0.8" />
+            </linearGradient>
+          </defs>
+          <path d="M37.9873 0.00322474C39.0952 -0.05919 39.9998 0.791852 40 1.91045V38.0882C40 39.2028 39.0954 40.0588 37.9873 39.9964C26.0043 39.3158 13.9957 39.3158 2.0127 39.9964C0.904641 40.0588 0 39.207 0 38.0882V1.91045C0.000234174 0.796025 0.904774 -0.0591885 2.0127 0.00322474C13.9957 0.68377 26.0043 0.68377 37.9873 0.00322474ZM36.3887 32.222C35.9288 32.2221 35.5558 32.5951 35.5557 33.055C35.5557 33.5149 35.9288 33.8888 36.3887 33.889C36.8487 33.889 37.2227 33.515 37.2227 33.055C37.2226 32.5951 36.8486 32.222 36.3887 32.222ZM27.917 16.6614C24.4588 16.6614 21.992 18.1445 20.792 20.8401C19.4295 17.8068 16.3579 16.9778 11.8496 16.9778H5.15039V20.1819H6.8252V33.5071H12.333C16.1871 33.5071 19.3003 32.553 20.7295 29.6614C21.7712 32.1737 23.9086 33.8235 27.4668 33.8235C29.1041 33.8235 30.7208 33.3449 31.7666 32.6741L32.3125 33.5071H34.9961V25.0198H28.7588V27.6487H30.5088V29.928C30.0214 30.1613 29.2377 30.3362 28.5586 30.3362C26.0253 30.3362 24.8252 28.5275 24.8252 25.0608C24.8253 21.9278 25.9542 20.1527 27.6416 20.1526C28.9707 20.1526 29.6129 21.0027 29.9463 22.5901L34.6875 21.7903C34.0125 18.4446 31.6168 16.6615 27.917 16.6614ZM36.3887 32.428C36.7344 32.428 37.0165 32.7092 37.0166 33.055C37.0166 33.4008 36.7345 33.6829 36.3887 33.6829C36.0429 33.6828 35.7617 33.4007 35.7617 33.055C35.7618 32.7093 36.043 32.4281 36.3887 32.428ZM36.0928 32.6605V33.4173H36.2568V33.1614H36.4219L36.5527 33.4173H36.7344L36.5771 33.1214C36.6096 33.1047 36.709 33.0482 36.709 32.9065H36.71C36.7098 32.6993 36.5311 32.6605 36.4795 32.6605H36.0928ZM36.4141 32.7835C36.4631 32.7836 36.5204 32.8285 36.5205 32.9065C36.5205 32.9848 36.4541 33.0382 36.4141 33.0384H36.2568V32.7835H36.4141ZM12.3955 20.178C15.1787 20.178 16.7704 20.9653 16.7705 25.094C16.7705 28.3607 16.2082 30.3108 12.7832 30.3108H11.4004V20.178H12.3955ZM28.75 25.0198H28.7588V25.0149L28.75 25.0198ZM17.208 6.24053L20.2246 13.969C20.0372 14.3564 19.8376 14.4738 19.4629 14.4739C19.1755 14.4739 18.8167 14.3449 18.5293 14.1741L17.7959 15.7532C18.3583 16.0865 18.9458 16.2864 19.7373 16.2864C21.0456 16.2864 21.6791 15.6987 22.2666 14.1321L25.2246 6.24444H22.9541V6.24053L21.2754 11.4866L19.5205 6.24053H17.208ZM14.4746 6.09893C13.4249 6.09903 12.6212 6.52816 11.9463 7.31963C11.5422 6.54473 10.7794 6.09904 9.77539 6.09893C8.66706 6.09893 8.00807 6.6904 7.50391 7.33623V6.24444H5.3252V13.9446H7.50879V9.64873C7.50879 8.61543 8.00831 8.08235 8.8291 8.08233C9.64993 8.08233 10.1084 8.6154 10.1084 9.64873V13.9446H12.292V9.64873C12.292 8.61548 12.7916 8.08241 13.6123 8.08233C14.4331 8.08233 14.8916 8.6154 14.8916 9.64873V13.9446H17.0752V8.92803C17.0752 7.07386 16.0996 6.09893 14.4746 6.09893Z" fill="url(#mydgFill)" />
+        </svg>
+        <span style={{ color: 'var(--accent)', fontSize: 10, fontWeight: 500, letterSpacing: 1.5, opacity: 0.5 }}>JD MCCULLEY</span>
+      </div>
     </div>
   );
 }
@@ -402,38 +468,45 @@ function SoarVisual() {
   return (
     <div className={s.visSoar}>
       <div className={s.visSoarGlow} />
-      <svg className={s.visSoarSvg} viewBox="0 0 140 110" fill="none">
+      <svg className={s.visSoarSvg} viewBox="0 0 140 140" fill="none">
         <defs>
           <radialGradient id="soarHub">
             <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.85" />
             <stop offset="100%" stopColor="var(--secondary)" stopOpacity="0.4" />
           </radialGradient>
+          <linearGradient id="soarSweep" x1="0" y1="0" x2="1" y2="0" gradientUnits="objectBoundingBox">
+            <stop offset="0%" stopColor="var(--accent)" stopOpacity="0" />
+            <stop offset="100%" stopColor="var(--accent)" stopOpacity="0.25" />
+          </linearGradient>
+          <linearGradient id="soarAlertFill" x1="110" y1="100" x2="110" y2="128" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="var(--secondary)" stopOpacity="0.8" />
+          </linearGradient>
         </defs>
 
-        {/* Connection paths */}
-        <path d="M22 22 C44 22 52 42 70 50" stroke="var(--accent)" strokeWidth="0.8" opacity="0.25" />
-        <path d="M22 88 C44 88 52 68 70 60" stroke="var(--accent)" strokeWidth="0.8" opacity="0.25" />
-        <path d="M78 48 C96 36 104 24 118 22" stroke="var(--accent)" strokeWidth="0.8" opacity="0.25" />
-        <path d="M78 55 C96 55 104 55 118 55" stroke="var(--accent)" strokeWidth="0.8" opacity="0.3" />
-        <path d="M78 62 C96 74 104 86 118 88" stroke="var(--accent)" strokeWidth="0.8" opacity="0.25" />
+        {/* Concentric rings */}
+        <circle className={s.visSoarRing} cx="70" cy="70" r="60" stroke="var(--accent)" strokeWidth="1.2" opacity="0.3" />
+        <circle className={s.visSoarRing} cx="70" cy="70" r="44" stroke="var(--accent)" strokeWidth="0.8" opacity="0.25" />
+        <circle className={s.visSoarRing} cx="70" cy="70" r="28" stroke="var(--accent)" strokeWidth="0.8" opacity="0.2" />
+        <circle className={s.visSoarRing} cx="70" cy="70" r="12" stroke="var(--accent)" strokeWidth="0.6" opacity="0.15" />
 
-        {/* Input nodes — rounded rects (data sources / alerts) */}
-        <rect x="10" y="14" width="24" height="16" rx="4" fill="var(--secondary)" fillOpacity="0.1" stroke="var(--secondary)" strokeWidth="0.8" opacity="0.5" />
-        <rect x="10" y="80" width="24" height="16" rx="4" fill="var(--secondary)" fillOpacity="0.1" stroke="var(--secondary)" strokeWidth="0.8" opacity="0.5" />
+        {/* Center core */}
+        <circle cx="70" cy="70" r="5" fill="url(#soarHub)" stroke="var(--accent)" strokeWidth="0.8" />
 
-        {/* Center orchestrator hub */}
-        <circle cx="70" cy="55" r="14" fill="url(#soarHub)" stroke="var(--accent)" strokeWidth="1.2" />
-        <circle cx="70" cy="55" r="5" fill="var(--bg)" opacity="0.7" />
+        {/* Orbital dots on rings */}
+        <circle className={s.visSoarDot} cx="70" cy="10" r="3.5" fill="var(--surface-elevated)" stroke="var(--accent)" strokeWidth="1" opacity="0.6" />
+        <circle className={s.visSoarDot} cx="27" cy="94" r="3.5" fill="var(--surface-elevated)" stroke="var(--secondary)" strokeWidth="1" opacity="0.5" />
+        <circle className={s.visSoarDot} cx="110" cy="84" r="3" fill="var(--surface-elevated)" stroke="var(--accent)" strokeWidth="1" opacity="0.5" />
+        <circle className={s.visSoarDot} cx="42" cy="52" r="2.5" fill="var(--surface-elevated)" stroke="var(--secondary)" strokeWidth="0.8" opacity="0.45" />
 
-        {/* Output nodes — circles (automated responses) */}
-        <circle cx="118" cy="22" r="6" fill="var(--accent)" fillOpacity="0.1" stroke="var(--accent)" strokeWidth="0.8" opacity="0.45" />
-        <circle cx="118" cy="55" r="6" fill="var(--accent)" fillOpacity="0.15" stroke="var(--accent)" strokeWidth="0.8" opacity="0.55" />
-        <circle cx="118" cy="88" r="6" fill="var(--accent)" fillOpacity="0.1" stroke="var(--accent)" strokeWidth="0.8" opacity="0.45" />
+        {/* Rotating sweep — gradient only, no stroke */}
+        <g className={s.visSoarSweep} style={{ transformOrigin: '70px 70px' }}>
+          <path d="M70 70 L70 10 A60 60 0 0 1 122 40 Z" fill="url(#soarSweep)" opacity="0.45" />
+        </g>
 
-        {/* Animated pulse dot */}
-        <circle r="2" fill="var(--accent)" opacity="0.9">
-          <animateMotion dur="3.5s" repeatCount="indefinite" path="M22 88 C44 88 52 68 70 60 C96 55 104 55 118 55" />
-        </circle>
+        {/* Alert badge — bottom right */}
+        <circle cx="110" cy="114" r="12" fill="url(#soarAlertFill)" stroke="var(--accent)" strokeWidth="0.8" />
+        <text x="110" y="114" textAnchor="middle" dominantBaseline="central" fill="var(--bg)" fontSize="16" fontWeight="900">!</text>
       </svg>
     </div>
   );
@@ -465,6 +538,71 @@ function AiRingsVisual() {
   );
 }
 
+function RewardsVisual() {
+  return (
+    <div className={s.visRewards}>
+      <div className={s.visRewardsGlow} />
+      <svg className={s.visRewardsSvg} viewBox="0 0 200 160" fill="none">
+        <defs>
+          <linearGradient id="rewardsCard3Fill" x1="100" y1="0" x2="100" y2="120" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="var(--surface)" />
+            <stop offset="100%" stopColor="var(--bg-alt)" />
+          </linearGradient>
+          <linearGradient id="rewardsCard2Fill" x1="100" y1="15" x2="100" y2="135" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="var(--surface-elevated)" />
+            <stop offset="100%" stopColor="var(--surface)" />
+          </linearGradient>
+          <linearGradient id="rewardsCard1Fill" x1="100" y1="30" x2="100" y2="156" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="var(--surface-elevated)" />
+            <stop offset="100%" stopColor="var(--surface)" />
+          </linearGradient>
+          <linearGradient id="rewardsGiftFill" x1="27" y1="5" x2="27" y2="48" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="var(--secondary)" stopOpacity="0.8" />
+          </linearGradient>
+        </defs>
+
+        {/* Card 3 (back) */}
+        <rect className={s.visRewardsCard} x="28" y="0" width="144" height="120" rx="10" fill="url(#rewardsCard3Fill)" stroke="var(--accent)" strokeWidth="0.8" opacity="0.4" />
+
+        {/* Card 2 (middle) */}
+        <rect className={s.visRewardsCard} x="20" y="15" width="160" height="120" rx="10" fill="url(#rewardsCard2Fill)" stroke="var(--secondary)" strokeWidth="0.8" opacity="0.6" />
+
+        {/* Card 1 (front) */}
+        <rect className={s.visRewardsCardFront} x="12" y="30" width="176" height="126" rx="12" fill="url(#rewardsCard1Fill)" stroke="var(--accent)" strokeWidth="0.8" opacity="0.85" />
+
+        {/* Checkboxes — 3 checked, 2 unchecked */}
+        <circle className={s.visRewardsDot} cx="46" cy="52" r="8" fill="var(--accent)" fillOpacity="0.1" stroke="var(--accent)" strokeWidth="1" opacity="0.6" />
+        <path d="M42 52 L45 55 L50 49" stroke="var(--accent)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.7" />
+
+        <circle className={s.visRewardsDot} cx="73" cy="52" r="8" fill="var(--accent)" fillOpacity="0.1" stroke="var(--accent)" strokeWidth="1" opacity="0.6" />
+        <path d="M69 52 L72 55 L77 49" stroke="var(--accent)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.7" />
+
+        <circle className={s.visRewardsDot} cx="100" cy="52" r="8" fill="var(--accent)" fillOpacity="0.1" stroke="var(--accent)" strokeWidth="1" opacity="0.6" />
+        <path d="M96 52 L99 55 L104 49" stroke="var(--accent)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.7" />
+
+        <circle cx="127" cy="52" r="8" fill="none" stroke="var(--text-muted)" strokeWidth="0.8" opacity="0.3" />
+        <circle cx="154" cy="52" r="8" fill="none" stroke="var(--text-muted)" strokeWidth="0.8" opacity="0.3" />
+
+        {/* Gift icon — from Rewards-icon.svg */}
+        <g className={s.visRewardsGift} transform="translate(76, 75) scale(0.85)">
+          {/* Box body */}
+          <path d="M4.625 47.1042V29.3126C4.625 28.6107 5.19397 28.0417 5.89583 28.0417H49.1042C49.806 28.0417 50.375 28.6107 50.375 29.3126V47.1042C50.375 47.8061 49.806 48.3751 49.1042 48.3751H5.89583C5.19397 48.3751 4.625 47.8061 4.625 47.1042Z" stroke="var(--accent)" strokeWidth="1.3" fill="url(#rewardsGiftFill)" />
+          <path d="M22.417 48.3751V28.0417H32.5837V48.3751H22.417Z" stroke="var(--accent)" strokeWidth="1.3" fill="none" />
+          {/* Lid */}
+          <path d="M2.08398 26.7708V16.6041C2.08398 15.9022 2.65295 15.3333 3.35482 15.3333H51.6465C52.3483 15.3333 52.9173 15.9022 52.9173 16.6041V26.7708C52.9173 27.4726 52.3483 28.0416 51.6465 28.0416H3.35482C2.65296 28.0416 2.08398 27.4726 2.08398 26.7708Z" stroke="var(--accent)" strokeWidth="1.3" fill="url(#rewardsGiftFill)" />
+          {/* Bow */}
+          <path d="M27.5003 15.3333L35.1608 5.75778C36.5574 4.01199 39.088 3.69072 40.8765 5.03215C43.6648 7.12338 42.7782 11.5139 39.3969 12.3592L27.5003 15.3333ZM27.5003 15.3333L19.8399 5.75778C18.4432 4.01199 15.9127 3.69072 14.1241 5.03215C11.3358 7.12338 12.2224 11.5139 15.6038 12.3592L27.5003 15.3333Z" stroke="var(--accent)" strokeWidth="1.3" fill="none" />
+          <path d="M22.417 28.0416V15.3333H32.5837V28.0416H22.417Z" stroke="var(--accent)" strokeWidth="1.3" fill="none" />
+        </g>
+
+        {/* DG REWARDS label */}
+        <text className={s.visRewardsLabel} x="100" y="142" textAnchor="middle" fill="var(--accent)" fontSize="10" fontWeight="500" letterSpacing="1.5" opacity="0.5">DG REWARDS</text>
+      </svg>
+    </div>
+  );
+}
+
 const visuals: Record<string, () => React.JSX.Element> = {
   shield: ShieldVisual,
   cashback: CashbackLoopVisual,
@@ -473,6 +611,7 @@ const visuals: Record<string, () => React.JSX.Element> = {
   dashboard: DashboardVisual,
   storefront: StorefrontVisual,
   soar: SoarVisual,
+  rewards: RewardsVisual,
 };
 
 /* ── Arrow icon ── */
@@ -549,6 +688,30 @@ export default function HomePage() {
               </motion.div>
             ))}
           </motion.div>
+        </Container>
+      </section>
+
+      {/* ══════════ LOGO BANNER ══════════ */}
+      <section className={s.logoBanner}>
+        <Container>
+          <div className={s.logoBannerInner}>
+            {[
+              { src: '/assets/images/banner-logos/dg-logo.svg', alt: 'Dollar General', width: 204, height: 61 },
+              { src: '/assets/images/banner-logos/popshelf-logo.svg', alt: 'PopShelf', width: 163, height: 61 },
+              { src: '/assets/images/banner-logos/swimlane-logo.svg', alt: 'Swimlane', width: 184, height: 61 },
+              { src: '/assets/images/banner-logos/sendgrid-logo.svg', alt: 'SendGrid', width: 184, height: 61 },
+            ].map((logo) => (
+              <div key={logo.alt} className={s.logoBannerItem}>
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={logo.width}
+                  height={logo.height}
+                  className={s.logoBannerImg}
+                />
+              </div>
+            ))}
+          </div>
         </Container>
       </section>
 
@@ -677,7 +840,7 @@ export default function HomePage() {
           />
 
           <div className={s.csGrid}>
-            {caseStudies.map((cs, i) => {
+            {caseStudies.filter(cs => !cs.hidden).map((cs, i) => {
               const Visual = visuals[cs.visual];
               const hasLink = !!cs.href;
               const inner = (

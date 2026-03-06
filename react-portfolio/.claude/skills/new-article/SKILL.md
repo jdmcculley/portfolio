@@ -117,7 +117,7 @@ export default function [PascalName]Article() {
                 <h4>JD McCulley</h4>
                 <div className={s.authorTitle}>Product Design Leader</div>
                 <p>
-                  25 years building UX organizations at enterprise scale. Most
+                  15+ years building UX organizations at enterprise scale. Most
                   recently embedded design director at Dollar General, growing
                   the digital platform from 6M to 12M+ monthly active users.
                   Operating at the intersection of craft, technology, and

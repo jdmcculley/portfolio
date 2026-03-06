@@ -291,7 +291,7 @@ export default function RewardsCaseStudy() {
                     <div style={{ borderRadius: 20, overflow: 'hidden', background: 'var(--bg)' }}>
                       <img
                         className="protoScreenImg"
-                        src="/assets/images/dg-rewards/A-Wallet Deals 1.png"
+                        src="/assets/images/wallet-interaction.png"
                         alt="DG Rewards wallet interaction prototype"
                         style={{ display: 'block', width: '100%', aspectRatio: '9/19', objectFit: 'cover', objectPosition: 'top' }}
                         draggable={false}
@@ -536,8 +536,8 @@ export default function RewardsCaseStudy() {
 
       {/* ══════════ Next Study ══════════ */}
       <NextStudy
-        prevHref="/case-study/cashback"
-        prevTitle="myDG Cash Back at Scale"
+        prevHref="/case-study/swimlane-dashboards"
+        prevTitle="Swimlane SOAR"
         href="/case-study/rba"
         title="Authentication Redesign Under Pressure"
         desc="Rescued 25,000+ stuck users in a 5-day crisis, then designed the 8-journey authentication system that prevented 75,000+ future lockouts."
