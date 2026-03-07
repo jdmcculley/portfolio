@@ -181,10 +181,10 @@ export default function RewardsCaseStudy() {
                 Dollar General needed to add Rewards &mdash; a continuity-based deal type &mdash; across every touchpoint from discovery through checkout, on three platforms, without fragmenting an ecosystem already serving a billion annual deal clips.
               </p>
             </div>
-            <img src="/assets/images/dg-rewards/rewards-graphic.png" alt="myDG Rewards Program promotional graphic" style={{ width: 360, borderRadius: 12, flexShrink: 0 }} />
+            <img src="/assets/images/dg-rewards/rewards-graphic.png" alt="myDG Rewards Program promotional graphic" style={{ maxWidth: 360, width: '100%', borderRadius: 12, flexShrink: 0 }} />
           </div>
 
-          <div className={s.metadata} style={{ marginBottom: 0, display: 'flex', justifyContent: 'space-between' }}>
+          <div className={s.metadata} style={{ marginBottom: 0 }}>
             <div><div className={s.metadataLabel}>Role</div><div className={s.metadataValue}>UX Lead &amp; Design Direction</div></div>
             <div><div className={s.metadataLabel}>Team</div><div className={s.metadataValue}>5 Cross-Functional</div></div>
             <div><div className={s.metadataLabel}>Timeline</div><div className={s.metadataValue}>Q3 2025 &ndash; Q1 2026</div></div>
@@ -197,7 +197,7 @@ export default function RewardsCaseStudy() {
       {/* ══════════ 01 — THE PROBLEM ══════════ */}
       <div style={{ marginTop: -40 }}>
       <ContentSection number="01 — THE PROBLEM" title="">
-        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
+        <div className={s.problemBodyWrap} style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
           <div className={s.sectionBody} style={{ flex: 1, minWidth: 0 }}>
             <h2 className={s.sectionTitle}>A New Deal Type in a Complex Ecosystem</h2>
             <p>Dollar General&apos;s deals ecosystem already served 12M monthly active users &mdash; digital coupons, <a href="/case-study/cashback">cash back offers</a> (via Ibotta), and DG Cash co-mingled in a single gallery driving over a billion annual clips. The <a href="/case-study/wallet">stackable wallet architecture</a> I&apos;d designed earlier made the system ready to absorb new deal types. The system was working.</p>
@@ -214,7 +214,7 @@ export default function RewardsCaseStudy() {
             target="_blank"
             rel="noopener noreferrer"
             className="protoCard"
-            style={{ flexShrink: 0, width: 380, textDecoration: 'none', cursor: 'pointer', display: 'block' }}
+            style={{ flexShrink: 0, maxWidth: 380, width: '100%', textDecoration: 'none', cursor: 'pointer', display: 'block' }}
           >
             <style>{`
               .protoCard .protoOuter { border: 1px solid var(--glass-border); transition: border-color 0.3s ease, transform 0.3s ease; }
@@ -363,12 +363,21 @@ export default function RewardsCaseStudy() {
             .funnelIcon-2 { animation: funnelGlow 1.2s ease-in-out 0s infinite; animation-delay: 2.4s; animation-duration: 6s; }
             .funnelIcon-3 { animation: funnelGlow 1.2s ease-in-out 0s infinite; animation-delay: 3.6s; animation-duration: 6s; }
             .funnelIcon-4 { animation: funnelGlow 1.2s ease-in-out 0s infinite; animation-delay: 4.8s; animation-duration: 6s; }
+            @media (max-width: 900px) {
+              .rewardsFunnelRow { flex-wrap: wrap; gap: 16px; justify-content: center; }
+              .rewardsFunnelRow > .rewardsFunnelNode { flex: 0 0 calc(33.33% - 16px); min-width: 100px; }
+              .rewardsFunnelRow > .rewardsFunnelArrow { display: none; }
+            }
+            @media (max-width: 600px) {
+              .rewardsFunnelRow { flex-direction: column; align-items: center; gap: 20px; }
+              .rewardsFunnelRow > .rewardsFunnelNode { flex: 0 0 auto; max-width: 200px; }
+            }
           `}</style>
           <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: '#4dc9f6', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 20, textAlign: 'center' }}>Shopping Funnel</div>
-          <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
+          <div className="rewardsFunnelRow" style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
             {funnelSteps.map((step, i) => (
               <Fragment key={step.title}>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, textAlign: 'center', flex: 1, minWidth: 0 }}>
+                <div className="rewardsFunnelNode" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, textAlign: 'center', flex: 1, minWidth: 0 }}>
                   <div className={`funnelIcon-${i}`} style={{
                     width: 48,
                     height: 48,
@@ -385,7 +394,7 @@ export default function RewardsCaseStudy() {
                   <div style={{ fontFamily: 'var(--font-body)', fontSize: 11, color: '#8b95a8', fontStyle: 'italic', lineHeight: 1.3 }}>{step.question}</div>
                 </div>
                 {i < funnelSteps.length - 1 && (
-                  <div style={{ display: 'flex', alignItems: 'center', paddingTop: 14, color: 'var(--accent)', opacity: 0.3, flexShrink: 0 }}>
+                  <div className="rewardsFunnelArrow" style={{ display: 'flex', alignItems: 'center', paddingTop: 14, color: 'var(--accent)', opacity: 0.3, flexShrink: 0 }}>
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
                   </div>
                 )}
@@ -449,16 +458,16 @@ export default function RewardsCaseStudy() {
         <div className={s.galleryFlowHeader} style={{ borderRadius: '6px', marginTop: '84px', background: 'rgba(30, 42, 80, 0.95)', borderLeft: '3px solid var(--accent)', border: '1px solid rgba(0, 212, 255, 0.15)' }}>
           <div className={s.galleryFlowTitleGroup} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="M2 8h20" /><path d="M2 12h20" /></svg>
-            <span className={s.galleryFlowTitle}>Multiple Deals Drawer &amp; PDP</span>
+            <span className={s.galleryFlowTitle}>Deals Drawer &amp; PDP</span>
             <span className={s.galleryFlowTag}>&mdash;App</span>
           </div>
-          <button className={s.galleryFlowExpand} onClick={() => setLightbox({ src: '/assets/images/dg-rewards/mult-deals-drawer.png', title: 'Multiple Deals Drawer & PDP', tag: 'App' })} title="View full size">
+          <button className={s.galleryFlowExpand} onClick={() => setLightbox({ src: '/assets/images/dg-rewards/mult-deals-drawer.png', title: 'Deals Drawer & PDP', tag: 'App' })} title="View full size">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" /></svg>
             Expand
           </button>
         </div>
         <div className={s.fullVisual} style={{ borderRadius: 0, border: 'none', background: 'transparent', marginTop: '33px' }}>
-          <img src="/assets/images/dg-rewards/mult-deals-drawer.png" alt="Multiple Deals Drawer flow — expandable card interactions showing deal details, qualifying products, and progress tracking" style={{ cursor: 'pointer' }} onClick={() => setLightbox({ src: '/assets/images/dg-rewards/mult-deals-drawer.png', title: 'Multiple Deals Drawer & PDP', tag: 'App' })} />
+          <img src="/assets/images/dg-rewards/mult-deals-drawer.png" alt="Multiple Deals Drawer flow — expandable card interactions showing deal details, qualifying products, and progress tracking" style={{ cursor: 'pointer' }} onClick={() => setLightbox({ src: '/assets/images/dg-rewards/mult-deals-drawer.png', title: 'Deals Drawer & PDP', tag: 'App' })} />
         </div>
       </ScrollReveal>
 
@@ -559,13 +568,21 @@ export default function RewardsCaseStudy() {
             style={{ position: 'fixed', left: 0, right: 0, bottom: 0, top: 0, zIndex: 1001, background: 'rgba(0,0,0,0.95)', display: 'flex', flexDirection: 'column' }}
           >
             {/* Lightbox header */}
+            <style>{`
+              @media (max-width: 600px) {
+                .lightboxTitle { font-size: 14px !important; }
+                .lightboxTag { font-size: 9px !important; }
+                .lightboxHeader { padding: 12px 14px !important; }
+              }
+            `}</style>
             <div
+              className="lightboxHeader"
               onClick={e => e.stopPropagation()}
               style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 20px', borderBottom: '1px solid rgba(255,255,255,0.08)', flexShrink: 0 }}
             >
               <div style={{ display: 'flex', alignItems: 'baseline', gap: 6 }}>
-                <span style={{ fontFamily: 'var(--font-heading)', fontSize: 18, fontWeight: 700, color: '#fff', letterSpacing: '-0.3px' }}>{lightbox.title}</span>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'rgba(255,255,255,0.4)', letterSpacing: '0.12em', textTransform: 'uppercase' }}>&mdash;{lightbox.tag}</span>
+                <span className="lightboxTitle" style={{ fontFamily: 'var(--font-heading)', fontSize: 18, fontWeight: 700, color: '#fff', letterSpacing: '-0.3px' }}>{lightbox.title}</span>
+                <span className="lightboxTag" style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'rgba(255,255,255,0.4)', letterSpacing: '0.12em', textTransform: 'uppercase' }}>&mdash;{lightbox.tag}</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 {/* Zoom out */}

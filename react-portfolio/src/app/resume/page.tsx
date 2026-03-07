@@ -183,7 +183,7 @@ export default function ResumePage() {
               </div>
               <div className={s.expRole}>Sr. Director of Product Design &mdash; Embedded via Agilitee</div>
               <ul className={s.expList}>
-                <li className={s.expP}>Owned UX strategy and execution across App, Web, POS, OMS, and in-store platforms for a Fortune 500 retailer &mdash; grew digital user base from 5M to 6.6M+ MAU (+20.9% YoY), with trajectory toward 12M+ following company expansion strategy.</li>
+                <li className={s.expP}>Owned UX strategy and execution across App, Web, POS, OMS, and in-store platforms for a Fortune 500 retailer &mdash; grew digital user base from 5M to 12M+ MAU (+20.9% YoY) following company expansion strategy.</li>
                 <li className={s.expP}>Built and led a multidisciplinary design and research team supporting multiple product pods; reversed double-digit engagement decline via myDG Wallet redesign &mdash; consolidating fragmented rewards, deals, and payment experiences into a centralized platform that achieved 130%+ YoY engagement growth.</li>
                 <li className={s.expP}>Drove Cash Back and Same-Day Delivery from pilot to nationwide rollout &mdash; Cash Back achieved $9M in customer savings with 191% YoY clip growth and 209% YoY redemption growth; Same-Day Delivery launched across 2,000+ pilot stores.</li>
                 <li className={s.expP}>Supported $18M DGMN onsite advertising revenue goal through GAM integration, Criteo display placements, native ad implementations, and seasonal gamification. Led UX for a 1,200+ deliverable website migration across 52 team members spanning 12 time zones.</li>
