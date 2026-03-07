@@ -65,8 +65,8 @@ export function NavBar() {
       >
         <Link
           href="/"
-          className="font-bold text-[1.2rem] tracking-[1.5px] flex items-center gap-3.5 no-underline text-text-primary"
-          style={{ fontFamily: 'var(--font-heading)' }}
+          className="font-bold text-[1.2rem] tracking-[1.5px] flex items-center gap-3.5 no-underline"
+          style={{ fontFamily: 'var(--font-heading)', color: 'var(--text-soft)' }}
         >
           <span className="inline-flex items-center leading-none">
             <LogoSvg />
