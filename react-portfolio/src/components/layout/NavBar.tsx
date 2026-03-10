@@ -100,6 +100,7 @@ export function NavBar() {
             </Link>
           )}
 
+          {/* Articles link hidden for now
           {isHome && (
             <Link
               href="/articles"
@@ -108,6 +109,7 @@ export function NavBar() {
               Articles
             </Link>
           )}
+          */}
 
           <Link
             href="/resume"
