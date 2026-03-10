@@ -18,7 +18,7 @@ const pages: Record<string, () => Promise<Response>> = {
       company: 'Dollar General',
       companyColor: '#fdd835',
       metrics: [
-        { val: '25K+', lbl: 'Rescued' },
+        { val: '1000s', lbl: 'Rescued' },
         { val: '75K', lbl: 'Prevented' },
         { val: '61%', lbl: 'Improvement' },
       ],

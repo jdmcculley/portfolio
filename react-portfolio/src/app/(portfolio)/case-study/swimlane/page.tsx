@@ -301,9 +301,9 @@ export default function SwimlaneCaseStudy() {
       <NextStudy
         href="/case-study/rba"
         title="Authentication Redesign Under Pressure"
-        desc="Rescued 25,000+ stuck users and prevented 75,000 future lockouts by redesigning the complete authentication flow for Dollar General's digital platforms."
+        desc="Rescued thousands of stuck users and prevented tens of thousands of future lockouts by redesigning the complete authentication flow for Dollar General's digital platforms."
         metrics={[
-          { value: '25K+', label: 'Rescued' },
+          { value: '1000s', label: 'Rescued' },
           { value: '75K', label: 'Prevented' },
           { value: '61%', label: 'Improvement' },
         ]}

@@ -249,7 +249,7 @@ export function BrokenFlowDiagram() {
         fontSize: 10, letterSpacing: 1.5, color: 'var(--text-muted)',
         textTransform: 'uppercase',
       }}>
-        Phone-only path &middot; No fallback &middot; 25,000 users locked out
+        Phone-only path &middot; No fallback &middot; Thousands of users locked out
       </div>
     </div>
   );

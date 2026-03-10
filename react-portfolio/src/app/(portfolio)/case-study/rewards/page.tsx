@@ -549,9 +549,9 @@ export default function RewardsCaseStudy() {
         prevTitle="Swimlane SOAR"
         href="/case-study/rba"
         title="Authentication Redesign Under Pressure"
-        desc="Rescued 25,000+ stuck users in a 5-day crisis, then designed the 8-journey authentication system that prevented 75,000+ future lockouts."
+        desc="Rescued thousands of stuck users in a 5-day crisis, then designed the 8-journey authentication system that prevented tens of thousands of future lockouts."
         metrics={[
-          { value: '25K+', label: 'Rescued' },
+          { value: '1000s', label: 'Rescued' },
           { value: '75K', label: 'Prevented' },
           { value: '61%', label: 'Improvement' },
         ]}

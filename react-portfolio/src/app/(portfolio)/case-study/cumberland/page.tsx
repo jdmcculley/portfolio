@@ -299,7 +299,7 @@ export default function CumberlandCaseStudy() {
         title="Authentication Redesign Under Pressure"
         desc="How a 5-day crisis became a 7-journey system protecting 9 million users — and proved why the design system matters."
         metrics={[
-          { value: '25K+', label: 'Users Rescued' },
+          { value: '1000s', label: 'Users Rescued' },
           { value: '61%', label: 'Completion Lift' },
           { value: '75K', label: 'Dead Ends Prevented' },
         ]}

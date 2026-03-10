@@ -111,11 +111,11 @@ const caseStudies = [
   {
     href: '/case-study/rba',
     company: 'Dollar General' as const,
-    metrics: [{ val: '25K+', lbl: 'Rescued' }, { val: '75K', lbl: 'Prevented' }, { val: '61%', lbl: 'Improvement' }],
+    metrics: [{ val: '1000s', lbl: 'Rescued' }, { val: '75K', lbl: 'Prevented' }, { val: '61%', lbl: 'Improvement' }],
     tags: ['Design-Led AI', 'IC-Creative Director', 'Redesign', 'Authentication'],
     tagVariants: ['ai', 'default', 'default', 'default'],
     title: 'Authentication Redesign Under Pressure',
-    desc: 'Rescued 25,000+ stuck users and prevented 75,000 future lockouts by redesigning the complete authentication flow for Dollar General\u2019s digital platforms.',
+    desc: 'Rescued thousands of stuck users and prevented 75,000 future lockouts by redesigning the complete authentication flow for Dollar General\u2019s digital platforms.',
     visual: 'shield',
   },
   {

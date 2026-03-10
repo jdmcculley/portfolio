@@ -97,7 +97,7 @@ export default function RBACaseStudy() {
           </div>
           <p className={s.heroSubtitle}>How a 5-day crisis became a 8-journey system protecting 12 million users</p>
           <p className={s.heroDescription}>
-            When Dollar General&apos;s risk-based authentication update locked 25,000+ users out of their accounts, I led the rapid redesign of the entire verification system — compressing what would normally be a multi-sprint effort into weeks. The result was a flexible, multi-channel authentication framework that rescued stuck users, prevented 75,000 future lockouts, and improved verification success rates by 61%.
+            When Dollar General&apos;s risk-based authentication update locked thousands of users out of their accounts, I led the rapid redesign of the entire verification system — compressing what would normally be a multi-sprint effort into weeks. The result was a flexible, multi-channel authentication framework that rescued stuck users, prevented tens of thousands of future lockouts, and improved verification success rates by 61%.
           </p>
 
           <div className={s.metadata}>
@@ -130,8 +130,8 @@ export default function RBACaseStudy() {
       {/* ══════════ 01 — THE PROBLEM ══════════ */}
       <ContentSection number="01 — THE PROBLEM" title="The October Crisis">
         <div className={s.sectionBody}>
-          <p>Dollar General launched Risk-Based Authentication on October 31, 2025. Within five days, 3 million app customers encountered the new verification system. Of those, 240,000 completed phone verification successfully — but 25,000 customers hit a wall. Phone-only verification had no fallback. Users without phone access couldn&apos;t verify their identity. They called customer care, which was overwhelmed by the volume. Many deleted their accounts and started over. After five days, leadership made the call to roll it back.</p>
-          <p>The math for April was worse: 9 million customers projected in the first few weeks. Without changes, that meant an estimated 75,000 dead ends — a volume customer care couldn&apos;t absorb.</p>
+          <p>Dollar General launched Risk-Based Authentication on October 31, 2025. Within five days, 3 million app customers encountered the new verification system. Of those, hundreds of thousands completed phone verification successfully — but thousands of customers hit a wall. Phone-only verification had no fallback. Users without phone access couldn&apos;t verify their identity. They called customer care, which was overwhelmed by the volume. Many deleted their accounts and started over. After five days, leadership made the call to roll it back.</p>
+          <p>The math for April was worse: 9 million customers projected in the first few weeks. Without changes, that meant an estimated tens of thousands of dead ends — a volume customer care couldn&apos;t absorb.</p>
         </div>
 
         {/* ─── VISUAL: Stylized wireframe of the broken phone-only flow ─── */}
@@ -142,12 +142,12 @@ export default function RBACaseStudy() {
         {/* <div className={s.caseImpact}>
           <div className={s.impactItem}><div className={s.impactValue}>3M</div><div className={s.impactLabel}>Customers Engaged</div></div>
           <div className={s.impactItem}><div className={s.impactValue}>240K</div><div className={s.impactLabel}>Successful Verifications</div></div>
-          <div className={s.impactItem}><div className={s.impactValue}>25K</div><div className={s.impactLabel}>Dead Ends (Red Alert)</div></div>
+          <div className={s.impactItem}><div className={s.impactValue}>1000s</div><div className={s.impactLabel}>Dead Ends (Red Alert)</div></div>
           <div className={s.impactItem}><div className={s.impactValue}>5 Days</div><div className={s.impactLabel}>to Rollback</div></div>
         </div>
 
         <ContextCards cards={[
-          { type: 'before', title: '25K+', text: 'Users stuck in verification loops' },
+          { type: 'before', title: '1000s', text: 'Users stuck in verification loops' },
           { type: 'after', title: '0', text: 'Dead-end recovery — fallback paths cleared' },
           { type: 'before', title: '1', text: 'Verification method (phone only)' },
           { type: 'after', title: '7', text: 'Interconnected journeys with fallbacks' },
@@ -236,7 +236,7 @@ export default function RBACaseStudy() {
         </div>
 
         <ContextCards cards={[
-          { type: 'before', title: 'Phone-Only', text: '1 method, no fallback, 25K dead ends in 5 days' },
+          { type: 'before', title: 'Phone-Only', text: '1 method, no fallback, thousands of dead ends in 5 days' },
           { type: 'after', title: '8 Journeys', text: 'Phone, email, and customer care fallbacks — no dead ends' },
         ]} />
       </ContentSection>

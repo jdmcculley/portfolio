@@ -405,7 +405,7 @@ export default function AIDesignTrendsArticle() {
                 <div className={s.caseBeforeAfter}>
                   <div className={clsx(s.baBox, s.baBefore)}>
                     <div className={s.baLabel}>Users Stuck</div>
-                    <div className={s.baNumber}>25K+</div>
+                    <div className={s.baNumber}>1000s</div>
                     <div className={s.baDesc}>In verification loops</div>
                   </div>
                   <div className={clsx(s.baBox, s.baBefore)}>
@@ -441,7 +441,7 @@ export default function AIDesignTrendsArticle() {
                   <div className={s.dsBlock} style={{ borderLeftColor: 'var(--secondary)' }}>
                     <div className={s.dsBlockLabel} style={{ color: 'var(--secondary)' }}>The Constraint</div>
                     <p className={s.dsBlockText}>
-                      A risk-based authentication system had locked 25,000+ users out of
+                      A risk-based authentication system had locked thousands of users out of
                       their accounts. Phone-only verification was a dead end. I pulled this
                       onto my own plate while my team was fully allocated across four
                       workstreams — a player-coach moment under real pressure.

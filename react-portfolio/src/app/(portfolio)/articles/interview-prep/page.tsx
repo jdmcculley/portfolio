@@ -116,11 +116,11 @@ export default function InterviewPrepPage() {
               <div className={s.storyCategory}>Player-Coach</div>
               <h4>Auth Redesign Crisis Response</h4>
               <p>
-                Auth update locked 25K+ users out in 5 days. Shifted from directing to
+                Auth update locked thousands of users out in 5 days. Shifted from directing to
                 hands-on &mdash; designed 8 interconnected journeys, validated edge cases,
                 shipped under pressure. Player-coach in action.
               </p>
-              <div className={s.storyMetrics}>25K rescued &bull; 75K dead-ends prevented &bull; 61% improvement</div>
+              <div className={s.storyMetrics}>1000s rescued &bull; 75K dead-ends prevented &bull; 61% improvement</div>
             </div>
           </div>
 
@@ -393,7 +393,7 @@ export default function InterviewPrepPage() {
           <ul className={s.checklist}>
             <li className={s.checklistItem}>
               <span className={s.checkMark}>&#10003;</span>
-              <span><strong>Open with context, not screens.</strong> &ldquo;This was a crisis &mdash; 25K users locked out in 5 days&rdquo; is a better opening than &ldquo;Here&apos;s the home screen.&rdquo;</span>
+              <span><strong>Open with context, not screens.</strong> &ldquo;This was a crisis &mdash; thousands of users locked out in 5 days&rdquo; is a better opening than &ldquo;Here&apos;s the home screen.&rdquo;</span>
             </li>
             <li className={s.checklistItem}>
               <span className={s.checkMark}>&#10003;</span>
@@ -401,7 +401,7 @@ export default function InterviewPrepPage() {
             </li>
             <li className={s.checklistItem}>
               <span className={s.checkMark}>&#10003;</span>
-              <span><strong>Quantify outcomes.</strong> Every case study should end with numbers: 25K users rescued, 130%+ engagement growth, 435M clips. Let the metrics do the closing.</span>
+              <span><strong>Quantify outcomes.</strong> Every case study should end with numbers: thousands of users rescued, 130%+ engagement growth, 435M clips. Let the metrics do the closing.</span>
             </li>
             <li className={s.checklistItem}>
               <span className={s.checkMark}>&#10003;</span>

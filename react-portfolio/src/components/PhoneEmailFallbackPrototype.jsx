@@ -162,7 +162,7 @@ const PhoneEmailFallbackPrototype = () => {
         { icon: Headphones, label: 'Contact support' },
       ],
       secondaryButtons: [{ label: "Go Back", outlined: true, navigateTo: 0 }],
-      designNotes: 'Critical transition screen \u2014 this is the "October fix." In the original launch, 25,000 users hit a dead end here with no email fallback. Now routes to J3 email verification.',
+      designNotes: 'Critical transition screen \u2014 this is the "October fix." In the original launch, thousands of users hit a dead end here with no email fallback. Now routes to J3 email verification.',
     },
     // Step 4: Email Confirmation (J3 entry)
     {
@@ -350,7 +350,7 @@ const PhoneEmailFallbackPrototype = () => {
               <div className="flex items-center gap-3 mb-1">
                 <h1 className="text-2xl font-bold text-slate-100">Scenario 5: Phone → Email Fallback</h1>
               </div>
-              <p className="text-sm text-slate-400">Phone fails, email backup — the key October fix preventing 25,000 dead ends</p>
+              <p className="text-sm text-slate-400">Phone fails, email backup — the key October fix preventing thousands of dead ends</p>
             </div>
             <button
               onClick={restart}
@@ -946,7 +946,7 @@ const PhoneEmailFallbackPrototype = () => {
                 <span className="text-xs font-bold text-amber-400 uppercase tracking-wider">Bill (Product Manager)</span>
               </div>
               <p className="text-sm text-amber-300/80 italic">
-                &ldquo;This is the key October fix — no dead ends. This path alone prevents 25,000 potential dead ends.&rdquo;
+                &ldquo;This is the key October fix — no dead ends. This path alone prevents thousands of potential dead ends.&rdquo;
               </p>
             </div>
           </div>

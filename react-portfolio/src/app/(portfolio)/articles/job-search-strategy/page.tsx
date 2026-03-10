@@ -272,7 +272,7 @@ export default function JobSearchStrategyPage() {
               <h3>What to Do</h3>
               <p>
                 <strong>Lead with process, not product.</strong> Your auth redesign case study already does
-                this well &mdash; it tells the story of how you identified 25,000+ stuck users,
+                this well &mdash; it tells the story of how you identified thousands of stuck users,
                 what framework you applied, how you validated, and what resulted. That&apos;s what
                 Director+ hiring managers care about.
               </p>
