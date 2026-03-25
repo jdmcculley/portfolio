@@ -150,6 +150,16 @@ const caseStudies = [
   },
   {
     company: 'pOpshelf' as const,
+    metrics: [{ val: '15', lbl: 'Tokens' }, { val: '5', lbl: 'Gov States' }, { val: '3', lbl: 'Round Trips' }],
+    tags: ['Design System', 'Token Architecture', 'Governance', 'Canvas-to-Code'],
+    title: 'pOpshelf Design System (Forge)',
+    desc: 'Reverse-engineered pOpshelf.com into a governed, token-driven design system with a Figma-to-code pipeline — proving I can architect a system from scratch, not just maintain one.',
+    visual: 'forge',
+    disabled: true,
+    delay: 0.15,
+  },
+  {
+    company: 'pOpshelf' as const,
     metrics: [{ val: '180', lbl: 'Stores' }, { val: 'Sub-Brand', lbl: 'Identity' }, { val: 'App + Web', lbl: 'Launch' }],
     tags: ['Retail', 'App & Web', 'Design System', 'Loyalty', 'E-Commerce'],
     title: 'pOpshelf Digital Experience',
@@ -259,7 +269,7 @@ function CashbackLoopVisual() {
   return (
     <div className={s.visCashback}>
       <div className={s.visCashbackGlow} />
-      <svg className={s.visCashbackSvg} viewBox="-10 -10 220 170" fill="none">
+      <svg className={s.visCashbackSvg} viewBox="-10 -10 260 200" fill="none">
         <defs>
           <linearGradient id="cbCardFill" x1="100" y1="10" x2="100" y2="130" gradientUnits="userSpaceOnUse">
             <stop offset="0%" stopColor="var(--surface-elevated)" />
@@ -280,21 +290,21 @@ function CashbackLoopVisual() {
         </defs>
 
         {/* Third card (back-most) */}
-        <g className={s.visCashbackCard} transform="translate(25, 3) rotate(-8, 100, 75) skewX(-8)">
-          <rect x="24" y="0" width="148" height="95" rx="10" fill="url(#cbBackCardFill)" stroke="var(--accent)" strokeWidth="0.8" opacity="0.4" />
+        <g className={s.visCashbackCard} transform="translate(25, 3)">
+          <rect x="24" y="0" width="172" height="108" rx="16" fill="url(#cbBackCardFill)" stroke="var(--accent)" strokeWidth="0.8" opacity="0.4" />
         </g>
 
         {/* Second card — peeking behind, offset up-right */}
-        <g className={s.visCashbackCard} transform="translate(10, 17) rotate(-8, 100, 75) skewX(-8)">
-          <rect x="18" y="0" width="160" height="100" rx="10" fill="url(#cbMidCardFill)" stroke="var(--secondary)" strokeWidth="0.8" opacity="0.6" />
+        <g className={s.visCashbackCard} transform="translate(10, 17)">
+          <rect x="18" y="0" width="172" height="108" rx="16" fill="url(#cbMidCardFill)" stroke="var(--secondary)" strokeWidth="0.8" opacity="0.6" />
           <text x="34" y="36" fill="var(--secondary)" fontSize="7" fontWeight="500" letterSpacing="1" opacity="0.35">JD MCCULLEY</text>
           <text x="34" y="50" fill="var(--secondary)" fontSize="6" fontWeight="400" letterSpacing="0.5" opacity="0.25">Member Since 2017</text>
         </g>
 
         {/* Front card — isometric tilt */}
-        <g className={s.visCashbackCard} transform="translate(0, 32) rotate(-8, 100, 75) skewX(-8)">
+        <g className={s.visCashbackCard} transform="translate(0, 32)">
           {/* Card body */}
-          <rect x="8" y="0" width="170" height="110" rx="12" fill="url(#cbCardFill)" stroke="var(--accent)" strokeWidth="0.8" opacity="0.85" />
+          <rect x="8" y="0" width="172" height="108" rx="16" fill="url(#cbCardFill)" stroke="var(--accent)" strokeWidth="0.8" opacity="0.85" />
 
           {/* DG CASH label */}
           <text x="26" y="26" fill="var(--accent)" fontSize="8" fontWeight="500" letterSpacing="1.2" opacity="0.6">DG CASH</text>
@@ -303,10 +313,10 @@ function CashbackLoopVisual() {
           <path d="M160 16 l1.5 3 3.3.5-2.4 2.3.6 3.3-3-1.6-3 1.6.6-3.3-2.4-2.3 3.3-.5z" fill="var(--accent)" opacity="0.4" />
 
           {/* $23.50 amount */}
-          <text x="26" y="62" fill="url(#cbAmountFill)" fontSize="32" fontWeight="700" letterSpacing="-0.5">$23.50</text>
+          <text x="26" y="58" fill="url(#cbAmountFill)" fontSize="28" fontWeight="700" letterSpacing="-0.5">$23.50</text>
 
           {/* Barcode — bottom right corner */}
-          <g opacity="0.25" transform="translate(100, 82)">
+          <g opacity="0.25" transform="translate(90, 76)">
             <rect x="0" y="0" width="2" height="18" fill="var(--accent)" />
             <rect x="4" y="0" width="1" height="18" fill="var(--accent)" />
             <rect x="7" y="0" width="3" height="18" fill="var(--accent)" />
@@ -603,6 +613,40 @@ function RewardsVisual() {
   );
 }
 
+function ForgeVisual() {
+  return (
+    <div className={s.visTokens}>
+      <div className={s.visTokensGlow} />
+      <svg className={s.visTokensSvg} viewBox="0 0 130 120" fill="none">
+        {/* Outer ring — the full system boundary */}
+        <circle cx="65" cy="58" r="54" fill="rgba(135,24,157,0.03)" stroke="rgba(135,24,157,0.25)" strokeWidth="0.8" />
+
+        {/* Token layer — inner dashed */}
+        <circle cx="65" cy="58" r="42" fill="none" stroke="var(--accent)" strokeWidth="0.6" strokeDasharray="4 4" opacity="0.2" />
+
+        {/* Governance hub — center */}
+        <circle cx="65" cy="58" r="16" fill="rgba(135,24,157,0.12)" stroke="rgba(135,24,157,0.5)" strokeWidth="0.9" />
+
+        {/* Component clusters */}
+        <circle cx="42" cy="42" r="14" fill="var(--accent)" fillOpacity="0.06" stroke="var(--accent)" strokeWidth="0.7" opacity="0.4" />
+        <circle cx="90" cy="40" r="12" fill="rgba(135,24,157,0.06)" stroke="rgba(135,24,157,0.35)" strokeWidth="0.7" />
+        <circle cx="48" cy="80" r="11" fill="var(--accent)" fillOpacity="0.04" stroke="var(--accent)" strokeWidth="0.6" opacity="0.3" />
+        <circle cx="88" cy="74" r="10" fill="rgba(135,24,157,0.08)" stroke="rgba(135,24,157,0.4)" strokeWidth="0.6" />
+
+        {/* Pipeline flow arrows */}
+        <path d="M30 58 L50 58" stroke="var(--accent)" strokeWidth="0.8" opacity="0.3" markerEnd="url(#forgeArrow)" />
+        <path d="M80 58 L100 58" stroke="rgba(135,24,157,0.4)" strokeWidth="0.8" opacity="0.3" />
+
+        {/* Small satellite nodes — tooling */}
+        <circle cx="22" cy="58" r="6" fill="var(--accent)" fillOpacity="0.08" stroke="var(--accent)" strokeWidth="0.5" opacity="0.35" />
+        <circle cx="108" cy="58" r="6" fill="rgba(135,24,157,0.08)" stroke="rgba(135,24,157,0.4)" strokeWidth="0.5" />
+        <circle cx="65" cy="20" r="7" fill="var(--accent)" fillOpacity="0.06" stroke="var(--accent)" strokeWidth="0.5" opacity="0.3" />
+        <circle cx="65" cy="96" r="7" fill="rgba(135,24,157,0.06)" stroke="rgba(135,24,157,0.3)" strokeWidth="0.5" />
+      </svg>
+    </div>
+  );
+}
+
 const visuals: Record<string, () => React.JSX.Element> = {
   shield: ShieldVisual,
   cashback: CashbackLoopVisual,
@@ -612,6 +656,7 @@ const visuals: Record<string, () => React.JSX.Element> = {
   storefront: StorefrontVisual,
   soar: SoarVisual,
   rewards: RewardsVisual,
+  forge: ForgeVisual,
 };
 
 /* ── Arrow icon ── */
