@@ -106,7 +106,7 @@ function NetworkVisual() {
 }
 
 function GrowthArcVisual() {
-  const milestones = [
+  const milestones: { x: number; y: number; label: string; anchor: 'middle' | 'end' | 'start'; dy: number }[] = [
     { x: 20,  y: 195, label: 'Series A',    anchor: 'middle', dy: 16  },
     { x: 190, y: 180, label: 'Series B',    anchor: 'middle', dy: 16  },
     { x: 380, y: 155, label: 'Series C',    anchor: 'middle', dy: 16  },
