@@ -10,6 +10,20 @@ import {
 import { AUTH_CONFIG } from '@/lib/auth/config';
 import { verifyPassword } from '@/lib/auth/crypto';
 
+const COOKIE_MAX_AGE = 30 * 24 * 60 * 60; // 30 days in seconds
+
+function setAuthCookie() {
+  document.cookie = `${AUTH_CONFIG.sessionKey}=true; path=/; max-age=${COOKIE_MAX_AGE}; SameSite=Lax`;
+}
+
+function getAuthCookie(): boolean {
+  return document.cookie.split('; ').some(c => c === `${AUTH_CONFIG.sessionKey}=true`);
+}
+
+function clearAuthCookie() {
+  document.cookie = `${AUTH_CONFIG.sessionKey}=; path=/; max-age=0`;
+}
+
 interface AuthContextValue {
   isAuthenticated: boolean;
   isLoading: boolean;
@@ -25,8 +39,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const init = async () => {
-      // Check session first
-      if (sessionStorage.getItem(AUTH_CONFIG.sessionKey) === 'true') {
+      // Check cookie first
+      if (getAuthCookie()) {
         setIsAuthenticated(true);
         setIsLoading(false);
         return;
@@ -38,7 +52,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       if (pw) {
         const valid = await verifyPassword(pw, AUTH_CONFIG.passwordHash);
         if (valid) {
-          sessionStorage.setItem(AUTH_CONFIG.sessionKey, 'true');
+          setAuthCookie();
           setIsAuthenticated(true);
         }
         // Strip pw param from URL without reload
@@ -56,14 +70,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const authenticate = async (password: string) => {
     const valid = await verifyPassword(password, AUTH_CONFIG.passwordHash);
     if (valid) {
-      sessionStorage.setItem(AUTH_CONFIG.sessionKey, 'true');
+      setAuthCookie();
       setIsAuthenticated(true);
     }
     return valid;
   };
 
   const logout = () => {
-    sessionStorage.removeItem(AUTH_CONFIG.sessionKey);
+    clearAuthCookie();
     setIsAuthenticated(false);
   };
 

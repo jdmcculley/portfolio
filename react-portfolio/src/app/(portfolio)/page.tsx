@@ -890,18 +890,12 @@ export default function HomePage() {
               const hasLink = !!cs.href;
               const inner = (
                 <>
-                  {/* Lock / Unlock badge */}
-                  {hasLink && !cs.public && (
+                  {/* Lock badge — only shown when not authenticated */}
+                  {hasLink && !cs.public && !isAuthenticated && (
                     <div className="absolute top-3 right-3 z-10">
-                      {isAuthenticated ? (
-                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-accent-glow border border-accent/20 font-mono text-[0.6rem] tracking-[0.5px] text-accent">
-                          <Unlock className="w-3 h-3" /> Unlocked
-                        </span>
-                      ) : (
-                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-dim border border-secondary/20 font-mono text-[0.6rem] tracking-[0.5px] text-secondary">
-                          <Lock className="w-3 h-3" /> Protected
-                        </span>
-                      )}
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-dim border border-secondary/20 font-mono text-[0.6rem] tracking-[0.5px] text-secondary">
+                        <Lock className="w-3 h-3" /> Protected
+                      </span>
                     </div>
                   )}
                   <div className={s.csImage}><Visual /></div>
