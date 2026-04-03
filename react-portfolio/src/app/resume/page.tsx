@@ -204,9 +204,11 @@ export default function ResumePage() {
               </div>
               <div className={s.expRole}>Sr. Director of UI/UX</div>
               <ul className={s.expList}>
-                <li className={s.expP}>Early design leader responsible for establishing and scaling the UI/UX function through Series A, B, and C growth &mdash; built the design organization from individual contributor to team leadership, defining standards, processes, and culture.</li>
-                <li className={s.expP}>Led end-to-end product design for enterprise B2B SOAR platform serving Fortune 500 security operations teams. Translated complex automation workflows into intuitive interfaces that reduced analyst fatigue and accelerated incident response.</li>
-                <li className={s.expP}>Partnered cross-functionally with Product and Engineering to define UX standards that supported the platform&apos;s growth from startup to enterprise scale.</li>
+                <li className={s.expP}>Led end-to-end product design for Swimlane&apos;s enterprise SOAR platform serving Fortune 500 security operations teams; designed the orchestration workflow experience that became the foundation of Swimlane Turbine, now the company&apos;s flagship agentic AI automation platform.</li>
+                <li className={s.expP}>Built the UI/UX function from zero to full design team in 5 years, scaling through Series A, B, and C; defined design processes, user research practices, usability testing standards, and team culture that supported platform growth and product-market fit.</li>
+                <li className={s.expP}>Partnered cross-functionally with Product and Engineering to establish design system foundations, shared component libraries, and Figma workflows; ensured consistency and quality across growing product suite in security and workforce automation domain.</li>
+                <li className={s.expP}>Designed orchestration and automation workflows for security analysts in high-stakes, zero-tolerance-for-error environments; created the interaction patterns for playbook building, case management, and threat response that evolved into Turbine Canvas, Swimlane&apos;s low-code playbook and AI agent builder.</li>
+                <li className={s.expP}>Designed and shipped the Swimlane Marketplace experience enabling third-party integrations and content packs; created patterns for partner onboarding, content discovery, and configuration that scaled the platform ecosystem.</li>
               </ul>
             </div>
 
