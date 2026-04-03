@@ -115,6 +115,11 @@
   background: var(--accent);
 }
 
+/* ── WRAPPER ── */
+.wrapper {
+  background: var(--bg);
+}
+
 /* ── PAGE ── */
 .page {
   width: 1224px;
@@ -532,26 +537,35 @@
 /* ── PRINT ── */
 @page {
   size: letter;
-  margin: 0;
+  margin: 48px 0;
 }
 
 @media print {
+  .wrapper {
+    background: #fff !important;
+  }
+
   .controlBar {
     display: none !important;
   }
 
   .page {
-    width: 1224px;
+    width: 100%;
     min-height: auto;
-    max-height: 1583px;
-    overflow: hidden;
+    max-height: none;
+    overflow: visible;
     zoom: 0.667;
     background: #fff;
     color: #1a1a1a;
-    break-after: avoid;
+    margin: 0;
+    padding: 0 56px;
   }
   .page::before {
     display: none;
+  }
+
+  .exp {
+    break-inside: avoid;
   }
 
   /* Force two-column layout */
@@ -560,35 +574,35 @@
   }
   .header {
     grid-template-columns: 200px 1fr;
-    padding: 32px 48px 28px 48px;
+    padding: 24px 0 20px 0;
     border-bottom-color: #ddd;
   }
   .headerPhoto { width: 150px; height: 150px; border-color: #0077cc; box-shadow: none; }
   .headerHeadline { font-size: 35px; color: #1a1a1a; margin-bottom: 10px; }
   .headerLogo { margin-bottom: 12px; }
   .accent { color: #0077cc; }
-  .headerTags { color: #666; }
+  .headerTags { color: #666; font-size: 14px; }
   .headerTags span { color: #bbb; }
 
   /* Sidebar */
-  .sidebar { padding: 28px 22px 28px 34px; gap: 20px; border-right-color: #ddd; }
+  .sidebar { padding: 20px 18px 20px 0; gap: 20px; border-right-color: #ddd; }
   .nameBlock { margin-bottom: 2px; }
   .nameBlock h2 { font-size: 28px; }
-  .sTitle { font-size: 13px; margin-bottom: 12px; padding-bottom: 7px; }
+  .sTitle { font-size: 15px; margin-bottom: 12px; padding-bottom: 7px; }
   .sTitle,
   .expTitle { color: #0077cc; border-bottom-color: #ddd; }
-  .cLabel { color: #999; font-size: 10px; }
-  .cVal { font-size: 14px; margin-bottom: 7px; }
+  .cLabel { color: #999; font-size: 13px; }
+  .cVal { font-size: 16px; margin-bottom: 7px; }
   .pillar { margin-bottom: 12px; }
-  .pillarName { font-size: 14px; margin-bottom: 5px; }
-  .pillarDesc { font-size: 13px; line-height: 1.45; }
+  .pillarName { font-size: 16px; margin-bottom: 5px; }
+  .pillarDesc { font-size: 15px; line-height: 1.45; }
   .skGroup { margin-bottom: 12px; }
-  .skGroupLabel { font-size: 13px; margin-bottom: 5px; }
-  .skItem { font-size: 13px; line-height: 1.45; }
+  .skGroupLabel { font-size: 15px; margin-bottom: 5px; }
+  .skItem { font-size: 15px; line-height: 1.45; }
   .edu { margin-bottom: 10px; }
-  .eduSchool { font-size: 14px; }
-  .eduDegree { font-size: 12px; }
-  .eduDate { font-size: 11px; }
+  .eduSchool { font-size: 16px; }
+  .eduDegree { font-size: 14px; }
+  .eduDate { font-size: 13px; }
 
   .cVal,
   .nameBlock h2,
@@ -603,22 +617,24 @@
   .expP { color: #444; }
 
   /* Main */
-  .main { padding: 28px 44px 28px 34px; }
-  .summary { font-size: 16px; line-height: 1.5; margin-bottom: 20px; padding-bottom: 20px; }
+  .main { padding: 20px 0 20px 24px; }
+  .summary { font-size: 18px; line-height: 1.5; margin-bottom: 20px; padding-bottom: 20px; }
   .summary strong { color: #222; }
-  .expTitle { font-size: 13px; margin-bottom: 18px; }
+  .expTitle { font-size: 15px; margin-bottom: 18px; }
   .exp { margin-bottom: 24px; }
   .expDateRow { margin-bottom: 5px; }
-  .expCompany { font-size: 20px; color: #0077cc; }
-  .expRole { font-size: 16px; margin-top: 4px; margin-bottom: 7px; }
+  .expCompany { font-size: 22px; color: #0077cc; }
+  .expRole { font-size: 18px; margin-top: 4px; margin-bottom: 7px; }
   .expList { gap: 6px; }
-  .expP { font-size: 15px; line-height: 1.5; }
+  .expP { font-size: 16px; line-height: 1.5; }
   .expP::before { -webkit-print-color-adjust: exact; print-color-adjust: exact; background: #0077cc; }
 
   .skGroupLabel { color: #0055aa; }
+  .expDate { font-size: 13px; }
   .expDate,
   .eduDate,
   .foot { color: #999; }
+  .foot { font-size: 14px; }
   .expDot { border-color: #0077cc; }
   .skItem::before { background: #0077cc; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .eduLine { background: #ddd; }

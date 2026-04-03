@@ -175,6 +175,10 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+@media print {
+  html, body { background: #fff !important; }
+}
+
 a { color: inherit; }
 img { max-width: 100%; display: block; }
 
